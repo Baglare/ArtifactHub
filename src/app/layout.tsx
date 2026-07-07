@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/siteConfig";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: siteConfig.title,
+  title: `Baglare’s ${siteConfig.title}`,
   description: siteConfig.description.tr
 };
 
