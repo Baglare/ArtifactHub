@@ -4,8 +4,8 @@ import { ContentContainer } from "@/components/layout/ContentContainer";
 export function Footer() {
   return (
     <footer className="border-t border-[color:var(--theme-border)] bg-[var(--theme-surface)]">
-      <ContentContainer className="flex flex-col gap-3 py-6 text-sm text-[var(--theme-text-secondary)] sm:flex-row sm:items-center sm:justify-between">
-        <p>
+      <ContentContainer className="flex flex-col gap-3 py-6 text-sm leading-relaxed text-[var(--theme-text-secondary)] sm:flex-row sm:items-center sm:justify-between">
+        <p className="min-w-0">
           <span className="font-medium text-[var(--theme-text-primary)]">Baglare’s {siteConfig.title}</span>
           {" · "}
           {siteConfig.description.tr}

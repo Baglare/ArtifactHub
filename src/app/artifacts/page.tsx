@@ -5,7 +5,7 @@ import { SectionBlock } from "@/components/layout/SectionBlock";
 import { getAllArtifacts } from "@/lib/artifacts";
 
 export const metadata: Metadata = {
-  title: "Artifact Arşivi | Baglare’s ArtifactHub"
+  title: "Artifact Arşivi"
 };
 
 export default function ArtifactsPage() {

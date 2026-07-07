@@ -55,10 +55,10 @@ export function ThemeSymbol({
       ]
         .filter(Boolean)
         .join(" ")}
-      data-animated-placeholder={animated ? "true" : undefined}
+      data-symbol-animated={animated ? "true" : undefined}
       role={decorative ? undefined : "img"}
     >
-      {/* TODO: Replace placeholder marks with final theme symbol artwork in a later milestone. */}
+      {/* TODO: Replace temporary marks with final theme symbol artwork in a later milestone. */}
       <span>{symbol.mark}</span>
     </div>
   );

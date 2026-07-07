@@ -38,7 +38,7 @@ export function ArtifactCard({
 
   return (
     <article
-      className={`min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] ${variantClasses[variant]}`}
+      className={`flex h-full min-w-0 flex-col border border-[color:var(--theme-border)] bg-[var(--theme-surface)] ${variantClasses[variant]}`}
       style={themeStyle}
     >
       <div className="flex items-start gap-4">
@@ -75,7 +75,7 @@ export function ArtifactCard({
         </div>
       ) : null}
 
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="mt-auto flex flex-wrap gap-2 pt-5">
         <ButtonLink href={`/artifacts/${artifact.slug}`} variant="secondary">
           Artifact’i İncele
         </ButtonLink>

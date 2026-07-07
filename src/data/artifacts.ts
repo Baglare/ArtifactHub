@@ -288,7 +288,7 @@ export const artifacts: Artifact[] = [
       "Forge Preview / Beatmap Visualization",
       "Rhythm Judgement",
       "DSP Audio Clock",
-      "Debug Rhythm Combat Prototype"
+      "Rhythm Combat Prototype"
     ],
     transformation: {
       input: { tr: "WAV ses dosyası" },
@@ -319,7 +319,7 @@ export const artifacts: Artifact[] = [
       },
       currentScope: {
         body: {
-          tr: "Mevcut kapsamda Python tarafında WAV analizi ve beatmap üretim akışı; Unity tarafında beatmap import/preview, debug ritim-combat davranışı, judgement sistemi ve combat style variant üretimi bulunur.\n\nProje final ritim oyunu olarak değil, audio analysis → beatmap → Unity runtime zincirini test eden pipeline prototipi olarak sunulur."
+          tr: "Mevcut kapsamda Python tarafında WAV analizi ve beatmap üretim akışı; Unity tarafında beatmap import/preview, prototip ritim-combat davranışı, judgement sistemi ve combat style variant üretimi bulunur.\n\nProje final ritim oyunu olarak değil, audio analysis → beatmap → Unity runtime zincirini test eden pipeline prototipi olarak sunulur."
         }
       },
       designDecisions: [
@@ -358,14 +358,14 @@ export const artifacts: Artifact[] = [
         { tr: "PulseForge final ritim oyunu değildir." },
         { tr: "Runtime MP3 import veya gerçek zamanlı analiz iddiası taşımaz." },
         { tr: "Beat detection sonuçları müzik türüne, ses kalitesine ve analiz parametrelerine bağlıdır." },
-        { tr: "Unity tarafındaki oynanış debug/prototype seviyesindedir." },
+        { tr: "Unity tarafındaki oynanış prototip seviyesindedir." },
         { tr: "Ana değer, ses analiziyle gameplay datası üretme zincirinin kurulmuş olmasıdır." }
       ],
       plannedExtensions: [
         { tr: "Beatmap visualization çıktılarının ArtifactHub’a eklenmesi" },
         { tr: "Pipeline diyagramının görsel hale getirilmesi" },
         { tr: "Farklı şarkı türleriyle analiz örnekleri hazırlanması" },
-        { tr: "Unity debug UI polish" },
+        { tr: "Unity prototip UI iyileştirmesi" },
         { tr: "Combat style variant örneklerinin daha net belgelenmesi" }
       ],
       visualNotes: {
@@ -538,13 +538,13 @@ export const artifacts: Artifact[] = [
       "Spellbook UI",
       "Trial Mode",
       "Demo Guide",
-      "Debug Panels",
+      "System Status Panels",
       "System Status"
     ],
     transformation: {
       input: { tr: "Kamera görüntüsü, yüz/el verisi ve lonca mührü" },
       process: { tr: "Yüz algılama, yerel doğrulama, gesture çözümleme ve yetki kontrolü" },
-      output: { tr: "Büyü komutu, UI aksiyonu ve demo/debug feedback" },
+      output: { tr: "Büyü komutu, UI aksiyonu ve demo/sistem geri bildirimi" },
       compact: {
         tr: "Kamera görüntüsü → algılama/doğrulama/gesture mapping → büyü komutu ve UI aksiyonu"
       }
@@ -559,7 +559,7 @@ export const artifacts: Artifact[] = [
         "Gesture Classification",
         "Authorization Rules",
         "Spell Action / UI Feedback",
-        "Debug / Trial Mode Output"
+        "Trial Mode / System Output"
       ].map(step)
     },
     sections: {
@@ -570,7 +570,7 @@ export const artifacts: Artifact[] = [
       },
       currentScope: {
         body: {
-          tr: "Mevcut kapsamda canlı kamera akışı, yüz algılama, yerel yüz tanıma, QR/lonca mührü doğrulama, el landmark algılama, büyü komutları, yetkiye göre kilitli/açık komut mantığı, Trial Mode, demo rehberi ve debug/sistem durumu panelleri bulunur.\n\nProje profesyonel güvenlik sistemi olarak sunulmaz. Ana kapsam, local-first çalışan ve portfolyoda gösterilebilir bir computer vision interaction prototipi oluşturmaktır."
+          tr: "Mevcut kapsamda canlı kamera akışı, yüz algılama, yerel yüz tanıma, QR/lonca mührü doğrulama, el landmark algılama, büyü komutları, yetkiye göre kilitli/açık komut mantığı, Trial Mode, demo rehberi ve sistem durumu panelleri bulunur.\n\nProje profesyonel güvenlik sistemi olarak sunulmaz. Ana kapsam, local-first çalışan ve portfolyoda gösterilebilir bir computer vision interaction prototipi oluşturmaktır."
         }
       },
       designDecisions: [
@@ -599,9 +599,9 @@ export const artifacts: Artifact[] = [
           }
         },
         {
-          title: { tr: "Debug panelleriyle algılama katmanını görünür yapmak" },
+          title: { tr: "Sistem durumu panelleriyle algılama katmanını görünür yapmak" },
           description: {
-            tr: "Debug ve sistem durumu panelleri, prototipin sadece görsel efekt değil, çalışan algılama katmanları içerdiğini görünür hale getirir."
+            tr: "Sistem durumu ve tanılama panelleri, prototipin sadece görsel efekt değil, çalışan algılama katmanları içerdiğini görünür hale getirir."
           }
         }
       ],
@@ -618,7 +618,7 @@ export const artifacts: Artifact[] = [
         { tr: "Detection UI görsellerini ArtifactHub’a ekleme" },
         { tr: "Camera-to-spell akışını diyagramlaştırma" },
         { tr: "Trial Mode ekranını teknik dosyada öne çıkarma" },
-        { tr: "Debug panel çıktılarından örnek görsel hazırlama" },
+        { tr: "Sistem durumu panel çıktılarından örnek görsel hazırlama" },
         { tr: "Gesture mapping sistemini daha açık belgelemek" }
       ],
       ethicalNotes: [

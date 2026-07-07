@@ -22,11 +22,11 @@ export function NotFoundBlock({
       <h1 className="text-2xl font-semibold text-[var(--theme-text-primary)]">{title}</h1>
       <p className="mt-3 text-[var(--theme-text-secondary)]">{description}</p>
       <div className="mt-5 flex flex-wrap gap-3">
-        <ButtonLink href={href} variant="secondary">
+        <ButtonLink href={href}>
           {actionLabel}
         </ButtonLink>
         {secondaryHref && secondaryActionLabel ? (
-          <ButtonLink href={secondaryHref} variant="ghost">
+          <ButtonLink href={secondaryHref} variant="secondary">
             {secondaryActionLabel}
           </ButtonLink>
         ) : null}
