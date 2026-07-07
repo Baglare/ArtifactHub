@@ -2,6 +2,8 @@
 
 ArtifactHub, Baglare’ın oyun sistemleri, local-first uygulamalar, ses işleme, TTS ve bilgisayarlı görü prototiplerini teknik kararları, kapsamları ve sınırlarıyla birlikte sergileyen dijital artifact arşividir.
 
+Live: https://artifact-hub-xi.vercel.app/
+
 ## Current Artifact Set
 
 - TempoBlade
