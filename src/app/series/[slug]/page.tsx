@@ -1,11 +1,13 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArtifactGrid } from "@/components/artifacts/ArtifactGrid";
+import { PageShell } from "@/components/layout/PageShell";
+import { SectionBlock } from "@/components/layout/SectionBlock";
 import { getSeriesArtifacts, getAllSeries, getSeriesBySlug } from "@/lib/series";
 
 type SeriesPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
@@ -14,8 +16,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function SeriesPage({ params }: SeriesPageProps) {
-  const series = getSeriesBySlug(params.slug);
+export default async function SeriesPage({ params }: SeriesPageProps) {
+  const { slug } = await params;
+  const series = getSeriesBySlug(slug);
 
   if (!series) {
     notFound();
@@ -24,22 +27,13 @@ export default function SeriesPage({ params }: SeriesPageProps) {
   const artifacts = getSeriesArtifacts(series.id);
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-10">
-      <h1 className="text-3xl font-semibold text-neutral-50">{series.title}</h1>
-      <p className="mt-4 max-w-3xl text-neutral-300">{series.summary.tr}</p>
-
-      <section className="mt-8">
-        <h2 className="text-xl font-semibold text-neutral-100">Seri artifactleri</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-neutral-300">
-          {artifacts.map((artifact) => (
-            <li key={artifact.id}>
-              <Link className="underline underline-offset-4" href={`/artifacts/${artifact.slug}`}>
-                {artifact.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+    <PageShell themeId={series.themeId} variant="series">
+      <SectionBlock title={series.title} description={series.summary.tr} variant="series">
+        <h2 className="text-xl font-semibold text-[var(--theme-text-primary)]">Seri artifactleri</h2>
+        <div className="mt-4">
+          <ArtifactGrid artifacts={artifacts} showTransformation variant="series" />
+        </div>
+      </SectionBlock>
+    </PageShell>
   );
 }

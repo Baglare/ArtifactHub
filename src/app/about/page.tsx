@@ -1,10 +1,11 @@
+import { PageShell } from "@/components/layout/PageShell";
+import { SectionBlock } from "@/components/layout/SectionBlock";
 import { siteConfig } from "@/data/siteConfig";
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-10">
-      <h1 className="text-3xl font-semibold text-neutral-50">Hakkında</h1>
-      <p className="mt-4 max-w-3xl text-neutral-300">{siteConfig.profile.shortBio.tr}</p>
-    </main>
+    <PageShell themeId="relic-core" variant="archive">
+      <SectionBlock title="Hakkında" description={siteConfig.profile.shortBio.tr} />
+    </PageShell>
   );
 }

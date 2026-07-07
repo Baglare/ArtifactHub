@@ -4,12 +4,22 @@
 
 :root {
   color-scheme: dark;
+  --theme-background: #07070a;
+  --theme-surface: #171720;
+  --theme-surface-raised: #20202a;
+  --theme-border: #34313d;
+  --theme-text-primary: #e8e1d5;
+  --theme-text-secondary: #a8a29a;
+  --theme-text-muted: #6f6a75;
+  --theme-accent-primary: #c9a45c;
+  --theme-accent-secondary: #e07a2f;
+  --theme-accent-tertiary: #e07a2f;
 }
 
 body {
   margin: 0;
-  background: #07070a;
-  color: #e8e1d5;
+  background: var(--theme-background);
+  color: var(--theme-text-primary);
 }
 
 a {
