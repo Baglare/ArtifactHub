@@ -31,6 +31,10 @@ export function getArtifactBySlug(slug: ArtifactSlug): Artifact | undefined {
   return artifacts.find((artifact) => artifact.slug === slug);
 }
 
+export function getArtifactById(id: ArtifactId): Artifact | undefined {
+  return artifacts.find((artifact) => artifact.id === id);
+}
+
 export function getArtifactsBySeries(seriesId: SeriesId): Artifact[] {
   return sortByOrder(artifacts.filter((artifact) => artifact.seriesId === seriesId));
 }
