@@ -92,7 +92,7 @@ export default function HomePage() {
         <div className="mb-6">
           <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">Öne Çıkan Girişler</h2>
           <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">
-            Baglare’s ArtifactHub, iki bağımsız artifact ve Forge Series üzerinden farklı teknik sistemleri sergiler.
+            ArtifactHub iki bağımsız proje ve Forge Series etrafında şekillenir.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export default function HomePage() {
           <div>
             <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">Artifact Arşivi</h2>
             <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">
-              Her artifact; mevcut kapsamı, sistem akışı, teknik kararları ve sınırlarıyla birlikte sunulur.
+              Her kayıt, artifact’in amacı, çalışma biçimi, sınırları ve sonraki yönünü açıkça gösterir.
             </p>
           </div>
           <ButtonLink href="/artifacts" variant="secondary">
@@ -136,7 +136,7 @@ export default function HomePage() {
         <div className="mb-6">
           <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">Teknik Odak Haritası</h2>
           <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">
-            ArtifactHub’daki artifactler, teknik rollerine göre farklı odak alanlarında gruplanır.
+            ArtifactHub’daki kayıtlar, hangi sistem alanına dokunduklarına göre okunabilir.
           </p>
         </div>
 

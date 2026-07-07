@@ -9,7 +9,7 @@ export const series: Series[] = [
     featuredArtifactId: "pulseforge",
     artifactIds: ["pulseforge", "voxforge", "visionforge"],
     summary: {
-      tr: "Ham girdiyi analiz, ön işleme ve runtime katmanlarından geçirerek etkileşimli çıktılara dönüştüren deneysel artifact serisi."
+      tr: "Forge Series, ses, voice profile ve kamera girdisini işleyip oynanabilir veya etkileşimli çıktılara bağlayan üç prototipi toplar."
     },
     positioning: {
       tr: "Audio, voice ve vision tabanlı veri dönüşüm prototiplerini aynı sistem fikri altında toplar."
@@ -18,7 +18,7 @@ export const series: Series[] = [
     transformationModel: {
       title: { tr: "Ortak Dönüşüm Modeli" },
       description: {
-        tr: "Forge Series, farklı ham girdi türlerini analiz, ön işleme, ara veri ve runtime katmanları üzerinden etkileşimli çıktıya bağlar."
+        tr: "Serideki prototipler ham girdiyi analiz eder, ara veri üretir ve sonucu runtime ya da demo katmanına taşır."
       },
       steps: [
         "Raw Input",

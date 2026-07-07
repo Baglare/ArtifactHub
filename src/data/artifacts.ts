@@ -64,7 +64,7 @@ export const artifacts: Artifact[] = [
     sections: {
       overview: {
         body: {
-          tr: "TempoBlade, combat hissi ve sistem mimarisi üzerine odaklanan bir Unity gameplay prototipidir. Proje, oyuncu input’unu silah verisi, kombo adımları, tempo değeri, parry penceresi ve düşman davranışlarıyla birleştirerek oynanabilir bir aksiyon döngüsü üretir.\n\nArtifactHub içinde TempoBlade’in rolü, final oyun sunmak değil; combat architecture, data-driven gameplay ve roguelite progression tarafındaki sistem kararlarını görünür hale getirmektir."
+          tr: "TempoBlade, combat hissi ve sistem mimarisi üzerine odaklanan bir Unity gameplay prototipidir. Proje, oyuncu input’unu silah verisi, kombo adımları, tempo değeri, parry penceresi ve düşman davranışlarıyla birleştirerek oynanabilir bir aksiyon döngüsü üretir.\n\nArtifactHub içinde TempoBlade’in rolü final oyun sunmak değil; combat architecture, data-driven gameplay ve roguelite progression kararlarını belgelemektir."
         }
       },
       currentScope: {
@@ -601,7 +601,7 @@ export const artifacts: Artifact[] = [
         {
           title: { tr: "Sistem durumu panelleriyle algılama katmanını görünür yapmak" },
           description: {
-            tr: "Sistem durumu ve tanılama panelleri, prototipin sadece görsel efekt değil, çalışan algılama katmanları içerdiğini görünür hale getirir."
+            tr: "Sistem durumu ve tanılama panelleri, prototipin yalnızca görsel efekt olmadığını; çalışan algılama katmanlarına dayandığını gösterir."
           }
         }
       ],

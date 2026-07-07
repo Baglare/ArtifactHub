@@ -1,6 +1,6 @@
 # Baglare’s ArtifactHub
 
-ArtifactHub, Baglare’ın oyun sistemleri, local-first uygulamalar, ses işleme, TTS ve bilgisayarlı görü prototiplerini teknik kararları, kapsamları ve sınırlarıyla birlikte sergileyen dijital artifact arşividir.
+ArtifactHub, Baglare’ın oyun sistemleri, local-first uygulamalar, ses işleme, TTS ve bilgisayarlı görü prototiplerini kapsamı, sistem akışı, kararları ve sınırlarıyla kayda alan teknik artifact arşividir.
 
 Live: https://artifact-hub-xi.vercel.app/
 

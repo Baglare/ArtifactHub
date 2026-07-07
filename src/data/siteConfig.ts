@@ -3,7 +3,7 @@ import type { SiteConfig } from "@/types/artifact";
 export const siteConfig: SiteConfig = {
   title: "ArtifactHub",
   description: {
-    tr: "Yazılım sistemleri, deneysel araçlar ve oyun prototipleri için dijital artifact arşivi."
+    tr: "Yazılım sistemleri, oyun prototipleri ve deneysel araçlar için teknik artifact arşivi."
   },
   defaultLocale: "tr",
   supportedLocales: ["tr", "en"],
@@ -20,10 +20,10 @@ export const siteConfig: SiteConfig = {
   hero: {
     title: "ArtifactHub",
     subtitle: {
-      tr: "Yazılım sistemleri, deneysel araçlar ve oyun prototipleri için dijital artifact arşivi."
+      tr: "Yazılım sistemleri, oyun prototipleri ve deneysel araçlar için teknik artifact arşivi."
     },
     description: {
-      tr: "ArtifactHub; oyun mekaniği, local-first web uygulaması, ses işleme, TTS ve bilgisayarlı görü prototiplerinden oluşan bağımsız proje arşividir. Her artifact yalnızca çıktısıyla değil; mevcut kapsamı, sistem akışı, teknik kararları ve sınırlarıyla birlikte sunulur."
+      tr: "ArtifactHub; oyun mekaniği, local-first web uygulaması, ses işleme, TTS ve bilgisayarlı görü prototiplerinden oluşan bağımsız bir arşivdir. Her artifact; ne yaptığı, nasıl çalıştığı, nerede sınırlı kaldığı ve sonraki yönüyle belgelenir."
     },
     primaryCta: {
       label: { tr: "Artifactleri İncele" },
@@ -38,7 +38,7 @@ export const siteConfig: SiteConfig = {
   profile: {
     displayName: "Baglare",
     shortBio: {
-      tr: "Baglare, oyun sistemleri, local-first uygulamalar, ses işleme, TTS ve bilgisayarlı görü prototipleri üzerinde çalışan bağımsız bir geliştirici kimliğiyle ArtifactHub’ı kullanır. Bu arşiv, projeleri yalnızca çıktılarıyla değil; mimari kararları, mevcut kapsamları ve bilinçli sınırlarıyla birlikte belgelemek için tasarlanmıştır."
+      tr: "Baglare, oyun sistemleri, local-first uygulamalar, ses işleme, TTS ve bilgisayarlı görü prototipleri geliştirir. ArtifactHub bu projeleri çıktıdan ibaret görmez; kapsamı, mimari kararları ve bilinçli sınırları da kayda alır."
     }
   }
 };

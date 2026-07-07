@@ -14,7 +14,7 @@ export default function ArtifactsPage() {
   return (
     <PageShell themeId="relic-core" variant="archive">
       <SectionBlock
-        description="Bu arşiv, oyun sistemleri, local-first web uygulamaları, ses işleme araçları, TTS deneyleri ve bilgisayarlı görü prototiplerini teknik rollerine göre listeler. Her artifact; amacı, mevcut kapsamı, sistem akışı ve bilinçli sınırlarıyla birlikte sunulur."
+        description="Bu arşiv; oyun sistemleri, local-first web uygulamaları, ses işleme araçları, TTS deneyleri ve bilgisayarlı görü prototiplerini bir arada tutar. Her artifact ne yaptığı, nasıl çalıştığı ve nerede sınırlı kaldığıyla belgelenir."
         title="Artifact Arşivi"
       >
         <p className="text-sm text-[var(--theme-text-muted)]">

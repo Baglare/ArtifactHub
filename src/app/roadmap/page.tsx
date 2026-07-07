@@ -47,7 +47,7 @@ export default function RoadmapPage() {
       <SectionBlock
         eyebrow="Baglare’s ArtifactHub"
         title="Yol Haritası"
-        description="ArtifactHub ve bağlı artifactler; teknik diyagramlar, görsel materyaller, İngilizce içerik, yayın hazırlığı ve proje bazlı genişletmelerle zaman içinde büyütülecek."
+        description="ArtifactHub için sıradaki iş; teknik diyagramlar, görsel materyaller, İngilizce içerik desteği, yayın hazırlığı ve proje bazlı genişletmeleri düzenli biçimde eklemek."
       />
 
       <div className="grid min-w-0 gap-5">
@@ -102,7 +102,7 @@ export default function RoadmapPage() {
 
         <TechnicalPanel
           title="Görsel Materyal Planı"
-          description="İlk sürüm video veya canlı demo kullanmadan çalışır. Sonraki genişletmelerde ekran görüntüleri, teknik diyagramlar ve kısa görsel çıktılar artifact sayfalarını güçlendirecek."
+          description="İlk sürüm video veya canlı demo kullanmadan çalışır. Sonraki adımda ekran görüntüleri, teknik diyagramlar ve kısa görsel çıktılar eklenecek."
           themeId="relic-core"
         >
           <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
@@ -126,7 +126,7 @@ export default function RoadmapPage() {
 
         <TechnicalPanel
           title="Genişleyebilir Arşiv Yapısı"
-          description="Yeni artifact eklendiğinde arşiv, teknik odak haritası, seri ilişkileri ve detay sayfaları merkezi registry üzerinden genişleyebilir."
+          description="Yeni artifact, seri veya tema eklendiğinde sayfalar merkezi registry üzerinden güncellenir."
           themeId="relic-core"
           variant="technical"
         >

@@ -11,7 +11,7 @@ import type { FocusArea, FocusAreaId } from "@/types/artifact";
 
 const purposeItems = [
   "Artifact odaklı sunum",
-  "Teknik kararların görünür olması",
+  "Teknik kararların açık yazılması",
   "Bilinçli sınırların açık yazılması",
   "Yeni projelerle genişleyebilir registry yapısı"
 ];
@@ -47,7 +47,7 @@ export default function AboutPage() {
       <div className="grid min-w-0 gap-5">
         <TechnicalPanel
           title="ArtifactHub’ın Amacı"
-          description="ArtifactHub, projeleri yalnızca çıktılarıyla değil; mevcut kapsamları, sistem akışları, mimari kararları, sınırları ve planlanan genişletmeleriyle birlikte belgelemek için tasarlanmıştır."
+          description="ArtifactHub projeleri yalnızca sonuç ekranıyla anlatmaz. Her kayıt mevcut kapsamı, sistem akışını, mimari kararları, sınırları ve planlanan genişletmeleriyle tutulur."
           themeId="relic-core"
           variant="technical"
         >
