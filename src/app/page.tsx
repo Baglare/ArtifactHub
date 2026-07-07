@@ -39,8 +39,10 @@ export default function HomePage() {
       <SectionBlock>
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <p className="text-sm font-medium text-[var(--theme-accent-primary)]">Baglare’s</p>
-            <h1 className="mt-3 text-4xl font-semibold text-[var(--theme-text-primary)] md:text-5xl">{siteConfig.hero.title}</h1>
+            <div>
+              <p className="text-sm font-medium leading-none text-[var(--theme-accent-primary)]">Baglare’s</p>
+              <h1 className="mt-1 text-4xl font-semibold text-[var(--theme-text-primary)] md:text-5xl">{siteConfig.hero.title}</h1>
+            </div>
             <p className="mt-3 text-sm text-[var(--theme-text-muted)]">{siteConfig.hero.subtitle.tr}</p>
             <p className="mt-5 max-w-3xl text-[var(--theme-text-secondary)]">{siteConfig.hero.description.tr}</p>
 
