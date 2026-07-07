@@ -10,7 +10,7 @@ type NavLinkProps = {
 
 export function NavLink({ href, label, external, active = false, className }: NavLinkProps) {
   const linkClassName = [
-    "text-sm transition-colors",
+    "text-sm leading-tight transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]",
     active ? "text-[var(--theme-text-primary)]" : "text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)]",
     className
   ]
@@ -19,14 +19,14 @@ export function NavLink({ href, label, external, active = false, className }: Na
 
   if (external) {
     return (
-      <a className={linkClassName} href={href} rel="noreferrer" target="_blank">
+      <a aria-current={active ? "page" : undefined} className={linkClassName} href={href} rel="noopener noreferrer" target="_blank">
         {label}
       </a>
     );
   }
 
   return (
-    <Link className={linkClassName} href={href}>
+    <Link aria-current={active ? "page" : undefined} className={linkClassName} href={href}>
       {label}
     </Link>
   );

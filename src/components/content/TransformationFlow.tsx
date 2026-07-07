@@ -40,9 +40,9 @@ export function TransformationFlow({
   ];
 
   return (
-    <div className="grid gap-3 md:grid-cols-3">
+    <div className="grid min-w-0 gap-3 md:grid-cols-3">
       {steps.map((step) => (
-        <div className="border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4" key={step.label}>
+        <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4" key={step.label}>
           <p className="text-xs font-semibold uppercase tracking-wide text-[var(--theme-text-muted)]">{step.label}</p>
           <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">{step.body}</p>
         </div>

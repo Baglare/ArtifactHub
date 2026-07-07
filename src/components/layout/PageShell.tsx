@@ -26,7 +26,7 @@ export function PageShell({ children, themeId, variant = "default" }: PageShellP
       className={`min-h-[calc(100vh-9rem)] bg-[var(--theme-background)] text-[var(--theme-text-primary)] ${variantClasses[variant]}`}
       style={themeStyle}
     >
-      <ContentContainer className="py-10">{children}</ContentContainer>
+      <ContentContainer className="py-8 sm:py-10">{children}</ContentContainer>
     </div>
   );
 }

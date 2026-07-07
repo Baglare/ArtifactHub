@@ -39,7 +39,7 @@ export default async function SeriesPage({ params }: SeriesPageProps) {
     <PageShell themeId={series.themeId} variant="series">
       <SeriesHero series={series} />
 
-      <div className="grid gap-5">
+      <div className="grid min-w-0 gap-5">
         {series.transformationModel ? (
           <TechnicalPanel title="Ortak Dönüşüm Modeli" themeId={series.themeId} variant="technical">
             <SharedTransformationModel transformationModel={series.transformationModel} />

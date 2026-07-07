@@ -8,6 +8,7 @@ type ThemeSymbolProps = {
   symbolId?: SymbolId;
   size?: ThemeSymbolSize;
   animated?: boolean;
+  decorative?: boolean;
   className?: string;
 };
 
@@ -32,13 +33,21 @@ const sizeClasses: Record<ThemeSymbolSize, string> = {
   lg: "h-20 w-20 text-xl"
 };
 
-export function ThemeSymbol({ themeId, symbolId, size = "md", animated = false, className }: ThemeSymbolProps) {
+export function ThemeSymbol({
+  themeId,
+  symbolId,
+  size = "md",
+  animated = false,
+  decorative = true,
+  className
+}: ThemeSymbolProps) {
   const resolvedSymbolId = symbolId ?? getThemeOrDefault(themeId).symbolId;
   const symbol = symbolDefinitions[resolvedSymbolId] ?? symbolDefinitions["relic-core"];
 
   return (
     <div
-      aria-label={symbol.label}
+      aria-hidden={decorative ? true : undefined}
+      aria-label={decorative ? undefined : symbol.label}
       className={[
         "inline-flex shrink-0 items-center justify-center border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] font-semibold text-[var(--theme-accent-primary)]",
         sizeClasses[size],
@@ -47,7 +56,7 @@ export function ThemeSymbol({ themeId, symbolId, size = "md", animated = false, 
         .filter(Boolean)
         .join(" ")}
       data-animated-placeholder={animated ? "true" : undefined}
-      role="img"
+      role={decorative ? undefined : "img"}
     >
       {/* TODO: Replace placeholder marks with final theme symbol artwork in a later milestone. */}
       <span>{symbol.mark}</span>

@@ -50,7 +50,7 @@ export default function RoadmapPage() {
         description="ArtifactHub ve bağlı artifactler; teknik diyagramlar, görsel materyaller, İngilizce içerik, yayın hazırlığı ve proje bazlı genişletmelerle zaman içinde büyütülecek."
       />
 
-      <div className="grid gap-5">
+      <div className="grid min-w-0 gap-5">
         <TechnicalPanel title="ArtifactHub Geliştirme Yönü" themeId="relic-core" variant="technical">
           <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
             {generalRoadmapItems.map((item) => (
@@ -62,9 +62,12 @@ export default function RoadmapPage() {
         <TechnicalPanel title="Artifact Bazlı Genişletmeler" themeId="relic-core">
           <div className="grid gap-4">
             {artifacts.map((artifact) => (
-              <section className="border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={artifact.id}>
+              <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={artifact.id}>
                 <div className="flex flex-wrap items-center gap-3">
-                  <Link className="font-medium text-[var(--theme-text-primary)] underline underline-offset-4" href={`/artifacts/${artifact.slug}`}>
+                  <Link
+                    className="font-medium text-[var(--theme-text-primary)] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                    href={`/artifacts/${artifact.slug}`}
+                  >
                     {artifact.title}
                   </Link>
                   <StatusBadge statusId={artifact.statusId} variant="subtle" />
@@ -80,8 +83,11 @@ export default function RoadmapPage() {
         <TechnicalPanel title="Seri Bazlı Genişletmeler" themeId="relic-core">
           <div className="grid gap-4">
             {series.map((seriesItem) => (
-              <section className="border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={seriesItem.id}>
-                <Link className="font-medium text-[var(--theme-text-primary)] underline underline-offset-4" href={`/series/${seriesItem.slug}`}>
+              <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={seriesItem.id}>
+                <Link
+                  className="font-medium text-[var(--theme-text-primary)] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                  href={`/series/${seriesItem.slug}`}
+                >
                   {seriesItem.title}
                 </Link>
                 {seriesItem.plannedExtensions?.length ? (

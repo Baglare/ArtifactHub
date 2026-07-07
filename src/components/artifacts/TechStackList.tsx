@@ -15,7 +15,7 @@ export function TechStackList({ items, limit, variant = "default" }: TechStackLi
   const extraCount = typeof limit === "number" ? Math.max(items.length - limit, 0) : 0;
 
   return (
-    <ul className="flex flex-wrap gap-2">
+    <ul className="flex min-w-0 flex-wrap gap-2">
       {visibleItems.map((item) => (
         <li key={item}>
           <TechTag label={item} variant={variant} />

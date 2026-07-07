@@ -25,7 +25,7 @@ export default function ArtifactsPage() {
       <ArtifactArchive artifacts={artifacts} />
 
       <section className="py-8">
-        <p className="border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 text-sm text-[var(--theme-text-muted)]">
+        <p className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 text-sm text-[var(--theme-text-muted)]">
           Yeni artifactler registry’ye eklendiğinde arşiv sayfası otomatik olarak genişler.
         </p>
       </section>

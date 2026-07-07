@@ -15,7 +15,7 @@ export function SeriesTransformationTable({ artifacts }: SeriesTransformationTab
   return (
     <div className="space-y-4">
       <div className="hidden overflow-hidden border border-[color:var(--theme-border)] md:block">
-        <table className="w-full border-collapse text-left text-sm">
+        <table className="w-full table-fixed border-collapse text-left text-sm">
           <thead className="bg-[var(--theme-surface-raised)] text-[var(--theme-text-primary)]">
             <tr>
               <th className="border-b border-[color:var(--theme-border)] p-3">Artifact</th>
@@ -27,14 +27,17 @@ export function SeriesTransformationTable({ artifacts }: SeriesTransformationTab
           <tbody className="text-[var(--theme-text-secondary)]">
             {rows.map((artifact) => (
               <tr className="border-b border-[color:var(--theme-border)] last:border-b-0" key={artifact.id}>
-                <td className="p-3">
-                  <Link className="font-medium text-[var(--theme-text-primary)] hover:text-[var(--theme-accent-primary)]" href={`/artifacts/${artifact.slug}`}>
+                <td className="p-3 align-top">
+                  <Link
+                    className="font-medium text-[var(--theme-text-primary)] hover:text-[var(--theme-accent-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                    href={`/artifacts/${artifact.slug}`}
+                  >
                     {artifact.title}
                   </Link>
                 </td>
-                <td className="p-3">{artifact.transformation?.input.tr}</td>
-                <td className="p-3">{artifact.transformation?.process.tr}</td>
-                <td className="p-3">{artifact.transformation?.output.tr}</td>
+                <td className="p-3 align-top">{artifact.transformation?.input.tr}</td>
+                <td className="p-3 align-top">{artifact.transformation?.process.tr}</td>
+                <td className="p-3 align-top">{artifact.transformation?.output.tr}</td>
               </tr>
             ))}
           </tbody>
@@ -43,8 +46,11 @@ export function SeriesTransformationTable({ artifacts }: SeriesTransformationTab
 
       <div className="grid gap-3 md:hidden">
         {rows.map((artifact) => (
-          <article className="border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4" key={artifact.id}>
-            <Link className="font-medium text-[var(--theme-text-primary)]" href={`/artifacts/${artifact.slug}`}>
+          <article className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4" key={artifact.id}>
+            <Link
+              className="font-medium text-[var(--theme-text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+              href={`/artifacts/${artifact.slug}`}
+            >
               {artifact.title}
             </Link>
             <dl className="mt-3 space-y-3 text-sm text-[var(--theme-text-secondary)]">

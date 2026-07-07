@@ -17,8 +17,8 @@ export function ArtifactHero({ artifact }: ArtifactHeroProps) {
 
   return (
     <section className="border-b border-[color:var(--theme-border)] py-8">
-      <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-        <div>
+      <div className="grid min-w-0 gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+        <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <StatusBadge statusId={artifact.statusId} />
             {series ? (
@@ -48,7 +48,7 @@ export function ArtifactHero({ artifact }: ArtifactHeroProps) {
           </div>
         </div>
 
-        <aside className="border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-6">
+        <aside className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-6">
           <div className="flex items-start gap-4">
             <ThemeSymbol themeId={artifact.themeId} size="lg" />
             <div>

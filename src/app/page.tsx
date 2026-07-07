@@ -37,8 +37,8 @@ export default function HomePage() {
   return (
     <PageShell themeId="relic-core" variant="archive">
       <SectionBlock>
-        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <div>
+        <div className="grid min-w-0 gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <div className="min-w-0">
             <div>
               <p className="text-sm font-medium leading-none text-[var(--theme-accent-primary)]">Baglare’s</p>
               <h1 className="mt-1 text-4xl font-semibold text-[var(--theme-text-primary)] md:text-5xl">{siteConfig.hero.title}</h1>
@@ -56,7 +56,7 @@ export default function HomePage() {
             <ul className="mt-7 flex flex-wrap gap-2">
               {siteConfig.hero.focusTags.map((tag) => (
                 <li
-                  className="border border-[color:var(--theme-border)] bg-[var(--theme-surface)] px-3 py-1 text-sm text-[var(--theme-text-secondary)]"
+                  className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] px-3 py-1 text-sm text-[var(--theme-text-secondary)]"
                   key={tag}
                 >
                   {tag}
@@ -65,7 +65,7 @@ export default function HomePage() {
             </ul>
           </div>
 
-          <div className="border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-6">
+          <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-6">
             <div className="flex items-start gap-4">
               <ThemeSymbol themeId="relic-core" size="lg" />
               <div>
@@ -77,10 +77,10 @@ export default function HomePage() {
             </div>
 
             <div className="mt-6 grid gap-3 text-sm text-[var(--theme-text-secondary)]">
-              <div className="border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-3">
+              <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-3">
                 Veri odaklı artifact kaydı
               </div>
-              <div className="border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-3">
+              <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-3">
                 Tema ve teknik rol üzerinden genişleyebilir yapı
               </div>
             </div>

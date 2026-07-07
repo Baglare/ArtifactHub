@@ -9,15 +9,16 @@ type ArtifactFilterBarProps = {
 
 export function ArtifactFilterBar({ activeFilterId, onFilterChange }: ArtifactFilterBarProps) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div aria-label="Artifact filtreleri" className="flex flex-wrap gap-2" role="group">
       {archiveFilters.map((filter) => {
         const isActive = filter.id === activeFilterId;
 
         return (
           <button
-            className={`border px-3 py-2 text-sm transition-colors ${
+            aria-pressed={isActive}
+            className={`min-w-0 border px-3 py-2 text-sm leading-tight transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)] ${
               isActive
-                ? "border-[color:var(--theme-accent-primary)] bg-[var(--theme-accent-primary)] text-[var(--theme-background)]"
+                ? "border-[color:var(--theme-accent-primary)] bg-[var(--theme-accent-primary)] font-semibold text-[var(--theme-background)]"
                 : "border-[color:var(--theme-border)] bg-[var(--theme-surface)] text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)]"
             }`}
             key={filter.id}

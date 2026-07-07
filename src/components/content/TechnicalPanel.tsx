@@ -29,7 +29,7 @@ export function TechnicalPanel({
   const themeStyle = themeId ? getThemeCssVariables(themeId) : undefined;
 
   return (
-    <section className={`border bg-[var(--theme-surface)] p-5 ${variantClasses[variant]}`} style={themeStyle}>
+    <section className={`min-w-0 border bg-[var(--theme-surface)] p-4 sm:p-5 ${variantClasses[variant]}`} style={themeStyle}>
       <h2 className="text-xl font-semibold text-[var(--theme-text-primary)]">{title}</h2>
       {description ? <p className="mt-2 text-[var(--theme-text-secondary)]">{description}</p> : null}
       {children ? <div className="mt-4">{children}</div> : null}

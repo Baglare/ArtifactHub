@@ -24,7 +24,7 @@ export function ArtifactGrid({
   }
 
   return (
-    <div className={variant === "compact" ? "grid gap-3 md:grid-cols-2" : "grid gap-4 md:grid-cols-2"}>
+    <div className={variant === "compact" ? "grid min-w-0 gap-3 md:grid-cols-2" : "grid min-w-0 gap-4 md:grid-cols-2"}>
       {artifacts.map((artifact) => (
         <ArtifactCard
           artifact={artifact}

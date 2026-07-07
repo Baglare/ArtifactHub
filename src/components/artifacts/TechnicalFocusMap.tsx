@@ -34,7 +34,7 @@ export function TechnicalFocusMap({ artifacts, focusAreaIds }: TechnicalFocusMap
   return (
     <div className="grid gap-4 md:grid-cols-2">
       {groups.map((group) => (
-        <section className="border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-5" key={group.focusArea.id}>
+        <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-5" key={group.focusArea.id}>
           <h3 className="text-lg font-semibold text-[var(--theme-text-primary)]">{group.focusArea.label.tr}</h3>
           {group.focusArea.description ? (
             <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">{group.focusArea.description.tr}</p>
@@ -44,7 +44,10 @@ export function TechnicalFocusMap({ artifacts, focusAreaIds }: TechnicalFocusMap
             <ul className="mt-4 flex flex-wrap gap-3 text-sm text-[var(--theme-text-secondary)]">
               {group.artifacts.map((artifact) => (
                 <li key={artifact.id}>
-                  <Link className="underline underline-offset-4 hover:text-[var(--theme-text-primary)]" href={`/artifacts/${artifact.slug}`}>
+                  <Link
+                    className="underline underline-offset-4 hover:text-[var(--theme-text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                    href={`/artifacts/${artifact.slug}`}
+                  >
                     {artifact.title}
                   </Link>
                 </li>

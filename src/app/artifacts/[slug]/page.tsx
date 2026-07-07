@@ -69,7 +69,7 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
     <PageShell themeId={artifact.themeId} variant="artifact">
       <ArtifactHero artifact={artifact} />
 
-      <div className="grid gap-5">
+      <div className="grid min-w-0 gap-5">
         <TechnicalPanel title="Kısa Bilgiler" themeId={artifact.themeId}>
           <QuickFacts artifact={artifact} />
         </TechnicalPanel>
@@ -134,7 +134,7 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
               ))}
             </ul>
             {artifact.riskProfile?.publicClaimBoundary ? (
-              <div className="mt-4 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4 text-sm text-[var(--theme-text-secondary)]">
+              <div className="mt-4 min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4 text-sm text-[var(--theme-text-secondary)]">
                 <span className="font-medium text-[var(--theme-text-primary)]">Public claim sınırı: </span>
                 {artifact.riskProfile.publicClaimBoundary.tr}
               </div>

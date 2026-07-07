@@ -31,7 +31,7 @@ export function ButtonLink({
 }: ButtonLinkProps) {
   const content = children ?? label;
   const buttonClassName = [
-    "inline-flex items-center justify-center border px-3 py-2 text-sm font-medium transition-colors",
+    "inline-flex min-w-0 max-w-full items-center justify-center border px-3 py-2 text-center text-sm font-medium leading-tight transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]",
     variantClasses[variant],
     className
   ]
@@ -40,7 +40,7 @@ export function ButtonLink({
 
   if (external) {
     return (
-      <a className={buttonClassName} href={href} rel="noreferrer" target="_blank">
+      <a className={buttonClassName} href={href} rel="noopener noreferrer" target="_blank">
         {content}
       </a>
     );

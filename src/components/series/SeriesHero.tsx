@@ -13,8 +13,8 @@ export function SeriesHero({ series }: SeriesHeroProps) {
 
   return (
     <section className="border-b border-[color:var(--theme-border)] py-8">
-      <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-        <div>
+      <div className="grid min-w-0 gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+        <div className="min-w-0">
           <p className="text-sm text-[var(--theme-text-muted)]">Artifact serisi</p>
           <h1 className="mt-3 text-4xl font-semibold text-[var(--theme-text-primary)] md:text-5xl">{series.title}</h1>
           <p className="mt-4 max-w-3xl text-lg text-[var(--theme-text-secondary)]">{series.summary.tr}</p>
@@ -34,7 +34,7 @@ export function SeriesHero({ series }: SeriesHeroProps) {
           </div>
         </div>
 
-        <aside className="border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-6">
+        <aside className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-6">
           <div className="flex items-start gap-4">
             <ThemeSymbol themeId={series.themeId} size="lg" />
             <div>

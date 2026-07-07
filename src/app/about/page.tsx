@@ -37,14 +37,14 @@ export default function AboutPage() {
       <SectionBlock eyebrow="Baglare’s ArtifactHub" title="Baglare" description={siteConfig.profile.shortBio.tr}>
         <div className="grid gap-3 md:grid-cols-4">
           {profilePanelItems.map((item) => (
-            <div className="border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-3 text-sm text-[var(--theme-text-secondary)]" key={item}>
+            <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-3 text-sm text-[var(--theme-text-secondary)]" key={item}>
               {item}
             </div>
           ))}
         </div>
       </SectionBlock>
 
-      <div className="grid gap-5">
+      <div className="grid min-w-0 gap-5">
         <TechnicalPanel
           title="ArtifactHub’ın Amacı"
           description="ArtifactHub, projeleri yalnızca çıktılarıyla değil; mevcut kapsamları, sistem akışları, mimari kararları, sınırları ve planlanan genişletmeleriyle birlikte belgelemek için tasarlanmıştır."
@@ -61,7 +61,7 @@ export default function AboutPage() {
         <TechnicalPanel title="Teknik Odaklar" themeId="relic-core">
           <div className="grid gap-4 md:grid-cols-2">
             {technicalInterests.map((focusArea) => (
-              <section className="border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={focusArea.id}>
+              <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={focusArea.id}>
                 <h3 className="font-medium text-[var(--theme-text-primary)]">{focusArea.label.tr}</h3>
                 {focusArea.description ? <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">{focusArea.description.tr}</p> : null}
               </section>
@@ -72,9 +72,12 @@ export default function AboutPage() {
         <TechnicalPanel title="Mevcut Artifact Seti" themeId="relic-core">
           <div className="grid gap-4">
             {artifacts.map((artifact) => (
-              <section className="border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={artifact.id}>
+              <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={artifact.id}>
                 <div className="flex flex-wrap items-center gap-3">
-                  <Link className="font-medium text-[var(--theme-text-primary)] underline underline-offset-4" href={`/artifacts/${artifact.slug}`}>
+                  <Link
+                    className="font-medium text-[var(--theme-text-primary)] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                    href={`/artifacts/${artifact.slug}`}
+                  >
                     {artifact.title}
                   </Link>
                   <StatusBadge statusId={artifact.statusId} variant="subtle" />

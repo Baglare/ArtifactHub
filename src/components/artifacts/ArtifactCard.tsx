@@ -38,7 +38,7 @@ export function ArtifactCard({
 
   return (
     <article
-      className={`border border-[color:var(--theme-border)] bg-[var(--theme-surface)] ${variantClasses[variant]}`}
+      className={`min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] ${variantClasses[variant]}`}
       style={themeStyle}
     >
       <div className="flex items-start gap-4">
@@ -54,7 +54,10 @@ export function ArtifactCard({
           </div>
 
           <h2 className="mt-3 text-xl font-semibold text-[var(--theme-text-primary)]">
-            <Link className="hover:text-[var(--theme-accent-primary)]" href={`/artifacts/${artifact.slug}`}>
+            <Link
+              className="transition-colors hover:text-[var(--theme-accent-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+              href={`/artifacts/${artifact.slug}`}
+            >
               {artifact.title}
             </Link>
           </h2>

@@ -16,11 +16,11 @@ export function SharedTransformationModel({ transformationModel }: SharedTransfo
 
       <ol className="mt-5 grid gap-3">
         {transformationModel.steps.map((step, index) => (
-          <li className="flex items-center gap-3" key={`${step}-${index}`}>
+          <li className="flex min-w-0 items-center gap-3" key={`${step}-${index}`}>
             <span className="flex h-7 w-7 shrink-0 items-center justify-center border border-[color:var(--theme-border)] text-xs text-[var(--theme-text-muted)]">
               {index + 1}
             </span>
-            <span className="border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] px-3 py-2 text-sm text-[var(--theme-text-secondary)]">
+            <span className="min-w-0 flex-1 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] px-3 py-2 text-sm text-[var(--theme-text-secondary)]">
               {step}
             </span>
           </li>

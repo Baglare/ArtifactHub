@@ -16,7 +16,7 @@ export function FocusAreaList({ focusAreaIds, variant = "default" }: FocusAreaLi
   }
 
   return (
-    <ul className="flex flex-wrap gap-2">
+    <ul className="flex min-w-0 flex-wrap gap-2">
       {focusAreas.map((focusArea) => (
         <li
           className={`border border-[color:var(--theme-border)] bg-[var(--theme-surface)] text-[var(--theme-text-secondary)] ${

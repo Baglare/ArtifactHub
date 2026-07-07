@@ -10,7 +10,12 @@ export function Footer() {
           {" · "}
           {siteConfig.description.tr}
         </p>
-        <a className="underline underline-offset-4 hover:text-[var(--theme-text-primary)]" href={siteConfig.links.github} rel="noreferrer" target="_blank">
+        <a
+          className="underline underline-offset-4 hover:text-[var(--theme-text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+          href={siteConfig.links.github}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           GitHub
         </a>
       </ContentContainer>

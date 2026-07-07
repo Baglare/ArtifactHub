@@ -30,9 +30,9 @@ export function SectionBlock({
   const themeStyle = themeId ? getThemeCssVariables(themeId) : undefined;
 
   return (
-    <section className={`border-b border-[color:var(--theme-border)] py-8 ${variantClasses[variant]}`} style={themeStyle}>
+    <section className={`min-w-0 border-b border-[color:var(--theme-border)] py-8 ${variantClasses[variant]}`} style={themeStyle}>
       {eyebrow ? <p className="text-sm text-[var(--theme-text-muted)]">{eyebrow}</p> : null}
-      {title ? <h1 className="mt-2 text-3xl font-semibold text-[var(--theme-text-primary)]">{title}</h1> : null}
+      {title ? <h1 className="mt-2 text-3xl font-semibold text-[var(--theme-text-primary)] sm:text-4xl">{title}</h1> : null}
       {description ? <p className="mt-4 max-w-3xl text-[var(--theme-text-secondary)]">{description}</p> : null}
       {children ? <div className="mt-6">{children}</div> : null}
     </section>

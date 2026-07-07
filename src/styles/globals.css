@@ -16,12 +16,57 @@
   --theme-accent-tertiary: #e07a2f;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--theme-background);
+}
+
 body {
   margin: 0;
+  min-width: 320px;
   background: var(--theme-background);
   color: var(--theme-text-primary);
 }
 
 a {
   color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+dd,
+dt {
+  overflow-wrap: break-word;
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--theme-accent-primary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

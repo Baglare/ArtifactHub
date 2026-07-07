@@ -19,10 +19,12 @@ export function ArtifactArchive({ artifacts }: ArtifactArchiveProps) {
   );
 
   return (
-    <section className="border-b border-[color:var(--theme-border)] py-8">
+    <section className="min-w-0 border-b border-[color:var(--theme-border)] py-8">
       <div className="flex flex-col gap-4">
         <ArtifactFilterBar activeFilterId={activeFilterId} onFilterChange={setActiveFilterId} />
-        <p className="text-sm text-[var(--theme-text-muted)]">{filteredArtifacts.length} artifact listeleniyor.</p>
+        <p aria-live="polite" className="text-sm text-[var(--theme-text-muted)]">
+          {filteredArtifacts.length} artifact listeleniyor.
+        </p>
       </div>
 
       <div className="mt-6">

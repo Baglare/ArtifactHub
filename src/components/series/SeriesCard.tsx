@@ -24,13 +24,13 @@ export function SeriesCard({
 
   return (
     <article
-      className={`border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-6 ${
+      className={`min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-6 ${
         variant === "wide" ? "md:col-span-2" : ""
       }`}
       style={themeStyle}
     >
       <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
-        <div className="flex gap-4">
+        <div className="flex min-w-0 gap-4">
           <ThemeSymbol themeId={series.themeId} size="lg" />
           <div>
             <p className="text-sm text-[var(--theme-text-muted)]">Seri</p>
@@ -55,7 +55,10 @@ export function SeriesCard({
           <ul className="mt-3 flex flex-wrap gap-3 text-sm text-[var(--theme-text-secondary)]">
             {artifacts.map((artifact) => (
               <li key={artifact.id}>
-                <Link className="underline underline-offset-4 hover:text-[var(--theme-text-primary)]" href={`/artifacts/${artifact.slug}`}>
+                <Link
+                  className="underline underline-offset-4 hover:text-[var(--theme-text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                  href={`/artifacts/${artifact.slug}`}
+                >
                   {artifact.title}
                 </Link>
               </li>
