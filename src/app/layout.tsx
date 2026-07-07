@@ -3,6 +3,8 @@ import { AppShell } from "@/components/layout/AppShell";
 import { siteConfig } from "@/data/siteConfig";
 import "@/styles/globals.css";
 
+const socialPreviewImage = "https://artifact-hub-xi.vercel.app/images/artifacthub-og.png";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://artifact-hub-xi.vercel.app/"),
   title: {
@@ -20,12 +22,21 @@ export const metadata: Metadata = {
     url: "/",
     siteName: siteConfig.title,
     locale: "tr_TR",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: socialPreviewImage,
+        width: 1200,
+        height: 630,
+        alt: `Baglare’s ${siteConfig.title}`
+      }
+    ]
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: `Baglare’s ${siteConfig.title}`,
-    description: siteConfig.description.tr
+    description: siteConfig.description.tr,
+    images: [socialPreviewImage]
   }
 };
 

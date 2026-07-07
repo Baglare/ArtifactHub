@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArtifactGrid } from "@/components/artifacts/ArtifactGrid";
 import { TechnicalFocusMap } from "@/components/artifacts/TechnicalFocusMap";
 import { LocalizedTextValue } from "@/components/i18n/LocalizedTextValue";
@@ -6,7 +7,6 @@ import { SectionBlock } from "@/components/layout/SectionBlock";
 import { SeriesCard } from "@/components/series/SeriesCard";
 import { SeriesTransformationTable } from "@/components/series/SeriesTransformationTable";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { ThemeSymbol } from "@/components/visual/ThemeSymbol";
 import { homePageText } from "@/data/pageText";
 import { siteConfig } from "@/data/siteConfig";
 import { uiText } from "@/data/uiText";
@@ -67,9 +67,19 @@ export default function HomePage() {
           </div>
 
           <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-6">
-            <div className="flex items-start gap-4">
-              <ThemeSymbol themeId="relic-core" size="lg" />
-              <div>
+            <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="shrink-0 self-start border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-2 sm:self-center">
+                <Image
+                  alt=""
+                  aria-hidden="true"
+                  className="h-24 w-24 object-contain opacity-90 sm:h-28 sm:w-28"
+                  height={160}
+                  priority
+                  src="/images/artifacthub-relic-core.png"
+                  width={160}
+                />
+              </div>
+              <div className="min-w-0">
                 <p className="text-sm text-[var(--theme-text-muted)]">
                   <LocalizedTextValue text={homePageText.heroPanelEyebrow} />
                 </p>
