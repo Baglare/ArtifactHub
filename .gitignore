@@ -7,9 +7,12 @@ out/
 
 # production
 build/
+dist/
+.vercel/
 
 # local env files
 .env*
+.env.local
 
 # debug
 npm-debug.log*

@@ -4,8 +4,12 @@ import { siteConfig } from "@/data/siteConfig";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: `Baglare’s ${siteConfig.title}`,
-  description: siteConfig.description.tr
+  title: {
+    default: `Baglare’s ${siteConfig.title}`,
+    template: `%s | Baglare’s ${siteConfig.title}`
+  },
+  description: siteConfig.description.tr,
+  applicationName: siteConfig.title
 };
 
 export default function RootLayout({
