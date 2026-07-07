@@ -5,12 +5,9 @@ export default function NotFoundPage() {
   return (
     <PageShell themeId="relic-core" variant="archive">
       <NotFoundBlock
-        actionLabel="Artifact Arşivi"
-        description="Artifact arşivine dönerek mevcut kayıtları inceleyebilirsin."
         href="/artifacts"
-        secondaryActionLabel="Ana Sayfa"
+        secondaryActionLabelKey="home"
         secondaryHref="/"
-        title="Bu kayıt arşivde bulunamadı."
       />
     </PageShell>
   );

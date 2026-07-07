@@ -1,20 +1,15 @@
 import Link from "next/link";
 import { TechnicalPanel } from "@/components/content/TechnicalPanel";
+import { LocalizedTextValue } from "@/components/i18n/LocalizedTextValue";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionBlock } from "@/components/layout/SectionBlock";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { StatusBadge } from "@/components/ui/StatusBadge";
+import { aboutPageText } from "@/data/pageText";
 import { siteConfig } from "@/data/siteConfig";
 import { getAllArtifacts } from "@/lib/artifacts";
 import { getFocusAreaById } from "@/lib/focusAreas";
 import type { FocusArea, FocusAreaId } from "@/types/artifact";
-
-const purposeItems = [
-  "Artifact odaklı sunum",
-  "Teknik kararların açık yazılması",
-  "Bilinçli sınırların açık yazılması",
-  "Yeni projelerle genişleyebilir registry yapısı"
-];
 
 const fallbackTechnicalInterestIds: FocusAreaId[] = [
   "gameplay-systems",
@@ -24,8 +19,6 @@ const fallbackTechnicalInterestIds: FocusAreaId[] = [
   "computer-vision"
 ];
 
-const profilePanelItems = ["Artifact archive", "Game systems", "Local-first apps", "Audio / vision prototypes"];
-
 export default function AboutPage() {
   const artifacts = getAllArtifacts();
   const technicalInterests = fallbackTechnicalInterestIds
@@ -34,11 +27,11 @@ export default function AboutPage() {
 
   return (
     <PageShell themeId="relic-core" variant="archive">
-      <SectionBlock eyebrow="Baglare’s ArtifactHub" title="Baglare" description={siteConfig.profile.shortBio.tr}>
+      <SectionBlock eyebrow="Baglare’s ArtifactHub" title="Baglare" description={<LocalizedTextValue text={siteConfig.profile.shortBio} />}>
         <div className="grid gap-3 md:grid-cols-4">
-          {profilePanelItems.map((item) => (
-            <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-3 text-sm text-[var(--theme-text-secondary)]" key={item}>
-              {item}
+          {aboutPageText.profilePanelItems.map((item) => (
+            <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-3 text-sm text-[var(--theme-text-secondary)]" key={item.tr}>
+              <LocalizedTextValue text={item} />
             </div>
           ))}
         </div>
@@ -46,30 +39,38 @@ export default function AboutPage() {
 
       <div className="grid min-w-0 gap-5">
         <TechnicalPanel
-          title="ArtifactHub’ın Amacı"
-          description="ArtifactHub projeleri yalnızca sonuç ekranıyla anlatmaz. Her kayıt mevcut kapsamı, sistem akışını, mimari kararları, sınırları ve planlanan genişletmeleriyle tutulur."
+          title={<LocalizedTextValue text={aboutPageText.purposeTitle} />}
+          description={<LocalizedTextValue text={aboutPageText.purposeDescription} />}
           themeId="relic-core"
           variant="technical"
         >
           <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
-            {purposeItems.map((item) => (
-              <li key={item}>{item}</li>
+            {aboutPageText.purposeItems.map((item) => (
+              <li key={item.tr}>
+                <LocalizedTextValue text={item} />
+              </li>
             ))}
           </ul>
         </TechnicalPanel>
 
-        <TechnicalPanel title="Teknik Odaklar" themeId="relic-core">
+        <TechnicalPanel title={<LocalizedTextValue text={aboutPageText.technicalFocusTitle} />} themeId="relic-core">
           <div className="grid gap-4 md:grid-cols-2">
             {technicalInterests.map((focusArea) => (
               <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={focusArea.id}>
-                <h3 className="font-medium text-[var(--theme-text-primary)]">{focusArea.label.tr}</h3>
-                {focusArea.description ? <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">{focusArea.description.tr}</p> : null}
+                <h3 className="font-medium text-[var(--theme-text-primary)]">
+                  <LocalizedTextValue text={focusArea.label} />
+                </h3>
+                {focusArea.description ? (
+                  <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">
+                    <LocalizedTextValue text={focusArea.description} />
+                  </p>
+                ) : null}
               </section>
             ))}
           </div>
         </TechnicalPanel>
 
-        <TechnicalPanel title="Mevcut Artifact Seti" themeId="relic-core">
+        <TechnicalPanel title={<LocalizedTextValue text={aboutPageText.currentArtifactSetTitle} />} themeId="relic-core">
           <div className="grid gap-4">
             {artifacts.map((artifact) => (
               <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={artifact.id}>
@@ -82,23 +83,19 @@ export default function AboutPage() {
                   </Link>
                   <StatusBadge statusId={artifact.statusId} variant="subtle" />
                 </div>
-                <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">{artifact.summary.tr}</p>
+                <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">
+                  <LocalizedTextValue text={artifact.summary} />
+                </p>
               </section>
             ))}
           </div>
         </TechnicalPanel>
 
-        <TechnicalPanel title="Bağlantılar" themeId="relic-core">
+        <TechnicalPanel titleKey="links" themeId="relic-core">
           <div className="flex flex-wrap gap-3">
-            <ButtonLink external href={siteConfig.links.github}>
-              GitHub
-            </ButtonLink>
-            <ButtonLink href="/artifacts" variant="secondary">
-              Artifact Arşivi
-            </ButtonLink>
-            <ButtonLink href="/series/forge" variant="secondary">
-              Forge Serisi
-            </ButtonLink>
+            <ButtonLink external href={siteConfig.links.github} labelKey="github" />
+            <ButtonLink href="/artifacts" labelKey="artifactArchive" variant="secondary" />
+            <ButtonLink href="/series/forge" labelKey="forgeSeries" variant="secondary" />
           </div>
         </TechnicalPanel>
       </div>

@@ -1,3 +1,7 @@
+"use client";
+
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { getLocalizedText } from "@/lib/i18n";
 import type { SeriesTransformationModel } from "@/types/artifact";
 
 type SharedTransformationModelProps = {
@@ -5,14 +9,20 @@ type SharedTransformationModelProps = {
 };
 
 export function SharedTransformationModel({ transformationModel }: SharedTransformationModelProps) {
+  const { locale } = useLocale();
+
   if (!transformationModel?.steps.length) {
     return null;
   }
 
   return (
     <div>
-      <h3 className="text-lg font-semibold text-[var(--theme-text-primary)]">{transformationModel.title.tr}</h3>
-      <p className="mt-2 max-w-3xl text-[var(--theme-text-secondary)]">{transformationModel.description.tr}</p>
+      <h3 className="text-lg font-semibold text-[var(--theme-text-primary)]">
+        {getLocalizedText(transformationModel.title, locale)}
+      </h3>
+      <p className="mt-2 max-w-3xl text-[var(--theme-text-secondary)]">
+        {getLocalizedText(transformationModel.description, locale)}
+      </p>
 
       <ol className="mt-5 grid gap-3">
         {transformationModel.steps.map((step, index) => (

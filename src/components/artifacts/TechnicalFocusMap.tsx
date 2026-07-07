@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import { getFocusAreaById } from "@/lib/focusAreas";
+import { getLocalizedText } from "@/lib/i18n";
 import type { Artifact, FocusArea, FocusAreaId } from "@/types/artifact";
 
 type TechnicalFocusMapProps = {
@@ -13,6 +17,7 @@ type FocusAreaGroup = {
 };
 
 export function TechnicalFocusMap({ artifacts, focusAreaIds }: TechnicalFocusMapProps) {
+  const { locale } = useLocale();
   const groups: FocusAreaGroup[] = focusAreaIds
     .map((focusAreaId) => {
       const focusArea = getFocusAreaById(focusAreaId);
@@ -35,9 +40,11 @@ export function TechnicalFocusMap({ artifacts, focusAreaIds }: TechnicalFocusMap
     <div className="grid gap-4 md:grid-cols-2">
       {groups.map((group) => (
         <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-5" key={group.focusArea.id}>
-          <h3 className="text-lg font-semibold text-[var(--theme-text-primary)]">{group.focusArea.label.tr}</h3>
+          <h3 className="text-lg font-semibold text-[var(--theme-text-primary)]">{getLocalizedText(group.focusArea.label, locale)}</h3>
           {group.focusArea.description ? (
-            <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">{group.focusArea.description.tr}</p>
+            <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">
+              {getLocalizedText(group.focusArea.description, locale)}
+            </p>
           ) : null}
 
           {group.artifacts.length ? (

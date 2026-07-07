@@ -1,4 +1,4 @@
-import type { Artifact, CategoryId, FocusAreaId, SeriesId } from "@/types/artifact";
+import type { Artifact, CategoryId, FocusAreaId, LocalizedText, SeriesId } from "@/types/artifact";
 
 export type ArchiveFilterId =
   | "all"
@@ -12,18 +12,18 @@ export type ArchiveFilterId =
 
 type ArchiveFilter = {
   id: ArchiveFilterId;
-  label: string;
+  label: LocalizedText;
 };
 
 export const archiveFilters: ArchiveFilter[] = [
-  { id: "all", label: "Tümü" },
-  { id: "game-systems", label: "Oyun Sistemleri" },
-  { id: "web-applications", label: "Web Uygulamaları" },
-  { id: "forge-series", label: "Forge Series" },
-  { id: "audio", label: "Audio" },
-  { id: "voice", label: "Voice" },
-  { id: "computer-vision", label: "Computer Vision" },
-  { id: "local-first", label: "Local-first" }
+  { id: "all", label: { tr: "Tümü", en: "All" } },
+  { id: "game-systems", label: { tr: "Oyun Sistemleri", en: "Game Systems" } },
+  { id: "web-applications", label: { tr: "Web Uygulamaları", en: "Web Applications" } },
+  { id: "forge-series", label: { tr: "Forge Series", en: "Forge Series" } },
+  { id: "audio", label: { tr: "Audio", en: "Audio" } },
+  { id: "voice", label: { tr: "Voice", en: "Voice" } },
+  { id: "computer-vision", label: { tr: "Computer Vision", en: "Computer Vision" } },
+  { id: "local-first", label: { tr: "Local-first", en: "Local-first" } }
 ];
 
 function hasCategory(artifact: Artifact, categoryId: CategoryId): boolean {

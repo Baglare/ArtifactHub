@@ -1,12 +1,15 @@
 import { ArtifactGrid } from "@/components/artifacts/ArtifactGrid";
 import { TechnicalFocusMap } from "@/components/artifacts/TechnicalFocusMap";
+import { LocalizedTextValue } from "@/components/i18n/LocalizedTextValue";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionBlock } from "@/components/layout/SectionBlock";
 import { SeriesCard } from "@/components/series/SeriesCard";
 import { SeriesTransformationTable } from "@/components/series/SeriesTransformationTable";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ThemeSymbol } from "@/components/visual/ThemeSymbol";
+import { homePageText } from "@/data/pageText";
 import { siteConfig } from "@/data/siteConfig";
+import { uiText } from "@/data/uiText";
 import { getAllArtifacts, getArtifactsBySeries, getArtifactsForHome, getFeaturedArtifacts } from "@/lib/artifacts";
 import { getSeriesBySlug } from "@/lib/series";
 import type { FocusAreaId } from "@/types/artifact";
@@ -17,14 +20,6 @@ const selectedFocusAreaIds: FocusAreaId[] = [
   "audio-processing",
   "computer-vision",
   "pipeline-tooling"
-];
-
-const roadmapPreviewItems = [
-  "TR ilk sürümün tamamlanması",
-  "Forge Series teknik diyagramları",
-  "Proje görselleri / ekran çıktıları",
-  "İngilizce içerik desteği",
-  "Vercel yayını"
 ];
 
 export default function HomePage() {
@@ -43,13 +38,19 @@ export default function HomePage() {
               <p className="text-sm font-medium leading-none text-[var(--theme-accent-primary)]">Baglare’s</p>
               <h1 className="mt-1 text-4xl font-semibold text-[var(--theme-text-primary)] md:text-5xl">{siteConfig.hero.title}</h1>
             </div>
-            <p className="mt-3 text-sm text-[var(--theme-text-muted)]">{siteConfig.hero.subtitle.tr}</p>
-            <p className="mt-5 max-w-3xl text-[var(--theme-text-secondary)]">{siteConfig.hero.description.tr}</p>
+            <p className="mt-3 text-sm text-[var(--theme-text-muted)]">
+              <LocalizedTextValue text={siteConfig.hero.subtitle} />
+            </p>
+            <p className="mt-5 max-w-3xl text-[var(--theme-text-secondary)]">
+              <LocalizedTextValue text={siteConfig.hero.description} />
+            </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <ButtonLink href={siteConfig.hero.primaryCta.href}>{siteConfig.hero.primaryCta.label.tr}</ButtonLink>
+              <ButtonLink href={siteConfig.hero.primaryCta.href}>
+                <LocalizedTextValue text={siteConfig.hero.primaryCta.label} />
+              </ButtonLink>
               <ButtonLink href={siteConfig.hero.secondaryCta.href} variant="secondary">
-                {siteConfig.hero.secondaryCta.label.tr}
+                <LocalizedTextValue text={siteConfig.hero.secondaryCta.label} />
               </ButtonLink>
             </div>
 
@@ -69,20 +70,21 @@ export default function HomePage() {
             <div className="flex items-start gap-4">
               <ThemeSymbol themeId="relic-core" size="lg" />
               <div>
-                <p className="text-sm text-[var(--theme-text-muted)]">Dijital artifact arşivi</p>
+                <p className="text-sm text-[var(--theme-text-muted)]">
+                  <LocalizedTextValue text={homePageText.heroPanelEyebrow} />
+                </p>
                 <p className="mt-2 text-lg font-medium text-[var(--theme-text-primary)]">
-                  Sistem kapsamı, akış, karar ve sınırları tek registry üzerinden okunur.
+                  <LocalizedTextValue text={homePageText.heroPanelLead} />
                 </p>
               </div>
             </div>
 
             <div className="mt-6 grid gap-3 text-sm text-[var(--theme-text-secondary)]">
-              <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-3">
-                Veri odaklı artifact kaydı
-              </div>
-              <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-3">
-                Tema ve teknik rol üzerinden genişleyebilir yapı
-              </div>
+              {homePageText.heroPanelItems.map((item) => (
+                <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-3" key={item.tr}>
+                  <LocalizedTextValue text={item} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -90,16 +92,23 @@ export default function HomePage() {
 
       <SectionBlock>
         <div className="mb-6">
-          <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">Öne Çıkan Girişler</h2>
+          <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">
+            <LocalizedTextValue text={homePageText.featuredTitle} />
+          </h2>
           <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">
-            ArtifactHub iki bağımsız proje ve Forge Series etrafında şekillenir.
+            <LocalizedTextValue text={homePageText.featuredDescription} />
           </p>
         </div>
 
         <div className="grid gap-4">
           <ArtifactGrid artifacts={featuredArtifacts} showTransformation variant="featured" />
           {forgeSeries ? (
-            <SeriesCard actionLabel="Forge Serisini İncele" artifacts={forgeArtifacts} series={forgeSeries} variant="wide" />
+            <SeriesCard
+              actionLabel={<LocalizedTextValue text={homePageText.viewForgeSeries} />}
+              artifacts={forgeArtifacts}
+              series={forgeSeries}
+              variant="wide"
+            />
           ) : null}
         </div>
       </SectionBlock>
@@ -107,13 +116,15 @@ export default function HomePage() {
       <SectionBlock>
         <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">Artifact Arşivi</h2>
+            <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">
+              <LocalizedTextValue text={uiText.artifactArchive} />
+            </h2>
             <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">
-              Her kayıt, artifact’in amacı, çalışma biçimi, sınırları ve sonraki yönünü açıkça gösterir.
+              <LocalizedTextValue text={homePageText.archiveDescription} />
             </p>
           </div>
           <ButtonLink href="/artifacts" variant="secondary">
-            Tüm Artifactleri Gör
+            <LocalizedTextValue text={homePageText.viewAllArtifacts} />
           </ButtonLink>
         </div>
 
@@ -122,10 +133,11 @@ export default function HomePage() {
 
       <SectionBlock>
         <div className="mb-6">
-          <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">Girdi → İşleme → Çıktı</h2>
+          <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">
+            <LocalizedTextValue text={uiText.transformationFlow} />
+          </h2>
           <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">
-            Forge Series’in ortak mantığı, ham girdiyi analiz ve ön işleme katmanlarından geçirerek etkileşimli çıktıya
-            dönüştürmektir.
+            <LocalizedTextValue text={homePageText.transformationDescription} />
           </p>
         </div>
 
@@ -134,9 +146,11 @@ export default function HomePage() {
 
       <SectionBlock>
         <div className="mb-6">
-          <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">Teknik Odak Haritası</h2>
+          <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">
+            <LocalizedTextValue text={homePageText.focusMapTitle} />
+          </h2>
           <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">
-            ArtifactHub’daki kayıtlar, hangi sistem alanına dokunduklarına göre okunabilir.
+            <LocalizedTextValue text={homePageText.focusMapDescription} />
           </p>
         </div>
 
@@ -146,20 +160,21 @@ export default function HomePage() {
       <SectionBlock>
         <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-start">
           <div>
-            <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">Geliştirme Yönü</h2>
+            <h2 className="text-3xl font-semibold text-[var(--theme-text-primary)]">
+              <LocalizedTextValue text={homePageText.developmentDirectionTitle} />
+            </h2>
             <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">
-              ArtifactHub ve bağlı artifactler; teknik diyagramlar, görsel materyaller, İngilizce içerik ve proje bazlı
-              genişletmelerle genişletilecek.
+              <LocalizedTextValue text={homePageText.developmentDirectionDescription} />
             </p>
             <ul className="mt-5 list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
-              {roadmapPreviewItems.map((item) => (
-                <li key={item}>{item}</li>
+              {homePageText.roadmapPreviewItems.map((item) => (
+                <li key={item.tr}>
+                  <LocalizedTextValue text={item} />
+                </li>
               ))}
             </ul>
           </div>
-          <ButtonLink href="/roadmap" variant="secondary">
-            Yol Haritasını Gör
-          </ButtonLink>
+          <ButtonLink href="/roadmap" labelKey="roadmap" variant="secondary" />
         </div>
       </SectionBlock>
     </PageShell>

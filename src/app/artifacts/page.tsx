@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { ArtifactArchive } from "@/components/artifacts/ArtifactArchive";
+import { LocalizedTextValue } from "@/components/i18n/LocalizedTextValue";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionBlock } from "@/components/layout/SectionBlock";
+import { artifactsPageText } from "@/data/pageText";
+import { uiText } from "@/data/uiText";
 import { getAllArtifacts } from "@/lib/artifacts";
 
 export const metadata: Metadata = {
@@ -14,11 +17,11 @@ export default function ArtifactsPage() {
   return (
     <PageShell themeId="relic-core" variant="archive">
       <SectionBlock
-        description="Bu arşiv; oyun sistemleri, local-first web uygulamaları, ses işleme araçları, TTS deneyleri ve bilgisayarlı görü prototiplerini bir arada tutar. Her artifact ne yaptığı, nasıl çalıştığı ve nerede sınırlı kaldığıyla belgelenir."
-        title="Artifact Arşivi"
+        description={<LocalizedTextValue text={artifactsPageText.description} />}
+        title={<LocalizedTextValue text={uiText.artifactArchive} />}
       >
         <p className="text-sm text-[var(--theme-text-muted)]">
-          Baglare’s ArtifactHub içindeki kayıtlar merkezi artifact registry üzerinden okunur.
+          <LocalizedTextValue text={artifactsPageText.registryNote} />
         </p>
       </SectionBlock>
 
@@ -26,7 +29,7 @@ export default function ArtifactsPage() {
 
       <section className="py-8">
         <p className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 text-sm text-[var(--theme-text-muted)]">
-          Yeni artifactler registry’ye eklendiğinde arşiv sayfası otomatik olarak genişler.
+          <LocalizedTextValue text={artifactsPageText.archiveNote} />
         </p>
       </section>
     </PageShell>

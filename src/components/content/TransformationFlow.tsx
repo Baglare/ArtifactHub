@@ -1,3 +1,8 @@
+"use client";
+
+import { getUiText } from "@/data/uiText";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { getLocalizedText } from "@/lib/i18n";
 import type { TransformationFlow as TransformationFlowType } from "@/types/artifact";
 
 type TransformationFlowVariant = "mini" | "full";
@@ -17,6 +22,7 @@ export function TransformationFlow({
   output,
   variant = "full"
 }: TransformationFlowProps) {
+  const { locale } = useLocale();
   const resolvedInput = transformation?.input ?? input;
   const resolvedProcess = transformation?.process ?? process;
   const resolvedOutput = transformation?.output ?? output;
@@ -28,15 +34,16 @@ export function TransformationFlow({
   if (variant === "mini") {
     return (
       <p className="text-sm text-[var(--theme-text-secondary)]">
-        {transformation?.compact?.tr ?? `${resolvedInput.tr} → ${resolvedProcess.tr} → ${resolvedOutput.tr}`}
+        {getLocalizedText(transformation?.compact, locale) ||
+          `${getLocalizedText(resolvedInput, locale)} → ${getLocalizedText(resolvedProcess, locale)} → ${getLocalizedText(resolvedOutput, locale)}`}
       </p>
     );
   }
 
   const steps = [
-    { label: "Girdi", body: resolvedInput.tr },
-    { label: "İşleme", body: resolvedProcess.tr },
-    { label: "Çıktı", body: resolvedOutput.tr }
+    { label: getUiText("input", locale), body: getLocalizedText(resolvedInput, locale) },
+    { label: getUiText("process", locale), body: getLocalizedText(resolvedProcess, locale) },
+    { label: getUiText("output", locale), body: getLocalizedText(resolvedOutput, locale) }
   ];
 
   return (

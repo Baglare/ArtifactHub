@@ -7,7 +7,7 @@ export const themes: Theme[] = [
     symbolId: "relic-core",
     animationPreset: "relic-glow",
     texture: "stone-noise",
-    tone: { tr: "Obsidian taş, kırık mühür, soluk altın çizgiler ve teknik arşiv hissi." },
+    tone: { tr: "Obsidian taş, kırık mühür, soluk altın çizgiler ve teknik arşiv hissi.", en: "Obsidian stone, broken seal marks, pale gold lines, and a technical archive feel." },
     colors: {
       background: "#07070A",
       surface: "#171720",
@@ -26,7 +26,7 @@ export const themes: Theme[] = [
     symbolId: "neon-blade",
     animationPreset: "slash-reveal",
     texture: "stone-noise",
-    tone: { tr: "Antik savaş artifact’i, neon çatlak enerjisi ve keskin combat hissi." },
+    tone: { tr: "Antik savaş artifact’i, neon çatlak enerjisi ve keskin combat hissi.", en: "Ancient combat artifact, neon crack energy, and a sharp combat feel." },
     colors: {
       background: "#06040A",
       surface: "#120B18",
@@ -46,7 +46,7 @@ export const themes: Theme[] = [
     symbolId: "archive-terminal",
     animationPreset: "archive-shift",
     texture: "grid",
-    tone: { tr: "Local-first medya arşivi, sakin dashboard ve teknik katalog hissi." },
+    tone: { tr: "Local-first medya arşivi, sakin dashboard ve teknik katalog hissi.", en: "Local-first media archive, quiet dashboard, and technical catalog feel." },
     colors: {
       background: "#07111F",
       surface: "#0E1A2B",
@@ -66,7 +66,7 @@ export const themes: Theme[] = [
     symbolId: "relic-forge",
     animationPreset: "forge-spark",
     texture: "forge-embers",
-    tone: { tr: "Obsidian forge, amber enerji, üç artifact yuvası ve veri dönüşüm atölyesi hissi." },
+    tone: { tr: "Obsidian forge, amber enerji, üç artifact yuvası ve veri dönüşüm atölyesi hissi.", en: "Obsidian forge, amber energy, three artifact sockets, and a data transformation workshop feel." },
     colors: {
       background: "#080604",
       surface: "#15100B",
@@ -86,7 +86,7 @@ export const themes: Theme[] = [
     symbolId: "forge-pulse",
     animationPreset: "waveform-pulse",
     texture: "waveform",
-    tone: { tr: "Ses dalgası, örs, beat marker ve ritim-combat pipeline hissi." },
+    tone: { tr: "Ses dalgası, örs, beat marker ve ritim-combat pipeline hissi.", en: "Waveform, anvil, beat markers, and a rhythm-combat pipeline feel." },
     colors: {
       background: "#090604",
       surface: "#17100A",
@@ -106,7 +106,7 @@ export const themes: Theme[] = [
     symbolId: "sealed-voice",
     animationPreset: "seal-pulse",
     texture: "waveform",
-    tone: { tr: "Mühürlü ses kristali, kontrollü local TTS lab’i ve izinli veri hissi." },
+    tone: { tr: "Mühürlü ses kristali, kontrollü local TTS lab’i ve izinli veri hissi.", en: "Sealed voice crystal, controlled local TTS lab, and consent-based data feel." },
     colors: {
       background: "#0D0715",
       surface: "#171020",
@@ -126,7 +126,7 @@ export const themes: Theme[] = [
     symbolId: "guild-lens",
     animationPreset: "detection-scan",
     texture: "scanlines",
-    tone: { tr: "Kamera lensi, detection frame, lonca mührü ve gesture tabanlı etkileşim hissi." },
+    tone: { tr: "Kamera lensi, detection frame, lonca mührü ve gesture tabanlı etkileşim hissi.", en: "Camera lens, detection frame, guild seal, and gesture-based interaction feel." },
     colors: {
       background: "#04100D",
       surface: "#0B1A16",

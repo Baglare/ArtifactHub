@@ -1,3 +1,7 @@
+"use client";
+
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { getLocalizedText } from "@/lib/i18n";
 import type { ArchitectureFlow as ArchitectureFlowType } from "@/types/artifact";
 
 type ArchitectureFlowProps = {
@@ -6,6 +10,8 @@ type ArchitectureFlowProps = {
 };
 
 export function ArchitectureFlow({ architectureFlow, variant = "default" }: ArchitectureFlowProps) {
+  const { locale } = useLocale();
+
   if (!architectureFlow?.steps.length) {
     return null;
   }
@@ -19,7 +25,7 @@ export function ArchitectureFlow({ architectureFlow, variant = "default" }: Arch
           </span>
           <div className="min-w-0">
             <p className={variant === "compact" ? "text-sm" : "text-base"}>{step.label}</p>
-            {step.description ? <p className="mt-1 text-sm text-[var(--theme-text-muted)]">{step.description.tr}</p> : null}
+            {step.description ? <p className="mt-1 text-sm text-[var(--theme-text-muted)]">{getLocalizedText(step.description, locale)}</p> : null}
           </div>
         </li>
       ))}

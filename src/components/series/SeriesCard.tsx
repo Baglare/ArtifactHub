@@ -1,7 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { TechStackList } from "@/components/artifacts/TechStackList";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ThemeSymbol } from "@/components/visual/ThemeSymbol";
+import { getUiText, type UiTextKey } from "@/data/uiText";
+import { getLocalizedText } from "@/lib/i18n";
 import { getThemeCssVariables } from "@/lib/themes";
 import type { Artifact, Series } from "@/types/artifact";
 
@@ -10,17 +16,21 @@ type SeriesCardVariant = "default" | "wide";
 type SeriesCardProps = {
   series: Series;
   artifacts: Artifact[];
-  actionLabel?: string;
+  actionLabel?: ReactNode;
+  actionLabelKey?: UiTextKey;
   variant?: SeriesCardVariant;
 };
 
 export function SeriesCard({
   series,
   artifacts,
-  actionLabel = "Seriyi İncele",
+  actionLabel,
+  actionLabelKey,
   variant = "default"
 }: SeriesCardProps) {
+  const { locale } = useLocale();
   const themeStyle = getThemeCssVariables(series.themeId);
+  const resolvedActionLabel = actionLabel ?? (actionLabelKey ? getUiText(actionLabelKey, locale) : getUiText("viewSeries", locale));
 
   return (
     <article
@@ -33,13 +43,13 @@ export function SeriesCard({
         <div className="flex min-w-0 gap-4">
           <ThemeSymbol themeId={series.themeId} size="lg" />
           <div>
-            <p className="text-sm text-[var(--theme-text-muted)]">Seri</p>
+            <p className="text-sm text-[var(--theme-text-muted)]">{getUiText("series", locale)}</p>
             <h2 className="mt-1 text-2xl font-semibold text-[var(--theme-text-primary)]">{series.title}</h2>
-            <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">{series.summary.tr}</p>
+            <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">{getLocalizedText(series.summary, locale)}</p>
           </div>
         </div>
         <ButtonLink href={`/series/${series.slug}`} variant="secondary">
-          {actionLabel}
+          {resolvedActionLabel}
         </ButtonLink>
       </div>
 
@@ -51,7 +61,7 @@ export function SeriesCard({
 
       {artifacts.length ? (
         <div className="mt-5 border-t border-[color:var(--theme-border)] pt-4">
-          <p className="text-sm font-medium text-[var(--theme-text-primary)]">Bağlı artifactler</p>
+          <p className="text-sm font-medium text-[var(--theme-text-primary)]">{getUiText("connectedArtifacts", locale)}</p>
           <ul className="mt-3 flex flex-wrap gap-3 text-sm text-[var(--theme-text-secondary)]">
             {artifacts.map((artifact) => (
               <li key={artifact.id}>

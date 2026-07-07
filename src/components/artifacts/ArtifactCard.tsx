@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { TechStackList } from "@/components/artifacts/TechStackList";
 import { TransformationFlow } from "@/components/content/TransformationFlow";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { ThemeSymbol } from "@/components/visual/ThemeSymbol";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { getLocalizedText } from "@/lib/i18n";
 import { getSeriesById } from "@/lib/series";
 import { getThemeCssVariables } from "@/lib/themes";
 import type { Artifact } from "@/types/artifact";
@@ -32,6 +36,7 @@ export function ArtifactCard({
   showRepoLink = false,
   showSeriesBadge = false
 }: ArtifactCardProps) {
+  const { locale } = useLocale();
   const themeStyle = getThemeCssVariables(artifact.themeId);
   const series = artifact.seriesId ? getSeriesById(artifact.seriesId) : undefined;
   const techLimit = variant === "compact" ? 3 : 5;
@@ -61,7 +66,7 @@ export function ArtifactCard({
               {artifact.title}
             </Link>
           </h2>
-          <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">{artifact.summary.tr}</p>
+          <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">{getLocalizedText(artifact.summary, locale)}</p>
         </div>
       </div>
 
@@ -76,13 +81,9 @@ export function ArtifactCard({
       ) : null}
 
       <div className="mt-auto flex flex-wrap gap-2 pt-5">
-        <ButtonLink href={`/artifacts/${artifact.slug}`} variant="secondary">
-          Artifact’i İncele
-        </ButtonLink>
+        <ButtonLink href={`/artifacts/${artifact.slug}`} labelKey="viewArtifact" variant="secondary" />
         {showRepoLink && artifact.repoUrl ? (
-          <ButtonLink external href={artifact.repoUrl} variant="ghost">
-            GitHub
-          </ButtonLink>
+          <ButtonLink external href={artifact.repoUrl} labelKey="github" variant="ghost" />
         ) : null}
       </div>
     </article>

@@ -5,12 +5,15 @@ import { QuickFacts } from "@/components/artifacts/QuickFacts";
 import { ArchitectureFlow } from "@/components/content/ArchitectureFlow";
 import { DecisionList } from "@/components/content/DecisionList";
 import { LimitationList } from "@/components/content/LimitationList";
+import { LocalizedTextBlock } from "@/components/content/LocalizedTextBlock";
 import { PlannedExtensionsList } from "@/components/content/PlannedExtensionsList";
 import { TechnicalPanel } from "@/components/content/TechnicalPanel";
 import { TransformationFlow } from "@/components/content/TransformationFlow";
+import { LocalizedTextValue } from "@/components/i18n/LocalizedTextValue";
 import { PageShell } from "@/components/layout/PageShell";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { TechTag } from "@/components/ui/TechTag";
+import { uiText } from "@/data/uiText";
 import { getAllArtifacts, getArtifactBySlug, getArtifactsBySeries } from "@/lib/artifacts";
 import { getSeriesById } from "@/lib/series";
 
@@ -26,29 +29,6 @@ export function generateStaticParams() {
   }));
 }
 
-type TextBlockProps = {
-  text: string;
-};
-
-function TextBlock({ text }: TextBlockProps) {
-  const paragraphs = text
-    .split("\n")
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean);
-
-  if (!paragraphs.length) {
-    return null;
-  }
-
-  return (
-    <div className="space-y-4 text-[var(--theme-text-secondary)]">
-      {paragraphs.map((paragraph) => (
-        <p key={paragraph}>{paragraph}</p>
-      ))}
-    </div>
-  );
-}
-
 export default async function ArtifactDetailPage({ params }: ArtifactDetailPageProps) {
   const { slug } = await params;
   const artifact = getArtifactBySlug(slug);
@@ -61,8 +41,8 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
   const relatedArtifacts = artifact.seriesId
     ? getArtifactsBySeries(artifact.seriesId).filter((seriesArtifact) => seriesArtifact.id !== artifact.id)
     : [];
-  const overviewText = artifact.sections.overview.body.tr;
-  const currentScopeText = artifact.sections.currentScope.body.tr;
+  const overviewText = artifact.sections.overview.body;
+  const currentScopeText = artifact.sections.currentScope.body;
   const ethicalNotes = artifact.sections.ethicalNotes ?? [];
 
   return (
@@ -70,24 +50,24 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
       <ArtifactHero artifact={artifact} />
 
       <div className="grid min-w-0 gap-5">
-        <TechnicalPanel title="Kısa Bilgiler" themeId={artifact.themeId}>
+        <TechnicalPanel titleKey="quickFacts" themeId={artifact.themeId}>
           <QuickFacts artifact={artifact} />
         </TechnicalPanel>
 
-        {overviewText ? (
-          <TechnicalPanel title="Sistem Özeti" themeId={artifact.themeId}>
-            <TextBlock text={overviewText} />
+        {overviewText.tr ? (
+          <TechnicalPanel titleKey="systemOverview" themeId={artifact.themeId}>
+            <LocalizedTextBlock text={overviewText} />
           </TechnicalPanel>
         ) : null}
 
-        {currentScopeText ? (
-          <TechnicalPanel title="Mevcut Kapsam" themeId={artifact.themeId}>
-            <TextBlock text={currentScopeText} />
+        {currentScopeText.tr ? (
+          <TechnicalPanel titleKey="currentScope" themeId={artifact.themeId}>
+            <LocalizedTextBlock text={currentScopeText} />
           </TechnicalPanel>
         ) : null}
 
         {artifact.coreSystems.length ? (
-          <TechnicalPanel title="Ana Sistemler" themeId={artifact.themeId} variant="technical">
+          <TechnicalPanel titleKey="coreSystems" themeId={artifact.themeId} variant="technical">
             <ul className="flex flex-wrap gap-2">
               {artifact.coreSystems.map((system) => (
                 <li key={system}>
@@ -98,7 +78,7 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
           </TechnicalPanel>
         ) : null}
 
-        <TechnicalPanel title="Teknik Etiketler" themeId={artifact.themeId} variant="technical">
+        <TechnicalPanel titleKey="technicalTags" themeId={artifact.themeId} variant="technical">
           <ul className="flex flex-wrap gap-2">
             {artifact.techStack.map((tech) => (
               <li key={tech}>
@@ -109,71 +89,69 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
         </TechnicalPanel>
 
         {artifact.transformation ? (
-          <TechnicalPanel title="Girdi → İşleme → Çıktı" themeId={artifact.themeId} variant="technical">
+          <TechnicalPanel titleKey="transformationFlow" themeId={artifact.themeId} variant="technical">
             <TransformationFlow transformation={artifact.transformation} />
           </TechnicalPanel>
         ) : null}
 
         {artifact.architectureFlow?.steps.length ? (
-          <TechnicalPanel title="Mimari Akış" themeId={artifact.themeId} variant="technical">
+          <TechnicalPanel titleKey="architectureFlow" themeId={artifact.themeId} variant="technical">
             <ArchitectureFlow architectureFlow={artifact.architectureFlow} />
           </TechnicalPanel>
         ) : null}
 
         {artifact.sections.designDecisions.length ? (
-          <TechnicalPanel title="Tasarım Kararları" themeId={artifact.themeId}>
+          <TechnicalPanel titleKey="designDecisions" themeId={artifact.themeId}>
             <DecisionList decisions={artifact.sections.designDecisions} />
           </TechnicalPanel>
         ) : null}
 
         {ethicalNotes.length ? (
-          <TechnicalPanel title="Etik / Kullanım Sınırları" themeId={artifact.themeId} variant="ethical">
+          <TechnicalPanel titleKey="ethicalBoundaries" themeId={artifact.themeId} variant="ethical">
             <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
               {ethicalNotes.map((note) => (
-                <li key={note.tr}>{note.tr}</li>
+                <li key={note.tr}>
+                  <LocalizedTextValue text={note} />
+                </li>
               ))}
             </ul>
             {artifact.riskProfile?.publicClaimBoundary ? (
               <div className="mt-4 min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4 text-sm text-[var(--theme-text-secondary)]">
-                <span className="font-medium text-[var(--theme-text-primary)]">Public claim sınırı: </span>
-                {artifact.riskProfile.publicClaimBoundary.tr}
+                <span className="font-medium text-[var(--theme-text-primary)]">
+                  <LocalizedTextValue text={uiText.publicClaimBoundary} />:{" "}
+                </span>
+                <LocalizedTextValue text={artifact.riskProfile.publicClaimBoundary} />
               </div>
             ) : null}
           </TechnicalPanel>
         ) : null}
 
         {artifact.sections.limitations.length ? (
-          <TechnicalPanel title="Sınırlar" themeId={artifact.themeId} variant="warning">
+          <TechnicalPanel titleKey="limitations" themeId={artifact.themeId} variant="warning">
             <LimitationList limitations={artifact.sections.limitations} />
           </TechnicalPanel>
         ) : null}
 
         {artifact.sections.plannedExtensions.length ? (
-          <TechnicalPanel title="Planlanan Genişletmeler" themeId={artifact.themeId}>
+          <TechnicalPanel titleKey="plannedExtensions" themeId={artifact.themeId}>
             <PlannedExtensionsList plannedExtensions={artifact.sections.plannedExtensions} />
           </TechnicalPanel>
         ) : null}
 
-        <TechnicalPanel title="Bağlantılar" themeId={artifact.themeId}>
+        <TechnicalPanel titleKey="links" themeId={artifact.themeId}>
           <div className="flex flex-wrap gap-3">
             {artifact.repoUrl ? (
-              <ButtonLink external href={artifact.repoUrl}>
-                GitHub Repository
-              </ButtonLink>
+              <ButtonLink external href={artifact.repoUrl} labelKey="githubRepository" />
             ) : null}
             {series ? (
-              <ButtonLink href={`/series/${series.slug}`} variant="secondary">
-                Seri Sayfası
-              </ButtonLink>
+              <ButtonLink href={`/series/${series.slug}`} labelKey="seriesPage" variant="secondary" />
             ) : null}
-            <ButtonLink href="/artifacts" variant="secondary">
-              Artifact Arşivi
-            </ButtonLink>
+            <ButtonLink href="/artifacts" labelKey="artifactArchive" variant="secondary" />
           </div>
         </TechnicalPanel>
 
         {relatedArtifacts.length ? (
-          <TechnicalPanel title="Aynı Serideki Artifactler" themeId={artifact.themeId}>
+          <TechnicalPanel titleKey="sameSeriesArtifacts" themeId={artifact.themeId}>
             <ArtifactGrid artifacts={relatedArtifacts} showTransformation variant="compact" />
           </TechnicalPanel>
         ) : null}

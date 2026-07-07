@@ -1,42 +1,14 @@
 import Link from "next/link";
 import { PlannedExtensionsList } from "@/components/content/PlannedExtensionsList";
 import { TechnicalPanel } from "@/components/content/TechnicalPanel";
+import { LocalizedTextValue } from "@/components/i18n/LocalizedTextValue";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionBlock } from "@/components/layout/SectionBlock";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { StatusBadge } from "@/components/ui/StatusBadge";
+import { roadmapPageText } from "@/data/pageText";
 import { getAllArtifacts } from "@/lib/artifacts";
 import { getAllSeries } from "@/lib/series";
-
-const generalRoadmapItems = [
-  "TR ilk sürümün tamamlanması",
-  "Vercel yayını",
-  "İngilizce içerik desteği için veri modelinin korunması",
-  "Logo / relic core sembolünün iyileştirilmesi",
-  "Görsel tema polish",
-  "Responsive ve erişilebilirlik kontrolü"
-];
-
-const visualMaterialItems = [
-  "TempoBlade combat ekran görüntüleri",
-  "MediaTracker dashboard görselleri",
-  "PulseForge beatmap visualization çıktıları",
-  "VoxForge kalite raporu / local UI görselleri",
-  "VisionForge detection UI görselleri"
-];
-
-const languageExpansionItems = [
-  "İlk sürüm: Türkçe",
-  "Sonraki genişletme: İngilizce artifact metinleri",
-  "Route veya language switch ilk sürüm kapsamında değildir"
-];
-
-const registryExpansionItems = [
-  "Yeni artifact: artifacts registry’ye eklenir",
-  "Yeni seri: series registry’ye eklenir",
-  "Yeni tema: themes registry’ye eklenir",
-  "Sayfalar veri üzerinden genişler"
-];
 
 export default function RoadmapPage() {
   const artifacts = getAllArtifacts().filter((artifact) => artifact.sections.plannedExtensions.length > 0);
@@ -46,20 +18,22 @@ export default function RoadmapPage() {
     <PageShell themeId="relic-core" variant="archive">
       <SectionBlock
         eyebrow="Baglare’s ArtifactHub"
-        title="Yol Haritası"
-        description="ArtifactHub için sıradaki iş; teknik diyagramlar, görsel materyaller, İngilizce içerik desteği, yayın hazırlığı ve proje bazlı genişletmeleri düzenli biçimde eklemek."
+        title={<LocalizedTextValue text={roadmapPageText.heroTitle} />}
+        description={<LocalizedTextValue text={roadmapPageText.heroDescription} />}
       />
 
       <div className="grid min-w-0 gap-5">
-        <TechnicalPanel title="ArtifactHub Geliştirme Yönü" themeId="relic-core" variant="technical">
+        <TechnicalPanel title={<LocalizedTextValue text={roadmapPageText.generalDirectionTitle} />} themeId="relic-core" variant="technical">
           <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
-            {generalRoadmapItems.map((item) => (
-              <li key={item}>{item}</li>
+            {roadmapPageText.generalRoadmapItems.map((item) => (
+              <li key={item.tr}>
+                <LocalizedTextValue text={item} />
+              </li>
             ))}
           </ul>
         </TechnicalPanel>
 
-        <TechnicalPanel title="Artifact Bazlı Genişletmeler" themeId="relic-core">
+        <TechnicalPanel title={<LocalizedTextValue text={roadmapPageText.artifactExtensionsTitle} />} themeId="relic-core">
           <div className="grid gap-4">
             {artifacts.map((artifact) => (
               <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={artifact.id}>
@@ -80,7 +54,7 @@ export default function RoadmapPage() {
           </div>
         </TechnicalPanel>
 
-        <TechnicalPanel title="Seri Bazlı Genişletmeler" themeId="relic-core">
+        <TechnicalPanel title={<LocalizedTextValue text={roadmapPageText.seriesExtensionsTitle} />} themeId="relic-core">
           <div className="grid gap-4">
             {series.map((seriesItem) => (
               <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={seriesItem.id}>
@@ -101,44 +75,48 @@ export default function RoadmapPage() {
         </TechnicalPanel>
 
         <TechnicalPanel
-          title="Görsel Materyal Planı"
-          description="İlk sürüm video veya canlı demo kullanmadan çalışır. Sonraki adımda ekran görüntüleri, teknik diyagramlar ve kısa görsel çıktılar eklenecek."
+          title={<LocalizedTextValue text={roadmapPageText.visualPlanTitle} />}
+          description={<LocalizedTextValue text={roadmapPageText.visualPlanDescription} />}
           themeId="relic-core"
         >
           <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
-            {visualMaterialItems.map((item) => (
-              <li key={item}>{item}</li>
+            {roadmapPageText.visualMaterialItems.map((item) => (
+              <li key={item.tr}>
+                <LocalizedTextValue text={item} />
+              </li>
             ))}
           </ul>
         </TechnicalPanel>
 
         <TechnicalPanel
-          title="Dil Genişletme Planı"
-          description="İlk public sürüm Türkçe hazırlanır. Veri modeli, ileride İngilizce içerik alanları eklenebilecek şekilde korunur."
+          title={<LocalizedTextValue text={roadmapPageText.languagePlanTitle} />}
+          description={<LocalizedTextValue text={roadmapPageText.languagePlanDescription} />}
           themeId="relic-core"
         >
           <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
-            {languageExpansionItems.map((item) => (
-              <li key={item}>{item}</li>
+            {roadmapPageText.languageExpansionItems.map((item) => (
+              <li key={item.tr}>
+                <LocalizedTextValue text={item} />
+              </li>
             ))}
           </ul>
         </TechnicalPanel>
 
         <TechnicalPanel
-          title="Genişleyebilir Arşiv Yapısı"
-          description="Yeni artifact, seri veya tema eklendiğinde sayfalar merkezi registry üzerinden güncellenir."
+          title={<LocalizedTextValue text={roadmapPageText.registryStructureTitle} />}
+          description={<LocalizedTextValue text={roadmapPageText.registryStructureDescription} />}
           themeId="relic-core"
           variant="technical"
         >
           <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
-            {registryExpansionItems.map((item) => (
-              <li key={item}>{item}</li>
+            {roadmapPageText.registryExpansionItems.map((item) => (
+              <li key={item.tr}>
+                <LocalizedTextValue text={item} />
+              </li>
             ))}
           </ul>
           <div className="mt-5">
-            <ButtonLink href="/artifacts" variant="secondary">
-              Artifact Arşivine Git
-            </ButtonLink>
+            <ButtonLink href="/artifacts" labelKey="artifactArchive" variant="secondary" />
           </div>
         </TechnicalPanel>
       </div>

@@ -5,9 +5,9 @@ import type { PageShellVariant } from "@/components/layout/PageShell";
 
 type SectionBlockProps = {
   children?: ReactNode;
-  eyebrow?: string;
-  title?: string;
-  description?: string;
+  eyebrow?: ReactNode;
+  title?: ReactNode;
+  description?: ReactNode;
   themeId?: ThemeId;
   variant?: PageShellVariant;
 };

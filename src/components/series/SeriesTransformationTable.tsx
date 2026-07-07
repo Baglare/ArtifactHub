@@ -1,4 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { getUiText } from "@/data/uiText";
+import { getLocalizedText } from "@/lib/i18n";
 import type { Artifact } from "@/types/artifact";
 
 type SeriesTransformationTableProps = {
@@ -6,6 +11,7 @@ type SeriesTransformationTableProps = {
 };
 
 export function SeriesTransformationTable({ artifacts }: SeriesTransformationTableProps) {
+  const { locale } = useLocale();
   const rows = artifacts.filter((artifact) => artifact.transformation);
 
   if (!rows.length) {
@@ -19,9 +25,9 @@ export function SeriesTransformationTable({ artifacts }: SeriesTransformationTab
           <thead className="bg-[var(--theme-surface-raised)] text-[var(--theme-text-primary)]">
             <tr>
               <th className="border-b border-[color:var(--theme-border)] p-3">Artifact</th>
-              <th className="border-b border-[color:var(--theme-border)] p-3">Girdi</th>
-              <th className="border-b border-[color:var(--theme-border)] p-3">İşleme</th>
-              <th className="border-b border-[color:var(--theme-border)] p-3">Çıktı</th>
+              <th className="border-b border-[color:var(--theme-border)] p-3">{getUiText("input", locale)}</th>
+              <th className="border-b border-[color:var(--theme-border)] p-3">{getUiText("process", locale)}</th>
+              <th className="border-b border-[color:var(--theme-border)] p-3">{getUiText("output", locale)}</th>
             </tr>
           </thead>
           <tbody className="text-[var(--theme-text-secondary)]">
@@ -35,9 +41,9 @@ export function SeriesTransformationTable({ artifacts }: SeriesTransformationTab
                     {artifact.title}
                   </Link>
                 </td>
-                <td className="p-3 align-top">{artifact.transformation?.input.tr}</td>
-                <td className="p-3 align-top">{artifact.transformation?.process.tr}</td>
-                <td className="p-3 align-top">{artifact.transformation?.output.tr}</td>
+                <td className="p-3 align-top">{getLocalizedText(artifact.transformation?.input, locale)}</td>
+                <td className="p-3 align-top">{getLocalizedText(artifact.transformation?.process, locale)}</td>
+                <td className="p-3 align-top">{getLocalizedText(artifact.transformation?.output, locale)}</td>
               </tr>
             ))}
           </tbody>
@@ -55,16 +61,16 @@ export function SeriesTransformationTable({ artifacts }: SeriesTransformationTab
             </Link>
             <dl className="mt-3 space-y-3 text-sm text-[var(--theme-text-secondary)]">
               <div>
-                <dt className="font-medium text-[var(--theme-text-muted)]">Girdi</dt>
-                <dd>{artifact.transformation?.input.tr}</dd>
+                <dt className="font-medium text-[var(--theme-text-muted)]">{getUiText("input", locale)}</dt>
+                <dd>{getLocalizedText(artifact.transformation?.input, locale)}</dd>
               </div>
               <div>
-                <dt className="font-medium text-[var(--theme-text-muted)]">İşleme</dt>
-                <dd>{artifact.transformation?.process.tr}</dd>
+                <dt className="font-medium text-[var(--theme-text-muted)]">{getUiText("process", locale)}</dt>
+                <dd>{getLocalizedText(artifact.transformation?.process, locale)}</dd>
               </div>
               <div>
-                <dt className="font-medium text-[var(--theme-text-muted)]">Çıktı</dt>
-                <dd>{artifact.transformation?.output.tr}</dd>
+                <dt className="font-medium text-[var(--theme-text-muted)]">{getUiText("output", locale)}</dt>
+                <dd>{getLocalizedText(artifact.transformation?.output, locale)}</dd>
               </div>
             </dl>
           </article>

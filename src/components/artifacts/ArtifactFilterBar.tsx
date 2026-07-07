@@ -1,6 +1,9 @@
 "use client";
 
 import { archiveFilters, type ArchiveFilterId } from "@/data/archiveFilters";
+import { getUiText } from "@/data/uiText";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { getLocalizedText } from "@/lib/i18n";
 
 type ArtifactFilterBarProps = {
   activeFilterId: ArchiveFilterId;
@@ -8,8 +11,10 @@ type ArtifactFilterBarProps = {
 };
 
 export function ArtifactFilterBar({ activeFilterId, onFilterChange }: ArtifactFilterBarProps) {
+  const { locale } = useLocale();
+
   return (
-    <div aria-label="Artifact filtreleri" className="flex flex-wrap gap-2" role="group">
+    <div aria-label={getUiText("archiveFilters", locale)} className="flex flex-wrap gap-2" role="group">
       {archiveFilters.map((filter) => {
         const isActive = filter.id === activeFilterId;
 
@@ -25,7 +30,7 @@ export function ArtifactFilterBar({ activeFilterId, onFilterChange }: ArtifactFi
             onClick={() => onFilterChange(filter.id)}
             type="button"
           >
-            {filter.label}
+            {getLocalizedText(filter.label, locale)}
           </button>
         );
       })}

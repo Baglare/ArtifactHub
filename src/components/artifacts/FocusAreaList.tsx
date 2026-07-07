@@ -1,4 +1,8 @@
+"use client";
+
+import { useLocale } from "@/components/i18n/LocaleProvider";
 import { getFocusAreaById } from "@/lib/focusAreas";
+import { getLocalizedText } from "@/lib/i18n";
 import type { FocusArea, FocusAreaId } from "@/types/artifact";
 
 type FocusAreaListProps = {
@@ -7,6 +11,7 @@ type FocusAreaListProps = {
 };
 
 export function FocusAreaList({ focusAreaIds, variant = "default" }: FocusAreaListProps) {
+  const { locale } = useLocale();
   const focusAreas = focusAreaIds
     .map((focusAreaId) => getFocusAreaById(focusAreaId))
     .filter((focusArea): focusArea is FocusArea => Boolean(focusArea));
@@ -24,7 +29,7 @@ export function FocusAreaList({ focusAreaIds, variant = "default" }: FocusAreaLi
           }`}
           key={focusArea.id}
         >
-          {focusArea.label.tr}
+          {getLocalizedText(focusArea.label, locale)}
         </li>
       ))}
     </ul>
