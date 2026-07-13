@@ -565,14 +565,14 @@ export const artifacts: Artifact[] = [
     homeOrder: 3,
     repoUrl: "https://github.com/Baglare/VisionForge",
     summary: {
-      tr: "Kamera girdisini yüz/el algılama, yerel doğrulama ve gesture komutlarıyla etkileşimli büyü arayüzüne dönüştüren computer vision prototipi.",
-      en: "A computer vision interaction prototype that connects camera input, face/hand detection, local recognition, and gesture mapping to a gamified spell UI."
+      tr: "Gerçek zamanlı kamera akışını yerel yüz tanıma, el takibi ve gesture tabanlı büyü komutlarıyla birleştiren local-first PySide6 masaüstü uygulaması.",
+      en: "A local-first PySide6 desktop application that combines a real-time camera pipeline with local face recognition, hand tracking, and gesture-driven spell commands."
     },
     positioning: {
-      tr: "Camera-to-interaction ve gesture tabanlı arayüz tarafını temsil eden Forge artifact’i.",
-      en: "A Forge artifact representing camera-to-interaction systems and gesture-based interfaces."
+      tr: "Gerçek zamanlı camera-to-interaction akışını, yerel tanımayı ve masaüstü uygulama mimarisini tek bir gesture etkileşim sisteminde birleştiren Forge artifact’i.",
+      en: "A Forge artifact that unifies a real-time camera-to-interaction pipeline, local recognition, and desktop application architecture in one gesture interaction system."
     },
-    techStack: ["Python", "OpenCV", "MediaPipe", "LBPH", "Computer Vision", "Gesture UI"],
+    techStack: ["Python", "PySide6", "OpenCV", "MediaPipe Tasks", "OpenCV LBPH", "PyInstaller"],
     focusAreaIds: [
       "computer-vision",
       "gesture-interaction",
@@ -581,124 +581,142 @@ export const artifacts: Artifact[] = [
       "gamified-ui"
     ],
     coreSystems: [
-      "Camera Stream",
-      "Face Detection",
-      "Local Face Recognition",
-      "Guild Seal / QR Verification",
-      "Hand Landmark Detection",
-      "Gesture-to-Spell Mapping",
-      "Spellbook UI",
-      "Trial Mode",
-      "Demo Guide",
-      "System Status Panels",
-      "System Status"
+      "CameraWorker / QThread",
+      "Latest-frame Pipeline",
+      "VisionEngine",
+      "MediaPipe Face / Hand Detection",
+      "OpenCV LBPH Recognition",
+      "Guild Seal Verification",
+      "VerificationSession",
+      "HandStateTracker",
+      "SpellEngine",
+      "TrialEngine",
+      "Native Qt Enrollment",
+      "Runtime Paths / Portable Data"
     ],
     transformation: {
-      input: { tr: "Kamera görüntüsü, yüz/el verisi ve lonca mührü", en: "Camera image, face/hand data, and guild seal" },
-      process: { tr: "Yüz algılama, yerel doğrulama, gesture çözümleme ve yetki kontrolü", en: "Face detection, local recognition, gesture resolution, and authorization checks" },
-      output: { tr: "Büyü komutu, UI aksiyonu ve demo/sistem geri bildirimi", en: "Spell command, UI action, and demo/system feedback" },
+      input: { tr: "Canlı kamera karesi, yerel profil ve isteğe bağlı lonca mührü", en: "Live camera frame, local profile, and optional guild seal" },
+      process: { tr: "Latest-frame işleme, yüz/el algılama, yerel doğrulama ve gesture durum takibi", en: "Latest-frame processing, face/hand detection, local verification, and gesture state tracking" },
+      output: { tr: "Yetkili büyü komutu, Trial ilerlemesi ve PySide6 arayüz geri bildirimi", en: "Authorized spell command, Trial progress, and PySide6 interface feedback" },
       compact: {
-        tr: "Kamera görüntüsü → algılama/doğrulama/gesture mapping → büyü komutu ve UI aksiyonu",
-        en: "Camera image → detection/recognition/gesture mapping → spell command and UI action"
+        tr: "Kamera → latest-frame CV/doğrulama → gesture komutu ve masaüstü geri bildirimi",
+        en: "Camera → latest-frame CV/verification → gesture command and desktop feedback"
       }
     },
     architectureFlow: {
       steps: [
         "Camera Input",
-        "Frame Capture",
-        "Face Detection",
-        "Local Recognition / Guild Seal Verification",
-        "Hand Landmark Detection",
-        "Gesture Classification",
-        "Authorization Rules",
-        "Spell Action / UI Feedback",
-        "Trial Mode / System Output"
+        "CameraWorker / QThread",
+        "Latest Frame Pipeline",
+        "VisionEngine",
+        "Face / Hand Detection",
+        "Local Recognition / Guild Seal",
+        "VerificationSession",
+        "HandStateTracker",
+        "SpellEngine / TrialEngine",
+        "PySide6 Interface",
+        "Local Data / Portable Build"
       ].map(step)
     },
     sections: {
       overview: {
         body: {
-          tr: "VisionForge, canlı kamera girdisini algılama ve etkileşim katmanlarından geçirerek oyunlaştırılmış bir büyü arayüzüne dönüştürür. Sistem; yüz varlığı, yerel yüz tanıma, QR/lonca mührü doğrulaması, el landmark verisi ve gesture mapping akışlarını bir araya getirir.\n\nArtifactHub içinde VisionForge’ün rolü, computer vision çıktılarının yalnızca tespit sonucu olarak kalmayıp kullanıcı arayüzü ve etkileşim sistemine nasıl bağlanabileceğini göstermektir.",
-          en: "VisionForge passes live camera input through detection and interaction layers, then maps it into a gamified spell interface. The system combines face presence, local face recognition, QR/guild seal verification, hand landmark data, and gesture mapping.\n\nInside ArtifactHub, VisionForge shows how computer vision output can be connected to interface and interaction systems instead of remaining only a detection result."
+          tr: "VisionForge, canlı kamera görüntüsünü ayrı bir worker thread’inde işleyip computer vision kararlarını modern bir PySide6 masaüstü arayüzüne taşıyan local-first bir etkileşim uygulamasıdır. VisionEngine; MediaPipe yüz/el algılama, OpenCV LBPH yerel yüz tanıma, QR tabanlı lonca mührü ve gesture durumunu tek karelik sonuçlarda birleştirir.\n\nCanlı Görüş, Büyü Kitabı, Trial, Kayıt, Ayarlar, Sistem Durumu ve Debug sayfaları; kamera pipeline’ını, yetki durumunu ve Donma, Ateş, Kalkan komutlarını aynı masaüstü uygulama mimarisinde görünür kılar.",
+          en: "VisionForge is a local-first interaction application that processes live camera input on a separate worker thread and carries computer-vision decisions into a modern PySide6 desktop interface. VisionEngine combines MediaPipe face/hand detection, local OpenCV LBPH face recognition, QR-based guild seals, and gesture state in per-frame results.\n\nLive View, Spellbook, Trial, Enrollment, Settings, System Status, and Debug pages expose the camera pipeline, authorization state, and Freeze, Fire, and Shield commands within one desktop application architecture."
         }
       },
       currentScope: {
         body: {
-          tr: "Mevcut kapsamda canlı kamera akışı, yüz algılama, yerel yüz tanıma, QR/lonca mührü doğrulama, el landmark algılama, büyü komutları, yetkiye göre kilitli/açık komut mantığı, Trial Mode, demo rehberi ve sistem durumu panelleri bulunur.\n\nProje profesyonel güvenlik sistemi olarak sunulmaz. Ana kapsam, local-first çalışan ve portfolyoda gösterilebilir bir computer vision interaction prototipi oluşturmaktır.",
-          en: "The current scope includes live camera stream, face detection, local face recognition, QR/guild seal verification, hand landmark detection, spell commands, locked/unlocked command logic based on authorization, Trial Mode, demo guide, and system status panels.\n\nThe project is not presented as a professional security system. Its main scope is a local-first computer vision interaction prototype that can be shown in a portfolio context."
+          tr: "CameraWorker kamerayı ve VisionEngine’i UI thread’i dışında çalıştırır; kilit korumalı latest-frame alanı, yavaşlayan arayüzün eski kare kuyruğu biriktirmesini engeller. VerificationSession tam doğrulanmış profili yüz kaybından sonra en fazla 10 saniye korur; HandStateTracker ise yumuşatılmış hareket, kısa takip kaybı ve kalite ölçümlerini SpellEngine ile TrialEngine’e taşır.\n\nNative Qt kayıt akışı canlı kamera veya fotoğraf klasöründen örnek alır, yerel LBPH modelini eğitir ve kullanıcıya özel lonca mührünü üretir. PyInstaller onedir Windows build’i statik bundle kaynaklarını, EXE yanında tutulan yazılabilir profil/kamera/doğrulama verilerinden ayırır; bu kullanıcı verileri Git dışında kalır.",
+          en: "CameraWorker runs the camera and VisionEngine outside the UI thread; a lock-protected latest-frame slot prevents a slowing interface from accumulating stale frames. VerificationSession retains a fully verified profile for up to 10 seconds after face loss, while HandStateTracker feeds smoothed motion, short tracking-loss tolerance, and quality measurements into SpellEngine and TrialEngine.\n\nThe native Qt enrollment flow collects samples from a live camera or photo directory, trains the local LBPH model, and creates a user-specific guild seal. The PyInstaller onedir Windows build separates static bundled resources from writable profile, camera, and verification data kept beside the executable; this user data remains outside Git."
         }
       },
       designDecisions: [
         {
-          title: { tr: "CV çıktısını UI event sistemine bağlamak", en: "Connect CV output to a UI event system" },
+          title: { tr: "VisionEngine’i UI’dan ayırmak", en: "Separate VisionEngine from the UI" },
           description: {
-            tr: "Computer vision çıktıları doğrudan UI efekti olarak değil, event ve interaction sisteminin girdisi olarak ele alınır.",
-            en: "Computer vision output is treated as input for event and interaction systems, not as a direct visual effect."
+            tr: "Algılama ve etkileşim kararlarını Qt widget’larından ayırarak kare işleme çekirdeğini tek yerde tutar.",
+            en: "Keeps detection and interaction decisions in one frame-processing core, separate from Qt widgets."
           }
         },
         {
-          title: { tr: "Authentication temasını güvenlik iddiasına dönüştürmemek", en: "Keep the authentication theme separate from security claims" },
+          title: { tr: "Kamerayı worker thread’inde çalıştırmak", en: "Run the camera on a worker thread" },
           description: {
-            tr: "Yerel yüz tanıma ve lonca mührü teması, projeye authentication hissi verir; ancak bu profesyonel güvenlik iddiasına dönüştürülmez.",
-            en: "Local face recognition and the guild seal theme give the project an authentication feel, but this is not turned into a professional security claim."
+            tr: "OpenCV, MediaPipe, LBPH ve QR işlemlerini ana Qt thread’inden çıkararak arayüz yanıtını korur.",
+            en: "Keeps the interface responsive by moving OpenCV, MediaPipe, LBPH, and QR work off the main Qt thread."
           }
         },
         {
-          title: { tr: "Gesture-to-spell mapping kullanmak", en: "Use gesture-to-spell mapping" },
+          title: { tr: "Yalnızca en güncel kareyi taşımak", en: "Carry only the latest frame" },
           description: {
-            tr: "Gesture-to-spell mapping, el landmark verisini daha anlaşılır ve gösterilebilir bir etkileşim metaforuna bağlar.",
-            en: "Gesture-to-spell mapping connects hand landmark data to a clearer and more presentable interaction metaphor."
+            tr: "Tek-slot latest-frame aktarımı, UI yavaşladığında eski karelerin gecikme kuyruğuna dönüşmesini önler.",
+            en: "A single-slot latest-frame handoff prevents stale frames from becoming a latency queue when the UI slows down."
           }
         },
         {
-          title: { tr: "Trial Mode ve demo rehberi eklemek", en: "Add Trial Mode and a demo guide" },
+          title: { tr: "Kısa doğrulama toleransı kullanmak", en: "Use a short verification tolerance" },
           description: {
-            tr: "Trial Mode ve demo rehberi, projeyi portfolyo gösterimine uygun hale getirir; kullanıcı neye bakacağını uygulama içinde daha hızlı anlar.",
-            en: "Trial Mode and the demo guide make the project easier to present in a portfolio and help users understand what to inspect."
+            tr: "10 saniyelik grace period, kısa yüz kayıplarında yetkiyi korur; farklı kullanıcı veya süre sonu oturumu sıfırlar.",
+            en: "A 10-second grace period preserves authorization through brief face loss; a different user or timeout clears it."
           }
         },
         {
-          title: { tr: "Sistem durumu panelleriyle algılama katmanını görünür yapmak", en: "Make detection layers visible through system status panels" },
+          title: { tr: "Yerel doğrulamayı sınırlandırmak", en: "Bound local verification claims" },
           description: {
-            tr: "Sistem durumu ve tanılama panelleri, prototipin yalnızca görsel efekt olmadığını; çalışan algılama katmanlarına dayandığını gösterir.",
-            en: "System status and diagnostic panels show that the prototype is not just a visual effect; it depends on working detection layers."
+            tr: "LBPH ve lonca mührünü etkileşim yetkisi için kullanır; bunları profesyonel güvenlik veya biyometrik kimlik sistemi olarak sunmaz.",
+            en: "Uses LBPH and guild seals for interaction authorization without presenting them as professional security or biometric identity systems."
+          }
+        },
+        {
+          title: { tr: "Gesture durumunu iki motora bağlamak", en: "Connect gesture state to two engines" },
+          description: {
+            tr: "HandStateTracker çıktısını SpellEngine ve TrialEngine’e vererek algılamayı komut ve görev ilerlemesine dönüştürür.",
+            en: "Feeds HandStateTracker output into SpellEngine and TrialEngine to turn detection into commands and task progress."
+          }
+        },
+        {
+          title: { tr: "Source ve frozen yollarını ayırmak", en: "Separate source and frozen paths" },
+          description: {
+            tr: "Bundle kaynaklarını yazılabilir portable veriden ayırarak onedir dağıtımında kullanıcı verisini EXE yanında tutar.",
+            en: "Separates bundled resources from writable portable data so user data stays beside the executable in onedir distributions."
           }
         }
       ],
       limitations: [
         { tr: "Algılama doğruluğu ışık, kamera kalitesi, açı ve ortam koşullarına bağlıdır.", en: "Detection accuracy depends on lighting, camera quality, angle, and environment conditions." },
-        { tr: "LBPH tabanlı yerel yüz tanıma modern production-grade güvenlik sistemleriyle eşdeğer değildir.", en: "LBPH-based local face recognition is not equivalent to modern production-grade security systems." },
-        { tr: "QR/lonca mührü doğrulama prototip ve tema katmanıdır.", en: "QR/guild seal verification is a prototype and theme layer." },
-        { tr: "Proje güvenlik ürünü değil, local-first etkileşimli CV prototipidir.", en: "The project is not a security product; it is a local-first interactive CV prototype." },
+        { tr: "LBPH tabanlı yerel yüz tanıma, production-grade biyometrik doğrulama değildir.", en: "Local LBPH face recognition is not production-grade biometric verification." },
+        { tr: "QR/lonca mührü yerel bir prototip doğrulamasıdır; güvenli kimlik belgesi değildir.", en: "QR/guild-seal verification is a local prototype mechanism, not a secure identity credential." },
+        { tr: "Gesture eşikleri farklı el, kamera ve ışık koşullarında kalibrasyon gerektirebilir.", en: "Gesture thresholds may require calibration across different hands, cameras, and lighting conditions." },
         {
-          tr: "Kamera erişimi ArtifactHub içinde canlı demo olarak kullanılmayacak; proje kendi repo ve görselleriyle sunulacak.",
-          en: "Camera access will not be used as a live demo inside ArtifactHub; the project will be presented through its repo and visuals."
+          tr: "ArtifactHub sayfası canlı kameraya erişmez; uygulama yalnızca kaynak repo ve uygun, hassas veri içermeyen görsellerle temsil edilir.",
+          en: "The ArtifactHub page does not access a live camera; the application is represented only through its source repository and suitable visuals without sensitive data."
         }
       ],
       plannedExtensions: [
-        { tr: "Detection UI görsellerini ArtifactHub’a ekleme", en: "Add detection UI visuals to ArtifactHub" },
-        { tr: "Camera-to-spell akışını diyagramlaştırma", en: "Diagram the camera-to-spell flow" },
-        { tr: "Trial Mode ekranını teknik dosyada öne çıkarma", en: "Feature the Trial Mode screen in the technical entry" },
-        { tr: "Sistem durumu panel çıktılarından örnek görsel hazırlama", en: "Prepare example visuals from system status panel output" },
-        { tr: "Gesture mapping sistemini daha açık belgelemek", en: "Document the gesture mapping system more clearly" }
+        { tr: "Embedding tabanlı, daha dayanıklı yüz tanımaya geçmek.", en: "Move to more robust embedding-based face recognition." },
+        { tr: "Kullanıcı ve kamera koşullarına göre gesture kalibrasyonu eklemek.", en: "Add gesture calibration for users and camera conditions." },
+        { tr: "Daha gelişmiş sıralı hareket zincirleri geliştirmek.", en: "Develop more advanced chained motion sequences." },
+        { tr: "Windows installer ve kod imzalama akışı hazırlamak.", en: "Prepare a Windows installer and code-signing flow." },
+        { tr: "GUI, pipeline ve performans için otomatik test kapsamını genişletmek.", en: "Expand automated coverage for the GUI, pipeline, and performance." },
+        { tr: "Hassas veri içermeyen demo ve release materyalleri üretmek.", en: "Produce demo and release materials without sensitive data." }
       ],
       ethicalNotes: [
         { tr: "VisionForge profesyonel güvenlik sistemi veya biyometrik doğrulama ürünü olarak sunulmaz.", en: "VisionForge is not presented as a professional security system or biometric verification product." },
-        { tr: "Yerel yüz tanıma ve doğrulama katmanları, portfolyo prototipi bağlamında değerlendirilir.", en: "Local face recognition and verification layers are evaluated in the context of a portfolio prototype." },
-        { tr: "Biyometrik iddia şişirilmeyecek; proje computer vision interaction sistemi olarak konumlandırılacak.", en: "Biometric claims are not inflated; the project is positioned as a computer vision interaction system." },
-        { tr: "Yüz ve kamera verisiyle ilgili kullanım dili kontrollü tutulacak.", en: "Language around face and camera data stays controlled." }
+        { tr: "Yüz görüntüleri, kamera kareleri, profil kayıtları ve doğrulama verileri cihaz üzerinde işlenir; bulut yüz servisi kullanılmaz.", en: "Face images, camera frames, profile records, and verification data are processed on-device; no cloud face service is used." },
+        { tr: "Yüz galerisi, yerel profiller, LBPH modeli ve kullanıcıya özel lonca mühürleri Git dışında tutulur.", en: "The face gallery, local profiles, LBPH model, and user-specific guild seals remain outside Git." },
+        { tr: "Paylaşılan demo ve ekran görüntüleri gerçek yüz, gerçek QR, kullanıcı yolu veya hassas profil bilgisi içermemelidir.", en: "Shared demos and screenshots must not expose real faces, real QR codes, user paths, or sensitive profile information." }
       ],
       visualNotes: {
-        tr: "Obsidian zemin, yeşil/amber/mistik mavi vurgu, lens, detection frame, lonca mührü ve el landmark çizgileri.",
-        en: "Obsidian ground, green/amber/mystic blue accents, lens, detection frame, guild seal, and hand landmark lines."
+        tr: "Gece laciverti zemin, koyu indigo kartlar, kontrollü elektrik moru ve lavanta vurguları; lens halkası, detection frame ve lonca mührünü modern arcane-tech çizgide birleştirir. Amber yalnız uyarı, serin camgöbeği ise etik/bilgi ayrımı için kullanılır.",
+        en: "Night-navy ground, dark-indigo cards, and controlled electric-purple and lavender accents combine lens rings, detection frames, and guild seals in a modern arcane-tech direction. Amber is reserved for warnings, while cool cyan distinguishes ethical and informational context."
       }
     },
     riskProfile: {
       requiresEthicalNotes: true,
       dataSensitivity: "biometric-adjacent",
       publicClaimBoundary: {
-        tr: "Profesyonel güvenlik veya biyometrik doğrulama ürünü değil; local-first etkileşimli computer vision prototipi.",
-        en: "Not a professional security or biometric verification product; a local-first interactive computer vision prototype."
+        tr: "Profesyonel güvenlik veya production-grade biyometrik doğrulama ürünü değildir; yüz, kamera, profil ve doğrulama verilerini cihaz üzerinde işleyen local-first etkileşimli computer vision masaüstü uygulamasıdır.",
+        en: "Not a professional security or production-grade biometric verification product; it is a local-first interactive computer-vision desktop application that processes face, camera, profile, and verification data on-device."
       }
     }
   }

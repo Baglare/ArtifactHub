@@ -126,18 +126,18 @@ export const themes: Theme[] = [
     symbolId: "guild-lens",
     animationPreset: "detection-scan",
     texture: "scanlines",
-    tone: { tr: "Kamera lensi, detection frame, lonca mührü ve gesture tabanlı etkileşim hissi.", en: "Camera lens, detection frame, guild seal, and gesture-based interaction feel." },
+    tone: { tr: "Gece laciverti lens camı, koyu indigo yüzeyler, kontrollü elektrik moru ve lavanta ile modern arcane-tech algılama hissi.", en: "Night-navy lens glass, dark-indigo surfaces, controlled electric purple, and lavender create a modern arcane-tech detection feel." },
     colors: {
-      background: "#04100D",
-      surface: "#0B1A16",
-      surfaceRaised: "#10251F",
-      border: "#1E3A33",
-      textPrimary: "#E9FFF8",
-      textSecondary: "#9DBBB2",
-      textMuted: "#6B837B",
-      accentPrimary: "#34D399",
-      accentSecondary: "#F59E0B",
-      accentTertiary: "#60A5FA"
+      background: "#05051A",
+      surface: "#0B0A2A",
+      surfaceRaised: "#15113B",
+      border: "#493781",
+      textPrimary: "#F5EEFF",
+      textSecondary: "#C2B7D8",
+      textMuted: "#8D82A8",
+      accentPrimary: "#9568FF",
+      accentSecondary: "#E8A84D",
+      accentTertiary: "#58C7D9"
     }
   }
 ];
