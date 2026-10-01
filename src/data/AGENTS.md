@@ -1,5 +1,5 @@
 <!-- knowledge-compiler-adapter-v1
-{"adapter_contract":"codex-agents-v1","generated_body_sha256":"b09e9c26de853bbedf5f6019d5b85ef5c849f5a979edf0de83469414e1716fa2","generator":"knowledge-compiler","generator_version":"adapter-compiler-v2","project_id":"artifacthub","routing_sha256":"05bd13dfd65ed91ba83bb03dd38e8978d07566bf298ac9026c9f0da0e60a2d23","source_structured_contract_sha256":"47285f946312ac30e952f68bf413e9018d0b78241df4fee220e85ad5320f540a","target":"codex"}
+{"adapter_contract":"codex-agents-v1","generated_body_sha256":"b09e9c26de853bbedf5f6019d5b85ef5c849f5a979edf0de83469414e1716fa2","generator":"knowledge-compiler","generator_version":"adapter-compiler-v3","project_id":"artifacthub","routing_sha256":"05bd13dfd65ed91ba83bb03dd38e8978d07566bf298ac9026c9f0da0e60a2d23","source_structured_contract_sha256":"47285f946312ac30e952f68bf413e9018d0b78241df4fee220e85ad5320f540a","target":"codex"}
 -->
 
 # Generated Codex Instructions: ArtifactHub: artifact-registry
