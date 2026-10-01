@@ -1,0 +1,1 @@
+{"agents":true,"canonical_owners":["20 Projeler/ArtifactHub"],"enabled":true,"excluded_prefixes":["30 Yazarlık","80 AI'lere Notlar"],"fallback":"exception","project_id":"artifacthub","project_map":true,"schema":"knowledge-compiler-autopilot-v1","source_commit":false,"source_push":false,"vault_commit":true,"vault_push":true,"vault_sync":true}
