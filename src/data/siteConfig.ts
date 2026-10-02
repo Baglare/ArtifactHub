@@ -3,8 +3,8 @@ import type { SiteConfig } from "@/types/artifact";
 export const siteConfig: SiteConfig = {
   title: "ArtifactHub",
   description: {
-    tr: "Yazılım sistemleri, oyun prototipleri ve deneysel araçlar için teknik artifact arşivi.",
-    en: "A technical artifact archive for software systems, experimental tools, and game prototypes."
+    tr: "Geliştirici araçları, AI altyapısı, local-first ürünler, yerelleştirme mühendisliği ve deneysel oyun/audio/vision sistemleri için teknik arşiv.",
+    en: "A technical archive of developer tooling, AI infrastructure, local-first products, localization engineering, and experimental game/audio/vision systems."
   },
   defaultLocale: "tr",
   supportedLocales: ["tr", "en"],
@@ -21,12 +21,12 @@ export const siteConfig: SiteConfig = {
   hero: {
     title: "ArtifactHub",
     subtitle: {
-      tr: "Yazılım sistemleri, oyun prototipleri ve deneysel araçlar için teknik artifact arşivi.",
-      en: "A digital artifact archive for software systems, experimental tools, and game prototypes."
+      tr: "Geliştirici araçları, AI altyapısı, local-first ürünler, yerelleştirme mühendisliği ve deneysel oyun/audio/vision sistemleri için teknik arşiv.",
+      en: "A technical archive of developer tooling, AI infrastructure, local-first products, localization engineering, and experimental game/audio/vision systems."
     },
     description: {
-      tr: "ArtifactHub; oyun mekaniği, local-first web uygulaması, ses işleme, TTS ve bilgisayarlı görü prototiplerinden oluşan bağımsız bir arşivdir. Her artifact; ne yaptığı, nasıl çalıştığı, nerede sınırlı kaldığı ve sonraki yönüyle belgelenir.",
-      en: "ArtifactHub collects Baglare’s game systems, local-first web tools, audio pipelines, TTS experiments, and computer vision prototypes. Each artifact documents what it does, how it works, where it is limited, and where it may go next."
+      tr: "Baglare’nin yazılım projeleri: ne yaptıkları, nasıl çalıştıkları ve hangi kapsamda doğrulandıkları.",
+      en: "Baglare’s software projects: what they do, how they work, and the scope of their validation."
     },
     primaryCta: {
       label: { tr: "Artifactleri İncele", en: "Explore Artifacts" },
@@ -36,13 +36,19 @@ export const siteConfig: SiteConfig = {
       label: { tr: "Forge Serisini Gör", en: "View Forge Series" },
       href: "/series/forge"
     },
-    focusTags: ["Unity Systems", "Local-first Apps", "Audio Pipelines", "Voice Tools", "Computer Vision"]
+    focusTags: [
+      "Developer Tooling",
+      "AI Infrastructure",
+      "Local-first Products",
+      "Localization Engineering",
+      "Game / Audio / Vision"
+    ]
   },
   profile: {
     displayName: "Baglare",
     shortBio: {
-      tr: "Baglare, oyun sistemleri, local-first uygulamalar, ses işleme, TTS ve bilgisayarlı görü prototipleri geliştirir. ArtifactHub bu projeleri çıktıdan ibaret görmez; kapsamı, mimari kararları ve bilinçli sınırları da kayda alır.",
-      en: "Baglare uses ArtifactHub as a technical archive for game systems, local-first applications, audio processing, TTS, and computer vision prototypes. The archive focuses on system scope, architecture, design decisions, boundaries, and planned extensions."
+      tr: "Baglare; geliştirici araçları, AI sistemleri, local-first ürünler ve yerelleştirme mühendisliği üzerinde çalışır. Portföy, masaüstü uygulamaları ile oyun, ses ve bilgisayarlı görü sistemlerini de kapsar.",
+      en: "Baglare works on developer tooling, AI systems, local-first products, and localization engineering. The portfolio also includes desktop applications and game, audio, and computer-vision systems."
     }
   }
 };

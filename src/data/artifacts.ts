@@ -10,9 +10,9 @@ export const artifacts: Artifact[] = [
     statusId: "systems-prototype",
     categoryId: "game-systems",
     themeId: "neon-blade-relic",
-    featuredLevel: "primary",
-    order: 1,
-    homeOrder: 4,
+    featuredLevel: "normal",
+    order: 6,
+    homeOrder: 6,
     repoUrl: "https://github.com/Baglare/TempoBlade",
     summary: {
       tr: "Tempo tabanlı combat, parry/deflect ve data-driven progression sistemleri üzerine kurulu Unity gameplay prototipi.",
@@ -148,42 +148,49 @@ export const artifacts: Artifact[] = [
     id: "media-tracker",
     slug: "media-tracker",
     title: "MediaTracker",
-    statusId: "product-prototype",
+    statusId: "release-candidate",
     categoryId: "web-application",
     themeId: "archive-terminal",
     featuredLevel: "primary",
-    order: 2,
-    homeOrder: 5,
+    order: 3,
+    homeOrder: 3,
     repoUrl: "https://github.com/Baglare/MediaTracker",
     summary: {
-      tr: "Film, dizi, anime, manga ve kitap takibini local-first veri yapısıyla yöneten kişisel medya arşiv sistemi.",
-      en: "A personal local-first media archive for tracking films, series, anime, manga, novels, and books."
+      tr: "Local-first medya takibinden full-stack ürüne: kontrollü cloud sync, sosyal profil, deterministic öneri ve kapılı research; staging release hazırlığı mevcut.",
+      en: "A local-first media tracker evolved into a full-stack product with controlled cloud sync, social profiles, deterministic recommendations, and gated research; staging release preparation is complete."
     },
     positioning: {
-      tr: "Local-first product design ve medya veri yönetimi tarafını temsil eden web application artifact’i.",
-      en: "A web application artifact representing local-first product design and media data management."
+      tr: "Portföyün ana ürün mühendisliği çalışması; veri bütünlüğü, provider sınırları ve release hardening ile büyüyen local-first uygulama.",
+      en: "Principal product engineering work: a local-first application developed through data integrity, provider boundaries, and release hardening."
     },
-    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "localStorage", "Supabase", "FastAPI"],
+    techStack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Supabase"
+    ],
     focusAreaIds: [
       "local-first-apps",
       "product-ui",
       "api-integrations",
       "data-persistence",
-      "recommendation-tooling"
+      "recommendation-tooling",
+      "provider-architecture",
+      "transaction-safety",
+      "release-engineering"
     ],
     coreSystems: [
-      "Local Media Library",
-      "Dashboard",
-      "Global Search",
-      "Media Detail / Modal Flow",
-      "Progress Tracking",
-      "Watchlist / Favorites / Ratings",
-      "JSON Import / Export",
-      "External API Search",
-      "Supabase-ready Auth / Cloud Flow",
-      "AI Advisor",
-      "Embedding Service",
-      "Recommendation Tooling"
+      "Owner-scoped Local Library",
+      "Portable Backup / Recovery",
+      "Cloud Sync Queue / Revision / Idempotency",
+      "Release Calendar / Goals",
+      "Recommendation V2 / Deterministic Ranking",
+      "Gated Grounded Research / Citations",
+      "Public / Protected Social Profiles",
+      "Server Authorization / RLS / RPC",
+      "Personalization",
+      "Staging / Preview Release Gates"
     ],
     transformation: {
       input: { tr: "Kullanıcı medya kayıtları, API arama sonuçları ve yerel arşiv verisi", en: "User media records, API search results, and local archive data" },
@@ -196,82 +203,105 @@ export const artifacts: Artifact[] = [
     },
     architectureFlow: {
       steps: [
-        "User Interface",
-        "Media Actions / UI State",
-        "Local Storage Layer",
-        "Media Library Logic",
-        "External API Integrations",
-        "Optional Supabase Layer",
-        "Recommendation / Embedding Tools",
-        "Dashboard / Library Output"
-      ].map(step)
+        {
+          label: "Owner-scoped Local Library"
+        },
+        {
+          label: "Dashboard / Calendar / Goals"
+        },
+        {
+          label: "Normalized Source Providers"
+        },
+        {
+          label: "Deterministic Recommendation V2"
+        },
+        {
+          label: "Gated Provider Evidence / Research"
+        },
+        {
+          label: "Optional Supabase Sync / Social"
+        },
+        {
+          label: "Server Authorization / RLS / RPC"
+        }
+      ]
     },
     sections: {
       overview: {
         body: {
-          tr: "MediaTracker, kişisel medya tüketimini tek bir local-first arşiv içinde düzenlemek için tasarlanmış ürün prototipidir. Varsayılan veri akışı kullanıcının tarayıcısında yerel olarak çalışır; medya kayıtları, ilerleme durumu, puanlar, listeler ve filtreleme davranışları bu yerel veri modeli üzerine kurulur.\n\nArtifactHub içinde MediaTracker’ın rolü, ürün tipi bir web uygulamasında veri sürekliliği, medya API entegrasyonu, local-first kararları ve genişletilebilir recommendation altyapısını temsil etmektir.",
-          en: "MediaTracker is a product prototype for organizing personal media consumption in one local-first archive. The default data flow runs locally in the user’s browser; media records, progress state, ratings, lists, and filtering behavior are built on that local data model.\n\nInside ArtifactHub, MediaTracker represents data continuity, media API integration, local-first decisions, and extensible recommendation tooling in a product-style web application."
+          tr: "MediaTracker, medya takibi ve keşfini veri bütünlüğü, ürün akışları ve opsiyonel cloud/sosyal katmanla birleştiren full-stack local-first uygulamadır. Tarayıcıdaki owner-scoped veri ana kaynaktır; Supabase yapılandırılmadığında yerel kullanım sürer. UI/state orkestrasyonu domain ve kalıcı tercih sorumluluklarına ayrılmıştır.",
+          en: "MediaTracker combines media tracking and discovery with data integrity, product workflows, and optional cloud/social layers in a full-stack local-first application. Owner-scoped browser data remains the primary source; local use continues without Supabase. UI/state orchestration separates domain behavior from persistent preferences."
         }
       },
       currentScope: {
         body: {
-          tr: "Mevcut sürümde kullanıcı medya kayıtlarını yerel olarak yönetebilir, farklı medya türleri üzerinde arama ve filtreleme yapabilir, izleme/okuma durumlarını takip edebilir, favori/watchlist/puan/not gibi kişisel arşiv verileri oluşturabilir.\n\nAPI entegrasyonları, medya arama ve zenginleştirme tarafını destekler. JSON import/export yapısı, yerel verinin taşınabilirliğini sağlar. Supabase katmanı ana akış değil; auth, cloud aktarım ve senkron hazırlıkları için opsiyonel genişletme yönüdür.",
-          en: "The current version lets the user manage media records locally, search and filter across different media types, track watching/reading states, and create personal archive data such as favorites, watchlists, ratings, and notes.\n\nAPI integrations support media search and enrichment. JSON import/export keeps local data portable. The Supabase layer is not the main flow; it is an optional extension path for auth, cloud transfer, and sync preparation."
+          tr: "Dashboard, kütüphane, ilerleme, portable backup/recovery, Release Calendar, goals ve kişiselleştirme uygulanmıştır. Opsiyonel cloud; auth, upload/download/merge ve revision/idempotency/conflict kontrollü owner-scoped sync queue kullanır. Public/protected/personal profiller, takip/engel, feed, öneriler ve bildirim temelleri bulunur.\n\nRecommendation V2 provider-neutral structured evidence ile deterministic eligibility/ranking yapar; LLM final sıralama yapmaz. Grounded Research kaynak/citation/evidence işleme sağlar fakat explicit gate’e bağlıdır. Server authorization, same-origin kontrolleri, RPC/RLS ve profile projection sınırları staging kanıtıyla belgelenmiştir. D8-4A.5E code/Staging/Preview hazırlığı tamamlanmış; D8-4B Production cutover başlamamıştır.",
+          en: "Implemented scope includes dashboard, library, progress, portable backup/recovery, Release Calendar, goals, and personalization. Optional cloud uses auth, upload/download/merge, and an owner-scoped sync queue with revision/idempotency/conflict handling. Public/protected/personal profiles, follow/block, feed, recommendations, and notification foundations exist.\n\nRecommendation V2 uses provider-neutral structured evidence and deterministic eligibility/ranking; the LLM does not perform final ranking. Grounded Research handles sources/citations/evidence behind an explicit gate. Server authorization, same-origin checks, RPC/RLS, and profile projection boundaries have documented staging evidence. D8-4A.5E code/Staging/Preview preparation is complete; D8-4B Production cutover has not started."
         }
       },
       designDecisions: [
         {
-          title: { tr: "Local-first yaklaşımı ana akış yapmak", en: "Make local-first behavior the main flow" },
+          title: {
+            tr: "Yerel veriyi ana kaynak tutmak",
+            en: "Keep local data primary"
+          },
           description: {
-            tr: "Local-first yaklaşım, uygulamanın temel kullanımını hesap veya sunucu bağımlılığına bağlamaz. Kullanıcı arşivi tarayıcıda yaşayabilir ve uygulama offline-first karakterini korur.",
-            en: "The local-first approach keeps the core use case independent from accounts or servers. The user archive can live in the browser and the app keeps an offline-first character."
+            tr: "Cloud mutation readiness fail-closed durur; yerel kullanım devam eder. Cloud download/merge kullanıcı aksiyonudur.",
+            en: "Cloud mutation readiness fails closed while local use continues. Cloud download/merge remains a user action."
           }
         },
         {
-          title: { tr: "Supabase’i ana veri kaynağı değil genişletme katmanı yapmak", en: "Use Supabase as an extension layer, not the primary data source" },
+          title: {
+            tr: "Öneri kararını deterministic tutmak",
+            en: "Keep recommendation decisions deterministic"
+          },
           description: {
-            tr: "Supabase katmanı, ilk veri kaynağı olarak değil; cloud aktarım, hesap ve senkronizasyon genişletmesi olarak konumlandırılır. Bu, ürünün yerel kullanım değerini korurken büyüme alanı bırakır.",
-            en: "The Supabase layer is positioned for cloud transfer, accounts, and synchronization, not as the first data source. This preserves local value while leaving room to grow."
+            tr: "Provider evidence aday bilgisi sağlar; eligibility ve final ranking sözleşmeyle belirlenir.",
+            en: "Provider evidence supplies candidate information; eligibility and final ranking follow explicit contracts."
           }
         },
         {
-          title: { tr: "JSON import/export ile taşınabilir veri sağlamak", en: "Provide portable data through JSON import/export" },
+          title: {
+            tr: "Public projection ve server yetkisini sınırlandırmak",
+            en: "Bound public projections and server authority"
+          },
           description: {
-            tr: "JSON import/export, medya arşivini kapalı bir uygulama verisi olmaktan çıkarıp taşınabilir hale getirir.",
-            en: "JSON import/export keeps the media archive from becoming closed application data and makes it portable."
-          }
-        },
-        {
-          title: { tr: "Harici API entegrasyonlarıyla kayıt oluşturmayı hafifletmek", en: "Reduce manual entry through external API integrations" },
-          description: {
-            tr: "Medya API entegrasyonları, kullanıcı girişiyle manuel veri yazma yükünü azaltır ve arşiv kaydını zenginleştirir.",
-            en: "Media API integrations reduce manual data entry and enrich archive records."
-          }
-        },
-        {
-          title: { tr: "Öneri araçlarını genişletme potansiyeli olarak tutmak", en: "Keep recommendation tooling as an extension path" },
-          description: {
-            tr: "Embedding ve öneri araçları, medya takip uygulamasını sadece liste tutan bir sistemden kişisel keşif aracına genişletme potansiyeli taşır.",
-            en: "Embedding and recommendation tools can extend the tracker from a list manager into a personal discovery tool."
+            tr: "Profil görünürlüğü ve owner erişimi server/RPC/RLS katmanında kontrol edilir; client isteği yetki üretmez.",
+            en: "Profile visibility and owner access are checked through server/RPC/RLS boundaries; client requests cannot create authority."
           }
         }
       ],
       limitations: [
         {
-          tr: "MediaTracker final SaaS ürünü olarak sunulmaz; local-first medya arşiv sistemi ve ürün prototipi olarak konumlanır.",
-          en: "MediaTracker is not presented as a finished SaaS product; it is positioned as a local-first media archive and product prototype."
+          tr: "Production cutover/deployment doğrulanmış değildir; manuel/external D8 kapıları açıktır.",
+          en: "Production cutover/deployment is not verified; manual/external D8 gates remain open."
         },
-        { tr: "Cloud sync ana akış değil, opsiyonel genişletme katmanıdır.", en: "Cloud sync is an optional extension layer, not the main flow." },
-        { tr: "Öneri sistemi deneysel kabul edilir.", en: "The recommendation system should be treated as experimental." },
-        { tr: "Harici API sonuçları kaynakların veri kalitesine ve erişilebilirliğine bağlıdır.", en: "External API results depend on source data quality and availability." },
-        { tr: "Uygulama kapsamı geniş olduğu için ileride modüler refactor ve UI sadeleştirmesi gerekebilir.", en: "Because the app scope is broad, future modular refactor and UI simplification may be needed." }
+        {
+          tr: "İlk Production release politikası server AI, Grounded Research ve persistent embedding cache’i kapalı tutar; anahtar eklemek erişim açmaz.",
+          en: "The first Production release policy disables server AI, Grounded Research, and persistent embedding cache; adding keys does not enable access."
+        },
+        {
+          tr: "TMDB/AniList enablement izin ve attribution kapılarına bağlıdır; Open Library contact/User-Agent gerektirir. OMDb yeni public aramada kapalıdır.",
+          en: "TMDB/AniList enablement depends on permission and attribution gates; Open Library requires a contact/User-Agent. OMDb is disabled for new public searches."
+        },
+        {
+          tr: "Cloud’dan otomatik realtime pull yoktur. Legacy Python embedding servisi Recommendation V2’nin aktif production karar hattı değildir.",
+          en: "There is no automatic realtime cloud pull. The legacy Python embedding service is not the active production decision path for Recommendation V2."
+        },
+        {
+          tr: "Repository’deki staging kabul kanıtı bu portföy güncellemesinde yeniden yürütülmedi.",
+          en: "Repository staging acceptance evidence was not rerun for this portfolio refresh."
+        }
       ],
       plannedExtensions: [
-        { tr: "Dashboard ve arşiv ekranları için statik görseller ekleme", en: "Add static visuals for dashboard and archive screens" },
-        { tr: "Local-first / Supabase akışını ArtifactHub üzerinde diyagramlaştırma", en: "Diagram the local-first / Supabase flow on ArtifactHub" },
-        { tr: "Büyük UI/state parçalarını daha modüler hale getirme", en: "Make large UI/state sections more modular" },
-        { tr: "Öneri sistemini daha net demo edilebilir hale getirme", en: "Make the recommendation system easier to demo clearly" },
-        { tr: "İngilizce teknik dosya metnini ileride hazırlama", en: "Prepare the English technical entry text later" }
+        {
+          tr: "D8-4B production geçişini kalan manuel/external kapılar kapandıktan sonra ayrı yürütme.",
+          en: "Run D8-4B production cutover separately after remaining manual/external gates close."
+        },
+        {
+          tr: "AI/research ve izin kapılı provider enablement’ını ayrı post-release süreç olarak ele alma.",
+          en: "Handle AI/research and permission-gated provider enablement as separate post-release work."
+        }
       ],
       visualNotes: {
         tr: "Koyu lacivert/grafit arka plan, cyan vurgu, medya kartları, progress ring ve arşiv terminali hissi.",
@@ -288,18 +318,25 @@ export const artifacts: Artifact[] = [
     categoryId: "audio-game-tooling",
     themeId: "forge-pulse",
     featuredLevel: "series-featured",
-    order: 3,
-    homeOrder: 1,
+    order: 5,
+    homeOrder: 5,
     repoUrl: "https://github.com/Baglare/PulseForge",
     summary: {
-      tr: "Ses dosyasındaki ritmik vuruşları analiz edip beatmap verisine ve Unity ritim-combat eventlerine dönüştüren audio pipeline.",
-      en: "An audio-to-beatmap pipeline that analyzes rhythmic hits in a WAV file and turns them into Unity rhythm-combat events."
+      tr: "Runtime özel şarkı import’u, FFmpeg dönüşümü ve C# Radial V2 analiz/planner hattını DSP ritim oynanışına bağlayan Unity sistem prototipi.",
+      en: "A Unity systems prototype linking runtime custom-song import, FFmpeg conversion, and the C# Radial V2 analysis/planner pipeline to DSP rhythm gameplay."
     },
     positioning: {
-      tr: "Audio pipeline ve procedural gameplay data tarafını temsil eden Forge artifact’i.",
-      en: "A Forge artifact representing audio pipelines and procedural gameplay data."
+      tr: "Güçlü audio-to-gameplay sistem çalışması; güncel C# runtime ile tarihsel Python/Guard–Strike hattı ayrı sözleşmelerdir.",
+      en: "A strong audio-to-gameplay systems artifact; current C# runtime and historical Python/Guard–Strike paths have separate contracts."
     },
-    techStack: ["Unity", "C#", "Python", "Audio Analysis", "JSON", "Rhythm Systems"],
+    techStack: [
+      "Unity",
+      "C#",
+      "FFmpeg",
+      "Python (Legacy)",
+      "DSP Timing",
+      "JSON"
+    ],
     focusAreaIds: [
       "audio-processing",
       "pipeline-tooling",
@@ -308,101 +345,127 @@ export const artifacts: Artifact[] = [
       "unity-systems"
     ],
     coreSystems: [
-      "WAV Analyzer",
-      "Raw Beatmap JSON",
-      "Playable Beatmap Postprocessor",
-      "Combat Style Variants",
-      "Unity Beatmap Import",
-      "Forge Preview / Beatmap Visualization",
-      "Rhythm Judgement",
-      "DSP Audio Clock",
-      "Rhythm Combat Prototype"
+      "Runtime Custom Song Import / FFmpeg",
+      "RadialAudioAnalyzerV2",
+      "RadialEncounterPlanner / Validation / Repair",
+      "Radial Rhythm Session / DSP Timing",
+      "Calibration / Training / Game Modes",
+      "Track Library / Versioned Cache",
+      "Legacy Guard / Strike Beatmaps",
+      "Legacy Combat Style Variants",
+      "Editor Pipeline Preview"
     ],
     transformation: {
-      input: { tr: "WAV ses dosyası", en: "WAV audio file" },
-      process: { tr: "Ritim analizi, beatmap üretimi, postprocess ve combat style variant üretimi", en: "Rhythm analysis, beatmap generation, postprocessing, and combat style variant generation" },
-      output: { tr: "Unity içinde kullanılabilir ritim-combat eventleri", en: "Rhythm-combat events usable inside Unity" },
+      input: {
+        tr: "Desteklenen özel ses dosyası",
+        en: "Supported custom audio file"
+      },
+      process: {
+        tr: "PCM WAV dönüşümü, runtime onset/beat/section analizi ve encounter planning",
+        en: "PCM WAV conversion, runtime onset/beat/section analysis, and encounter planning"
+      },
+      output: {
+        tr: "DSP zamanlı Radial ritim oturumu; ayrı legacy Guard/Strike yolu",
+        en: "A DSP-timed Radial rhythm session; a separate legacy Guard/Strike path"
+      },
       compact: {
-        tr: "WAV ses dosyası → ritim analizi/beatmap üretimi → Unity ritim-combat eventleri",
-        en: "WAV audio file → rhythm analysis/beatmap generation → Unity rhythm-combat events"
+        tr: "Ses → FFmpeg / C# analiz / planner → Radial ritim oturumu",
+        en: "Audio → FFmpeg / C# analysis / planner → Radial rhythm session"
       }
     },
     architectureFlow: {
       steps: [
-        "Audio File",
-        "Python Analyzer",
-        "Raw Beatmap Data",
-        "Beatmap Postprocessor",
-        "Playable Beatmap JSON",
-        "Combat Style Variant Generator",
-        "Unity Editor Preview",
-        "Unity Runtime",
-        "Rhythm Judgement / Combat Feedback"
-      ].map(step)
+        {
+          label: "Custom Audio File"
+        },
+        {
+          label: "FFmpeg / PCM WAV"
+        },
+        {
+          label: "RadialAudioAnalyzerV2"
+        },
+        {
+          label: "RadialEncounterPlanner / Repair"
+        },
+        {
+          label: "Versioned Beatmap Cache"
+        },
+        {
+          label: "DSP Timing / Input"
+        },
+        {
+          label: "Radial Session / Modes / UI"
+        }
+      ]
     },
     sections: {
       overview: {
         body: {
-          tr: "PulseForge, ham ses girdisini oynanabilir ritim verisine dönüştüren teknik pipeline artifact’idir. Proje, bir ses dosyasındaki ritmik yoğunlukları analiz eder, bunları beatmap formatına taşır, postprocess aşamasından geçirir ve Unity runtime içinde ritim-combat eventleri olarak kullanır.\n\nArtifactHub içinde PulseForge, Forge Series’in en net veri dönüşüm örneğidir: ses dosyası girer, yapılandırılmış beatmap verisi çıkar, bu veri runtime davranışına bağlanır.",
-          en: "PulseForge is a technical pipeline artifact that turns raw audio input into playable rhythm data. It analyzes rhythmic density in an audio file, moves the result into a beatmap format, runs it through postprocessing, and uses it as rhythm-combat events inside Unity runtime.\n\nInside ArtifactHub, PulseForge is the clearest data transformation example in Forge Series: an audio file goes in, structured beatmap data comes out, and that data is connected to runtime behavior."
+          tr: "PulseForge, ses analizinden oynanabilir ritim verisine uzanan Unity sistem prototipidir. Güncel C# Radial V2; onset/feature extraction, tempo/beat grid, section analizi ve seed tabanlı encounter planner’ı birleştirir. Tarihsel ilk altı milestone Python pipeline, Guard/Strike, combat variants ve Windows runtime import temelini oluşturmuştur.",
+          en: "PulseForge is a Unity systems prototype connecting audio analysis to playable rhythm data. Current C# Radial V2 combines onset/feature extraction, tempo/beat grids, section analysis, and a seeded encounter planner. The first six historical milestones established the Python pipeline, Guard/Strike, combat variants, and Windows runtime import foundations."
         }
       },
       currentScope: {
         body: {
-          tr: "Mevcut kapsamda Python tarafında WAV analizi ve beatmap üretim akışı; Unity tarafında beatmap import/preview, prototip ritim-combat davranışı, judgement sistemi ve combat style variant üretimi bulunur.\n\nProje final ritim oyunu olarak değil, audio analysis → beatmap → Unity runtime zincirini test eden pipeline prototipi olarak sunulur.",
-          en: "The current scope includes WAV analysis and beatmap generation on the Python side; on the Unity side it includes beatmap import/preview, prototype rhythm-combat behavior, a judgement system, and combat style variant generation.\n\nThe project is presented as a pipeline prototype for testing the audio analysis → beatmap → Unity runtime chain, not as a finished rhythm game."
+          tr: "Windows runtime özel şarkı seçimi ve MP3/WAV/M4A/AAC/FLAC/OGG/OPUS/WMA/AIFF için FFmpeg üzerinden PCM WAV dönüşümü vardır. Runtime analiz ve beatmap üretimi uygulanmıştır. Radial V2 planner validation/repair ve versioned fingerprint; DSP timing/input, calibration/training, Standard/Survival/OneLife modları, settings/profile ve track/audio/beatmap cache kalıcılığı bulunur.\n\nLegacy quick-import onset analizi Guard/Strike beatmap üretir. Legacy Python hattı Balanced/Defensive/Aggressive/Bursty varyantları, rapor ve Editor preview sağlar. Editor pipeline varsayılan Radial V2 ile ayrı LegacyPythonV1 seçimini korur; iki hattın çıktıları aynı contract değildir.",
+          en: "Windows runtime custom-song selection and FFmpeg conversion to PCM WAV support MP3/WAV/M4A/AAC/FLAC/OGG/OPUS/WMA/AIFF. Runtime analysis and beatmap generation are implemented. Radial V2 includes planner validation/repair and versioned fingerprints, DSP timing/input, calibration/training, Standard/Survival/OneLife modes, settings/profiles, and persistent track/audio/beatmap caches.\n\nLegacy quick-import onset analysis generates Guard/Strike beatmaps. The legacy Python path provides Balanced/Defensive/Aggressive/Bursty variants, reports, and Editor previews. The Editor pipeline retains default Radial V2 and separate LegacyPythonV1 selection; their outputs do not share the same contract."
         }
       },
       designDecisions: [
         {
-          title: { tr: "Python analiz katmanını Unity runtime’dan ayırmak", en: "Separate the Python analysis layer from Unity runtime" },
+          title: {
+            tr: "Analiz ve encounter planını ayırmak",
+            en: "Separate analysis and encounter planning"
+          },
           description: {
-            tr: "Python analiz katmanının Unity runtime’dan ayrılması, ses işleme ve oyun davranışını farklı sorumluluklara böler.",
-            en: "Separating the Python analysis layer from Unity runtime keeps audio processing and game behavior in different responsibilities."
+            tr: "C# analiz özelliklerini seed tabanlı planner validation/repair katmanı gameplay verisine dönüştürür.",
+            en: "A seeded planner with validation/repair turns C# analysis features into gameplay data."
           }
         },
         {
-          title: { tr: "Beatmap verisini JSON olarak taşımak", en: "Carry beatmap data as JSON" },
+          title: {
+            tr: "Legacy kanıtı ayrı tutmak",
+            en: "Keep legacy evidence separate"
+          },
           description: {
-            tr: "Beatmap verisinin JSON olarak taşınması, analiz çıktısını okunabilir, test edilebilir ve Unity dışı araçlarla da işlenebilir hale getirir.",
-            en: "Moving beatmap data as JSON makes the analysis output readable, testable, and usable by tools outside Unity."
+            tr: "Python/Guard–Strike çıktıları Radial V2 sözleşmesi gibi sunulmaz; Editor seçimi ayrıdır.",
+            en: "Python/Guard–Strike output is not presented as the Radial V2 contract; Editor selection is separate."
           }
         },
         {
-          title: { tr: "Raw ve playable beatmap ayrımı yapmak", en: "Separate raw and playable beatmaps" },
+          title: {
+            tr: "Timing ve cache kimliğini doğrulamak",
+            en: "Validate timing and cache identity"
+          },
           description: {
-            tr: "Raw beatmap ve playable beatmap ayrımı, analiz çıktısı ile gameplay için kullanılabilir veri arasında bilinçli bir postprocess katmanı kurar.",
-            en: "The raw/playable beatmap split creates a deliberate postprocess layer between analysis output and gameplay-ready data."
-          }
-        },
-        {
-          title: { tr: "Combat style variants üretmek", en: "Generate combat style variants" },
-          description: {
-            tr: "Combat style variants, aynı beatmap temelinden farklı oynanış yorumları üretme alanı açar.",
-            en: "Combat style variants leave room to produce different gameplay interpretations from the same beatmap base."
-          }
-        },
-        {
-          title: { tr: "Unity Editor preview kullanmak", en: "Use Unity Editor preview" },
-          description: {
-            tr: "Unity Editor preview, pipeline çıktısını runtime’a girmeden önce görsel olarak incelemeye yarar.",
-            en: "Unity Editor preview makes it possible to inspect pipeline output visually before it enters runtime."
+            tr: "DSP timing/input, calibration ve versioned fingerprint/cache ilişkileri tekrarlanabilir sistem davranışını destekler.",
+            en: "DSP timing/input, calibration, and versioned fingerprint/cache relationships support reproducible system behavior."
           }
         }
       ],
       limitations: [
-        { tr: "PulseForge final ritim oyunu değildir.", en: "PulseForge is not a finished rhythm game." },
-        { tr: "Runtime MP3 import veya gerçek zamanlı analiz iddiası taşımaz.", en: "It does not claim runtime MP3 import or real-time analysis." },
-        { tr: "Beat detection sonuçları müzik türüne, ses kalitesine ve analiz parametrelerine bağlıdır.", en: "Beat detection results depend on music type, audio quality, and analysis parameters." },
-        { tr: "Unity tarafındaki oynanış prototip seviyesindedir.", en: "The Unity-side gameplay remains at prototype level." },
-        { tr: "Ana değer, ses analiziyle gameplay datası üretme zincirinin kurulmuş olmasıdır.", en: "The main value is the established chain for generating gameplay data from audio analysis." }
+        {
+          tr: "Final ritim oyunu veya her şarkıda doğru BPM/kusursuz koreografi garantisi değildir.",
+          en: "This is not a finished rhythm game or a guarantee of correct BPM/perfect choreography for every song."
+        },
+        {
+          tr: "FFmpeg dönüşümü desteklenen Windows workflow’una bağlıdır; analiz kalitesi müzik ve parametrelere göre değişir.",
+          en: "FFmpeg conversion depends on the supported Windows workflow; analysis quality varies with music and parameters."
+        },
+        {
+          tr: "Dosya tabanlı runtime analiz canlı mikrofon/realtime streaming analizi anlamına gelmez.",
+          en: "File-based runtime analysis does not establish live microphone/realtime streaming analysis."
+        },
+        {
+          tr: "README/code kanıtı kullanıldı; Unity test/build ve gerçek custom-song kabulü yeniden çalıştırılmadı.",
+          en: "README/code evidence was used; Unity tests/build and real custom-song acceptance were not rerun."
+        }
       ],
       plannedExtensions: [
-        { tr: "Beatmap visualization çıktılarının ArtifactHub’a eklenmesi", en: "Add beatmap visualization outputs to ArtifactHub" },
-        { tr: "Pipeline diyagramının görsel hale getirilmesi", en: "Turn the pipeline into a visual diagram" },
-        { tr: "Farklı şarkı türleriyle analiz örnekleri hazırlanması", en: "Prepare analysis examples for different song types" },
-        { tr: "Unity prototip UI iyileştirmesi", en: "Improve the Unity prototype UI" },
-        { tr: "Combat style variant örneklerinin daha net belgelenmesi", en: "Document combat style variant examples more clearly" }
+        {
+          tr: "Farklı müzik türlerinde analiz ve oynanabilirlik kabulünü genişletme.",
+          en: "Broaden analysis and playability acceptance across music genres."
+        }
       ],
       visualNotes: {
         tr: "Kömür siyahı, amber/turuncu vurgu, waveform, beat marker ve örs üzerinde dövülen ses dalgası.",
@@ -419,8 +482,8 @@ export const artifacts: Artifact[] = [
     categoryId: "voice-audio-lab",
     themeId: "sealed-voice-relic",
     featuredLevel: "normal",
-    order: 4,
-    homeOrder: 2,
+    order: 8,
+    homeOrder: 8,
     repoUrl: "https://github.com/Baglare/VoxForge",
     summary: {
       tr: "İzinli referans seslerle yerel TTS, voice profile, ses ön işleme ve kalite değerlendirme akışlarını birleştiren audio lab.",
@@ -434,15 +497,14 @@ export const artifacts: Artifact[] = [
     focusAreaIds: ["voice-tools", "tts-experiments", "audio-preprocessing", "local-first-labs", "evaluation-workflow"],
     coreSystems: [
       "Local Gradio Interface",
-      "Reference-based TTS",
-      "Voice Profile Manager",
-      "Speaker WAV Preprocessing",
-      "Audio Quality Report",
-      "Inference Presets",
-      "Dataset Preparation",
-      "Training Runner",
-      "Checkpoint Control",
-      "Evaluation Reports"
+      "Reference-based TTS / Voice Profiles",
+      "FFmpeg Preprocessing / Quality Report",
+      "Long-text Chunking / Inference Presets",
+      "Dataset Validation / Readiness / Export",
+      "Experimental XTTS GPT Training Runner",
+      "Checkpoint / Matrix Evaluation",
+      "Parameter Sweep / Human Scorecard",
+      "Blind Experiment A/B Comparison"
     ],
     transformation: {
       input: { tr: "Referans ses, metin ve dataset parçaları", en: "Reference audio, text, and dataset pieces" },
@@ -474,8 +536,8 @@ export const artifacts: Artifact[] = [
       },
       currentScope: {
         body: {
-          tr: "Mevcut kapsamda Gradio tabanlı yerel arayüz, XTTS tabanlı reference-based TTS üretimi, voice profile yönetimi, speaker WAV ön işleme, kalite raporu, inference presetleri, dataset hazırlığı ve deneysel fine-tuning değerlendirme adımları bulunur.\n\nProje bir public ses üretim servisi değildir. Kullanım çerçevesi yerel çalışma, izinli/kendi ses verisi ve deneysel değerlendirme üzerine kuruludur.",
-          en: "The current scope includes a local Gradio interface, XTTS-based reference TTS generation, voice profile management, speaker WAV preprocessing, quality reports, inference presets, dataset preparation, and experimental fine-tuning evaluation steps.\n\nThe project is not a public voice generation service. Its use boundary is local execution, consent-based or self-owned voice data, and experimental evaluation."
+          tr: "Yerel Gradio arayüzü; reference-based XTTS-v2 üretimi, voice profile yönetimi, FFmpeg ön işleme, kalite raporu, inference presetleri, uzun metin chunking ve A/B kontrolleri sağlar. Dataset hazırlama/validation/readiness, export ve explicit local training runner uygulanmıştır; Gradio hazırlık paneli gerçek training başlatmaz.\n\nDeneysel checkpoint üretimi/inference, matrix evaluation, insan scorecard’ı, parameter sweep ve blind experiment A/B karşılaştırması vardır. Küçük dataset ile kalite artışı sınırlıdır; checkpoint veya teknik rapor başarılı ses kalitesi garantisi değildir. Veriler yerel ve izinli kalır.",
+          en: "The local Gradio interface provides reference-based XTTS-v2 generation, voice profile management, FFmpeg preprocessing, quality reports, inference presets, long-text chunking, and A/B controls. Dataset preparation/validation/readiness, export, and explicit local training runners are implemented; the Gradio preparation panel does not start real training.\n\nExperimental checkpoint generation/inference, matrix evaluation, human scorecards, parameter sweeps, and blind experiment A/B comparison exist. Quality gains with a small dataset are limited; checkpoints or technical reports do not guarantee successful audio quality. Data remains local and consent-based."
         }
       },
       designDecisions: [
@@ -517,11 +579,14 @@ export const artifacts: Artifact[] = [
         { tr: "Proje, izinli veri ve yerel çalışma prensibi dışında pazarlanmaz.", en: "The project is not presented outside consent-based data and local execution principles." }
       ],
       plannedExtensions: [
-        { tr: "Yerel arayüz ekran görüntülerinin ArtifactHub’a eklenmesi", en: "Add local UI screenshots to ArtifactHub" },
-        { tr: "Voice profile akışını diyagramlaştırma", en: "Diagram the voice profile flow" },
-        { tr: "Kalite raporu örneklerini daha okunabilir sunma", en: "Present quality report examples more clearly" },
-        { tr: "Etik kullanım sınırlarını sayfada net görselleştirme", en: "Make ethical use boundaries clearly visible on the page" },
-        { tr: "İngilizce teknik metin versiyonunu ileride hazırlama", en: "Prepare a future English technical text version" }
+        {
+          tr: "Dataset çeşitliliği ve reference kayıt kalite yönergelerini geliştirme.",
+          en: "Improve dataset diversity and reference-recording quality guidance."
+        },
+        {
+          tr: "Checkpoint/parameter ve insan değerlendirme karşılaştırmalarını daha okunabilir sunma.",
+          en: "Present checkpoint/parameter and human-evaluation comparisons more clearly."
+        }
       ],
       ethicalNotes: [
         { tr: "VoxForge yalnızca kullanıcının kendi sesi veya açık izinli referans seslerle çalışacak şekilde konumlandırılır.", en: "VoxForge is positioned for use only with the user’s own voice or explicitly consent-based reference audio." },
@@ -561,8 +626,8 @@ export const artifacts: Artifact[] = [
     categoryId: "computer-vision-interaction",
     themeId: "guild-lens",
     featuredLevel: "normal",
-    order: 5,
-    homeOrder: 3,
+    order: 9,
+    homeOrder: 9,
     repoUrl: "https://github.com/Baglare/VisionForge",
     summary: {
       tr: "Gerçek zamanlı kamera akışını yerel yüz tanıma, el takibi ve gesture tabanlı büyü komutlarıyla birleştiren local-first PySide6 masaüstü uygulaması.",
@@ -719,5 +784,598 @@ export const artifacts: Artifact[] = [
         en: "Not a professional security or production-grade biometric verification product; it is a local-first interactive computer-vision desktop application that processes face, camera, profile, and verification data on-device."
       }
     }
+  },
+  {
+    id: "gamelocalizer",
+    slug: "gamelocalizer",
+    title: "GameLocalizer",
+    statusId: "release-candidate",
+    categoryId: "developer-tooling",
+    themeId: "archive-terminal",
+    featuredLevel: "primary",
+    order: 1,
+    homeOrder: 1,
+    summary: {
+      tr: "Güvenli format sahipliği, yapısal QA ve geri alınabilir patch paketleriyle oyun yerelleştirmesini yöneten Python geliştirici aracı.",
+      en: "Python developer tooling for game localization, with safe format ownership, structural QA, and reversible patch packages."
+    },
+    positioning: {
+      tr: "Portföyün ana yerelleştirme aracı: deterministic pipeline, masaüstü/CLI iş akışı ve sınırlı gerçek oyun kabul kanıtı.",
+      en: "A principal localization tool: deterministic pipelines, shared desktop/CLI workflows, and bounded real-game acceptance evidence."
+    },
+    techStack: [
+      "Python",
+      "PySide6",
+      "SQLite",
+      "UnityPy",
+      "OpenAI",
+      "Ollama"
+    ],
+    focusAreaIds: [
+      "localization-tooling",
+      "deterministic-pipelines",
+      "transaction-safety",
+      "provider-architecture",
+      "evaluation-workflow",
+      "release-engineering",
+      "desktop-architecture"
+    ],
+    coreSystems: [
+      "Scan / Export / Translate / Quality / QA / Apply",
+      "Format Adapter Registry",
+      "Protected Syntax",
+      "Context-aware Exact TM",
+      "Deterministic Context",
+      "Unity Inspect / Reopen Validation",
+      "Patch Verify / Install / Backup / Restore",
+      "Shared CLI / Desktop Services"
+    ],
+    architectureFlow: {
+      steps: [
+        {
+          label: "Read-only Source Scan"
+        },
+        {
+          label: "Portable Translation Bundle"
+        },
+        {
+          label: "Context / Glossary / TM"
+        },
+        {
+          label: "Mock / OpenAI / Ollama"
+        },
+        {
+          label: "Quality + Structural QA"
+        },
+        {
+          label: "Separate Apply Output / Reopen"
+        },
+        {
+          label: "Verified Patch Package"
+        },
+        {
+          label: "Explicit Install / Restore"
+        }
+      ]
+    },
+    sections: {
+      overview: {
+        body: {
+          tr: "GameLocalizer, çeviriyi format bütünlüğü ve dağıtım güvenliğiyle birlikte ele alan geliştirici aracıdır. Provider yeni bundle üretir; apply ayrı çıktı kopyaları oluşturur. Oyun dosyası değişikliği yalnız açık patch install adımında gerçekleşir. CLI ve PySide6 arayüz aynı servisleri kullanır.",
+          en: "GameLocalizer treats translation as a developer workflow with format integrity and distribution safety. Providers produce new bundles; apply creates separate output copies. Game files change only through explicit patch installation. The CLI and PySide6 interface share the same services."
+        }
+      },
+      currentScope: {
+        body: {
+          tr: "JSON, CSV, INI, satır tabanlı TXT ve sınırlı Ren’Py; güvenli Unity TextAsset, tanınan existing-locale StringTable ve Smart String alt kümesi desteklenir. Placeholder koruması, glossary, exact SQLite TM, deterministic context, ayrı kalite/yapısal QA ve reopen doğrulaması uygulanmıştır. Hash/build kimlikli paketlerde verify, install, backup ve restore bulunur.\n\nM18 0.8.0 release candidate için belirli Sea of Stars build’inde install, sentinel ve restore/hash kabulü kullanıcı tarafından bildirilmiştir. M19 desktop kabulü ve M21 32 kayıtlık gerçek çeviri örneği README’de kayıtlıdır; bu portföy güncellemesi oyun kabulünü yeniden yürütmez.",
+          en: "Supports JSON, CSV, INI, line-based TXT, limited Ren’Py, safe Unity TextAssets, recognized existing-locale StringTables, and a Smart String subset. Implemented systems include placeholder protection, glossary, exact SQLite TM, deterministic context, separate quality/structural QA, and reopen validation. Hash/build-bound packages support verify, install, backup, and restore.\n\nFor the M18 0.8.0 release candidate, install, sentinel, and restore/hash acceptance on a specific Sea of Stars build was user-reported. M19 desktop acceptance and the M21 32-entry real-translation sample are recorded in the README; this portfolio refresh does not rerun game acceptance."
+        }
+      },
+      designDecisions: [
+        {
+          title: {
+            tr: "Kaynağı ve apply çıktısını ayırmak",
+            en: "Separate source and apply output"
+          },
+          description: {
+            tr: "Provider, QA ve apply kaynak ağacını değiştirmez; install ayrı ve açık bir işlemdir.",
+            en: "Provider, QA, and apply leave the source tree unchanged; installation is a separate explicit operation."
+          }
+        },
+        {
+          title: {
+            tr: "Dil kalitesi ile yapısal bütünlüğü ayırmak",
+            en: "Separate language quality from structural integrity"
+          },
+          description: {
+            tr: "Kalite sinyalleri dilsel garanti değildir; desteklenmeyen format/syntax tahmin edilmeden kontrollü atlanır.",
+            en: "Quality signals are not linguistic guarantees; unsupported formats/syntax are skipped without guessing."
+          }
+        }
+      ],
+      limitations: [
+        {
+          tr: "Genel Unity veya cross-build uyumluluğu doğrulanmış değildir. Bazaar incelemesi custom adapter desteği oluşturmadı.",
+          en: "General Unity or cross-build compatibility is unverified. The Bazaar investigation did not implement a custom adapter."
+        },
+        {
+          tr: "StringTable hattı mevcut locale’i değiştirir; native Türkçe locale eklemez. Arbitrary MonoBehaviour, Addressables rewrite ve runtime injection desteklenmez.",
+          en: "The StringTable path replaces an existing locale; it does not add native Turkish locale support. Arbitrary MonoBehaviour translation, Addressables rewriting, and runtime injection are unsupported."
+        },
+        {
+          tr: "M22 Türkçe kalite profili deneysel ve aynı 32 kayıtla kalibre edilmiştir; bağımsız insan kabulü, genel kalite veya gözetimsiz kullanım garantisi değildir.",
+          en: "The M22 Turkish quality profile is experimental and calibrated on the same 32 entries; it provides no independent human acceptance, general quality, or unattended-use guarantee."
+        },
+        {
+          tr: "Kaynak repository private olduğu için public GitHub bağlantısı gösterilmez.",
+          en: "The source repository is private, so no public GitHub link is shown."
+        }
+      ],
+      plannedExtensions: [
+        {
+          tr: "Kalite profilini bağımsız örnekler ve insan değerlendirmesiyle doğrulama.",
+          en: "Validate the quality profile on independent samples with human evaluation."
+        }
+      ]
+    },
+    updatedAt: "2026-10-02"
+  },
+  {
+    id: "knowledgecompiler",
+    slug: "knowledgecompiler",
+    title: "KnowledgeCompiler",
+    statusId: "engineering-tool",
+    categoryId: "ai-infrastructure",
+    themeId: "relic-core",
+    featuredLevel: "primary",
+    order: 2,
+    homeOrder: 2,
+    summary: {
+      tr: "Yapılandırılmış yetki, context derleme ve transactional proje bilgisi iş akışları için deterministic, provider-neutral AI yönetişim CLI’ı.",
+      en: "A deterministic, provider-neutral AI governance CLI for structured authority, context compilation, and transactional project-knowledge workflows."
+    },
+    positioning: {
+      tr: "Portföyün ana geliştirici altyapısı: kanıt ve sözleşmeleri doğrular; anlamsal kararı harici asistana bırakır.",
+      en: "Principal developer infrastructure: validates evidence and contracts while leaving semantic judgment to an external assistant."
+    },
+    techStack: [
+      "Python",
+      "CLI",
+      "JSON Contracts",
+      "Markdown",
+      "SHA-256",
+      "Git"
+    ],
+    focusAreaIds: [
+      "ai-governance",
+      "deterministic-pipelines",
+      "transaction-safety",
+      "data-driven-design",
+      "evaluation-workflow"
+    ],
+    coreSystems: [
+      "Structured Authority",
+      "Context Bundle V2",
+      "Task Contract V1 / Result Contract V2",
+      "Native Adapter Compilation",
+      "Project-map Routing",
+      "Transactional Promotion",
+      "Observe-only Sync",
+      "Opt-in Autopilot",
+      "Vault Gateway"
+    ],
+    architectureFlow: {
+      steps: [
+        {
+          label: "Validated Manifest"
+        },
+        {
+          label: "Project-map / Adapter"
+        },
+        {
+          label: "Frozen Context + Task Contract"
+        },
+        {
+          label: "External Semantic Assessment"
+        },
+        {
+          label: "Bound Result / Inert Plan"
+        },
+        {
+          label: "Locked Check / Apply"
+        },
+        {
+          label: "Post-verification / Audit"
+        }
+      ]
+    },
+    sections: {
+      overview: {
+        body: {
+          tr: "KnowledgeCompiler, AI destekli çalışmada hangi kuralın yetki taşıdığını, hangi kanıtın güncel olduğunu ve hangi yazmanın izinli olduğunu sözleşmelerle sınırlar. .ai/project.md yapılandırılmış critical_rules sahibidir; prose ve retrieved context yetki değildir. Prompt yöneticisi veya otonom ajan platformu olarak konumlanmaz.",
+          en: "KnowledgeCompiler constrains authority, evidence freshness, and permitted writes through explicit contracts. Structured critical_rules belong to .ai/project.md; prose and retrieved context are not authority. Its role is governance infrastructure rather than prompt management or an autonomous agent platform."
+        }
+      },
+      currentScope: {
+        body: {
+          tr: "Context/task/result sözleşmeleri hash ve provenance ile bağlanır; stale kanıt fail-closed reddedilir. Project-map path/symbol/test/doc yönlendirmesi yapar, adapter derleme yerel talimatları üretir. Transactional promotion; lock, exact preimage, CREATE/UPDATE, post-verification ve ownership-aware rollback kullanır.\n\nSync check/prepare yalnız committed kanıtı gözlemler; record harici değerlendirmeyi doğrular. Controlled autopilot, opt-in policy ve owner prefix’leriyle inert planı working-tree snapshot’ına bağlar. Vault gateway kullanıcıya özel konum/kimlik kontrolü ve sınırlı offline retrieval sağlar.",
+          en: "Context/task/result contracts bind hashes and provenance; stale evidence fails closed. Project maps route paths, symbols, tests, and docs; adapter compilation generates native instructions. Transactional promotion uses locks, exact preimages, CREATE/UPDATE checks, post-verification, and ownership-aware rollback.\n\nSync check/prepare only observe committed evidence; record validates an external assessment. Controlled autopilot binds inert plans to working-tree snapshots through opt-in policy and owner prefixes. The Vault gateway provides per-user location/identity checks and bounded offline retrieval."
+        }
+      },
+      designDecisions: [
+        {
+          title: {
+            tr: "Yetkiyi bağlamdan ayırmak",
+            en: "Separate authority from context"
+          },
+          description: {
+            tr: "Routing ve retrieved prose yeni kural üretmez; lexical scope manifest’e bağlı kalır.",
+            en: "Routing and retrieved prose cannot create rules; lexical scope stays bound to the manifest."
+          }
+        },
+        {
+          title: {
+            tr: "Yazmayı transaction sınırına almak",
+            en: "Put writes inside a transaction boundary"
+          },
+          description: {
+            tr: "Exact preimage ve post-check doğrulanmadan canonical işlem ilerlemez; policy yalnız sahip olunan Vault hedeflerini kapsar.",
+            en: "Canonical operations require exact preimages and post-checks; policy covers only owned Vault targets."
+          }
+        }
+      ],
+      limitations: [
+        {
+          tr: "Model dispatcher, scheduler, daemon, dağıtık lock veya crash-recovery WAL yoktur; in-process rollback crash recovery değildir.",
+          en: "There is no model dispatcher, scheduler, daemon, distributed lock, or crash-recovery WAL; in-process rollback is not crash recovery."
+        },
+        {
+          tr: "Routine autopilot güvenli CREATE/additive UPDATE ile sınırlıdır. Correction/removal ve protected governance ayrı review/promotion yolunu gerektirir.",
+          en: "Routine autopilot is limited to safe CREATE/additive UPDATE. Corrections, removals, and protected governance require a separate review/promotion path."
+        },
+        {
+          tr: "Anlamsal doğruluk veya evrensel ajan güvenliği garanti edilmez. Private kaynak repository için public link gösterilmez.",
+          en: "Semantic correctness and universal agent safety are not guaranteed. No public link is shown for the private source repository."
+        }
+      ],
+      plannedExtensions: []
+    },
+    updatedAt: "2026-10-02"
+  },
+  {
+    id: "aria-ai",
+    slug: "aria-ai",
+    title: "Aria AI",
+    statusId: "early-stage-architecture",
+    categoryId: "desktop-applications",
+    themeId: "archive-terminal",
+    featuredLevel: "normal",
+    order: 7,
+    homeOrder: 7,
+    summary: {
+      tr: "Erken aşama masaüstü AI mimari prototipi. S0–S2 istemci/core, streaming, persistence ve credential temelleri mevcut; tamamlanmış asistan değildir.",
+      en: "Early-stage desktop AI architecture prototype. S0–S2 client/core, streaming, persistence, and credential foundations exist; this is not a complete assistant."
+    },
+    positioning: {
+      tr: "Mimari ve güvenlik temeli çalışması; portföyün olgun araçlarından daha erken aşamadadır.",
+      en: "Architecture and security foundation work, at an earlier stage than the portfolio’s established tools."
+    },
+    techStack: [
+      "React",
+      "Vite",
+      "TypeScript",
+      "Tauri",
+      "FastAPI",
+      "SQLite",
+      "Alembic",
+      "Ollama"
+    ],
+    focusAreaIds: [
+      "desktop-architecture",
+      "local-first-apps",
+      "data-persistence",
+      "provider-architecture",
+      "secure-credentials"
+    ],
+    coreSystems: [
+      "Typed Client / Core Boundary",
+      "SSE Streaming / Cancellation",
+      "SQLite / Alembic",
+      "Deterministic Mock Provider",
+      "Local Ollama Integration",
+      "Backend-owned SecretStore",
+      "Windows Credential Locker"
+    ],
+    architectureFlow: {
+      steps: [
+        {
+          label: "React / Vite / Tauri Client"
+        },
+        {
+          label: "Typed Local API"
+        },
+        {
+          label: "FastAPI Core / Session Boundary"
+        },
+        {
+          label: "Mock / Local Ollama"
+        },
+        {
+          label: "SSE + Cancellation"
+        },
+        {
+          label: "SQLite Persistence / Credential Locker"
+        }
+      ]
+    },
+    sections: {
+      overview: {
+        body: {
+          tr: "Aria AI, Windows öncelikli local-first masaüstü AI mimarisinin erken aşama prototipidir. Mevcut çalışma ağırlıklı olarak S0–S2 temellerini kurar; özellikleri tamamlanmış bir asistan değildir. React/Tauri istemcisi provider’a doğrudan bağlanmaz, yalnız yerel FastAPI core ile konuşur.",
+          en: "Aria AI is an early-stage prototype of a Windows-first, local-first desktop AI architecture. Current work mainly establishes S0–S2 foundations; it is not a feature-complete assistant. The React/Tauri client communicates only with the local FastAPI core, not directly with providers."
+        }
+      },
+      currentScope: {
+        body: {
+          tr: "S0: typed frontend/backend sınırı, konuşma oluşturma, SSE streaming/cancellation, SQLite + Alembic, session sınırı ve deterministic Mock. S1: yerel Ollama health/model discovery, kalıcı provider/model seçimi ve native streaming/cancellation. S2: backend-owned SecretStore, Windows Credential Locker ve anahtarı geri göstermeyen ayarlar. Credential saklamak cloud provider execution anlamına gelmez.",
+          en: "S0: a typed frontend/backend boundary, conversation creation, SSE streaming/cancellation, SQLite + Alembic, a session boundary, and deterministic Mock. S1: local Ollama health/model discovery, persisted provider/model selection, and native streaming/cancellation. S2: a backend-owned SecretStore, Windows Credential Locker, and settings that do not reveal stored keys. Credential storage does not establish cloud provider execution."
+        }
+      },
+      designDecisions: [
+        {
+          title: {
+            tr: "Secret sahipliğini core’da tutmak",
+            en: "Keep secret ownership in the core"
+          },
+          description: {
+            tr: "Anahtarlar frontend veya SQLite’a yazılmaz; secure store yoksa plaintext fallback yapılmaz.",
+            en: "Keys are not stored in the frontend or SQLite; an unavailable secure store has no plaintext fallback."
+          }
+        }
+      ],
+      limitations: [
+        {
+          tr: "Cloud provider execution uygulanmadı; OpenAI/Gemini/Groq çağrısı yoktur.",
+          en: "Cloud provider execution is unimplemented; there are no OpenAI/Gemini/Groq calls."
+        },
+        {
+          tr: "RAG, tools, web search, dosya/shell iş akışları, MCP ve çoklu ajan uygulanmadı.",
+          en: "RAG, tools, web search, file/shell workflows, MCP, and multi-agent workflows are unimplemented."
+        },
+        {
+          tr: "Voice, image özellikleri, OAuth, cloud sync ve production Python sidecar paketlemesi yoktur.",
+          en: "Voice, image features, OAuth, cloud sync, and production Python sidecar packaging are absent."
+        },
+        {
+          tr: "Ollama/model kurulumu kullanıcıya aittir; remote Ollama desteklenmez. Kaynak repository private.",
+          en: "Ollama/model installation is user-managed; remote Ollama is unsupported. The source repository is private."
+        }
+      ],
+      plannedExtensions: [
+        {
+          tr: "Cloud provider execution, mevcut credential temelinden sonraki ayrı aşamadır; henüz uygulanmadı.",
+          en: "Cloud provider execution is a separate next stage beyond the credential foundation; it is not implemented."
+        }
+      ]
+    },
+    updatedAt: "2026-10-02"
+  },
+  {
+    id: "openai-image-studio",
+    slug: "openai-image-studio",
+    title: "OpenAI Image Studio",
+    statusId: "product-prototype",
+    categoryId: "web-application",
+    themeId: "archive-terminal",
+    featuredLevel: "normal",
+    order: 10,
+    homeOrder: 10,
+    summary: {
+      tr: "Tek kullanıcılı yerel Next.js görsel üretme/düzenleme aracı; server-side API, dosya tabanlı history ve kullanım/maliyet tahmini.",
+      en: "A small single-user local Next.js image generation/editing tool with a server-side API boundary, file-based history, and usage/cost estimates."
+    },
+    positioning: {
+      tr: "Daha küçük destekleyici araç; local development kapsamı ve açık güvenlik sınırlarıyla sunulur.",
+      en: "A smaller supporting tool, presented within local-development scope and explicit security limits."
+    },
+    techStack: [
+      "Next.js",
+      "React",
+      "OpenAI SDK",
+      "File-based Storage"
+    ],
+    focusAreaIds: [
+      "product-ui",
+      "api-integrations",
+      "data-persistence"
+    ],
+    coreSystems: [
+      "Text-to-image",
+      "Single Reference-image Edit",
+      "Server-side API Routes",
+      "Local Outputs / History",
+      "Usage / Cost Reporting"
+    ],
+    architectureFlow: {
+      steps: [
+        {
+          label: "Browser Controls / Reference Image"
+        },
+        {
+          label: "Server Validation"
+        },
+        {
+          label: "OpenAI SDK"
+        },
+        {
+          label: "Local Image Files / History JSON"
+        },
+        {
+          label: "Preview / Download / Usage Estimate"
+        }
+      ]
+    },
+    sections: {
+      overview: {
+        body: {
+          tr: "OpenAI Image Studio, prompt ile görsel üretme ve tek referans görseli düzenleme için küçük bir Next.js/React arayüzüdür. Browser server route’larına istek gönderir; API anahtarı ve SDK çağrısı sunucuda kalır. Production SaaS veya çok kullanıcılı ürün değildir.",
+          en: "OpenAI Image Studio is a small Next.js/React interface for prompt-based image generation and editing one reference image. The browser submits requests to server routes; API keys and SDK calls remain server-side. It is not a production SaaS or multi-user product."
+        }
+      },
+      currentScope: {
+        body: {
+          tr: "Model/quality/dimension/background/output kontrolleri, server validation, preview/download ve yerel history uygulanmıştır. Görseller local public outputs altında, prompt/ayar/usage metadata’sı en fazla 100 kayıtlık JSON history’de tutulur. Token-rate tabanlı maliyet raporu tahmindir; güncel fiyat veya fatura kaydı değildir.",
+          en: "Implemented controls cover model, quality, dimensions, background, and output, with server validation, preview/download, and local history. Images live in local public outputs; prompt/settings/usage metadata is kept in JSON history capped at 100 entries. Token-rate cost reporting is an estimate, not verified current pricing or billing."
+        }
+      },
+      designDecisions: [
+        {
+          title: {
+            tr: "API sınırını sunucuda tutmak",
+            en: "Keep the API boundary server-side"
+          },
+          description: {
+            tr: "Browser credential almaz; gönderilen prompt/reference provider’a, prompt ve çıktı yerel storage’a gider.",
+            en: "The browser does not receive credentials; submitted prompts/references reach the provider, while prompts and outputs persist locally."
+          }
+        }
+      ],
+      limitations: [
+        {
+          tr: "Authentication, account isolation ve uygulama rate limit yoktur; output URL’leri public, history erişim kontrolsüzdür. Güvenilen tek kullanıcılı ortam gerekir.",
+          en: "There is no authentication, account isolation, or application rate limiting; output URLs are public and history has no access control. A trusted single-user environment is required."
+        },
+        {
+          tr: "History read-modify-write concurrency garantisi vermez; otomatik dosya temizliği veya portable/serverless persistence yoktur.",
+          en: "History read-modify-write has no concurrency guarantee; automatic file cleanup and portable/serverless persistence are absent."
+        },
+        {
+          tr: "Masked/inpainting edit yoktur. Kapsamlı error redaction doğrulanmış değildir; paid API/model erişimi ve fiyatlar yeniden test edilmedi.",
+          en: "Masked/inpainting editing is absent. Comprehensive error redaction is unverified; paid API/model access and prices were not retested."
+        },
+        {
+          tr: "Kaynak repository private olduğu için public GitHub bağlantısı gösterilmez.",
+          en: "The source repository is private, so no public GitHub link is shown."
+        }
+      ],
+      plannedExtensions: []
+    },
+    updatedAt: "2026-10-02"
+  },
+  {
+    id: "pod-localization-engineering",
+    slug: "pod-localization-engineering",
+    title: "PoD Localization Engineering",
+    statusId: "engineering-case-study",
+    categoryId: "localization-engineering",
+    themeId: "relic-core",
+    featuredLevel: "normal",
+    order: 4,
+    homeOrder: 4,
+    repoUrl: "https://github.com/Baglare/PoD-Localization-Engineering",
+    summary: {
+      tr: "Private Steam Workshop yerelleştirmesinden mühendislik vaka çalışması: public sentetik fixtures ile syntax koruması, QA ve deterministic paket doğrulama.",
+      en: "An engineering case study from a private Steam Workshop localization project: public synthetic fixtures demonstrate syntax protection, QA, and deterministic package verification."
+    },
+    positioning: {
+      tr: "Güçlü yerelleştirme mühendisliği kanıtı; public gösterim ile private üretim corpus’u açıkça ayrılır.",
+      en: "A strong localization engineering case study with a clear separation between public demonstrations and the private production corpus."
+    },
+    techStack: [
+      "Python",
+      "CSV Translation Memory",
+      "Protected Tokens",
+      "SHA-256",
+      "ZIP / CRC"
+    ],
+    focusAreaIds: [
+      "localization-tooling",
+      "deterministic-pipelines",
+      "evaluation-workflow",
+      "release-engineering"
+    ],
+    coreSystems: [
+      "Protected Syntax / Token Validation",
+      "Terminology Handling",
+      "Structural QA",
+      "Deterministic Packaging",
+      "SHA-256 Manifest / CRC Checks",
+      "Production Release Gates",
+      "Synthetic Public Demonstration"
+    ],
+    architectureFlow: {
+      steps: [
+        {
+          label: "Synthetic Fixtures / Terminology"
+        },
+        {
+          label: "Deterministic Processing"
+        },
+        {
+          label: "Protected Token / Key QA"
+        },
+        {
+          label: "Sorted Localization Output"
+        },
+        {
+          label: "Deterministic ZIP + SHA-256"
+        },
+        {
+          label: "CRC / Member Verification"
+        }
+      ]
+    },
+    sections: {
+      overview: {
+        body: {
+          tr: "Bu public showcase, Steam Workshop üzerinden dağıtılan gerçek Türkçe yerelleştirme çalışmasının mühendislik kavramlarını yeni yazılmış kod ve kurmaca fixtures ile gösterir. Gerçek localization corpus’u, TM ve game/mod assetleri içermez; production repository private kalır.",
+          en: "This public showcase demonstrates engineering concepts from a real Turkish localization distributed through Steam Workshop, using newly written code and fictional fixtures. It contains no actual localization corpus, TM, or game/mod assets; the production repository remains private."
+        }
+      },
+      currentScope: {
+        body: {
+          tr: "Public demo dört kurmaca kayıtta protected placeholder/reference/icon/formatting/escape, terminoloji değişimi, duplicate/malformed/token-loss QA, sıralı çıktı ve deterministic ZIP üretir. Ayrı SHA-256 manifest ve CRC/member kontrolleri artifact drift’ini denetler. Production release gates ve manual game smoke ayrı tarihsel kanıttır; demo bütün production pipeline’ını yeniden üretmez.\n\n2026-10-02 için private üretim projesi aggregate metrikleri: 87,865 translation-memory satırı; tüm dillerde 965 upstream localization dosyası; 460 aktif İngilizce kaynak / 460 üretilmiş Türkçe dosya. Bunlar showcase dataset’i veya yeni çevrilmiş cümle sayısı değildir.",
+          en: "The public demo uses four fictional entries for protected placeholders/references/icons/formatting/escapes, terminology replacement, duplicate/malformed/token-loss QA, sorted output, and deterministic ZIP generation. A separate SHA-256 manifest and CRC/member checks detect artifact drift. Production release gates and manual game smoke are separate historical evidence; the demo does not reproduce the whole production pipeline.\n\nPrivate production aggregate metrics verified for 2026-10-02: 87,865 translation-memory rows; 965 upstream localization files across all languages; 460 active English source / 460 generated Turkish files. These are not the showcase dataset or counts of newly translated sentences."
+        }
+      },
+      designDecisions: [
+        {
+          title: {
+            tr: "Public kanıtı private corpus’tan ayırmak",
+            en: "Separate public evidence from the private corpus"
+          },
+          description: {
+            tr: "Yalnız özgün demonstration, sentetik fixtures ve aggregate metrikler paylaşılır; gerçek dağıtım Steam Workshop’tadır.",
+            en: "Only original demonstrations, synthetic fixtures, and aggregate metrics are public; actual distribution is through Steam Workshop."
+          }
+        },
+        {
+          title: {
+            tr: "Çeviri ve runtime syntax’ını ayrı doğrulamak",
+            en: "Validate translation and runtime syntax separately"
+          },
+          description: {
+            tr: "Doğal çeviri bile token veya key bozabilir; release öncesi yapısal QA ve paket bütünlüğü kapısı gerekir.",
+            en: "Natural translation can still break tokens or keys; structural QA and package-integrity gates precede release."
+          }
+        }
+      ],
+      limitations: [
+        {
+          tr: "Public demo küçük bir alt kümeyi gösterir; oynanabilir mod veya production dil kalite sistemi değildir.",
+          en: "The public demo demonstrates a small subset; it is neither a playable mod nor the production language-quality system."
+        },
+        {
+          tr: "Private production verisi, upstream içerik ve Türkçe çıktı public repository’de bulunmaz. Metrikler private üretim kanıtına aittir.",
+          en: "Private production data, upstream content, and Turkish output are absent from the public repository. Metrics belong to private production evidence."
+        },
+        {
+          tr: "Game/mod/upstream PoD içeriği üzerinde sahiplik iddiası yoktur; showcase için henüz lisans uygulanmamıştır.",
+          en: "No ownership is claimed over game/mod/upstream PoD content; the showcase has no applied license yet."
+        }
+      ],
+      plannedExtensions: []
+    },
+    updatedAt: "2026-10-02"
   }
 ];

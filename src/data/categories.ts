@@ -25,5 +25,49 @@ export const categories: Category[] = [
     id: "computer-vision-interaction",
     label: { tr: "Computer Vision Interaction", en: "Computer Vision Interaction" },
     description: { tr: "Kamera, algılama, gesture ve etkileşim sistemleri.", en: "Camera, detection, gesture, and interaction systems." }
+  },
+  {
+    id: "developer-tooling",
+    label: {
+      tr: "Geliştirici Araçları",
+      en: "Developer Tooling"
+    },
+    description: {
+      tr: "Güvenli işleme, doğrulama ve geliştirici iş akışları.",
+      en: "Safe processing, validation, and developer workflows."
+    }
+  },
+  {
+    id: "ai-infrastructure",
+    label: {
+      tr: "AI Sistemleri / Altyapı",
+      en: "AI Systems / Infrastructure"
+    },
+    description: {
+      tr: "Yapılandırılmış yetki, sözleşmeler ve kontrollü AI iş akışları.",
+      en: "Structured authority, contracts, and controlled AI workflows."
+    }
+  },
+  {
+    id: "localization-engineering",
+    label: {
+      tr: "Yerelleştirme Mühendisliği",
+      en: "Localization Engineering"
+    },
+    description: {
+      tr: "Yerelleştirme pipeline’ları ve kaynak sınırları belirli mühendislik vaka çalışmaları.",
+      en: "Localization pipelines and engineering case studies with explicit source boundaries."
+    }
+  },
+  {
+    id: "desktop-applications",
+    label: {
+      tr: "Masaüstü Uygulamaları",
+      en: "Desktop Applications"
+    },
+    description: {
+      tr: "Yerel servis, kalıcılık ve masaüstü istemci mimarisi.",
+      en: "Local services, persistence, and desktop client architecture."
+    }
   }
 ];

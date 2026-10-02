@@ -15,6 +15,9 @@ import { getSeriesBySlug } from "@/lib/series";
 import type { FocusAreaId } from "@/types/artifact";
 
 const selectedFocusAreaIds: FocusAreaId[] = [
+  "localization-tooling",
+  "ai-governance",
+  "release-engineering",
   "gameplay-systems",
   "local-first-apps",
   "audio-processing",

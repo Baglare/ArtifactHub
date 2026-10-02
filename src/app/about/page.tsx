@@ -12,6 +12,10 @@ import { getFocusAreaById } from "@/lib/focusAreas";
 import type { FocusArea, FocusAreaId } from "@/types/artifact";
 
 const fallbackTechnicalInterestIds: FocusAreaId[] = [
+  "localization-tooling",
+  "ai-governance",
+  "desktop-architecture",
+  "release-engineering",
   "gameplay-systems",
   "local-first-apps",
   "audio-processing",

@@ -45,5 +45,53 @@ export const statuses: Status[] = [
       en: "A prototype that connects camera input to detection and interaction systems."
     },
     tone: "vision"
+  },
+  {
+    id: "release-candidate",
+    label: {
+      tr: "Sürüm Adayı",
+      en: "Release Candidate"
+    },
+    description: {
+      tr: "Sürüm hazırlığı ve sınırlı kabul kanıtı olan araç veya ürün; release kapıları projeye özgüdür.",
+      en: "A tool or product with release preparation and bounded acceptance evidence; release gates remain project-specific."
+    },
+    tone: "pipeline"
+  },
+  {
+    id: "engineering-tool",
+    label: {
+      tr: "Mühendislik Aracı",
+      en: "Engineering Tool"
+    },
+    description: {
+      tr: "Uygulanmış sözleşmeler ve doğrulanabilir iş akışları; evrensel güvence iddiası yoktur.",
+      en: "Implemented contracts and verifiable workflows without universal assurance claims."
+    },
+    tone: "systems"
+  },
+  {
+    id: "early-stage-architecture",
+    label: {
+      tr: "Erken Aşama Mimari Prototipi",
+      en: "Early-stage Architecture Prototype"
+    },
+    description: {
+      tr: "Mimari ve temel iş akışları uygulanmış; ürün özellikleri henüz tamamlanmamış prototip.",
+      en: "A prototype with architecture and foundational workflows implemented; product features remain incomplete."
+    },
+    tone: "lab"
+  },
+  {
+    id: "engineering-case-study",
+    label: {
+      tr: "Mühendislik Vaka Çalışması",
+      en: "Engineering Case Study"
+    },
+    description: {
+      tr: "Uygulanmış mühendislik kararlarını, kanıtlarını ve sınırlarını belgeleyen çalışma.",
+      en: "A study documenting implemented engineering decisions, evidence, and limitations."
+    },
+    tone: "pipeline"
   }
 ];

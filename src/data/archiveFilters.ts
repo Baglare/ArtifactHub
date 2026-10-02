@@ -2,6 +2,10 @@ import type { Artifact, CategoryId, FocusAreaId, LocalizedText, SeriesId } from 
 
 export type ArchiveFilterId =
   | "all"
+  | "developer-tooling"
+  | "ai-infrastructure"
+  | "localization-engineering"
+  | "desktop-applications"
   | "game-systems"
   | "web-applications"
   | "forge-series"
@@ -17,6 +21,10 @@ type ArchiveFilter = {
 
 export const archiveFilters: ArchiveFilter[] = [
   { id: "all", label: { tr: "Tümü", en: "All" } },
+  { id: "developer-tooling", label: { tr: "Geliştirici Araçları", en: "Developer Tooling" } },
+  { id: "ai-infrastructure", label: { tr: "AI Altyapısı", en: "AI Infrastructure" } },
+  { id: "localization-engineering", label: { tr: "Yerelleştirme Mühendisliği", en: "Localization Engineering" } },
+  { id: "desktop-applications", label: { tr: "Masaüstü Uygulamaları", en: "Desktop Applications" } },
   { id: "game-systems", label: { tr: "Oyun Sistemleri", en: "Game Systems" } },
   { id: "web-applications", label: { tr: "Web Uygulamaları", en: "Web Applications" } },
   { id: "forge-series", label: { tr: "Forge Series", en: "Forge Series" } },
@@ -42,6 +50,14 @@ export function filterArtifactsByArchiveFilter(artifacts: Artifact[], filterId: 
   switch (filterId) {
     case "all":
       return artifacts;
+    case "developer-tooling":
+      return artifacts.filter((artifact) => hasCategory(artifact, "developer-tooling"));
+    case "ai-infrastructure":
+      return artifacts.filter((artifact) => hasCategory(artifact, "ai-infrastructure"));
+    case "localization-engineering":
+      return artifacts.filter((artifact) => hasFocusArea(artifact, "localization-tooling"));
+    case "desktop-applications":
+      return artifacts.filter((artifact) => hasCategory(artifact, "desktop-applications") || hasFocusArea(artifact, "desktop-architecture"));
     case "game-systems":
       return artifacts.filter((artifact) => hasCategory(artifact, "game-systems") || hasFocusArea(artifact, "gameplay-systems"));
     case "web-applications":

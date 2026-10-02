@@ -105,8 +105,14 @@ export const focusAreas: FocusArea[] = [
   },
   {
     id: "evaluation-workflow",
-    label: { tr: "Evaluation Workflow", en: "Evaluation Workflow" },
-    description: { tr: "Üretim çıktılarının kalite, karşılaştırma veya raporlama sürecinden geçirilmesi.", en: "Passing generated outputs through quality, comparison, or reporting steps." },
+    label: {
+      tr: "Doğrulama / Değerlendirme",
+      en: "Validation / Evaluation"
+    },
+    description: {
+      tr: "Yapısal QA, kalite raporları ve karşılaştırılabilir değerlendirme.",
+      en: "Structural QA, quality reports, and comparable evaluation."
+    },
     order: 18
   },
   {
@@ -138,5 +144,101 @@ export const focusAreas: FocusArea[] = [
     label: { tr: "Gamified UI", en: "Gamified UI" },
     description: { tr: "Teknik çıktıları oyunlaştırılmış arayüz metaforlarıyla sunma.", en: "Presenting technical output through gamified interface metaphors." },
     order: 23
+  },
+  {
+    id: "deterministic-pipelines",
+    label: {
+      tr: "Deterministik Pipeline’lar",
+      en: "Deterministic Pipelines"
+    },
+    description: {
+      tr: "Sabit girdiden tekrar üretilebilir çıktı ve kanıt.",
+      en: "Reproducible outputs and evidence from fixed inputs."
+    },
+    order: 24
+  },
+  {
+    id: "transaction-safety",
+    label: {
+      tr: "İşlem Güvenliği",
+      en: "Transaction Safety"
+    },
+    description: {
+      tr: "Preimage, hash, doğrulama ve geri alma sınırları.",
+      en: "Preimage, hash, verification, and rollback boundaries."
+    },
+    order: 25
+  },
+  {
+    id: "ai-governance",
+    label: {
+      tr: "AI Yönetişimi",
+      en: "AI Governance"
+    },
+    description: {
+      tr: "Yapılandırılmış yetki ve açık görev/sonuç sözleşmeleri.",
+      en: "Structured authority and explicit task/result contracts."
+    },
+    order: 26
+  },
+  {
+    id: "provider-architecture",
+    label: {
+      tr: "Provider Mimarisi",
+      en: "Provider Architecture"
+    },
+    description: {
+      tr: "Sağlayıcı sınırları, erişim kapıları ve deterministik fallback.",
+      en: "Provider boundaries, access gates, and deterministic fallback."
+    },
+    order: 27
+  },
+  {
+    id: "secure-credentials",
+    label: {
+      tr: "Güvenli Credential Saklama",
+      en: "Secure Credential Handling"
+    },
+    description: {
+      tr: "Backend sahipliği ve işletim sistemi secret store sınırı.",
+      en: "Backend ownership and operating-system secret-store boundaries."
+    },
+    order: 28
+  },
+  {
+    id: "localization-tooling",
+    label: {
+      tr: "Yerelleştirme Araçları",
+      en: "Localization Tooling"
+    },
+    description: {
+      tr: "Korunan syntax, terminoloji, translation memory ve yapısal QA.",
+      en: "Protected syntax, terminology, translation memory, and structural QA."
+    },
+    order: 29
+  },
+  {
+    id: "release-engineering",
+    label: {
+      tr: "Sürüm Mühendisliği",
+      en: "Release Engineering"
+    },
+    description: {
+      tr: "Paket doğrulama, kabul kanıtı ve açık release kapıları.",
+      en: "Package validation, acceptance evidence, and explicit release gates."
+    },
+    order: 30
+  },
+  {
+    id: "desktop-architecture",
+    label: {
+      tr: "Masaüstü Mimarisi",
+      en: "Desktop Architecture"
+    },
+    description: {
+      tr: "İstemci/core ayrımı ve yerel çalışma sözleşmeleri.",
+      en: "Client/core separation and local execution contracts."
+    },
+    order: 31
   }
 ];
