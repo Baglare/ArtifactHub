@@ -43,6 +43,9 @@ export function ArtifactHero({ artifact }: ArtifactHeroProps) {
           </div>
 
           <div className="mt-7 flex flex-wrap gap-3">
+            {artifact.demoUrl ? (
+              <ButtonLink external href={artifact.demoUrl} labelKey="liveDemo" />
+            ) : null}
             {artifact.repoUrl ? (
               <ButtonLink external href={artifact.repoUrl} labelKey="openOnGithub" />
             ) : null}

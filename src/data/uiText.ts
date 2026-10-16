@@ -6,6 +6,7 @@ export type UiTextKey =
   | "viewSeries"
   | "github"
   | "openOnGithub"
+  | "liveDemo"
   | "githubRepository"
   | "artifactArchive"
   | "backToArchive"
@@ -65,6 +66,7 @@ export const uiText: Record<UiTextKey, LocalizedText> = {
   viewSeries: { tr: "Seriyi İncele", en: "View Series" },
   github: { tr: "GitHub", en: "GitHub" },
   openOnGithub: { tr: "GitHub’da Aç", en: "Open on GitHub" },
+  liveDemo: { tr: "Canlı Uygulamayı Aç", en: "Open Live App" },
   githubRepository: { tr: "GitHub Repository", en: "GitHub Repository" },
   artifactArchive: { tr: "Artifact Arşivi", en: "Artifact Archive" },
   backToArchive: { tr: "Arşive Dön", en: "Back to Archive" },

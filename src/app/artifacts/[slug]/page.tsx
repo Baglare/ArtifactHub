@@ -140,6 +140,9 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
 
         <TechnicalPanel titleKey="links" themeId={artifact.themeId}>
           <div className="flex flex-wrap gap-3">
+            {artifact.demoUrl ? (
+              <ButtonLink external href={artifact.demoUrl} labelKey="liveDemo" />
+            ) : null}
             {artifact.repoUrl ? (
               <ButtonLink external href={artifact.repoUrl} labelKey="githubRepository" />
             ) : null}
