@@ -148,27 +148,31 @@ export const artifacts: Artifact[] = [
     id: "media-tracker",
     slug: "media-tracker",
     title: "MediaTracker",
-    statusId: "release-candidate",
+    statusId: "live-product",
     categoryId: "web-application",
     themeId: "archive-terminal",
     featuredLevel: "primary",
     order: 3,
     homeOrder: 3,
     repoUrl: "https://github.com/Baglare/MediaTracker",
+    demoUrl: "https://mediatracker.baglare.com.tr",
+    updatedAt: "2026-10-16",
     summary: {
-      tr: "Local-first medya takibinden full-stack ürüne: kontrollü cloud sync, sosyal profil, deterministic öneri ve kapılı research; staging release hazırlığı mevcut.",
-      en: "A local-first media tracker evolved into a full-stack product with controlled cloud sync, social profiles, deterministic recommendations, and gated research; staging release preparation is complete."
+      tr: "Canlı local-first medya takip uygulaması: hesapsız yerel kütüphane, isteğe bağlı Cloud Sync, hedefler, takvim, sosyal özellikler ve deterministik öneriler.",
+      en: "A live local-first media tracker with a guest library, optional Cloud Sync, goals, calendar, social features, and deterministic recommendations."
     },
     positioning: {
-      tr: "Portföyün ana ürün mühendisliği çalışması; veri bütünlüğü, provider sınırları ve release hardening ile büyüyen local-first uygulama.",
-      en: "Principal product engineering work: a local-first application developed through data integrity, provider boundaries, and release hardening."
+      tr: "Portfolyonun canlıya alınmış full-stack ürün mühendisliği çalışması; kullanıcı akışlarının yanında veri bütünlüğü, erişim yetkisi ve güvenli sürüm yönetimine odaklanır.",
+      en: "A deployed full-stack product engineering case study focused on data integrity, access control, and safe releases as well as user workflows."
     },
     techStack: [
       "Next.js 16",
       "React 19",
       "TypeScript",
       "Tailwind CSS 4",
-      "Supabase"
+      "PostgreSQL 18",
+      "Better Auth",
+      "Node.js / Passenger"
     ],
     focusAreaIds: [
       "local-first-apps",
@@ -181,131 +185,124 @@ export const artifacts: Artifact[] = [
       "release-engineering"
     ],
     coreSystems: [
-      "Owner-scoped Local Library",
-      "Portable Backup / Recovery",
-      "Cloud Sync Queue / Revision / Idempotency",
-      "Release Calendar / Goals",
-      "Recommendation V2 / Deterministic Ranking",
-      "Gated Grounded Research / Citations",
-      "Public / Protected Social Profiles",
-      "Server Authorization / RLS / RPC",
-      "Personalization",
-      "Staging / Preview Release Gates"
+      "Owner-scoped Local Library / Guest Mode",
+      "Portable JSON Backup / Recovery",
+      "Verified Email / Better Auth Sessions",
+      "Native PostgreSQL 18 / FORCE RLS",
+      "Cloud Sync / Revision / Idempotency / Tombstones",
+      "Release Calendar / Goals / Progress",
+      "Deterministic Recommendation V2",
+      "Profiles / Follow / Feed / Notifications",
+      "Fail-closed Provider Policy",
+      "GitHub Actions / Linux Artifact / Passenger Release"
     ],
     transformation: {
-      input: { tr: "Kullanıcı medya kayıtları, API arama sonuçları ve yerel arşiv verisi", en: "User media records, API search results, and local archive data" },
-      process: { tr: "Filtreleme, arşivleme, progress tracking, JSON yönetimi, öneri hesaplama", en: "Filtering, archiving, progress tracking, JSON management, and recommendation scoring" },
-      output: { tr: "Kişisel medya dashboard’u ve local-first medya kütüphanesi", en: "Personal media dashboard and local-first media library" },
+      input: {
+        tr: "Kullanıcının medya girdileri ve izinli kaynaklardan katalog verisi",
+        en: "User media entries and catalog data from permitted sources"
+      },
+      process: {
+        tr: "Yerel kütüphane, ilerleme/hedef takibi, kontrollü eşitleme ve deterministik öneri sıralaması",
+        en: "Local library, progress and goal tracking, controlled synchronization, and deterministic recommendation ranking"
+      },
+      output: {
+        tr: "Cihazda kullanılabilen kişisel medya arşivi; istenirse hesap kapsamlı Cloud ve sosyal görünüm",
+        en: "A personal media library usable on-device, with optional account-scoped Cloud and social views"
+      },
       compact: {
-        tr: "Medya kayıtları ve API sonuçları → arşivleme/progress takibi → kişisel medya dashboard’u",
-        en: "Media records and API results → archiving/progress tracking → personal media dashboard"
+        tr: "Medya girdileri → local-first takip / isteğe bağlı Cloud → kişisel arşiv ve takvim",
+        en: "Media input → local-first tracking / optional Cloud → personal library and calendar"
       }
     },
     architectureFlow: {
       steps: [
-        {
-          label: "Owner-scoped Local Library"
-        },
-        {
-          label: "Dashboard / Calendar / Goals"
-        },
-        {
-          label: "Normalized Source Providers"
-        },
-        {
-          label: "Deterministic Recommendation V2"
-        },
-        {
-          label: "Gated Provider Evidence / Research"
-        },
-        {
-          label: "Optional Supabase Sync / Social"
-        },
-        {
-          label: "Server Authorization / RLS / RPC"
-        }
+        { label: "Owner-scoped Browser Library" },
+        { label: "Next.js UI / Same-origin API" },
+        { label: "Better Auth / Verified Session" },
+        { label: "PostgreSQL 18 / Owner Context / FORCE RLS" },
+        { label: "Cloud Revision / Idempotency / Conflicts" },
+        { label: "Calendar / Social / Deterministic Recommendations" },
+        { label: "Provider Policy / TVMaze Attribution" }
       ]
     },
     sections: {
       overview: {
         body: {
-          tr: "MediaTracker, medya takibi ve keşfini veri bütünlüğü, ürün akışları ve opsiyonel cloud/sosyal katmanla birleştiren full-stack local-first uygulamadır. Tarayıcıdaki owner-scoped veri ana kaynaktır; Supabase yapılandırılmadığında yerel kullanım sürer. UI/state orkestrasyonu domain ve kalıcı tercih sorumluluklarına ayrılmıştır.",
-          en: "MediaTracker combines media tracking and discovery with data integrity, product workflows, and optional cloud/social layers in a full-stack local-first application. Owner-scoped browser data remains the primary source; local use continues without Supabase. UI/state orchestration separates domain behavior from persistent preferences."
+          tr: "MediaTracker; dizi, film, anime, manga ve kitapları tek kütüphanede izlemek için geliştirdiğim local-first web uygulamasıdır. Yerel mod hesap gerektirmez ve Cloud geçici olarak kullanılamadığında çalışmaya devam eder. İsteğe bağlı hesap ve eşitleme, kontrol edilen sosyal özellikler ve deterministik önerilerle genişler. 16 Ekim 2026'da yeni Production v1 sürümü Plesk/Passenger üzerinde yayımlanmış, temel sağlık, oturum, Cloud Sync, kayıt/e-posta ve gizlilik akışları operatör tarafından doğrulanmıştır.",
+          en: "MediaTracker is a local-first web application I built to track series, films, anime, manga, and books in one library. Guest mode requires no account and local workflows remain usable when Cloud is unavailable. Optional authentication and synchronization extend it with social features and deterministic recommendations. The Production v1 update was deployed under Plesk/Passenger on October 16, 2026; the operator verified health, session, Cloud Sync, signup/email, and privacy flows."
         }
       },
       currentScope: {
         body: {
-          tr: "Dashboard, kütüphane, ilerleme, portable backup/recovery, Release Calendar, goals ve kişiselleştirme uygulanmıştır. Opsiyonel cloud; auth, upload/download/merge ve revision/idempotency/conflict kontrollü owner-scoped sync queue kullanır. Public/protected/personal profiller, takip/engel, feed, öneriler ve bildirim temelleri bulunur.\n\nRecommendation V2 provider-neutral structured evidence ile deterministic eligibility/ranking yapar; LLM final sıralama yapmaz. Grounded Research kaynak/citation/evidence işleme sağlar fakat explicit gate’e bağlıdır. Server authorization, same-origin kontrolleri, RPC/RLS ve profile projection sınırları staging kanıtıyla belgelenmiştir. D8-4A.5E code/Staging/Preview hazırlığı tamamlanmış; D8-4B Production cutover başlamamıştır.",
-          en: "Implemented scope includes dashboard, library, progress, portable backup/recovery, Release Calendar, goals, and personalization. Optional cloud uses auth, upload/download/merge, and an owner-scoped sync queue with revision/idempotency/conflict handling. Public/protected/personal profiles, follow/block, feed, recommendations, and notification foundations exist.\n\nRecommendation V2 uses provider-neutral structured evidence and deterministic eligibility/ranking; the LLM does not perform final ranking. Grounded Research handles sources/citations/evidence behind an explicit gate. Server authorization, same-origin checks, RPC/RLS, and profile projection boundaries have documented staging evidence. D8-4A.5E code/Staging/Preview preparation is complete; D8-4B Production cutover has not started."
+          tr: "Canlı uygulama; dashboard, kütüphane, ilerleme, hedefler, Release Calendar, kişiselleştirme, sürümlü portable JSON yedekleri ve veri içe aktarma içerir. Better Auth ile e-posta doğrulaması, native PostgreSQL 18 ve owner-scoped Cloud aktarımı kullanılır. Cloud queue, revision, idempotency, tombstone ve çakışma korumalarıyla yönetilir. Profil görünürlüğü, takip/engel, feed, yorumlar, öneri mesajları ve bildirimler sunucu yetkilendirmesiyle sınırlandırılır. Recommendation V2'nin aktif sıralaması deterministiktir. CI'da kaynak kontrolleri, regresyonlar, izole PG18 ispatları ve SHA'ya bağlı Linux artifact üretimi uygulanır. Supabase adapter'ı ayrı fallback'tir, canlı backend değildir.",
+          en: "The live application includes a dashboard, library, progress, goals, Release Calendar, personalization, versioned portable JSON backups, and imports. Better Auth verifies email; native PostgreSQL 18 supports account-scoped Cloud operations. The sync queue uses revision, idempotency, tombstones, and conflict handling. Profile visibility, follow/block, feed, comments, recommendation messages, and notifications operate behind server authorization. Recommendation V2 uses deterministic ranking in production. CI runs source checks, regressions, isolated PG18 proofs, and SHA-bound Linux artifact packaging. The Supabase adapter is a separate fallback, not the live backend."
         }
       },
       designDecisions: [
         {
-          title: {
-            tr: "Yerel veriyi ana kaynak tutmak",
-            en: "Keep local data primary"
-          },
+          title: { tr: "Local-first veri sahipliği", en: "Local-first data ownership" },
           description: {
-            tr: "Cloud mutation readiness fail-closed durur; yerel kullanım devam eder. Cloud download/merge kullanıcı aksiyonudur.",
-            en: "Cloud mutation readiness fails closed while local use continues. Cloud download/merge remains a user action."
+            tr: "Hesapsız kullanım sürer; Cloud bakımında veya sürüm uyuşmazlığında gönderimler fail-closed durur, yerel kütüphane korunur.",
+            en: "Guest use continues; Cloud writes fail closed during maintenance or version mismatches while the local library is preserved."
           }
         },
         {
-          title: {
-            tr: "Öneri kararını deterministic tutmak",
-            en: "Keep recommendation decisions deterministic"
-          },
+          title: { tr: "Eşitlemeyi tekrar güvenli çalıştırmak", en: "Make synchronization retry-safe" },
           description: {
-            tr: "Provider evidence aday bilgisi sağlar; eligibility ve final ranking sözleşmeyle belirlenir.",
-            en: "Provider evidence supplies candidate information; eligibility and final ranking follow explicit contracts."
+            tr: "Revision, idempotency, tombstone ve çatışma sınırları tekrar denenen işlemlerin tutarlılığını ve hesap izolasyonunu hedefler.",
+            en: "Revision, idempotency, tombstone, and conflict contracts address retry safety, consistency, and account isolation."
           }
         },
         {
-          title: {
-            tr: "Public projection ve server yetkisini sınırlandırmak",
-            en: "Bound public projections and server authority"
-          },
+          title: { tr: "Yetkiyi sunucuda doğrulamak", en: "Enforce authority server-side" },
           description: {
-            tr: "Profil görünürlüğü ve owner erişimi server/RPC/RLS katmanında kontrol edilir; client isteği yetki üretmez.",
-            en: "Profile visibility and owner access are checked through server/RPC/RLS boundaries; client requests cannot create authority."
+            tr: "Better Auth oturumu, transaction-local owner context ve FORCE RLS birlikte çalışır; istemci kimlik iddiası tek başına yetki vermez.",
+            en: "Better Auth sessions, transaction-local owner context, and FORCE RLS work together; client-supplied identity alone grants no authority."
+          }
+        },
+        {
+          title: { tr: "Kapalı sağlayıcı politikası ve kontrollü yayın", en: "Fail-closed providers and controlled releases" },
+          description: {
+            tr: "Lisans/izin açısından netleşmemiş sağlayıcılar Production'da kapalıdır; release, migration ve Linux artifact kanıtları ayrı değerlendirilir.",
+            en: "Providers without completed permission review stay disabled in production; release, migration, and Linux artifact evidence is assessed separately."
           }
         }
       ],
       limitations: [
         {
-          tr: "Production cutover/deployment doğrulanmış değildir; manuel/external D8 kapıları açıktır.",
-          en: "Production cutover/deployment is not verified; manual/external D8 gates remain open."
+          tr: "Ücretli AI, Grounded Research ve kalıcı embedding cache sunucu akışları Production v1'de kapalıdır; öneriler deterministik çalışır.",
+          en: "Paid AI, Grounded Research, and persistent embedding caching are disabled in Production v1; recommendations are deterministic."
         },
         {
-          tr: "İlk Production release politikası server AI, Grounded Research ve persistent embedding cache’i kapalı tutar; anahtar eklemek erişim açmaz.",
-          en: "The first Production release policy disables server AI, Grounded Research, and persistent embedding cache; adding keys does not enable access."
+          tr: "TMDB/AniList ve yeni OMDb public aramaları kapalıdır. Open Library kimlik/izin koşullarına bağlıdır; dış kapak görüntüleri ayrıca değerlendirilmektedir.",
+          en: "TMDB/AniList and new OMDb public searches are disabled. Open Library depends on provider conditions; external cover images remain subject to review."
         },
         {
-          tr: "TMDB/AniList enablement izin ve attribution kapılarına bağlıdır; Open Library contact/User-Agent gerektirir. OMDb yeni public aramada kapalıdır.",
-          en: "TMDB/AniList enablement depends on permission and attribution gates; Open Library requires a contact/User-Agent. OMDb is disabled for new public searches."
+          tr: "Cloud'dan otomatik gerçek zamanlı indirme yoktur; indirme/birleştirme kontrollü kullanıcı akışıdır.",
+          en: "Cloud does not automatically pull remote changes in real time; download/merge is a controlled user action."
         },
         {
-          tr: "Cloud’dan otomatik realtime pull yoktur. Legacy Python embedding servisi Recommendation V2’nin aktif production karar hattı değildir.",
-          en: "There is no automatic realtime cloud pull. The legacy Python embedding service is not the active production decision path for Recommendation V2."
-        },
-        {
-          tr: "Repository’deki staging kabul kanıtı bu portföy güncellemesinde yeniden yürütülmedi.",
-          en: "Repository staging acceptance evidence was not rerun for this portfolio refresh."
+          tr: "Üretimde test edilen akışlar tüm güvenlik veya KVKK yükümlülüklerinin kapandığı anlamına gelmez; dış aktarım ve bazı silme/restore işletim kontrolleri açıktır.",
+          en: "Production-tested flows do not establish complete security or KVKK compliance; external-transfer and some erasure/restore operations remain open."
         }
       ],
       plannedExtensions: [
         {
-          tr: "D8-4B production geçişini kalan manuel/external kapılar kapandıktan sonra ayrı yürütme.",
-          en: "Run D8-4B production cutover separately after remaining manual/external gates close."
+          tr: "Gerçek ekran görüntüleri, kısa demo ve mimari/CI kanıtlarını projeye ekleme.",
+          en: "Add authentic screenshots, a short demo, and architectural/CI evidence."
         },
         {
-          tr: "AI/research ve izin kapılı provider enablement’ını ayrı post-release süreç olarak ele alma.",
-          en: "Handle AI/research and permission-gated provider enablement as separate post-release work."
+          tr: "Üçüncü taraf içerik izinlerini ve gizlilik/veri yaşam döngüsü işletimini ayrı takip etme.",
+          en: "Track third-party content permissions and privacy/data-lifecycle operations separately."
+        },
+        {
+          tr: "Yeni sağlayıcı ve AI özelliklerini yalnız ayrı onay ve sürüm kapılarından sonra değerlendirme.",
+          en: "Consider new providers and AI features only after separate permission and release gates."
         }
       ],
       visualNotes: {
-        tr: "Koyu lacivert/grafit arka plan, cyan vurgu, medya kartları, progress ring ve arşiv terminali hissi.",
-        en: "Dark navy/graphite background, cyan accents, media cards, progress rings, and an archive terminal feel."
+        tr: "Koyu lacivert/grafit, cyan vurgu, medya kartları, ilerleme halkaları ve arşiv terminali estetiği.",
+        en: "Dark navy/graphite, cyan accents, media cards, progress rings, and an archive-terminal aesthetic."
       }
     }
   },
