@@ -47,6 +47,15 @@ export const statuses: Status[] = [
     tone: "vision"
   },
   {
+    id: "live-product",
+    label: { tr: "Canlı Ürün (v1)", en: "Live Product (v1)" },
+    description: {
+      tr: "Production ortamına yayımlanmış ve temel kullanıcı akışları doğrulanmış uygulama; açık yasal ve operasyonel sınırlar ayrıca belirtilir.",
+      en: "An application deployed to production with verified core user flows; outstanding legal and operational limits are documented separately."
+    },
+    tone: "product"
+  },
+  {
     id: "release-candidate",
     label: {
       tr: "Sürüm Adayı",
