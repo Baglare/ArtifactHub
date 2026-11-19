@@ -4,11 +4,13 @@ ArtifactHub, Baglare’ın yazılım projelerini — geliştirici araçları, AI
 
 Hedef yayın: **https://artifacthub.baglare.com.tr** (TurkHosting · Plesk alt alan adı, statik site).
 
-## Artifact seti (15)
+## Projeler (14)
 
 Öne çıkanlar: **MediaTracker**, **VoxForge**, **Butterfly Effect**, **GameLocalizer**, **AgentVerse**.
 
-Diğerleri: DersOyun, KnowledgeCompiler, PoD Localization Engineering, PulseForge, Kıyafet Kategorilendirme, TempoBlade, VisionForge, Aria AI, OpenAI Image Studio, Petglare.
+Diğerleri: PulseForge, Kıyafet Kategorilendirme, TempoBlade, VisionForge, Aria AI, OpenAI Image Studio, Petglare, PoD Localization Engineering, DersOyun.
+
+Ana sayfadaki yörünge, her proje için bir nokta çizer. Noktanın yörüngesi ve görünümü durumun `maturity` değerinden gelir (`src/data/statuses.ts`: 4 canlı/yayında → merkeze en yakın, 1 erken aşama → en dış). Yeni proje eklendiğinde nokta kendiliğinden belirir.
 
 Tüm içerik `src/data/` altındaki registry dosyalarından okunur (`artifacts.ts`, `themes.ts`, `statuses.ts`, `categories.ts`, `focusAreas.ts`, `series.ts`). Yeni proje eklemek için yalnız registry’ye kayıt eklemek yeterlidir; öne çıkarmak için `featuredLevel: "primary"`, sıralama için `order` kullanılır.
 

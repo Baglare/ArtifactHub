@@ -88,37 +88,9 @@ export default function RoadmapPage() {
           </ul>
         </TechnicalPanel>
 
-        <TechnicalPanel
-          title={<LocalizedTextValue text={roadmapPageText.languagePlanTitle} />}
-          description={<LocalizedTextValue text={roadmapPageText.languagePlanDescription} />}
-          themeId="relic-core"
-        >
-          <ul className="bullet-list">
-            {roadmapPageText.languageExpansionItems.map((item) => (
-              <li key={item.tr}>
-                <LocalizedTextValue text={item} />
-              </li>
-            ))}
-          </ul>
-        </TechnicalPanel>
-
-        <TechnicalPanel
-          title={<LocalizedTextValue text={roadmapPageText.registryStructureTitle} />}
-          description={<LocalizedTextValue text={roadmapPageText.registryStructureDescription} />}
-          themeId="relic-core"
-          variant="technical"
-        >
-          <ul className="bullet-list">
-            {roadmapPageText.registryExpansionItems.map((item) => (
-              <li key={item.tr}>
-                <LocalizedTextValue text={item} />
-              </li>
-            ))}
-          </ul>
-          <div className="mt-5">
-            <ButtonLink href="/artifacts" labelKey="artifactArchive" variant="secondary" />
-          </div>
-        </TechnicalPanel>
+        <div className="flex flex-wrap gap-3">
+          <ButtonLink href="/artifacts" labelKey="artifactArchive" variant="secondary" />
+        </div>
       </div>
     </PageShell>
   );

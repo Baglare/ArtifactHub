@@ -168,11 +168,15 @@ export type Theme = {
 
 export type StatusTone = "systems" | "product" | "pipeline" | "lab" | "vision";
 
+/** 4 = live/released, 3 = actively growing, 2 = substantial but incomplete, 1 = early prototype. */
+export type MaturityLevel = 1 | 2 | 3 | 4;
+
 export type Status = {
   id: StatusId;
   label: LocalizedText;
   description: LocalizedText;
   tone: StatusTone;
+  maturity: MaturityLevel;
 };
 
 export type FocusArea = {

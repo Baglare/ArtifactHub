@@ -3,7 +3,6 @@ import type { Artifact, CategoryId, FocusAreaId, LocalizedText, SeriesId } from 
 export type ArchiveFilterId =
   | "all"
   | "developer-tooling"
-  | "ai-infrastructure"
   | "localization-engineering"
   | "desktop-applications"
   | "game-systems"
@@ -23,17 +22,16 @@ type ArchiveFilter = {
 export const archiveFilters: ArchiveFilter[] = [
   { id: "all", label: { tr: "Tümü", en: "All" } },
   { id: "developer-tooling", label: { tr: "Geliştirici Araçları", en: "Developer Tooling" } },
-  { id: "ai-infrastructure", label: { tr: "AI Altyapısı", en: "AI Infrastructure" } },
   { id: "machine-learning", label: { tr: "Makine Öğrenmesi", en: "Machine Learning" } },
   { id: "localization-engineering", label: { tr: "Yerelleştirme Mühendisliği", en: "Localization Engineering" } },
   { id: "desktop-applications", label: { tr: "Masaüstü Uygulamaları", en: "Desktop Applications" } },
   { id: "game-systems", label: { tr: "Oyun Sistemleri", en: "Game Systems" } },
   { id: "web-applications", label: { tr: "Web Uygulamaları", en: "Web Applications" } },
-  { id: "forge-series", label: { tr: "Forge Series", en: "Forge Series" } },
-  { id: "audio", label: { tr: "Audio", en: "Audio" } },
-  { id: "voice", label: { tr: "Voice", en: "Voice" } },
-  { id: "computer-vision", label: { tr: "Computer Vision", en: "Computer Vision" } },
-  { id: "local-first", label: { tr: "Local-first", en: "Local-first" } }
+  { id: "forge-series", label: { tr: "Forge Serisi", en: "Forge Series" } },
+  { id: "audio", label: { tr: "Ses", en: "Audio" } },
+  { id: "voice", label: { tr: "Seslendirme", en: "Voice" } },
+  { id: "computer-vision", label: { tr: "Bilgisayarlı Görü", en: "Computer Vision" } },
+  { id: "local-first", label: { tr: "Yerelde Çalışan", en: "Local-first" } }
 ];
 
 function hasCategory(artifact: Artifact, categoryId: CategoryId): boolean {
@@ -54,8 +52,6 @@ export function filterArtifactsByArchiveFilter(artifacts: Artifact[], filterId: 
       return artifacts;
     case "developer-tooling":
       return artifacts.filter((artifact) => hasCategory(artifact, "developer-tooling"));
-    case "ai-infrastructure":
-      return artifacts.filter((artifact) => hasCategory(artifact, "ai-infrastructure"));
     case "localization-engineering":
       return artifacts.filter((artifact) => hasFocusArea(artifact, "localization-tooling"));
     case "desktop-applications":
