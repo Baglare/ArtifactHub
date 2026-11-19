@@ -24,9 +24,7 @@ export function FocusAreaList({ focusAreaIds, variant = "default" }: FocusAreaLi
     <ul className="flex min-w-0 flex-wrap gap-2">
       {focusAreas.map((focusArea) => (
         <li
-          className={`border border-[color:var(--theme-border)] bg-[var(--theme-surface)] text-[var(--theme-text-secondary)] ${
-            variant === "compact" ? "px-2 py-0.5 text-xs" : "px-2 py-1 text-sm"
-          }`}
+          className={`chip ${variant === "compact" ? "px-2.5 py-1 text-[11px]" : "px-3 py-1.5 text-xs"}`}
           key={focusArea.id}
         >
           {getLocalizedText(focusArea.label, locale)}

@@ -139,5 +139,105 @@ export const themes: Theme[] = [
       accentSecondary: "#E8A84D",
       accentTertiary: "#58C7D9"
     }
+  },
+  {
+    id: "agent-grid",
+    name: "Agent Grid",
+    symbolId: "agent-grid",
+    animationPreset: "grid-pulse",
+    texture: "fine-grid",
+    tone: { tr: "Zümrüt ızgara, adım adım öğrenen ajan izleri ve sakin bir laboratuvar hissi.", en: "Emerald grid, step-by-step agent traces, and a calm laboratory feel." },
+    colors: {
+      background: "#04080A",
+      surface: "#0C1517",
+      surfaceRaised: "#122024",
+      border: "#1E3438",
+      textPrimary: "#E6F5F1",
+      textSecondary: "#9CB9B3",
+      textMuted: "#62807A",
+      accentPrimary: "#34D399",
+      accentSecondary: "#22D3EE",
+      accentTertiary: "#A3E635"
+    }
+  },
+  {
+    id: "chrono-wing",
+    name: "Chrono Wing",
+    symbolId: "chrono-wing",
+    animationPreset: "wing-flutter",
+    texture: "paper-grain",
+    tone: { tr: "Kehribar arşiv kâğıdı, indigo zaman katmanları ve kanat çırpışıyla değişen tarih.", en: "Amber archive paper, indigo time layers, and history shifting with a wingbeat." },
+    colors: {
+      background: "#06060E",
+      surface: "#10101F",
+      surfaceRaised: "#17172B",
+      border: "#2A2944",
+      textPrimary: "#F2EEFF",
+      textSecondary: "#ABA6C8",
+      textMuted: "#716C92",
+      accentPrimary: "#F5B45B",
+      accentSecondary: "#818CF8",
+      accentTertiary: "#F472B6"
+    }
+  },
+  {
+    id: "study-lumen",
+    name: "Study Lumen",
+    symbolId: "study-lumen",
+    animationPreset: "soft-glow",
+    texture: "paper-grain",
+    tone: { tr: "Gece çalışma lambası, gök mavisi vurgu ve odaklı öğrenme ritmi.", en: "A late-night study lamp, sky-blue accents, and a focused learning rhythm." },
+    colors: {
+      background: "#05070D",
+      surface: "#0E1320",
+      surfaceRaised: "#141B2C",
+      border: "#24304A",
+      textPrimary: "#EEF3FF",
+      textSecondary: "#A2AEC8",
+      textMuted: "#6A7692",
+      accentPrimary: "#60A5FA",
+      accentSecondary: "#FBBF24",
+      accentTertiary: "#A78BFA"
+    }
+  },
+  {
+    id: "fabric-lens",
+    name: "Fabric Lens",
+    symbolId: "fabric-lens",
+    animationPreset: "mask-sweep",
+    texture: "weave",
+    tone: { tr: "Gül kurusu kumaş dokusu, turkuaz segmentasyon maskeleri ve ölçülü bir model değerlendirmesi.", en: "Dusty-rose fabric texture, turquoise segmentation masks, and measured model evaluation." },
+    colors: {
+      background: "#09060A",
+      surface: "#171018",
+      surfaceRaised: "#201622",
+      border: "#372637",
+      textPrimary: "#FBEFF5",
+      textSecondary: "#C2A9B6",
+      textMuted: "#87707C",
+      accentPrimary: "#F472B6",
+      accentSecondary: "#2DD4BF",
+      accentTertiary: "#FDBA74"
+    }
+  },
+  {
+    id: "pet-glow",
+    name: "Pet Glow",
+    symbolId: "pet-glow",
+    animationPreset: "bounce",
+    texture: "none",
+    tone: { tr: "Sıcak mercan parıltısı, küçük bir masaüstü yol arkadaşı ve sakin durum bildirimleri.", en: "Warm coral glow, a small desktop companion, and calm status notifications." },
+    colors: {
+      background: "#0A0605",
+      surface: "#18100E",
+      surfaceRaised: "#221714",
+      border: "#3A2823",
+      textPrimary: "#FFF1EA",
+      textSecondary: "#C9AEA3",
+      textMuted: "#8E736A",
+      accentPrimary: "#FB923C",
+      accentSecondary: "#F87171",
+      accentTertiary: "#FDE68A"
+    }
   }
 ];

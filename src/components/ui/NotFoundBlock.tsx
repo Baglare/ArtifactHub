@@ -31,10 +31,11 @@ export function NotFoundBlock({
     secondaryActionLabel ?? (secondaryActionLabelKey ? getUiText(secondaryActionLabelKey, locale) : undefined);
 
   return (
-    <div className="border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-6">
-      <h1 className="text-2xl font-semibold text-[var(--theme-text-primary)]">{title ?? getUiText("notFoundTitle", locale)}</h1>
+    <div className="glass mx-auto max-w-2xl p-10 text-center">
+      <p className="display text-gradient text-7xl sm:text-8xl">404</p>
+      <h1 className="mt-6 text-2xl font-semibold text-[var(--theme-text-primary)]">{title ?? getUiText("notFoundTitle", locale)}</h1>
       <p className="mt-3 text-[var(--theme-text-secondary)]">{description ?? getUiText("notFoundDescription", locale)}</p>
-      <div className="mt-5 flex flex-wrap gap-3">
+      <div className="mt-8 flex flex-wrap justify-center gap-3">
         <ButtonLink href={href}>{resolvedActionLabel}</ButtonLink>
         {secondaryHref && resolvedSecondaryActionLabel ? (
           <ButtonLink href={secondaryHref} variant="secondary">

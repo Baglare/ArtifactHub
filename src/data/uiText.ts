@@ -59,7 +59,18 @@ export type UiTextKey =
   | "openMenu"
   | "closeMenu"
   | "language"
-  | "primaryAction";
+  | "primaryAction"
+  | "footerTagline"
+  | "footerNote"
+  | "footerNavigation"
+  | "featured"
+  | "spotlight"
+  | "artifactCount"
+  | "liveProducts"
+  | "openSourceRepos"
+  | "scrollHint"
+  | "recentlyUpdated"
+  | "privateRepository";
 
 export const uiText: Record<UiTextKey, LocalizedText> = {
   viewArtifact: { tr: "Artifact’i İncele", en: "View Artifact" },
@@ -125,7 +136,18 @@ export const uiText: Record<UiTextKey, LocalizedText> = {
   openMenu: { tr: "Menüyü aç", en: "Open menu" },
   closeMenu: { tr: "Menüyü kapat", en: "Close menu" },
   language: { tr: "Dil", en: "Language" },
-  primaryAction: { tr: "Birincil aksiyon", en: "Primary action" }
+  primaryAction: { tr: "Birincil aksiyon", en: "Primary action" },
+  footerTagline: { tr: "— yaşayan arşiv", en: "— a living archive" },
+  footerNote: { tr: "Kaynak kanıtlı proje kayıtları", en: "Source-backed project records" },
+  footerNavigation: { tr: "Alt navigasyon", en: "Footer navigation" },
+  featured: { tr: "Öne çıkan", en: "Featured" },
+  spotlight: { tr: "Vitrin", en: "Spotlight" },
+  artifactCount: { tr: "artifact", en: "artifacts" },
+  liveProducts: { tr: "canlı ürün", en: "live products" },
+  openSourceRepos: { tr: "açık depo", en: "public repos" },
+  scrollHint: { tr: "Keşfet", en: "Explore" },
+  recentlyUpdated: { tr: "Güncellendi", en: "Updated" },
+  privateRepository: { tr: "Özel depo", en: "Private repository" }
 };
 
 export function getUiText(key: UiTextKey, locale: Locale): string {

@@ -17,7 +17,7 @@ export function PlannedExtensionsList({ plannedExtensions, variant = "default" }
   }
 
   return (
-    <ul className={variant === "compact" ? "space-y-1 text-sm text-[var(--theme-text-secondary)]" : "list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]"}>
+    <ul className={variant === "compact" ? "space-y-1 text-sm text-[var(--theme-text-secondary)]" : "bullet-list"}>
       {plannedExtensions.map((plannedExtension) => (
         <li key={plannedExtension.tr}>{getLocalizedText(plannedExtension, locale)}</li>
       ))}

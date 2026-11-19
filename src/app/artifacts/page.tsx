@@ -28,7 +28,7 @@ export default function ArtifactsPage() {
       <ArtifactArchive artifacts={artifacts} />
 
       <section className="py-8">
-        <p className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 text-sm text-[var(--theme-text-muted)]">
+        <p className="glass-soft min-w-0 p-5 text-sm text-[var(--theme-text-muted)]">
           <LocalizedTextValue text={artifactsPageText.archiveNote} />
         </p>
       </section>

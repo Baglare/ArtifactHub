@@ -14,16 +14,16 @@ export function LocaleToggle({ className }: LocaleToggleProps) {
   return (
     <div
       aria-label={getUiText("language", locale)}
-      className={`inline-flex border border-[color:var(--theme-border)] bg-[var(--theme-surface)] ${className ?? ""}`}
+      className={`inline-flex rounded-full border border-[color:var(--hairline-strong)] bg-white/[0.03] p-0.5 ${className ?? ""}`}
       role="group"
     >
       {SUPPORTED_LOCALES.map((item) => (
         <button
           aria-label={getLocaleLabel(item)}
           aria-pressed={locale === item}
-          className={`px-2.5 py-1.5 text-xs font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)] ${
+          className={`rounded-full px-3 py-1.5 font-mono text-[11px] font-medium tracking-wider transition-all duration-300 ${
             locale === item
-              ? "bg-[var(--theme-accent-primary)] text-[var(--theme-background)]"
+              ? "bg-[var(--theme-text-primary)] text-[#0a0a10]"
               : "text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)]"
           }`}
           key={item}

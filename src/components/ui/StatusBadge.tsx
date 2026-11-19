@@ -15,8 +15,9 @@ type StatusBadgeProps = {
 };
 
 const variantClasses: Record<StatusBadgeVariant, string> = {
-  default: "border-[color:var(--theme-accent-primary)] text-[var(--theme-text-primary)]",
-  subtle: "border-[color:var(--theme-border)] text-[var(--theme-text-secondary)]"
+  default:
+    "border-[color:color-mix(in_srgb,var(--theme-accent-primary)_45%,transparent)] bg-[color:color-mix(in_srgb,var(--theme-accent-primary)_12%,transparent)] text-[var(--theme-text-primary)]",
+  subtle: "border-[color:var(--hairline-strong)] bg-white/[0.03] text-[var(--theme-text-secondary)]"
 };
 
 export function StatusBadge({ statusId, themeId, variant = "default" }: StatusBadgeProps) {
@@ -26,9 +27,15 @@ export function StatusBadge({ statusId, themeId, variant = "default" }: StatusBa
 
   return (
     <span
-      className={`inline-flex items-center border bg-[var(--theme-surface)] px-2 py-1 text-xs font-medium ${variantClasses[variant]}`}
+      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium tracking-wide ${variantClasses[variant]}`}
       style={themeStyle}
     >
+      <span
+        aria-hidden="true"
+        className={`h-1.5 w-1.5 rounded-full bg-[var(--theme-accent-primary)] ${
+          status?.id === "live-product" ? "animate-pulse shadow-[0_0_10px_var(--theme-accent-primary)]" : "opacity-80"
+        }`}
+      />
       {status ? getLocalizedText(status.label, locale) : "Prototip"}
     </span>
   );

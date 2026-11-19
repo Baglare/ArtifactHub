@@ -240,5 +240,50 @@ export const focusAreas: FocusArea[] = [
       en: "Client/core separation and local execution contracts."
     },
     order: 31
+  },
+  {
+    id: "reinforcement-learning",
+    label: { tr: "Pekiştirmeli Öğrenme", en: "Reinforcement Learning" },
+    description: {
+      tr: "Seed'li eğitim, baseline karşılaştırması ve transfer deneyleriyle öğrenen ajanlar.",
+      en: "Learning agents with seeded training, baseline comparison, and transfer experiments."
+    },
+    order: 32
+  },
+  {
+    id: "multiplayer-networking",
+    label: { tr: "Çok Oyunculu Ağ", en: "Multiplayer Networking" },
+    description: {
+      tr: "Host/Client oturumları, yetkili sunucu durumu ve oyuncuya özel bilgi görünürlüğü.",
+      en: "Host/Client sessions, authoritative server state, and per-player information visibility."
+    },
+    order: 33
+  },
+  {
+    id: "learning-design",
+    label: { tr: "Öğrenme Tasarımı", en: "Learning Design" },
+    description: {
+      tr: "Soru bankası, ustalık eşiği, deneme sınavı ve ilerleme kaydı gibi öğrenme akışları.",
+      en: "Learning flows such as question banks, mastery thresholds, practice exams, and progress saves."
+    },
+    order: 34
+  },
+  {
+    id: "deep-learning-models",
+    label: { tr: "Derin Öğrenme Modelleri", en: "Deep Learning Models" },
+    description: {
+      tr: "Segmentasyon, attribute sınıflandırma ve modellerin kontrollü karşılaştırılması.",
+      en: "Segmentation, attribute classification, and controlled model comparison."
+    },
+    order: 35
+  },
+  {
+    id: "ai-assistant-tooling",
+    label: { tr: "AI Asistan Araçları", en: "AI Assistant Tooling" },
+    description: {
+      tr: "AI kodlama asistanlarının etrafında çalışan hook, bildirim ve iş akışı araçları.",
+      en: "Hooks, notifications, and workflow tools built around AI coding assistants."
+    },
+    order: 36
   }
 ];

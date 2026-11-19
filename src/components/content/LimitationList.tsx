@@ -16,7 +16,7 @@ export function LimitationList({ limitations }: LimitationListProps) {
   }
 
   return (
-    <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
+    <ul className="bullet-list">
       {limitations.map((limitation) => (
         <li key={limitation.tr}>{getLocalizedText(limitation, locale)}</li>
       ))}

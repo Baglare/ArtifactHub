@@ -39,7 +39,7 @@ export function TechnicalFocusMap({ artifacts, focusAreaIds }: TechnicalFocusMap
   return (
     <div className="grid gap-4 md:grid-cols-2">
       {groups.map((group) => (
-        <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-5" key={group.focusArea.id}>
+        <section className="glass-soft min-w-0 p-6 transition-colors hover:border-[color:var(--hairline-strong)]" key={group.focusArea.id}>
           <h3 className="text-lg font-semibold text-[var(--theme-text-primary)]">{getLocalizedText(group.focusArea.label, locale)}</h3>
           {group.focusArea.description ? (
             <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">
@@ -48,11 +48,11 @@ export function TechnicalFocusMap({ artifacts, focusAreaIds }: TechnicalFocusMap
           ) : null}
 
           {group.artifacts.length ? (
-            <ul className="mt-4 flex flex-wrap gap-3 text-sm text-[var(--theme-text-secondary)]">
+            <ul className="mt-4 flex flex-wrap gap-2">
               {group.artifacts.map((artifact) => (
                 <li key={artifact.id}>
                   <Link
-                    className="underline underline-offset-4 hover:text-[var(--theme-text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                    className="chip relative z-10 px-3 py-1.5 text-xs transition-colors hover:border-[color:color-mix(in_srgb,var(--theme-accent-primary)_45%,transparent)] hover:text-[var(--theme-text-primary)]"
                     href={`/artifacts/${artifact.slug}`}
                   >
                     {artifact.title}

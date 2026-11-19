@@ -1,12 +1,39 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { AppShell } from "@/components/layout/AppShell";
 import { siteConfig } from "@/data/siteConfig";
+import { absoluteUrl, siteUrl } from "@/lib/site";
 import "@/styles/globals.css";
 
-const socialPreviewImage = "https://artifact-hub-xi.vercel.app/images/artifacthub-og.png";
+const sans = Inter({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-sans"
+});
+
+const serif = Instrument_Serif({
+  subsets: ["latin", "latin-ext"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-serif"
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-mono"
+});
+
+const socialPreviewImage = absoluteUrl("/images/artifacthub-og.png");
+
+export const viewport: Viewport = {
+  themeColor: "#05050a",
+  colorScheme: "dark"
+};
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://artifact-hub-xi.vercel.app/"),
+  metadataBase: new URL(`${siteUrl}/`),
   title: {
     default: `Baglare’s ${siteConfig.title}`,
     template: `%s | Baglare’s ${siteConfig.title}`
@@ -46,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={siteConfig.defaultLocale}>
+    <html className={`${sans.variable} ${serif.variable} ${mono.variable}`} lang={siteConfig.defaultLocale}>
       <body>
         <AppShell>{children}</AppShell>
       </body>

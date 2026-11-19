@@ -102,5 +102,50 @@ export const statuses: Status[] = [
       en: "A study documenting implemented engineering decisions, evidence, and limitations."
     },
     tone: "pipeline"
+  },
+  {
+    id: "active-development",
+    label: { tr: "Aktif Geliştirme", en: "Active Development" },
+    description: {
+      tr: "Düzenli olarak yeni aşamaları birleştirilen, çalışan çekirdeği ve açık kabul sınırları olan proje.",
+      en: "A project with a working core that regularly merges new milestones, with explicit acceptance boundaries."
+    },
+    tone: "product"
+  },
+  {
+    id: "research-prototype",
+    label: { tr: "Araştırma Prototipi", en: "Research Prototype" },
+    description: {
+      tr: "Tekrarlanabilir deneyler, baseline karşılaştırmaları ve olumsuz sonuçları da raporlayan araştırma kodu.",
+      en: "Research code with reproducible experiments, baseline comparisons, and reported negative results."
+    },
+    tone: "lab"
+  },
+  {
+    id: "graduation-project",
+    label: { tr: "Bitirme Projesi · Geliştiriliyor", en: "Capstone Project · In Progress" },
+    description: {
+      tr: "Üniversite bitirme projesi olarak ekip halinde geliştirilen, vertical slice ve oyuncu kabulü henüz tamamlanmamış çalışma.",
+      en: "A team-built university capstone project whose vertical slice and player acceptance are not yet complete."
+    },
+    tone: "systems"
+  },
+  {
+    id: "course-project",
+    label: { tr: "Ders Projesi · Ekip", en: "Course Project · Team" },
+    description: {
+      tr: "Bir üniversite dersi kapsamında ekip halinde yürütülen, ara sonuçları ve açık kapıları belgelenen proje.",
+      en: "A team project run within a university course, with interim results and open gates documented."
+    },
+    tone: "vision"
+  },
+  {
+    id: "released-tool",
+    label: { tr: "Yayımlanmış Araç", en: "Released Tool" },
+    description: {
+      tr: "GitHub Releases üzerinden indirilebilir sürümü olan küçük, odaklı araç.",
+      en: "A small, focused tool with a downloadable build on GitHub Releases."
+    },
+    tone: "product"
   }
 ];

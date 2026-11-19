@@ -38,11 +38,11 @@ export function QuickFacts({ artifact }: QuickFactsProps) {
   }
 
   return (
-    <dl className="grid gap-3 md:grid-cols-2">
+    <dl className="grid gap-3 sm:grid-cols-2">
       {facts.map((fact) => (
-        <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4" key={fact.label}>
-          <dt className="text-xs font-semibold uppercase tracking-wide text-[var(--theme-text-muted)]">{fact.label}</dt>
-          <dd className="mt-2 text-sm text-[var(--theme-text-secondary)]">{fact.value}</dd>
+        <div className="glass-soft min-w-0 p-5" key={fact.label}>
+          <dt className="eyebrow !text-[var(--theme-text-muted)]">{fact.label}</dt>
+          <dd className="mt-2 text-sm leading-relaxed text-[var(--theme-text-primary)]">{fact.value}</dd>
         </div>
       ))}
     </dl>

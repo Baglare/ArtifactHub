@@ -22,7 +22,7 @@ export function ArtifactArchive({ artifacts }: ArtifactArchiveProps) {
   );
 
   return (
-    <section className="min-w-0 border-b border-[color:var(--theme-border)] py-8">
+    <section className="min-w-0 border-b border-[color:var(--hairline)] py-8">
       <div className="flex flex-col gap-4">
         <ArtifactFilterBar activeFilterId={activeFilterId} onFilterChange={setActiveFilterId} />
         <p aria-live="polite" className="text-sm text-[var(--theme-text-muted)]">

@@ -17,14 +17,17 @@ export function ArchitectureFlow({ architectureFlow, variant = "default" }: Arch
   }
 
   return (
-    <ol className="space-y-2">
+    <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {architectureFlow.steps.map((step, index) => (
-        <li className="flex gap-3 text-[var(--theme-text-secondary)]" key={`${step.label}-${index}`}>
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center border border-[color:var(--theme-border)] text-xs text-[var(--theme-text-muted)]">
-            {index + 1}
+        <li
+          className="glass-soft flex min-w-0 items-start gap-3 p-4 text-[var(--theme-text-secondary)] transition-colors hover:border-[color:color-mix(in_srgb,var(--theme-accent-primary)_40%,transparent)]"
+          key={`${step.label}-${index}`}
+        >
+          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-[color:color-mix(in_srgb,var(--theme-accent-primary)_40%,transparent)] font-mono text-[11px] text-[var(--theme-accent-primary)]">
+            {String(index + 1).padStart(2, "0")}
           </span>
-          <div className="min-w-0">
-            <p className={variant === "compact" ? "text-sm" : "text-base"}>{step.label}</p>
+          <div className="min-w-0 pt-0.5">
+            <p className={`text-[var(--theme-text-primary)] ${variant === "compact" ? "text-sm" : "text-[15px]"}`}>{step.label}</p>
             {step.description ? <p className="mt-1 text-sm text-[var(--theme-text-muted)]">{getLocalizedText(step.description, locale)}</p> : null}
           </div>
         </li>
