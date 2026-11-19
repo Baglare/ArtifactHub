@@ -13,7 +13,8 @@ import type { FocusArea, FocusAreaId } from "@/types/artifact";
 
 const fallbackTechnicalInterestIds: FocusAreaId[] = [
   "localization-tooling",
-  "ai-governance",
+  "multiplayer-networking",
+  "reinforcement-learning",
   "desktop-architecture",
   "release-engineering",
   "gameplay-systems",
@@ -31,7 +32,7 @@ export default function AboutPage() {
 
   return (
     <PageShell themeId="relic-core" variant="archive">
-      <SectionBlock eyebrow="Baglare’s ArtifactHub" title="Baglare" description={<LocalizedTextValue text={siteConfig.profile.shortBio} />}>
+      <SectionBlock eyebrow="Baglare" title={siteConfig.profile.displayName} description={<LocalizedTextValue text={siteConfig.profile.shortBio} />}>
         <div className="grid gap-3 md:grid-cols-4">
           {aboutPageText.profilePanelItems.map((item) => (
             <div className="glass-soft min-w-0 p-4 text-sm text-[var(--theme-text-secondary)]" key={item.tr}>

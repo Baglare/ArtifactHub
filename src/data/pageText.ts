@@ -1,223 +1,153 @@
 import type { LocalizedText } from "@/types/artifact";
 
 export const homePageText = {
-  heroKicker: { tr: "Mühendislik portföyü · 2026", en: "Engineering portfolio · 2026" },
-  heroTitleLead: { tr: "Fikirden çalışan sisteme,", en: "From idea to working system," },
-  heroTitleAccent: { tr: "kanıtıyla.", en: "with the evidence." },
-  statArtifacts: { tr: "Artifact", en: "Artifacts" },
+  heroIntro: { tr: "Merhaba, ben", en: "Hi, I’m" },
+  heroName: { tr: "Batuhan Parıltı.", en: "Batuhan Parıltı." },
+  heroLead: {
+    tr: "Kod yazıyorum, bir şeyleri bozup tekrar kuruyorum. Burası da yaptığım projelerin rafı.",
+    en: "I write code, break things, and build them back up. This is the shelf where my projects live."
+  },
+  heroBody: {
+    tr: "Oyunlar, ses ve görüntü işleyen araçlar, kendi bilgisayarımda çalışan uygulamalar… Her projede ne yaptığımı, nasıl çalıştığını ve henüz nerede eksik kaldığını dürüstçe yazdım. Bitmiş gibi göstermek yerine gerçekte nerede olduğunu görmen daha iyi.",
+    en: "Games, tools that process audio and images, apps that run on my own machine… For every project I wrote down what I built, how it works, and where it still falls short. Better that you see where things really stand than pretend they’re finished."
+  },
+  orbitHint: {
+    tr: "Her nokta bir proje. Merkeze yakın olanlar daha olgun; üstüne gel, tıkla.",
+    en: "Every dot is a project. The closer to the core, the more mature it is; hover and click."
+  },
+  orbitLegendMature: { tr: "Canlı / yayında", en: "Live / released" },
+  orbitLegendGrowing: { tr: "Aktif gelişiyor", en: "Actively growing" },
+  orbitLegendEarly: { tr: "Erken aşama", en: "Early stage" },
+  statArtifacts: { tr: "Proje", en: "Projects" },
   statFeatured: { tr: "Öne çıkan", en: "Featured" },
   statLive: { tr: "Canlı ürün", en: "Live product" },
   statPublic: { tr: "Açık depo", en: "Public repos" },
   featuredEyebrow: { tr: "Vitrin", en: "Showcase" },
-  archiveEyebrow: { tr: "Arşiv", en: "Archive" },
-  forgeEyebrow: { tr: "Seri", en: "Series" },
-  focusEyebrow: { tr: "Harita", en: "Map" },
-  directionEyebrow: { tr: "Yön", en: "Direction" },
-  heroPanelEyebrow: { tr: "Dijital artifact arşivi", en: "Digital artifact archive" },
-  heroPanelLead: {
-    tr: "Uygulanmış kapsam, mimari karar ve doğrulama sınırları her projede görünürdür.",
-    en: "Implemented scope, architectural decisions, and validation boundaries are visible for each project."
-  },
-  heroPanelItems: [
-    {
-      tr: "Araçlar, ürünler ve mühendislik vaka çalışmaları",
-      en: "Tools, products, and engineering case studies"
-    },
-    {
-      tr: "Erken aşama ve deneysel çalışmalarda açık olgunluk sınırları",
-      en: "Explicit maturity boundaries for early-stage and experimental work"
-    }
-  ],
-  featuredTitle: { tr: "Öne Çıkan Girişler", en: "Featured Entries" },
+  featuredTitle: { tr: "En çok emek verdiklerim", en: "The ones I put the most into" },
   featuredDescription: {
-    tr: "Canlı bir ürün, hızla büyüyen bir ses stüdyosu, çok oyunculu bir bitirme projesi, yerelleştirme aracı ve açık kaynak bir öğrenme deneyi: portföyün en güçlü beş kaydı.",
-    en: "A live product, a fast-growing voice studio, a multiplayer capstone game, a localization tool, and an open-source learning experiment: the five strongest records in the portfolio."
+    tr: "Canlıda çalışan bir uygulama, hızla büyüyen bir ses stüdyosu, bitirme projem olan çok oyunculu bir oyun, bir yerelleştirme aracı ve açık kaynak bir öğrenme deneyi.",
+    en: "An app that is live, a fast-growing voice studio, the multiplayer game that is my capstone project, a localization tool, and an open-source learning experiment."
   },
-  viewForgeSeries: { tr: "Forge Serisini İncele", en: "View Forge Series" },
+  viewForgeSeries: { tr: "Forge Serisine bak", en: "See the Forge Series" },
+  archiveEyebrow: { tr: "Arşiv", en: "Archive" },
   archiveDescription: {
-    tr: "Her kayıt, artifact’in amacı, çalışma biçimi, sınırları ve sonraki yönünü açıkça gösterir.",
-    en: "Each record shows the artifact’s purpose, working model, limits, and next direction."
+    tr: "Geri kalan her şey burada. Bazıları prototip, bazıları bir dersin ödevi, bazıları da bir fikri denemek için yazdığım küçük araçlar.",
+    en: "Everything else lives here. Some are prototypes, some started as course work, some are small tools I wrote to try out an idea."
   },
-  viewAllArtifacts: { tr: "Tüm Artifactleri Gör", en: "View All Artifacts" },
+  viewAllArtifacts: { tr: "Hepsini gör", en: "See them all" },
+  forgeEyebrow: { tr: "Seri", en: "Series" },
   transformationDescription: {
-    tr: "Forge Series’in ortak mantığı, ham girdiyi analiz ve ön işleme katmanlarından geçirerek etkileşimli çıktıya dönüştürmektir.",
-    en: "Forge Series follows a shared model: raw input passes through analysis and preprocessing layers, then becomes interactive output."
+    tr: "Forge projelerinin ortak noktası basit: ham bir girdi alıyor (şarkı, ses kaydı, kamera görüntüsü), işliyor ve oynanabilir ya da etkileşimli bir şeye çeviriyor.",
+    en: "The Forge projects share one simple idea: take a raw input (a song, a voice recording, a camera feed), process it, and turn it into something playable or interactive."
   },
-  focusMapTitle: { tr: "Teknik Odak Haritası", en: "Technical Focus Map" },
+  focusEyebrow: { tr: "Harita", en: "Map" },
+  focusMapTitle: { tr: "Hangi alanlarda ne var?", en: "What lives where?" },
   focusMapDescription: {
-    tr: "ArtifactHub’daki kayıtlar, hangi sistem alanına dokunduklarına göre okunabilir.",
-    en: "ArtifactHub records can be read by the system areas they touch."
+    tr: "Projeleri dokundukları konulara göre grupladım; ilgini çeken alandan başlayabilirsin.",
+    en: "I grouped the projects by the topics they touch, so you can start from whatever interests you."
   },
-  developmentDirectionTitle: { tr: "Geliştirme Yönü", en: "Development Direction" },
+  directionEyebrow: { tr: "Sırada", en: "Up next" },
+  developmentDirectionTitle: { tr: "Sırada ne var?", en: "What’s next?" },
   developmentDirectionDescription: {
-    tr: "Sonraki içerik çalışmaları, proje durumlarını güncel tutmaya ve teknik kanıtları daha anlaşılır sunmaya odaklanır.",
-    en: "Upcoming content work focuses on keeping project states current and making technical evidence easier to follow."
+    tr: "Bu site de projelerim gibi sürekli değişiyor. Yakın zamanda yapmak istediklerim:",
+    en: "This site keeps changing just like my projects. Things I want to do soon:"
   },
   roadmapPreviewItems: [
     {
-      tr: "Kaynak README ve kabul sınırlarıyla içerikleri güncel tutma",
-      en: "Keep content aligned with source READMEs and acceptance boundaries"
+      tr: "VoxForge ile ilk sesli kitap bölümünü baştan sona çıkarmak",
+      en: "Produce the first full audiobook chapter with VoxForge"
     },
     {
-      tr: "TR/EN kapsam ve olgunluk bilgisini birlikte koruma",
-      en: "Maintain scope and maturity information in both TR/EN"
+      tr: "Butterfly Effect’i iki gerçek oyuncuyla test etmek",
+      en: "Playtest Butterfly Effect with two real players"
     },
     {
-      tr: "Hassas veri içermeyen teknik diyagram ve release kanıtları ekleme",
-      en: "Add technical diagrams and release evidence without sensitive data"
+      tr: "Projelere ekran görüntüsü ve kısa demo videoları eklemek",
+      en: "Add screenshots and short demo videos to the projects"
     }
   ]
 } satisfies Record<string, LocalizedText | LocalizedText[]>;
 
 export const artifactsPageText = {
   description: {
-    tr: "Geliştirici araçları, AI altyapısı, local-first ürünler, masaüstü mimarisi ve yerelleştirme mühendisliği; oyun, ses ve bilgisayarlı görü çalışmalarıyla birlikte belgelenir. Her kayıt uygulanmış kapsamı ve kendi olgunluk sınırını gösterir.",
-    en: "Developer tooling, AI infrastructure, local-first products, desktop architecture, and localization engineering are documented alongside game, audio, and computer-vision work. Each entry shows implemented scope and its own maturity boundary."
+    tr: "Bütün projelerim tek sayfada. Filtrelerle alana göre daraltabilirsin; her kartta projenin şu an hangi aşamada olduğu yazıyor.",
+    en: "All my projects on one page. Use the filters to narrow things down; every card says what stage the project is in right now."
   },
   registryNote: {
-    tr: "Baglare’s ArtifactHub içindeki kayıtlar merkezi artifact registry üzerinden okunur.",
-    en: "Records inside Baglare’s ArtifactHub are read from the central artifact registry."
+    tr: "Özel depolardaki projelerin kaynak kodunu paylaşamıyorum ama ne yaptıklarını anlattım.",
+    en: "I can’t share the source of projects in private repos, but I’ve described what they do."
   },
   archiveNote: {
-    tr: "Yeni artifactler registry’ye eklendiğinde arşiv sayfası otomatik olarak genişler.",
-    en: "When new artifacts are added to the registry, the archive page expands automatically."
+    tr: "Yeni bir şey bitirdikçe buraya ekliyorum.",
+    en: "Whenever I finish something new, it ends up here."
   }
 };
 
 export const seriesPageText = {
   artifactsDescription: {
-    tr: "Bu seri içindeki artifactler, farklı ham girdi türlerini işlenebilir teknik akışlara dönüştürür.",
-    en: "Artifacts in this series turn different raw input types into processable technical flows."
+    tr: "Bu serideki her proje farklı bir ham girdiyle uğraşıyor.",
+    en: "Each project in this series deals with a different kind of raw input."
   },
   transformationDescription: {
-    tr: "Her artifact farklı bir ham girdi türünü analiz veya ön işleme katmanından geçirerek etkileşimli çıktıya bağlar.",
-    en: "Each artifact passes a different raw input type through analysis or preprocessing, then connects it to interactive output."
+    tr: "Hepsi aynı yolu izliyor: girdiyi analiz et, ara veri üret, sonucu oyuna ya da demoya bağla.",
+    en: "They all follow the same path: analyze the input, produce intermediate data, hook the result into a game or demo."
   }
 };
 
 export const roadmapPageText = {
   heroTitle: { tr: "Yol Haritası", en: "Roadmap" },
   heroDescription: {
-    tr: "2026-10-02 itibarıyla planlanan içerik, teknik diyagram ve doğrulama çalışmaları. Proje bazlı sonraki adımlar aşağıda ayrı sunulur.",
-    en: "Planned content, technical diagrams, and validation work as of 2026-10-02. Next steps for individual projects are listed separately below."
+    tr: "Projelerde sırada ne olduğunu burada topluyorum. Planlar plan olarak duruyor; bitenleri proje sayfalarına taşıyorum.",
+    en: "This is where I collect what’s next for each project. Plans stay plans here; finished work moves to the project pages."
   },
-  generalDirectionTitle: { tr: "ArtifactHub Geliştirme Yönü", en: "ArtifactHub Development Direction" },
+  generalDirectionTitle: { tr: "Bu site için", en: "For this site" },
   generalRoadmapItems: [
     {
-      tr: "Kaynak projelerin scope ve release durumuyla registry’yi eşitleme",
-      en: "Align the registry with source-project scope and release state"
+      tr: "Proje sayfalarına ekran görüntüsü ve kısa demo videoları eklemek",
+      en: "Add screenshots and short demo videos to the project pages"
     },
     {
-      tr: "Deneysel, erken aşama ve kabul edilmiş kapsamı ayrı tutma",
-      en: "Keep experimental, early-stage, and accepted scope distinct"
+      tr: "Mimari akışları basit diyagramlarla göstermek",
+      en: "Show architecture flows with simple diagrams"
     },
     {
-      tr: "TR/EN içerik ve taksonomi bütünlüğünü koruma",
-      en: "Maintain TR/EN content and taxonomy integrity"
-    },
-    {
-      tr: "Sistem mimarisi ve doğrulama akışlarını diyagramlaştırma",
-      en: "Diagram system architecture and validation workflows"
-    },
-    {
-      tr: "Responsive ve erişilebilirlik kontrolünü sürdürme",
-      en: "Continue responsive and accessibility review"
+      tr: "Projeler ilerledikçe kayıtları güncel tutmak",
+      en: "Keep the entries up to date as the projects move forward"
     }
   ],
-  artifactExtensionsTitle: { tr: "Artifact Bazlı Genişletmeler", en: "Artifact-based Extensions" },
-  seriesExtensionsTitle: { tr: "Seri Bazlı Genişletmeler", en: "Series-based Extensions" },
-  visualPlanTitle: { tr: "Görsel Materyal Planı", en: "Visual Material Plan" },
+  artifactExtensionsTitle: { tr: "Projelerde sırada olanlar", en: "Next up in the projects" },
+  seriesExtensionsTitle: { tr: "Seri için", en: "For the series" },
+  visualPlanTitle: { tr: "Eklemek istediğim görseller", en: "Visuals I want to add" },
   visualPlanDescription: {
-    tr: "Sonraki materyaller teknik akış, QA ve release kanıtını açıklamalıdır. Private kaynak içerik, ses/biometrik veri ve credential görselleri paylaşılmaz.",
-    en: "Future material should explain technical flows, QA, and release evidence. Private source content, voice/biometric data, and credentials are excluded."
+    tr: "Kişisel veri, ses kaydı ya da özel kaynak içermeyen ekran görüntüleri ve şemalar.",
+    en: "Screenshots and diagrams that contain no personal data, voice recordings, or private sources."
   },
   visualMaterialItems: [
-    {
-      tr: "GameLocalizer güvenli apply / patch akışı",
-      en: "GameLocalizer safe apply / patch flow"
-    },
-    {
-      tr: "KnowledgeCompiler authority / context / transaction diyagramı",
-      en: "KnowledgeCompiler authority / context / transaction diagram"
-    },
-    {
-      tr: "MediaTracker local-first / cloud / recommendation sınırları",
-      en: "MediaTracker local-first / cloud / recommendation boundaries"
-    },
-    {
-      tr: "PoD sentetik QA ve paket doğrulama örnekleri",
-      en: "PoD synthetic QA and package verification examples"
-    },
-    {
-      tr: "Forge Series için hassas veri içermeyen runtime/lab görselleri",
-      en: "Forge Series runtime/lab visuals without sensitive data"
-    }
-  ],
-  languagePlanTitle: {
-    tr: "Dil Kapsamı ve Bakımı",
-    en: "Language Coverage and Maintenance"
-  },
-  languagePlanDescription: {
-    tr: "Türkçe ve İngilizce içeriklerde aynı kapsam, olgunluk ve sınırlama bilgisini koruma.",
-    en: "Keep scope, maturity, and limitation information equivalent in Turkish and English."
-  },
-  languageExpansionItems: [
-    {
-      tr: "TR/EN artifact, status ve category metinleri mevcut",
-      en: "TR/EN artifact, status, and category copy is present"
-    },
-    {
-      tr: "Yeni içerikte iki dilde completeness kontrolü",
-      en: "Check completeness in both languages for new content"
-    },
-    {
-      tr: "Client-side locale seçimi; locale-aware route/SEO ayrı değerlendirme konusu",
-      en: "Client-side locale selection; locale-aware routes/SEO remain a separate consideration"
-    }
-  ],
-  registryStructureTitle: { tr: "Genişleyebilir Arşiv Yapısı", en: "Expandable Archive Structure" },
-  registryStructureDescription: {
-    tr: "Yeni artifact, seri veya tema eklendiğinde sayfalar merkezi registry üzerinden güncellenir.",
-    en: "When a new artifact, series, or theme is added, pages can expand through the central registry."
-  },
-  registryExpansionItems: [
-    { tr: "Yeni artifact: artifacts registry’ye eklenir", en: "New artifact: added to the artifacts registry" },
-    { tr: "Yeni seri: series registry’ye eklenir", en: "New series: added to the series registry" },
-    { tr: "Yeni tema: themes registry’ye eklenir", en: "New theme: added to the themes registry" },
-    { tr: "Sayfalar veri üzerinden genişler", en: "Pages expand through data" }
+    { tr: "VoxForge Studio ve Quality Director ekranları", en: "VoxForge Studio and Quality Director screens" },
+    { tr: "Butterfly Effect’ten iki dönemli Valenne görüntüleri", en: "Two-era Valenne shots from Butterfly Effect" },
+    { tr: "MediaTracker’ın ana akışları", en: "MediaTracker’s main flows" },
+    { tr: "GameLocalizer’ın güvenli patch akışı", en: "GameLocalizer’s safe patch flow" }
   ]
 };
 
 export const aboutPageText = {
-  purposeTitle: { tr: "ArtifactHub’ın Amacı", en: "Purpose of ArtifactHub" },
+  purposeTitle: { tr: "Bu site neden var?", en: "Why does this site exist?" },
   purposeDescription: {
-    tr: "Her proje kaydı; mimari kararları, uygulanmış kapsamı, doğrulama kanıtını ve bilinen sınırları bir araya getirir.",
-    en: "Each project entry brings together architectural decisions, implemented scope, validation evidence, and known limitations."
+    tr: "GitHub’da bir depo adı çok az şey anlatıyor. Burada her proje için ne denediğimi, hangi kararları neden verdiğimi ve nerede takıldığımı yazıyorum.",
+    en: "A repo name on GitHub doesn’t say much. Here I write down what I tried in each project, why I made the calls I made, and where I got stuck."
   },
   purposeItems: [
-    { tr: "Artifact odaklı sunum", en: "Artifact-focused presentation" },
-    { tr: "Teknik kararların açık yazılması", en: "Visible technical decisions" },
-    { tr: "Bilinçli sınırların açık yazılması", en: "Explicit boundaries" },
-    { tr: "Yeni projelerle genişleyebilir registry yapısı", en: "Registry structure that can expand with new projects" }
+    { tr: "Bitmemiş işi bitmiş gibi göstermemek", en: "Never dressing up unfinished work as finished" },
+    { tr: "Kararların arkasındaki nedeni yazmak", en: "Writing down the reason behind decisions" },
+    { tr: "Sınırları ve eksikleri açıkça söylemek", en: "Being upfront about limits and gaps" },
+    { tr: "Yeni projelerle birlikte büyümek", en: "Growing along with new projects" }
   ],
-  technicalFocusTitle: { tr: "Teknik Odaklar", en: "Technical Focus Areas" },
-  currentArtifactSetTitle: { tr: "Mevcut Artifact Seti", en: "Current Artifact Set" },
+  technicalFocusTitle: { tr: "Uğraştığım alanlar", en: "Areas I work in" },
+  currentArtifactSetTitle: { tr: "Şu ana kadarki projeler", en: "Projects so far" },
   profilePanelItems: [
-    {
-      tr: "Yazılım sistemleri / geliştirici araçları",
-      en: "Software systems / developer tooling"
-    },
-    {
-      tr: "AI altyapısı / yerelleştirme mühendisliği",
-      en: "AI infrastructure / localization engineering"
-    },
-    {
-      tr: "Local-first ürünler / masaüstü uygulamaları",
-      en: "Local-first products / desktop applications"
-    },
-    {
-      tr: "Oyun / audio / vision prototipleri",
-      en: "Game / audio / vision prototypes"
-    }
+    { tr: "Oyun sistemleri ve Unity", en: "Game systems and Unity" },
+    { tr: "Ses, TTS ve görüntü işleme", en: "Audio, TTS, and computer vision" },
+    { tr: "Yerelde çalışan uygulamalar", en: "Apps that run locally" },
+    { tr: "Yerelleştirme ve geliştirici araçları", en: "Localization and developer tooling" }
   ]
 };

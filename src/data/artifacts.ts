@@ -11,16 +11,16 @@ export const artifacts: Artifact[] = [
     categoryId: "game-systems",
     themeId: "neon-blade-relic",
     featuredLevel: "normal",
-    order: 11,
-    homeOrder: 11,
+    order: 8,
+    homeOrder: 8,
     repoUrl: "https://github.com/Baglare/TempoBlade",
     summary: {
-      tr: "Tempo tabanlı combat, parry/deflect ve data-driven progression sistemleri üzerine kurulu Unity gameplay prototipi.",
-      en: "A Unity gameplay prototype built around tempo-based combat, parry/deflect behavior, and data-driven progression systems."
+      tr: "Ritme göre akan bir dövüş sistemi denediğim Unity prototipi: parry, deflect, düşman dalgaları ve veriyle tanımlanan ilerleme.",
+      en: "A Unity prototype where I tried out a rhythm-driven combat system: parries, deflects, enemy waves, and data-defined progression."
     },
     positioning: {
-      tr: "Gameplay systems ve combat architecture tarafını temsil eden Unity artifact’i.",
-      en: "A Unity artifact representing gameplay systems and combat architecture."
+      tr: "Dövüş ve oynanış sistemlerini nasıl kurduğumu gösteren ilk Unity projelerimden biri.",
+      en: "One of my first Unity projects, showing how I build combat and gameplay systems."
     },
     techStack: ["Unity", "C#", "ScriptableObject", "URP", "Input System"],
     focusAreaIds: ["gameplay-systems", "combat-architecture", "unity-systems", "data-driven-design"],
@@ -158,12 +158,12 @@ export const artifacts: Artifact[] = [
     demoUrl: "https://mediatracker.baglare.com.tr",
     updatedAt: "2026-10-16",
     summary: {
-      tr: "Canlı local-first medya takip uygulaması: hesapsız yerel kütüphane, isteğe bağlı Cloud Sync, hedefler, takvim, sosyal özellikler ve deterministik öneriler.",
-      en: "A live local-first media tracker with a guest library, optional Cloud Sync, goals, calendar, social features, and deterministic recommendations."
+      tr: "Film, dizi, anime, manga ve kitapları takip ettiğim uygulama. Hesap açmadan tarayıcıda çalışıyor; istersen hesap açıp verini buluta da taşıyabilirsin. Canlıda ve herkes kayıt olabiliyor.",
+      en: "The app I use to track films, shows, anime, manga, and books. It works in the browser without an account; sign up if you want your data in the cloud too. It’s live and open for sign-ups."
     },
     positioning: {
-      tr: "Portfolyonun canlıya alınmış full-stack ürün mühendisliği çalışması; kullanıcı akışlarının yanında veri bütünlüğü, erişim yetkisi ve güvenli sürüm yönetimine odaklanır.",
-      en: "A deployed full-stack product engineering case study focused on data integrity, access control, and safe releases as well as user workflows."
+      tr: "Baştan sona kurup yayına aldığım ilk tam ürün: arayüz, veritabanı, giriş sistemi ve sunucu dahil.",
+      en: "The first full product I built and shipped end to end: interface, database, sign-in, and server included."
     },
     techStack: [
       "Next.js 16",
@@ -315,16 +315,16 @@ export const artifacts: Artifact[] = [
     categoryId: "audio-game-tooling",
     themeId: "forge-pulse",
     featuredLevel: "series-featured",
-    order: 9,
-    homeOrder: 9,
+    order: 6,
+    homeOrder: 6,
     repoUrl: "https://github.com/Baglare/PulseForge",
     summary: {
-      tr: "Runtime özel şarkı import’u, FFmpeg dönüşümü ve C# Radial V2 analiz/planner hattını DSP ritim oynanışına bağlayan Unity sistem prototipi.",
-      en: "A Unity systems prototype linking runtime custom-song import, FFmpeg conversion, and the C# Radial V2 analysis/planner pipeline to DSP rhythm gameplay."
+      tr: "Kendi seçtiğin şarkıyı analiz edip üzerinde savaşılan bir ritim oyununa çeviren Unity prototipi.",
+      en: "A Unity prototype that analyzes a song of your choice and turns it into a rhythm game you fight through."
     },
     positioning: {
-      tr: "Güçlü audio-to-gameplay sistem çalışması; güncel C# runtime ile tarihsel Python/Guard–Strike hattı ayrı sözleşmelerdir.",
-      en: "A strong audio-to-gameplay systems artifact; current C# runtime and historical Python/Guard–Strike paths have separate contracts."
+      tr: "Sesi oynanışa çevirmeyi denediğim proje; Forge serisinin ilk halkası.",
+      en: "My experiment in turning audio into gameplay; the first piece of the Forge series."
     },
     techStack: [
       "Unity",
@@ -483,12 +483,12 @@ export const artifacts: Artifact[] = [
     homeOrder: 2,
     repoUrl: "https://github.com/Baglare/VoxForge",
     summary: {
-      tr: "Türkçe sesli kitap üretimine yönelen yerel TTS stüdyosu: VoxCPM2, XTTS-v2 ve Chatterbox V3 motorları, kitap içe aktarma, bölüm kuyruğu, Quality Director ve alternatif take seçimi.",
-      en: "A local TTS studio moving toward Turkish audiobook production: VoxCPM2, XTTS-v2, and Chatterbox V3 engines, book import, chapter queues, a Quality Director, and alternative take selection."
+      tr: "Kendi bilgisayarımda çalışan Türkçe ses üretim stüdyosu. Hedefim bir kitabı baştan sona seslendirmek: metni bölümlere ayırıyor, VoxCPM2 ile okutuyor, sorunlu cümleleri yakalayıp yeniden deniyor.",
+      en: "A Turkish voice-generation studio that runs on my own machine. The goal is narrating a whole book: it splits the text into chapters, reads it with VoxCPM2, catches problem sentences, and retries them."
     },
     positioning: {
-      tr: "Forge serisinin en hızlı gelişen artifact’i; izinli ses verisiyle yerel çalışan çok motorlu ses üretim ve değerlendirme stüdyosu.",
-      en: "The fastest-moving Forge artifact: a multi-engine voice generation and evaluation studio that runs locally with consent-based voice data."
+      tr: "Şu an en çok vakit harcadığım proje; 4–15 Kasım arasında 15’ten fazla PR birleştirdim.",
+      en: "The project I’m spending the most time on right now; I merged more than 15 PRs between 4 and 15 November."
     },
     techStack: ["Python", "Gradio", "VoxCPM2", "Coqui XTTS-v2", "Chatterbox V3", "faster-whisper", "FFmpeg", "SQLite", "CUDA"],
     focusAreaIds: ["voice-tools", "tts-experiments", "audio-preprocessing", "local-first-labs", "evaluation-workflow"],
@@ -625,16 +625,16 @@ export const artifacts: Artifact[] = [
     categoryId: "computer-vision-interaction",
     themeId: "guild-lens",
     featuredLevel: "normal",
-    order: 12,
-    homeOrder: 12,
+    order: 9,
+    homeOrder: 9,
     repoUrl: "https://github.com/Baglare/VisionForge",
     summary: {
-      tr: "Gerçek zamanlı kamera akışını yerel yüz tanıma, el takibi ve gesture tabanlı büyü komutlarıyla birleştiren local-first PySide6 masaüstü uygulaması.",
-      en: "A local-first PySide6 desktop application that combines a real-time camera pipeline with local face recognition, hand tracking, and gesture-driven spell commands."
+      tr: "Kamerayla yüzünü tanıyan, el hareketlerinle büyü yapmana izin veren masaüstü uygulaması. Hepsi bilgisayarında çalışıyor, görüntü bir yere gitmiyor.",
+      en: "A desktop app that recognizes your face through the camera and lets you cast spells with hand gestures. Everything runs locally; no footage leaves your machine."
     },
     positioning: {
-      tr: "Gerçek zamanlı camera-to-interaction akışını, yerel tanımayı ve masaüstü uygulama mimarisini tek bir gesture etkileşim sisteminde birleştiren Forge artifact’i.",
-      en: "A Forge artifact that unifies a real-time camera-to-interaction pipeline, local recognition, and desktop application architecture in one gesture interaction system."
+      tr: "Kamera görüntüsünü oyunsu bir etkileşime bağladığım Forge projesi.",
+      en: "The Forge project where I hooked a camera feed up to game-like interaction."
     },
     techStack: ["Python", "PySide6", "OpenCV", "MediaPipe Tasks", "OpenCV LBPH", "PyInstaller"],
     focusAreaIds: [
@@ -795,12 +795,12 @@ export const artifacts: Artifact[] = [
     order: 4,
     homeOrder: 4,
     summary: {
-      tr: "Güvenli format sahipliği, yapısal QA ve geri alınabilir patch paketleriyle oyun yerelleştirmesini yöneten Python geliştirici aracı.",
-      en: "Python developer tooling for game localization, with safe format ownership, structural QA, and reversible patch packages."
+      tr: "Oyunları Türkçeye çevirirken kullandığım araç: dosya formatlarını bozmadan metni çıkarıyor, çeviri hafızası tutuyor, hataları kontrol ediyor ve geri alınabilir yamalar üretiyor.",
+      en: "The tool I use to translate games into Turkish: it extracts text without breaking file formats, keeps a translation memory, checks for errors, and builds patches you can roll back."
     },
     positioning: {
-      tr: "Portföyün ana yerelleştirme aracı: deterministic pipeline, masaüstü/CLI iş akışı ve sınırlı gerçek oyun kabul kanıtı.",
-      en: "A principal localization tool: deterministic pipelines, shared desktop/CLI workflows, and bounded real-game acceptance evidence."
+      tr: "Gerçek bir yerelleştirme işinde ihtiyaç duyduğum için yazdım; hâlâ en çok güvendiğim aracım.",
+      en: "I wrote it because a real localization job needed it; it’s still the tool I trust most."
     },
     techStack: [
       "Python",
@@ -920,128 +920,6 @@ export const artifacts: Artifact[] = [
     updatedAt: "2026-10-02"
   },
   {
-    id: "knowledgecompiler",
-    slug: "knowledgecompiler",
-    title: "KnowledgeCompiler",
-    statusId: "engineering-tool",
-    categoryId: "ai-infrastructure",
-    themeId: "relic-core",
-    featuredLevel: "normal",
-    order: 7,
-    homeOrder: 7,
-    summary: {
-      tr: "Yapılandırılmış yetki, context derleme ve transactional proje bilgisi iş akışları için deterministic, provider-neutral AI yönetişim CLI’ı.",
-      en: "A deterministic, provider-neutral AI governance CLI for structured authority, context compilation, and transactional project-knowledge workflows."
-    },
-    positioning: {
-      tr: "Portföyün ana geliştirici altyapısı: kanıt ve sözleşmeleri doğrular; anlamsal kararı harici asistana bırakır.",
-      en: "Principal developer infrastructure: validates evidence and contracts while leaving semantic judgment to an external assistant."
-    },
-    techStack: [
-      "Python",
-      "CLI",
-      "JSON Contracts",
-      "Markdown",
-      "SHA-256",
-      "Git"
-    ],
-    focusAreaIds: [
-      "ai-governance",
-      "deterministic-pipelines",
-      "transaction-safety",
-      "data-driven-design",
-      "evaluation-workflow"
-    ],
-    coreSystems: [
-      "Structured Authority",
-      "Context Bundle V2",
-      "Task Contract V1 / Result Contract V2",
-      "Native Adapter Compilation",
-      "Project-map Routing",
-      "Transactional Promotion",
-      "Observe-only Sync",
-      "Opt-in Autopilot",
-      "Vault Gateway"
-    ],
-    architectureFlow: {
-      steps: [
-        {
-          label: "Validated Manifest"
-        },
-        {
-          label: "Project-map / Adapter"
-        },
-        {
-          label: "Frozen Context + Task Contract"
-        },
-        {
-          label: "External Semantic Assessment"
-        },
-        {
-          label: "Bound Result / Inert Plan"
-        },
-        {
-          label: "Locked Check / Apply"
-        },
-        {
-          label: "Post-verification / Audit"
-        }
-      ]
-    },
-    sections: {
-      overview: {
-        body: {
-          tr: "KnowledgeCompiler, AI destekli çalışmada hangi kuralın yetki taşıdığını, hangi kanıtın güncel olduğunu ve hangi yazmanın izinli olduğunu sözleşmelerle sınırlar. .ai/project.md yapılandırılmış critical_rules sahibidir; prose ve retrieved context yetki değildir. Prompt yöneticisi veya otonom ajan platformu olarak konumlanmaz.",
-          en: "KnowledgeCompiler constrains authority, evidence freshness, and permitted writes through explicit contracts. Structured critical_rules belong to .ai/project.md; prose and retrieved context are not authority. Its role is governance infrastructure rather than prompt management or an autonomous agent platform."
-        }
-      },
-      currentScope: {
-        body: {
-          tr: "Context/task/result sözleşmeleri hash ve provenance ile bağlanır; stale kanıt fail-closed reddedilir. Project-map path/symbol/test/doc yönlendirmesi yapar, adapter derleme yerel talimatları üretir. Transactional promotion; lock, exact preimage, CREATE/UPDATE, post-verification ve ownership-aware rollback kullanır.\n\nSync check/prepare yalnız committed kanıtı gözlemler; record harici değerlendirmeyi doğrular. Controlled autopilot, opt-in policy ve owner prefix’leriyle inert planı working-tree snapshot’ına bağlar. Vault gateway kullanıcıya özel konum/kimlik kontrolü ve sınırlı offline retrieval sağlar.",
-          en: "Context/task/result contracts bind hashes and provenance; stale evidence fails closed. Project maps route paths, symbols, tests, and docs; adapter compilation generates native instructions. Transactional promotion uses locks, exact preimages, CREATE/UPDATE checks, post-verification, and ownership-aware rollback.\n\nSync check/prepare only observe committed evidence; record validates an external assessment. Controlled autopilot binds inert plans to working-tree snapshots through opt-in policy and owner prefixes. The Vault gateway provides per-user location/identity checks and bounded offline retrieval."
-        }
-      },
-      designDecisions: [
-        {
-          title: {
-            tr: "Yetkiyi bağlamdan ayırmak",
-            en: "Separate authority from context"
-          },
-          description: {
-            tr: "Routing ve retrieved prose yeni kural üretmez; lexical scope manifest’e bağlı kalır.",
-            en: "Routing and retrieved prose cannot create rules; lexical scope stays bound to the manifest."
-          }
-        },
-        {
-          title: {
-            tr: "Yazmayı transaction sınırına almak",
-            en: "Put writes inside a transaction boundary"
-          },
-          description: {
-            tr: "Exact preimage ve post-check doğrulanmadan canonical işlem ilerlemez; policy yalnız sahip olunan Vault hedeflerini kapsar.",
-            en: "Canonical operations require exact preimages and post-checks; policy covers only owned Vault targets."
-          }
-        }
-      ],
-      limitations: [
-        {
-          tr: "Model dispatcher, scheduler, daemon, dağıtık lock veya crash-recovery WAL yoktur; in-process rollback crash recovery değildir.",
-          en: "There is no model dispatcher, scheduler, daemon, distributed lock, or crash-recovery WAL; in-process rollback is not crash recovery."
-        },
-        {
-          tr: "Routine autopilot güvenli CREATE/additive UPDATE ile sınırlıdır. Correction/removal ve protected governance ayrı review/promotion yolunu gerektirir.",
-          en: "Routine autopilot is limited to safe CREATE/additive UPDATE. Corrections, removals, and protected governance require a separate review/promotion path."
-        },
-        {
-          tr: "Anlamsal doğruluk veya evrensel ajan güvenliği garanti edilmez. Private kaynak repository için public link gösterilmez.",
-          en: "Semantic correctness and universal agent safety are not guaranteed. No public link is shown for the private source repository."
-        }
-      ],
-      plannedExtensions: []
-    },
-    updatedAt: "2026-10-02"
-  },
-  {
     id: "aria-ai",
     slug: "aria-ai",
     title: "Aria AI",
@@ -1049,15 +927,15 @@ export const artifacts: Artifact[] = [
     categoryId: "desktop-applications",
     themeId: "archive-terminal",
     featuredLevel: "normal",
-    order: 13,
-    homeOrder: 13,
+    order: 10,
+    homeOrder: 10,
     summary: {
-      tr: "Erken aşama masaüstü AI mimari prototipi. S0–S2 istemci/core, streaming, persistence ve credential temelleri mevcut; tamamlanmış asistan değildir.",
-      en: "Early-stage desktop AI architecture prototype. S0–S2 client/core, streaming, persistence, and credential foundations exist; this is not a complete assistant."
+      tr: "Kendi bilgisayarında çalışacak bir masaüstü AI asistanının temellerini attığım proje. Arayüz, yerel sunucu ve kayıt altyapısı hazır; asistanın kendisi henüz bitmedi.",
+      en: "The project where I laid the groundwork for a desktop AI assistant that runs locally. The interface, local server, and storage are in place; the assistant itself isn’t finished yet."
     },
     positioning: {
-      tr: "Mimari ve güvenlik temeli çalışması; portföyün olgun araçlarından daha erken aşamadadır.",
-      en: "Architecture and security foundation work, at an earlier stage than the portfolio’s established tools."
+      tr: "Erken aşamada; mimariyi doğru kurmaya odaklandım.",
+      en: "Early stage; I focused on getting the architecture right."
     },
     techStack: [
       "React",
@@ -1167,15 +1045,15 @@ export const artifacts: Artifact[] = [
     categoryId: "web-application",
     themeId: "archive-terminal",
     featuredLevel: "normal",
-    order: 14,
-    homeOrder: 14,
+    order: 11,
+    homeOrder: 11,
     summary: {
-      tr: "Tek kullanıcılı yerel Next.js görsel üretme/düzenleme aracı; server-side API, dosya tabanlı history ve kullanım/maliyet tahmini.",
-      en: "A small single-user local Next.js image generation/editing tool with a server-side API boundary, file-based history, and usage/cost estimates."
+      tr: "Kendim için yaptığım küçük görsel üretme ve düzenleme aracı. Geçmişi bilgisayarda saklıyor, ne kadar harcadığımı da gösteriyor.",
+      en: "A small image generation and editing tool I made for myself. It keeps the history locally and shows how much I’ve spent."
     },
     positioning: {
-      tr: "Daha küçük destekleyici araç; local development kapsamı ve açık güvenlik sınırlarıyla sunulur.",
-      en: "A smaller supporting tool, presented within local-development scope and explicit security limits."
+      tr: "Ufak, işini gören bir yan araç.",
+      en: "A small side tool that gets the job done."
     },
     techStack: [
       "Next.js",
@@ -1269,16 +1147,16 @@ export const artifacts: Artifact[] = [
     categoryId: "localization-engineering",
     themeId: "relic-core",
     featuredLevel: "normal",
-    order: 8,
-    homeOrder: 8,
+    order: 13,
+    homeOrder: 13,
     repoUrl: "https://github.com/Baglare/PoD-Localization-Engineering",
     summary: {
-      tr: "Private Steam Workshop yerelleştirmesinden mühendislik vaka çalışması: public sentetik fixtures ile syntax koruması, QA ve deterministic paket doğrulama.",
-      en: "An engineering case study from a private Steam Workshop localization project: public synthetic fixtures demonstrate syntax protection, QA, and deterministic package verification."
+      tr: "Bir oyun modunun Türkçe çevirisinde kullandığım kontrollerin herkese açık, küçük bir örneği. Gerçek çeviri dosyaları yerine uydurma verilerle çalışıyor.",
+      en: "A small public sample of the checks I used while translating a game mod into Turkish. It runs on made-up data instead of the real translation files."
     },
     positioning: {
-      tr: "Güçlü yerelleştirme mühendisliği kanıtı; public gösterim ile private üretim corpus’u açıkça ayrılır.",
-      en: "A strong localization engineering case study with a clear separation between public demonstrations and the private production corpus."
+      tr: "Asıl çeviri işi özel; bu depo sadece kullandığım yöntemi gösteriyor.",
+      en: "The real translation work is private; this repo only shows the method."
     },
     techStack: [
       "Python",
@@ -1397,12 +1275,12 @@ export const artifacts: Artifact[] = [
     order: 3,
     homeOrder: 3,
     summary: {
-      tr: "İki oyuncunun 1812 ve 1912’deki aynı kasabayı araştırıp geçmişe müdahale ettiği, sonucun ortak bir tarih kapanışında belirlendiği Unity tabanlı co-op zaman yolculuğu oyunu.",
-      en: "A Unity co-op time-travel game where two players investigate the same town in 1812 and 1912, intervene in the past, and see the result resolved at a shared history closure."
+      tr: "İki oyunculu bir zaman yolculuğu oyunu. Oyuncular aynı kasabanın 1812 ve 1912 hallerini geziyor, ipuçlarını birleştiriyor ve geçmişte bir şeyi değiştirip geleceğin nasıl etkilendiğini görüyor.",
+      en: "A two-player time-travel game. Players explore the same town in 1812 and 1912, piece clues together, change something in the past, and see how the future reacts."
     },
     positioning: {
-      tr: "İzmir Bakırçay Üniversitesi 2026 Güz bitirme projesi; deterministik tarih çözücüsü, oyuncuya özel bilgi ve çok oyunculu ağ mimarisini bir arada gösterir.",
-      en: "An İzmir Bakırçay University 2026 Fall capstone project combining a deterministic history resolver, per-player information, and a multiplayer network architecture."
+      tr: "Bakırçay Üniversitesi’ndeki bitirme projem; bir arkadaşımla birlikte geliştiriyoruz.",
+      en: "My capstone project at Bakırçay University, built together with a friend."
     },
     techStack: ["Unity 6", "C#", "Netcode for GameObjects", "Unity Transport", "URP", "Input System", "Pure C# Tests", "Jira"],
     focusAreaIds: ["gameplay-systems", "unity-systems", "multiplayer-networking", "data-driven-design", "evaluation-workflow"],
@@ -1448,8 +1326,8 @@ export const artifacts: Artifact[] = [
       },
       currentScope: {
         body: {
-          tr: "Kaynakta Host/Client bağlantısı, oyuncu başına bağımsız zaman katmanları, kaynak kimliği ve tarih revizyonunu koruyan gözlem defteri, konu kanıt kartları, iki dönemlik oynanış döngüsü, müdahale semantiği, nedensel zincir şeması, kural grafiği doğrulayıcı, senaryo manifest CLI doğrulaması ve saf C# smoke CI bulunur. Kasım 2026’da kompakt oturum HUD’u, opt-in profiler sayaçları ve çift dönemli Valenne liman landmark’ları eklendi.\n\nVertical slice kapsam sözleşmesi ve Milestone 1 oyuncu kabul formu hazırdır; iki bağımsız insanla gerçek oyuncu kabulü henüz yapılmadı (NOT_RUN). Uyarlanabilir ipucu araştırmasında 12.288 simülasyon koşusu, bilgi kazancı politikasının kural tabanlı referansı geçmediğini gösterdi; entegrasyon önerisi NO-GO olarak raporlandı.",
-          en: "The source includes a Host/Client connection, independent per-player time layers, an observation notebook that preserves source identity and history revision, topic evidence cards, a two-period gameplay loop, intervention semantics, a causal chain schema, a rule graph validator, scenario manifest CLI validation, and pure C# smoke CI. In November 2026 a compact session HUD, opt-in profiler counters, and dual-period Valenne harbour landmarks were added.\n\nThe vertical slice scope contract and the Milestone 1 player acceptance form are ready; real player acceptance with two independent people has not been run yet (NOT_RUN). In the adaptive hint research, 12,288 simulation runs showed the information-gain policy did not beat the rule-based reference; integration was reported as NO-GO."
+          tr: "Kaynakta Host/Client bağlantısı, oyuncu başına bağımsız zaman katmanları, kaynak kimliği ve tarih revizyonunu koruyan gözlem defteri, konu kanıt kartları, iki dönemlik oynanış döngüsü, müdahale semantiği, nedensel zincir şeması, kural grafiği doğrulayıcı, senaryo manifest CLI doğrulaması ve saf C# smoke CI bulunur. Kasım 2026’da kompakt oturum HUD’u, profiler sayaçları, iki dönemli Valenne limanı, LAN üzerinden bağlantı ve iki kişilik demo rehberi eklendi.\n\nVertical slice kapsam sözleşmesi ve Milestone 1 oyuncu kabul formu hazırdır; iki bağımsız insanla gerçek oyuncu kabulü henüz yapılmadı (NOT_RUN). Uyarlanabilir ipucu araştırmasında 12.288 simülasyon koşusu, bilgi kazancı politikasının kural tabanlı referansı geçmediğini gösterdi; entegrasyon önerisi NO-GO olarak raporlandı.",
+          en: "The source includes a Host/Client connection, independent per-player time layers, an observation notebook that preserves source identity and history revision, topic evidence cards, a two-period gameplay loop, intervention semantics, a causal chain schema, a rule graph validator, scenario manifest CLI validation, and pure C# smoke CI. In November 2026 a compact session HUD, profiler counters, the two-era Valenne harbour, LAN connections, and a two-player demo guide were added.\n\nThe vertical slice scope contract and the Milestone 1 player acceptance form are ready; real player acceptance with two independent people has not been run yet (NOT_RUN). In the adaptive hint research, 12,288 simulation runs showed the information-gain policy did not beat the rule-based reference; integration was reported as NO-GO."
         }
       },
       designDecisions: [
@@ -1484,7 +1362,7 @@ export const artifacts: Artifact[] = [
       ],
       limitations: [
         { tr: "Bitirme projesi geliştirme aşamasındadır; vertical slice ve iki bağımsız oyunculu kabul henüz tamamlanmadı.", en: "The capstone project is in development; the vertical slice and two-independent-player acceptance are not complete yet." },
-        { tr: "İlk kabul ortamı aynı bilgisayarda localhost bağlantısıdır; internet üzerinden eşleşme kapsam dışıdır.", en: "The first acceptance environment is a localhost connection on one machine; matchmaking over the internet is out of scope." },
+        { tr: "Aynı bilgisayarda ya da aynı yerel ağda (LAN) oynanıyor; internet üzerinden eşleşme yok. Mevcut Windows paketi geliştirme sürümü.", en: "It plays on one machine or the same local network (LAN); there is no matchmaking over the internet. The current Windows package is a development build." },
         { tr: "Repository özeldir; kaynak kod ve build public değildir.", en: "The repository is private; source code and builds are not public." },
         { tr: "Proje iki geliştiriciyle yürütülür; bu kayıt ekip çalışmasının teknik özetidir.", en: "The project is built by two developers; this record is a technical summary of the team’s work." }
       ],
@@ -1493,7 +1371,7 @@ export const artifacts: Artifact[] = [
         { tr: "Tekrar oynanabilirlik ve alternatif çözüm yolu deneylerinin oyuna yansıtılması.", en: "Bringing replayability and alternative-solution experiments into the game." }
       ]
     },
-    updatedAt: "2026-11-08"
+    updatedAt: "2026-11-18"
   },
   {
     id: "agentverse",
@@ -1507,12 +1385,12 @@ export const artifacts: Artifact[] = [
     homeOrder: 5,
     repoUrl: "https://github.com/Baglare/AgentVerse",
     summary: {
-      tr: "Kimliği ve öğrendiği becerileri kalıcı olan ajanları simüle ortamlarda eğitmek için açık kaynak, local-first deney aracı; LLM, ücretli API veya GPU gerektirmez.",
-      en: "An open-source, local-first toolkit for training agents with persistent identities and learned skills in simulated environments; no LLM, paid API, or GPU required."
+      tr: "Eğittiğin ajanların öğrendiklerini unutmadığı küçük bir deney ortamı. Ajana isim veriyorsun, eğitiyorsun, becerilerini saklıyorsun. LLM, GPU ya da ücretli API gerekmiyor.",
+      en: "A small playground where the agents you train keep what they learn. You name an agent, train it, and save its skills. No LLM, GPU, or paid API required."
     },
     positioning: {
-      tr: "Tekrarlanabilir pekiştirmeli öğrenme deneyleri; olumlu ve olumsuz transfer sonuçlarını açıkça raporlayan araştırma prototipi.",
-      en: "Reproducible reinforcement learning experiments; a research prototype that reports positive and negative transfer results openly."
+      tr: "Açık kaynak bir deney; işe yaramayan sonuçları da olduğu gibi yazıyorum.",
+      en: "An open-source experiment; I write down the results that didn’t work too."
     },
     techStack: ["Python 3.12", "Gymnasium", "NumPy", "Matplotlib", "Tabular Q-learning", "pytest"],
     focusAreaIds: ["reinforcement-learning", "evaluation-workflow", "local-first-labs", "deterministic-pipelines"],
@@ -1591,19 +1469,19 @@ export const artifacts: Artifact[] = [
     id: "dersoyun",
     slug: "dersoyun",
     title: "DersOyun",
-    statusId: "active-development",
+    statusId: "product-prototype",
     categoryId: "learning-platform",
     themeId: "study-lumen",
     featuredLevel: "normal",
-    order: 6,
-    homeOrder: 6,
+    order: 14,
+    homeOrder: 14,
     summary: {
-      tr: "Sekiz üniversite dersini soru bankası, anlatım, atölye ve deneme sınavlarıyla çevrimdışı çalışabilen bir öğrenme uygulamasına dönüştüren React/TypeScript PWA’sı.",
-      en: "A React/TypeScript PWA that turns eight university courses into an offline-capable study app with question banks, lessons, workshops, and practice exams."
+      tr: "Sınav dönemi için kendime yaptığım çalışma uygulaması: birkaç dersin konu anlatımı, soruları ve deneme sınavları tek yerde, internetsiz de açılıyor.",
+      en: "A study app I put together for myself during exams: lessons, questions, and practice tests for a few courses in one place, and it works offline."
     },
     positioning: {
-      tr: "Ortak ders motoru, yoğun otomatik test kapsamı ve taşınabilir Windows paketiyle öğrenme deneyimi mühendisliği.",
-      en: "Learning-experience engineering with a shared course engine, extensive automated test coverage, and a portable Windows package."
+      tr: "Hızlıca toparladığım kişisel bir araç; vitrinde değil.",
+      en: "A personal tool I put together quickly; not one of the showcase pieces."
     },
     techStack: ["React 19", "TypeScript", "Vite", "PWA", "Vitest", "Playwright", "react-markdown", "PowerShell Packaging"],
     focusAreaIds: ["learning-design", "local-first-apps", "product-ui", "data-persistence", "evaluation-workflow"],
@@ -1676,23 +1554,26 @@ export const artifacts: Artifact[] = [
     categoryId: "computer-vision-interaction",
     themeId: "fabric-lens",
     featuredLevel: "normal",
-    order: 10,
-    homeOrder: 10,
+    order: 7,
+    homeOrder: 7,
     summary: {
-      tr: "Fashionpedia üzerinde instance segmentation ve kıyafet attribute sınıflandırması yapan, YOLO ile RF-DETR’ı kontrollü karşılaştıran gerçek zamanlı kıyafet analizi projesi.",
-      en: "A real-time clothing analysis project performing instance segmentation and garment attribute classification on Fashionpedia, with a controlled YOLO vs RF-DETR comparison."
+      tr: "Fotoğraftaki ya da kameradaki kıyafetleri bulup türünü ve özelliklerini tahmin eden derin öğrenme projesi. Birkaç modeli aynı veri üzerinde karşılaştırıyoruz.",
+      en: "A deep learning project that finds the clothes in a photo or camera feed and predicts their type and attributes. We compare several models on the same data."
     },
     positioning: {
-      tr: "İzmir Bakırçay Üniversitesi Derin Öğrenme dersi kapsamında üç kişilik ekip projesi; sonuçlar ölçüm kaynağıyla birlikte raporlanır.",
-      en: "A three-person team project for the İzmir Bakırçay University Deep Learning course; results are reported together with their measurement source."
+      tr: "Derin Öğrenme dersi için üç kişilik ekiple yürüttüğümüz proje.",
+      en: "A three-person team project for our Deep Learning course."
     },
-    techStack: ["Python", "PyTorch", "YOLO26s-Seg", "RF-DETR-Seg", "DINOv2 ViT-S/14", "EfficientNet-B0", "Fashionpedia"],
+    techStack: ["Python", "PyTorch", "YOLO26s-Seg", "RF-DETR-Seg", "DINOv2 ViT-S/14", "EfficientNet-B0", "SigLIP2", "Fashionpedia", "DeepFashion"],
     focusAreaIds: ["deep-learning-models", "computer-vision", "evaluation-workflow", "real-time-camera-pipeline"],
     coreSystems: [
       "8-class Garment Instance Segmentation",
       "YOLO26s-Seg vs RF-DETR-Seg Small",
       "DINOv2 Attribute Classifier (30 attributes)",
       "EfficientNet-B0 Attribute Classifier (19 attributes)",
+      "C08 DINOv2 Ensemble Subtype Classifier (18 classes + unknown)",
+      "Fashionpedia k-NN Memory (opt-in)",
+      "576 px RF-DETR Fine-tuning",
       "Garment Lab Photo Flow",
       "Webcam Prototype",
       "Dataset / License GO-NO-GO Gates",
@@ -1716,8 +1597,8 @@ export const artifacts: Artifact[] = [
       },
       currentScope: {
         body: {
-          tr: "İki segmentasyon modeli ve iki attribute modeli eğitildi. Bilgisayarda çalışan Garment Lab’de fotoğraf seçimi → RF-DETR → iki attribute modeli → segmentasyon/attribute arayüzü akışı ekran görüntüsüyle doğrulandı. İlk webcam oturumunda yaklaşık 35 model-tahmin FPS görüldü; bu uçtan uca ekran FPS’si değildir.\n\nİnce giysi türleri (tişört/sweatshirt/hoodie gibi) için dataset, etiket ve lisans uygunluğu GO/NO-GO kapısına bağlıdır. Proje tamamlanmadı; fotoğraf üç-model entegrasyonu, subtype eğitimi, canlı webcam ve nihai bağımsız değerlendirme açık kapılardır.",
-          en: "Two segmentation models and two attribute models were trained. In the desktop Garment Lab, the photo selection → RF-DETR → two attribute models → segmentation/attribute UI flow was verified with a screenshot. About 35 model-prediction FPS was seen in the first webcam session; this is not end-to-end screen FPS.\n\nDataset, labelling, and licence feasibility for fine-grained garment types (t-shirt/sweatshirt/hoodie) is behind a GO/NO-GO gate. The project is not complete; three-model photo integration, subtype training, live webcam, and final independent evaluation remain open gates."
+          tr: "İki segmentasyon modeli ve iki attribute modeli eğitildi. Bilgisayarda çalışan Garment Lab’de fotoğraf seçimi → RF-DETR → iki attribute modeli → segmentasyon/attribute arayüzü akışı ekran görüntüsüyle doğrulandı. İlk webcam oturumunda yaklaşık 35 model-tahmin FPS görüldü; bu uçtan uca ekran FPS’si değildir.\n\nKasım ortasında alt tür sınıflandırması eklendi: DeepFashion üzerinde eğitilen dört DINOv2 modelinden oluşan C08 ensemble’ı, kırpılmış giysiyi 18 alt türden birine ya da “bilinmiyor” sınıfına atıyor. Ön kayıtlı bir denemede Fashionpedia k-NN hafızası test top-1 doğruluğunu 0,733’ten 0,842’ye, macro-F1’i 0,567’den 0,716’ya çıkardı. RF-DETR 576 px ile devam eğitildi. Canlı kamera ve yeni sonuç ekranı ayrı dallarda geliştiriliyor; proje henüz tamamlanmadı.",
+          en: "Two segmentation models and two attribute models were trained. In the desktop Garment Lab, the photo selection → RF-DETR → two attribute models → segmentation/attribute UI flow was verified with a screenshot. About 35 model-prediction FPS was seen in the first webcam session; this is not end-to-end screen FPS.\n\nSubtype classification arrived in mid-November: the C08 ensemble of four DINOv2 models trained on DeepFashion assigns a cropped garment to one of 18 subtypes or “unknown”. In a pre-registered trial, a Fashionpedia k-NN memory raised test top-1 accuracy from 0.733 to 0.842 and macro-F1 from 0.567 to 0.716. RF-DETR was fine-tuned further at 576 px. Live camera and a new results screen are being built on separate branches; the project isn’t finished yet."
         }
       },
       designDecisions: [
@@ -1746,7 +1627,7 @@ export const artifacts: Artifact[] = [
         { tr: "Kontrollü webcam deneyi ve ince giysi türü sınıflandırması.", en: "A controlled webcam experiment and fine-grained garment type classification." }
       ]
     },
-    updatedAt: "2026-11-12"
+    updatedAt: "2026-11-14"
   },
   {
     id: "petglare",
@@ -1756,16 +1637,16 @@ export const artifacts: Artifact[] = [
     categoryId: "desktop-applications",
     themeId: "pet-glow",
     featuredLevel: "normal",
-    order: 15,
-    homeOrder: 15,
+    order: 12,
+    homeOrder: 12,
     repoUrl: "https://github.com/Baglare/ClaudePetGlare",
     summary: {
-      tr: "Claude Desktop’taki Code oturumlarının durumunu —düşünme, dosya okuma, onay, komut, tamamlanma, hata— Windows masaüstünde küçük bir maskotla gösteren WPF uygulaması.",
-      en: "A WPF app that shows the state of Claude Desktop Code sessions — thinking, reading files, approvals, commands, completion, errors — as a small mascot on the Windows desktop."
+      tr: "Claude ile kod yazarken ne yaptığını masaüstünde küçük bir maskotla gösteren Windows uygulaması: düşünüyor mu, onay mı bekliyor, iş bitti mi, bir bakışta görüyorsun.",
+      en: "A Windows app that shows what Claude is doing while you code, through a small desktop mascot: thinking, waiting for approval, or done, at a glance."
     },
     positioning: {
-      tr: "AI kodlama asistanının hook olaylarını yerel bir named pipe ile görünür kılan, v1.0.0 olarak yayımlanmış küçük masaüstü aracı.",
-      en: "A small desktop tool, released as v1.0.0, that surfaces an AI coding assistant’s hook events over a local named pipe."
+      tr: "Kendi kullanmak için bir akşamda başlayıp yayımladığım küçük bir araç.",
+      en: "A small tool I started one evening for myself and then released."
     },
     techStack: ["C#", ".NET 10", "WPF", "Named Pipes", "Claude Code Hooks"],
     focusAreaIds: ["ai-assistant-tooling", "desktop-architecture", "product-ui"],

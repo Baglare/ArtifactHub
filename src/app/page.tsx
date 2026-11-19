@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArtifactGrid, FeaturedShowcase } from "@/components/artifacts/ArtifactGrid";
 import { TechnicalFocusMap } from "@/components/artifacts/TechnicalFocusMap";
 import { LocalizedTextValue } from "@/components/i18n/LocalizedTextValue";
@@ -7,6 +6,7 @@ import { SectionBlock, SectionHeading } from "@/components/layout/SectionBlock";
 import { SeriesCard } from "@/components/series/SeriesCard";
 import { SeriesTransformationTable } from "@/components/series/SeriesTransformationTable";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ArtifactOrbit } from "@/components/visual/ArtifactOrbit";
 import { homePageText } from "@/data/pageText";
 import { siteConfig } from "@/data/siteConfig";
 import { uiText } from "@/data/uiText";
@@ -22,7 +22,7 @@ const selectedFocusAreaIds: FocusAreaId[] = [
   "local-first-apps",
   "computer-vision",
   "gameplay-systems",
-  "ai-governance"
+  "audio-processing"
 ];
 
 export default function HomePage() {
@@ -46,25 +46,20 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative grid min-w-0 gap-12 pb-16 pt-6 sm:pt-12 lg:grid-cols-[1.25fr_0.75fr] lg:items-center lg:pb-24">
         <div className="min-w-0">
-          <p className="reveal inline-flex items-center gap-2 rounded-full border border-[color:var(--hairline-strong)] bg-white/[0.03] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--theme-text-secondary)]">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]" />
-            <LocalizedTextValue text={homePageText.heroKicker} />
-          </p>
-
-          <h1 className="display reveal reveal-delay-1 mt-8 text-[3.2rem] text-[var(--theme-text-primary)] sm:text-7xl lg:text-[5.6rem]">
-            <span className="block">
-              <LocalizedTextValue text={homePageText.heroTitleLead} />
+          <h1 className="display reveal mt-2 text-[3.2rem] text-[var(--theme-text-primary)] sm:text-7xl lg:text-[5.4rem]">
+            <span className="block text-[0.42em] font-medium tracking-tight text-[var(--theme-text-secondary)]">
+              <LocalizedTextValue text={homePageText.heroIntro} />
             </span>
-            <span className="serif-accent text-gradient block pr-2 text-[1.08em] leading-[1.05]">
-              <LocalizedTextValue text={homePageText.heroTitleAccent} />
+            <span className="serif-accent text-gradient mt-2 block pr-2 text-[1.08em] leading-[1.05]">
+              <LocalizedTextValue text={homePageText.heroName} />
             </span>
           </h1>
 
-          <p className="reveal reveal-delay-2 mt-8 max-w-2xl text-lg leading-relaxed text-[var(--theme-text-secondary)]">
-            <LocalizedTextValue text={siteConfig.hero.description} />{" "}
-            <span className="text-[var(--theme-text-muted)]">
-              <LocalizedTextValue text={siteConfig.hero.subtitle} />
-            </span>
+          <p className="reveal reveal-delay-1 mt-8 max-w-2xl text-xl leading-relaxed text-[var(--theme-text-primary)] sm:text-2xl">
+            <LocalizedTextValue text={homePageText.heroLead} />
+          </p>
+          <p className="reveal reveal-delay-2 mt-5 max-w-2xl text-lg leading-relaxed text-[var(--theme-text-secondary)]">
+            <LocalizedTextValue text={homePageText.heroBody} />
           </p>
 
           <div className="reveal reveal-delay-3 mt-10 flex flex-wrap gap-3">
@@ -88,33 +83,26 @@ export default function HomePage() {
           </dl>
         </div>
 
-        <div className="reveal reveal-delay-2 relative mx-auto w-full max-w-[420px]">
-          <div className="relic">
-            <div className="relic__ring" />
-            <div className="relic__ring relic__ring--1">
-              <span className="relic__dot" />
-            </div>
-            <div className="relic__ring relic__ring--2" />
-            <div className="relic__ring relic__ring--3" />
-            <div className="glass relative grid h-[52%] w-[52%] place-items-center overflow-hidden !rounded-full">
-              <Image
-                alt=""
-                aria-hidden="true"
-                className="h-full w-full scale-[1.7] object-cover mix-blend-screen"
-                height={220}
-                priority
-                src="/images/artifacthub-relic-core.png"
-                width={220}
-              />
-            </div>
-          </div>
-          <div className="glass absolute -bottom-2 left-0 max-w-[230px] !rounded-2xl p-4 sm:-left-6">
-            <p className="eyebrow">
-              <LocalizedTextValue text={homePageText.heroPanelEyebrow} />
+        <div className="reveal reveal-delay-2 mx-auto w-full max-w-[460px]">
+          <ArtifactOrbit artifacts={artifacts} />
+          <div className="mt-6 flex flex-col items-center gap-3 text-center">
+            <p className="max-w-xs text-sm leading-snug text-[var(--theme-text-secondary)]">
+              <LocalizedTextValue text={homePageText.orbitHint} />
             </p>
-            <p className="mt-2 text-sm leading-snug text-[var(--theme-text-secondary)]">
-              <LocalizedTextValue text={homePageText.heroPanelLead} />
-            </p>
+            <ul className="flex flex-wrap justify-center gap-x-4 gap-y-1 font-mono text-[10.5px] uppercase tracking-[0.14em] text-[var(--theme-text-muted)]">
+              <li className="inline-flex items-center gap-2">
+                <span className="orbit-legend__dot h-3 w-3 shadow-[0_0_10px_var(--theme-accent-primary)]" />
+                <LocalizedTextValue text={homePageText.orbitLegendMature} />
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <span className="orbit-legend__dot h-2 w-2" />
+                <LocalizedTextValue text={homePageText.orbitLegendGrowing} />
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <span className="orbit-legend__dot h-1 w-1" />
+                <LocalizedTextValue text={homePageText.orbitLegendEarly} />
+              </li>
+            </ul>
           </div>
         </div>
       </section>

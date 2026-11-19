@@ -3,104 +3,104 @@ import type { FocusArea } from "@/types/artifact";
 export const focusAreas: FocusArea[] = [
   {
     id: "gameplay-systems",
-    label: { tr: "Gameplay Systems", en: "Gameplay Systems" },
-    description: { tr: "Combat loop, input tepkisi, oyuncu davranışı ve oyun sistemlerinin prototiplenmesi.", en: "Prototyping combat loops, input response, player behavior, and game systems." },
+    label: { tr: "Oynanış Sistemleri", en: "Gameplay Systems" },
+    description: { tr: "Dövüş döngüsü, tuşlara tepki, oyuncu davranışı ve oyun sistemlerinin prototiplenmesi.", en: "Prototyping combat loops, input response, player behavior, and game systems." },
     order: 1
   },
   {
     id: "combat-architecture",
-    label: { tr: "Combat Architecture", en: "Combat Architecture" },
-    description: { tr: "Saldırı, parry, deflect, düşman davranışı ve oynanış geri bildirimi mimarisi.", en: "Architecture for attacks, parry, deflect, enemy behavior, and gameplay feedback." },
+    label: { tr: "Dövüş Mimarisi", en: "Combat Architecture" },
+    description: { tr: "Saldırı, savuşturma, düşman davranışı ve vuruş hissinin kurgulanması.", en: "Architecture for attacks, parry, deflect, enemy behavior, and gameplay feedback." },
     order: 2
   },
   {
     id: "unity-systems",
-    label: { tr: "Unity Systems", en: "Unity Systems" },
-    description: { tr: "Unity runtime, sahne akışı, ScriptableObject ve oyun sistemi entegrasyonları.", en: "Unity runtime, scene flow, ScriptableObject, and game system integrations." },
+    label: { tr: "Unity Sistemleri", en: "Unity Systems" },
+    description: { tr: "Unity’de sahne akışı, ScriptableObject’ler ve oyun sistemlerinin birbirine bağlanması.", en: "Unity runtime, scene flow, ScriptableObject, and game system integrations." },
     order: 3
   },
   {
     id: "data-driven-design",
-    label: { tr: "Data-driven Design", en: "Data-driven Design" },
+    label: { tr: "Veriyle Tanımlanan Tasarım", en: "Data-driven Design" },
     description: { tr: "Davranışların sabit kod yerine veri yapılarıyla yönetilmesi.", en: "Managing behavior through data structures instead of hard-coded paths." },
     order: 4
   },
   {
     id: "local-first-apps",
-    label: { tr: "Local-first Apps", en: "Local-first Apps" },
+    label: { tr: "Yerelde Çalışan Uygulamalar", en: "Local-first Apps" },
     description: { tr: "Verinin varsayılan olarak kullanıcının cihazında yaşadığı uygulama akışları.", en: "Application flows where user data lives on the device by default." },
     order: 5
   },
   {
     id: "product-ui",
-    label: { tr: "Product UI", en: "Product UI" },
-    description: { tr: "Kullanıcı akışı, dashboard, modal, filtreleme ve ürün arayüzü kararları.", en: "User flows, dashboards, modals, filtering, and product interface decisions." },
+    label: { tr: "Ürün Arayüzü", en: "Product UI" },
+    description: { tr: "Kullanıcı akışları, paneller, filtreler ve arayüz kararları.", en: "User flows, dashboards, modals, filtering, and product interface decisions." },
     order: 6
   },
   {
     id: "api-integrations",
-    label: { tr: "API Integrations", en: "API Integrations" },
-    description: { tr: "Harici veri kaynaklarıyla arama, zenginleştirme ve içerik çekme akışları.", en: "Search, enrichment, and content retrieval through external data sources." },
+    label: { tr: "API Entegrasyonları", en: "API Integrations" },
+    description: { tr: "Dış kaynaklardan arama yapma ve içerik çekme.", en: "Search, enrichment, and content retrieval through external data sources." },
     order: 7
   },
   {
     id: "data-persistence",
-    label: { tr: "Data Persistence", en: "Data Persistence" },
-    description: { tr: "Yerel depolama, yedekleme, import/export ve veri sürekliliği.", en: "Local storage, backup, import/export, and data continuity." },
+    label: { tr: "Veri Saklama", en: "Data Persistence" },
+    description: { tr: "Yerel depolama, yedekleme, içe/dışa aktarma ve verinin kaybolmaması.", en: "Local storage, backup, import/export, and data continuity." },
     order: 8
   },
   {
     id: "recommendation-tooling",
-    label: { tr: "Recommendation Tooling", en: "Recommendation Tooling" },
-    description: { tr: "Öneri, embedding, benzerlik skoru ve kişiselleştirme araçları.", en: "Recommendation, embedding, similarity scoring, and personalization tools." },
+    label: { tr: "Öneri Sistemleri", en: "Recommendation Tooling" },
+    description: { tr: "Öneri üretme, benzerlik hesaplama ve kişiselleştirme.", en: "Recommendation, embedding, similarity scoring, and personalization tools." },
     order: 9
   },
   {
     id: "audio-processing",
-    label: { tr: "Audio Processing", en: "Audio Processing" },
+    label: { tr: "Ses İşleme", en: "Audio Processing" },
     description: { tr: "Ses girdisinin analiz, ön işleme veya üretim süreçlerinden geçirilmesi.", en: "Analysis, preprocessing, or generation workflows for audio input." },
     order: 10
   },
   {
     id: "pipeline-tooling",
-    label: { tr: "Pipeline Tooling", en: "Pipeline Tooling" },
-    description: { tr: "Ham girdiyi işleyip ara veri ve kullanılabilir çıktı üreten araç zincirleri.", en: "Toolchains that process raw input into intermediate data and usable output." },
+    label: { tr: "İşleme Hatları", en: "Pipeline Tooling" },
+    description: { tr: "Ham girdiyi adım adım işleyip kullanılabilir çıktıya çeviren araç zincirleri.", en: "Toolchains that process raw input into intermediate data and usable output." },
     order: 11
   },
   {
     id: "rhythm-systems",
-    label: { tr: "Rhythm Systems", en: "Rhythm Systems" },
-    description: { tr: "Beat, timing, judgement ve ritim tabanlı oynanış sistemleri.", en: "Beat, timing, judgement, and rhythm-based gameplay systems." },
+    label: { tr: "Ritim Sistemleri", en: "Rhythm Systems" },
+    description: { tr: "Vuruş zamanlaması, isabet değerlendirmesi ve ritme dayalı oynanış.", en: "Beat, timing, judgement, and rhythm-based gameplay systems." },
     order: 12
   },
   {
     id: "procedural-gameplay-data",
-    label: { tr: "Procedural Gameplay Data", en: "Procedural Gameplay Data" },
-    description: { tr: "Analiz edilmiş veriden gameplay eventleri veya oynanabilir veri üretme.", en: "Generating gameplay events or playable data from analyzed input." },
+    label: { tr: "Üretilen Oynanış Verisi", en: "Procedural Gameplay Data" },
+    description: { tr: "Analiz edilen sesten oynanabilir olaylar üretmek.", en: "Generating gameplay events or playable data from analyzed input." },
     order: 13
   },
   {
     id: "voice-tools",
-    label: { tr: "Voice Tools", en: "Voice Tools" },
-    description: { tr: "Ses profili, referans ses, TTS ve ses üretim araçları.", en: "Voice profile, reference audio, TTS, and voice generation tools." },
+    label: { tr: "Ses Araçları", en: "Voice Tools" },
+    description: { tr: "Ses profilleri, referans kayıtlar ve ses üretim araçları.", en: "Voice profile, reference audio, TTS, and voice generation tools." },
     order: 14
   },
   {
     id: "tts-experiments",
-    label: { tr: "TTS Experiments", en: "TTS Experiments" },
-    description: { tr: "Text-to-speech üretimi, model davranışı ve inference denemeleri.", en: "Text-to-speech generation, model behavior, and inference tests." },
+    label: { tr: "Metinden Sese Denemeleri", en: "TTS Experiments" },
+    description: { tr: "Metinden ses üretimi ve farklı modellerle yapılan denemeler.", en: "Text-to-speech generation, model behavior, and inference tests." },
     order: 15
   },
   {
     id: "audio-preprocessing",
-    label: { tr: "Audio Preprocessing", en: "Audio Preprocessing" },
-    description: { tr: "Ses temizleme, normalize etme, formatlama ve kalite hazırlığı.", en: "Audio cleanup, normalization, formatting, and quality preparation." },
+    label: { tr: "Ses Ön İşleme", en: "Audio Preprocessing" },
+    description: { tr: "Sesi temizleme, seviyesini eşitleme ve doğru formata getirme.", en: "Audio cleanup, normalization, formatting, and quality preparation." },
     order: 16
   },
   {
     id: "local-first-labs",
-    label: { tr: "Local-first Labs", en: "Local-first Labs" },
-    description: { tr: "Deneysel araçların yerel veri ve yerel çalışma prensibiyle kurulması.", en: "Experimental tools built around local data and local execution." },
+    label: { tr: "Yerel Deney Ortamları", en: "Local-first Labs" },
+    description: { tr: "Verinin bilgisayardan çıkmadığı deneysel araçlar.", en: "Experimental tools built around local data and local execution." },
     order: 17
   },
   {
@@ -117,38 +117,38 @@ export const focusAreas: FocusArea[] = [
   },
   {
     id: "computer-vision",
-    label: { tr: "Computer Vision", en: "Computer Vision" },
+    label: { tr: "Bilgisayarlı Görü", en: "Computer Vision" },
     description: { tr: "Kamera girdisinden yüz, el, nesne veya hareket algılama.", en: "Detecting faces, hands, objects, or motion from camera input." },
     order: 19
   },
   {
     id: "gesture-interaction",
-    label: { tr: "Gesture Interaction", en: "Gesture Interaction" },
-    description: { tr: "El landmark veya hareket verisini UI/komut akışına bağlama.", en: "Connecting hand landmarks or motion data to UI and command flows." },
+    label: { tr: "El Hareketiyle Etkileşim", en: "Gesture Interaction" },
+    description: { tr: "El hareketlerini arayüz komutlarına çevirme.", en: "Connecting hand landmarks or motion data to UI and command flows." },
     order: 20
   },
   {
     id: "local-recognition",
-    label: { tr: "Local Recognition", en: "Local Recognition" },
-    description: { tr: "Yerel doğrulama, tanıma ve profil eşleme prototipleri.", en: "Local verification, recognition, and profile matching prototypes." },
+    label: { tr: "Yerel Tanıma", en: "Local Recognition" },
+    description: { tr: "Bilgisayarda çalışan yüz tanıma ve profil eşleme.", en: "Local verification, recognition, and profile matching prototypes." },
     order: 21
   },
   {
     id: "real-time-camera-pipeline",
-    label: { tr: "Real-time Camera Pipeline", en: "Real-time Camera Pipeline" },
-    description: { tr: "Canlı kamera girdisini frame, detection ve feedback zincirine bağlama.", en: "Connecting live camera input to frame, detection, and feedback chains." },
+    label: { tr: "Gerçek Zamanlı Kamera Akışı", en: "Real-time Camera Pipeline" },
+    description: { tr: "Canlı kamera görüntüsünü kare kare işleyip anında geri bildirim verme.", en: "Connecting live camera input to frame, detection, and feedback chains." },
     order: 22
   },
   {
     id: "gamified-ui",
-    label: { tr: "Gamified UI", en: "Gamified UI" },
-    description: { tr: "Teknik çıktıları oyunlaştırılmış arayüz metaforlarıyla sunma.", en: "Presenting technical output through gamified interface metaphors." },
+    label: { tr: "Oyunlaştırılmış Arayüz", en: "Gamified UI" },
+    description: { tr: "Teknik çıktıları oyun gibi hissettiren bir arayüzle sunma.", en: "Presenting technical output through gamified interface metaphors." },
     order: 23
   },
   {
     id: "deterministic-pipelines",
     label: {
-      tr: "Deterministik Pipeline’lar",
+      tr: "Tekrarlanabilir İşleme Hatları",
       en: "Deterministic Pipelines"
     },
     description: {
@@ -184,7 +184,7 @@ export const focusAreas: FocusArea[] = [
   {
     id: "provider-architecture",
     label: {
-      tr: "Provider Mimarisi",
+      tr: "Sağlayıcı Mimarisi",
       en: "Provider Architecture"
     },
     description: {
@@ -196,7 +196,7 @@ export const focusAreas: FocusArea[] = [
   {
     id: "secure-credentials",
     label: {
-      tr: "Güvenli Credential Saklama",
+      tr: "Güvenli Anahtar Saklama",
       en: "Secure Credential Handling"
     },
     description: {
@@ -212,7 +212,7 @@ export const focusAreas: FocusArea[] = [
       en: "Localization Tooling"
     },
     description: {
-      tr: "Korunan syntax, terminoloji, translation memory ve yapısal QA.",
+      tr: "Oyun kodunu bozmadan çeviri, terim tutarlılığı, çeviri hafızası ve hata kontrolü.",
       en: "Protected syntax, terminology, translation memory, and structural QA."
     },
     order: 29
@@ -224,7 +224,7 @@ export const focusAreas: FocusArea[] = [
       en: "Release Engineering"
     },
     description: {
-      tr: "Paket doğrulama, kabul kanıtı ve açık release kapıları.",
+      tr: "Sürüm paketini doğrulama ve yayına çıkmadan önceki kontroller.",
       en: "Package validation, acceptance evidence, and explicit release gates."
     },
     order: 30
@@ -236,7 +236,7 @@ export const focusAreas: FocusArea[] = [
       en: "Desktop Architecture"
     },
     description: {
-      tr: "İstemci/core ayrımı ve yerel çalışma sözleşmeleri.",
+      tr: "Arayüz ile çekirdeğin ayrılması ve yerelde çalışan masaüstü uygulamaları.",
       en: "Client/core separation and local execution contracts."
     },
     order: 31
@@ -245,7 +245,7 @@ export const focusAreas: FocusArea[] = [
     id: "reinforcement-learning",
     label: { tr: "Pekiştirmeli Öğrenme", en: "Reinforcement Learning" },
     description: {
-      tr: "Seed'li eğitim, baseline karşılaştırması ve transfer deneyleriyle öğrenen ajanlar.",
+      tr: "Tekrarlanabilir eğitim, rastgele ajanla karşılaştırma ve beceri aktarma denemeleri.",
       en: "Learning agents with seeded training, baseline comparison, and transfer experiments."
     },
     order: 32
@@ -254,7 +254,7 @@ export const focusAreas: FocusArea[] = [
     id: "multiplayer-networking",
     label: { tr: "Çok Oyunculu Ağ", en: "Multiplayer Networking" },
     description: {
-      tr: "Host/Client oturumları, yetkili sunucu durumu ve oyuncuya özel bilgi görünürlüğü.",
+      tr: "Oyuncuların aynı oturuma bağlanması, sunucunun tek doğru durumu tutması ve herkesin yalnız kendi bilgisini görmesi.",
       en: "Host/Client sessions, authoritative server state, and per-player information visibility."
     },
     order: 33
@@ -272,7 +272,7 @@ export const focusAreas: FocusArea[] = [
     id: "deep-learning-models",
     label: { tr: "Derin Öğrenme Modelleri", en: "Deep Learning Models" },
     description: {
-      tr: "Segmentasyon, attribute sınıflandırma ve modellerin kontrollü karşılaştırılması.",
+      tr: "Görüntüde nesneleri ayırma, özellik tahmini ve modellerin karşılaştırılması.",
       en: "Segmentation, attribute classification, and controlled model comparison."
     },
     order: 35
@@ -281,7 +281,7 @@ export const focusAreas: FocusArea[] = [
     id: "ai-assistant-tooling",
     label: { tr: "AI Asistan Araçları", en: "AI Assistant Tooling" },
     description: {
-      tr: "AI kodlama asistanlarının etrafında çalışan hook, bildirim ve iş akışı araçları.",
+      tr: "AI kodlama asistanlarıyla çalışırken işi kolaylaştıran küçük araçlar.",
       en: "Hooks, notifications, and workflow tools built around AI coding assistants."
     },
     order: 36
