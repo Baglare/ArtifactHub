@@ -24,7 +24,7 @@ export default function RoadmapPage() {
 
       <div className="grid min-w-0 gap-5">
         <TechnicalPanel title={<LocalizedTextValue text={roadmapPageText.generalDirectionTitle} />} themeId="relic-core" variant="technical">
-          <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
+          <ul className="bullet-list">
             {roadmapPageText.generalRoadmapItems.map((item) => (
               <li key={item.tr}>
                 <LocalizedTextValue text={item} />
@@ -36,10 +36,10 @@ export default function RoadmapPage() {
         <TechnicalPanel title={<LocalizedTextValue text={roadmapPageText.artifactExtensionsTitle} />} themeId="relic-core">
           <div className="grid gap-4">
             {artifacts.map((artifact) => (
-              <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={artifact.id}>
+              <section className="glass-soft min-w-0 p-5" key={artifact.id}>
                 <div className="flex flex-wrap items-center gap-3">
                   <Link
-                    className="font-medium text-[var(--theme-text-primary)] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                    className="font-medium text-[var(--theme-text-primary)] underline decoration-white/20 underline-offset-4 transition-colors hover:decoration-[color:var(--theme-accent-primary)]"
                     href={`/artifacts/${artifact.slug}`}
                   >
                     {artifact.title}
@@ -57,9 +57,9 @@ export default function RoadmapPage() {
         <TechnicalPanel title={<LocalizedTextValue text={roadmapPageText.seriesExtensionsTitle} />} themeId="relic-core">
           <div className="grid gap-4">
             {series.map((seriesItem) => (
-              <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={seriesItem.id}>
+              <section className="glass-soft min-w-0 p-5" key={seriesItem.id}>
                 <Link
-                  className="font-medium text-[var(--theme-text-primary)] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                  className="font-medium text-[var(--theme-text-primary)] underline decoration-white/20 underline-offset-4 transition-colors hover:decoration-[color:var(--theme-accent-primary)]"
                   href={`/series/${seriesItem.slug}`}
                 >
                   {seriesItem.title}
@@ -79,7 +79,7 @@ export default function RoadmapPage() {
           description={<LocalizedTextValue text={roadmapPageText.visualPlanDescription} />}
           themeId="relic-core"
         >
-          <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
+          <ul className="bullet-list">
             {roadmapPageText.visualMaterialItems.map((item) => (
               <li key={item.tr}>
                 <LocalizedTextValue text={item} />
@@ -93,7 +93,7 @@ export default function RoadmapPage() {
           description={<LocalizedTextValue text={roadmapPageText.languagePlanDescription} />}
           themeId="relic-core"
         >
-          <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
+          <ul className="bullet-list">
             {roadmapPageText.languageExpansionItems.map((item) => (
               <li key={item.tr}>
                 <LocalizedTextValue text={item} />
@@ -108,7 +108,7 @@ export default function RoadmapPage() {
           themeId="relic-core"
           variant="technical"
         >
-          <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
+          <ul className="bullet-list">
             {roadmapPageText.registryExpansionItems.map((item) => (
               <li key={item.tr}>
                 <LocalizedTextValue text={item} />

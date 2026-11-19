@@ -34,7 +34,7 @@ export default function AboutPage() {
       <SectionBlock eyebrow="Baglare’s ArtifactHub" title="Baglare" description={<LocalizedTextValue text={siteConfig.profile.shortBio} />}>
         <div className="grid gap-3 md:grid-cols-4">
           {aboutPageText.profilePanelItems.map((item) => (
-            <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-3 text-sm text-[var(--theme-text-secondary)]" key={item.tr}>
+            <div className="glass-soft min-w-0 p-4 text-sm text-[var(--theme-text-secondary)]" key={item.tr}>
               <LocalizedTextValue text={item} />
             </div>
           ))}
@@ -48,7 +48,7 @@ export default function AboutPage() {
           themeId="relic-core"
           variant="technical"
         >
-          <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
+          <ul className="bullet-list">
             {aboutPageText.purposeItems.map((item) => (
               <li key={item.tr}>
                 <LocalizedTextValue text={item} />
@@ -60,7 +60,7 @@ export default function AboutPage() {
         <TechnicalPanel title={<LocalizedTextValue text={aboutPageText.technicalFocusTitle} />} themeId="relic-core">
           <div className="grid gap-4 md:grid-cols-2">
             {technicalInterests.map((focusArea) => (
-              <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={focusArea.id}>
+              <section className="glass-soft min-w-0 p-5" key={focusArea.id}>
                 <h3 className="font-medium text-[var(--theme-text-primary)]">
                   <LocalizedTextValue text={focusArea.label} />
                 </h3>
@@ -77,10 +77,10 @@ export default function AboutPage() {
         <TechnicalPanel title={<LocalizedTextValue text={aboutPageText.currentArtifactSetTitle} />} themeId="relic-core">
           <div className="grid gap-4">
             {artifacts.map((artifact) => (
-              <section className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4" key={artifact.id}>
+              <section className="glass-soft min-w-0 p-5" key={artifact.id}>
                 <div className="flex flex-wrap items-center gap-3">
                   <Link
-                    className="font-medium text-[var(--theme-text-primary)] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                    className="font-medium text-[var(--theme-text-primary)] underline decoration-white/20 underline-offset-4 transition-colors hover:decoration-[color:var(--theme-accent-primary)]"
                     href={`/artifacts/${artifact.slug}`}
                   >
                     {artifact.title}

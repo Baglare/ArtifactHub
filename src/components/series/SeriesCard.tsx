@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { trackPointer } from "@/components/artifacts/ArtifactCard";
 import { TechStackList } from "@/components/artifacts/TechStackList";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -34,17 +35,22 @@ export function SeriesCard({
 
   return (
     <article
-      className={`min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-6 ${
-        variant === "wide" ? "md:col-span-2" : ""
-      }`}
+      className={`glass card-interactive min-w-0 overflow-hidden p-6 sm:p-10 ${variant === "wide" ? "md:col-span-2" : ""}`}
+      onMouseMove={trackPointer}
       style={themeStyle}
     >
+      <span aria-hidden="true" className="accent-line" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full opacity-40 blur-3xl"
+        style={{ background: "radial-gradient(circle, var(--theme-accent-secondary), transparent 65%)" }}
+      />
       <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
         <div className="flex min-w-0 gap-4">
           <ThemeSymbol themeId={series.themeId} size="lg" />
           <div>
-            <p className="text-sm text-[var(--theme-text-muted)]">{getUiText("series", locale)}</p>
-            <h2 className="mt-1 text-2xl font-semibold text-[var(--theme-text-primary)]">{series.title}</h2>
+            <p className="eyebrow">{getUiText("series", locale)}</p>
+            <h2 className="mt-1 text-3xl font-semibold tracking-tight text-[var(--theme-text-primary)]">{series.title}</h2>
             <p className="mt-3 max-w-3xl text-[var(--theme-text-secondary)]">{getLocalizedText(series.summary, locale)}</p>
           </div>
         </div>
@@ -60,13 +66,13 @@ export function SeriesCard({
       ) : null}
 
       {artifacts.length ? (
-        <div className="mt-5 border-t border-[color:var(--theme-border)] pt-4">
+        <div className="mt-6 border-t border-[color:var(--hairline)] pt-5">
           <p className="text-sm font-medium text-[var(--theme-text-primary)]">{getUiText("connectedArtifacts", locale)}</p>
-          <ul className="mt-3 flex flex-wrap gap-3 text-sm text-[var(--theme-text-secondary)]">
+          <ul className="mt-3 flex flex-wrap gap-2 text-sm">
             {artifacts.map((artifact) => (
               <li key={artifact.id}>
                 <Link
-                  className="underline underline-offset-4 hover:text-[var(--theme-text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]"
+                  className="chip relative z-10 px-3 py-1.5 text-xs transition-colors hover:border-[color:color-mix(in_srgb,var(--theme-accent-primary)_45%,transparent)] hover:text-[var(--theme-text-primary)]"
                   href={`/artifacts/${artifact.slug}`}
                 >
                   {artifact.title}

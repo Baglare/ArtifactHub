@@ -18,10 +18,10 @@ type TechnicalPanelProps = {
 };
 
 const variantClasses: Record<TechnicalPanelVariant, string> = {
-  default: "border-[color:var(--theme-border)]",
-  technical: "border-[color:var(--theme-accent-primary)]",
-  ethical: "border-[color:var(--theme-accent-tertiary)]",
-  warning: "border-[color:var(--theme-accent-secondary)]"
+  default: "",
+  technical: "before:bg-[var(--theme-accent-primary)]",
+  ethical: "before:bg-[var(--theme-accent-tertiary)]",
+  warning: "before:bg-[var(--theme-accent-secondary)]"
 };
 
 export function TechnicalPanel({
@@ -37,10 +37,15 @@ export function TechnicalPanel({
   const resolvedTitle = titleKey ? getUiText(titleKey, locale) : title;
 
   return (
-    <section className={`min-w-0 border bg-[var(--theme-surface)] p-4 sm:p-5 ${variantClasses[variant]}`} style={themeStyle}>
-      {resolvedTitle ? <h2 className="text-xl font-semibold text-[var(--theme-text-primary)]">{resolvedTitle}</h2> : null}
+    <section
+      className={`glass min-w-0 p-6 sm:p-8 ${
+        variant === "default" ? "" : "before:absolute before:left-0 before:top-8 before:h-8 before:w-[3px] before:rounded-r-full before:content-['']"
+      } ${variantClasses[variant]}`}
+      style={themeStyle}
+    >
+      {resolvedTitle ? <h2 className="text-xl font-semibold tracking-tight text-[var(--theme-text-primary)] sm:text-2xl">{resolvedTitle}</h2> : null}
       {description ? <p className="mt-2 text-[var(--theme-text-secondary)]">{description}</p> : null}
-      {children ? <div className="mt-4">{children}</div> : null}
+      {children ? <div className="mt-6">{children}</div> : null}
     </section>
   );
 }

@@ -27,10 +27,10 @@ export function SharedTransformationModel({ transformationModel }: SharedTransfo
       <ol className="mt-5 grid gap-3">
         {transformationModel.steps.map((step, index) => (
           <li className="flex min-w-0 items-center gap-3" key={`${step}-${index}`}>
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center border border-[color:var(--theme-border)] text-xs text-[var(--theme-text-muted)]">
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[color:color-mix(in_srgb,var(--theme-accent-primary)_40%,transparent)] font-mono text-[11px] text-[var(--theme-accent-primary)]">
               {index + 1}
             </span>
-            <span className="min-w-0 flex-1 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] px-3 py-2 text-sm text-[var(--theme-text-secondary)]">
+            <span className="glass-soft min-w-0 flex-1 px-4 py-3 text-sm text-[var(--theme-text-secondary)]">
               {step}
             </span>
           </li>

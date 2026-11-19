@@ -33,7 +33,7 @@ export function TransformationFlow({
 
   if (variant === "mini") {
     return (
-      <p className="text-sm text-[var(--theme-text-secondary)]">
+      <p className="font-mono text-[11.5px] leading-relaxed text-[var(--theme-text-muted)]">
         {getLocalizedText(transformation?.compact, locale) ||
           `${getLocalizedText(resolvedInput, locale)} → ${getLocalizedText(resolvedProcess, locale)} → ${getLocalizedText(resolvedOutput, locale)}`}
       </p>
@@ -48,10 +48,20 @@ export function TransformationFlow({
 
   return (
     <div className="grid min-w-0 gap-3 md:grid-cols-3">
-      {steps.map((step) => (
-        <div className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4" key={step.label}>
-          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--theme-text-muted)]">{step.label}</p>
-          <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">{step.body}</p>
+      {steps.map((step, index) => (
+        <div className="glass-soft relative min-w-0 p-5" key={step.label}>
+          <div className="flex items-center gap-2">
+            <span className="grid h-6 w-6 place-items-center rounded-full bg-[color:color-mix(in_srgb,var(--theme-accent-primary)_18%,transparent)] font-mono text-[10px] text-[var(--theme-accent-primary)]">
+              {index + 1}
+            </span>
+            <p className="eyebrow !text-[var(--theme-text-muted)]">{step.label}</p>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-[var(--theme-text-secondary)]">{step.body}</p>
+          {index < steps.length - 1 ? (
+            <span aria-hidden="true" className="absolute -right-2.5 top-1/2 z-10 hidden -translate-y-1/2 text-[var(--theme-accent-primary)] md:block">
+              →
+            </span>
+          ) : null}
         </div>
       ))}
     </div>

@@ -69,5 +69,21 @@ export const categories: Category[] = [
       tr: "Yerel servis, kalıcılık ve masaüstü istemci mimarisi.",
       en: "Local services, persistence, and desktop client architecture."
     }
+  },
+  {
+    id: "ml-research",
+    label: { tr: "Makine Öğrenmesi Araştırması", en: "Machine Learning Research" },
+    description: {
+      tr: "Ajan eğitimi, transfer deneyleri ve model karşılaştırmaları.",
+      en: "Agent training, transfer experiments, and model comparisons."
+    }
+  },
+  {
+    id: "learning-platform",
+    label: { tr: "Öğrenme Platformu", en: "Learning Platform" },
+    description: {
+      tr: "Ders içeriğini etkileşimli, çevrimdışı çalışabilen çalışma deneyimine dönüştüren uygulamalar.",
+      en: "Applications that turn course content into interactive, offline-capable study experiences."
+    }
   }
 ];

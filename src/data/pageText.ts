@@ -1,6 +1,18 @@
 import type { LocalizedText } from "@/types/artifact";
 
 export const homePageText = {
+  heroKicker: { tr: "Mühendislik portföyü · 2026", en: "Engineering portfolio · 2026" },
+  heroTitleLead: { tr: "Fikirden çalışan sisteme,", en: "From idea to working system," },
+  heroTitleAccent: { tr: "kanıtıyla.", en: "with the evidence." },
+  statArtifacts: { tr: "Artifact", en: "Artifacts" },
+  statFeatured: { tr: "Öne çıkan", en: "Featured" },
+  statLive: { tr: "Canlı ürün", en: "Live product" },
+  statPublic: { tr: "Açık depo", en: "Public repos" },
+  featuredEyebrow: { tr: "Vitrin", en: "Showcase" },
+  archiveEyebrow: { tr: "Arşiv", en: "Archive" },
+  forgeEyebrow: { tr: "Seri", en: "Series" },
+  focusEyebrow: { tr: "Harita", en: "Map" },
+  directionEyebrow: { tr: "Yön", en: "Direction" },
   heroPanelEyebrow: { tr: "Dijital artifact arşivi", en: "Digital artifact archive" },
   heroPanelLead: {
     tr: "Uygulanmış kapsam, mimari karar ve doğrulama sınırları her projede görünürdür.",
@@ -18,8 +30,8 @@ export const homePageText = {
   ],
   featuredTitle: { tr: "Öne Çıkan Girişler", en: "Featured Entries" },
   featuredDescription: {
-    tr: "GameLocalizer, KnowledgeCompiler ve MediaTracker; yerelleştirme, AI yönetişimi ve ürün mühendisliği çalışmalarını temsil eder.",
-    en: "GameLocalizer, KnowledgeCompiler, and MediaTracker represent localization, AI governance, and product engineering work."
+    tr: "Canlı bir ürün, hızla büyüyen bir ses stüdyosu, çok oyunculu bir bitirme projesi, yerelleştirme aracı ve açık kaynak bir öğrenme deneyi: portföyün en güçlü beş kaydı.",
+    en: "A live product, a fast-growing voice studio, a multiplayer capstone game, a localization tool, and an open-source learning experiment: the five strongest records in the portfolio."
   },
   viewForgeSeries: { tr: "Forge Serisini İncele", en: "View Forge Series" },
   archiveDescription: {

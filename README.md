@@ -1,37 +1,50 @@
 # Baglare’s ArtifactHub
 
-ArtifactHub, Baglare’ın oyun sistemleri, local-first uygulamalar, ses işleme, TTS ve bilgisayarlı görü prototiplerini kapsamı, sistem akışı, kararları ve sınırlarıyla kayda alan teknik artifact arşividir.
+ArtifactHub, Baglare’ın yazılım projelerini — geliştirici araçları, AI ve ses sistemleri, oyunlar, local-first ürünler ve bilgisayarlı görü çalışmaları — kapsamı, mimarisi, kararları ve sınırlarıyla kayda alan teknik portföydür.
 
-Live: https://artifact-hub-xi.vercel.app/
+Hedef yayın: **https://artifacthub.baglare.com.tr** (TurkHosting · Plesk alt alan adı, statik site).
 
-## Current Artifact Set
+## Artifact seti (15)
 
-- TempoBlade
-- MediaTracker
-- PulseForge
-- VoxForge
-- VisionForge
+Öne çıkanlar: **MediaTracker**, **VoxForge**, **Butterfly Effect**, **GameLocalizer**, **AgentVerse**.
 
-## Tech Stack
+Diğerleri: DersOyun, KnowledgeCompiler, PoD Localization Engineering, PulseForge, Kıyafet Kategorilendirme, TempoBlade, VisionForge, Aria AI, OpenAI Image Studio, Petglare.
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Data-driven registry
+Tüm içerik `src/data/` altındaki registry dosyalarından okunur (`artifacts.ts`, `themes.ts`, `statuses.ts`, `categories.ts`, `focusAreas.ts`, `series.ts`). Yeni proje eklemek için yalnız registry’ye kayıt eklemek yeterlidir; öne çıkarmak için `featuredLevel: "primary"`, sıralama için `order` kullanılır.
 
-## Local Development
+## Teknoloji
+
+- Next.js 16 (App Router, statik export)
+- TypeScript, Tailwind CSS
+- TR/EN yerelleştirme, veri odaklı registry
+
+## Yerel geliştirme
 
 ```bash
 npm install
-npm run dev
+npm run dev        # http://localhost:3000
 npm run typecheck
-npm run build
+npm run build      # statik çıktı: out/
+npm run preview    # out/ klasörünü http://localhost:4173 üzerinde sunar
 ```
 
-## Deployment
+## TurkHosting’e yayınlama (Plesk)
 
-İlk yayın hedefi Vercel’dir. Proje standart Next.js build akışı ile hazırlanır; ilk sürüm için custom domain, Vercel CLI zorunluluğu veya ek workflow tanımı yoktur.
+Site tamamen statik HTML olarak derlenir; sunucuda Node.js gerekmez.
 
-## Scope
+1. Plesk → **Websites & Domains** → **Add Subdomain**: ad `artifacthub`, ana alan `baglare.com.tr`. Plesk belge kökünü önerir (ör. `artifacthub.baglare.com.tr/`); DNS kaydı Plesk DNS’i kullanılıyorsa otomatik oluşur.
+2. Alt alan adında **SSL/TLS Certificates** → Let’s Encrypt sertifikası al.
+3. Paketi üret (varsayılan adres `https://artifacthub.baglare.com.tr`; canonical, sitemap ve Open Graph buna göre üretilir):
+   ```bash
+   npm run package
+   ```
+   Başka bir adres için: `$env:NEXT_PUBLIC_SITE_URL = "https://baska.baglare.com.tr"; npm run package`
+4. **File Manager** → alt alan adının belge kökü. Varsayılan `index.html` dosyasını sil, `dist/artifacthub-site.zip` dosyasını yükle ve **Extract** ile aç. `index.html`, `_next/`, `artifacts/` ve `.htaccess` doğrudan belge kökünde olmalıdır.
+5. SSL açıkken Plesk’in “HTTP → HTTPS 301” seçeneği açıksa `.htaccess` içindeki HTTPS kuralı zararsızdır, gerekirse silinebilir.
+6. Kontrol: ana sayfa, `/artifacts/voxforge/`, var olmayan bir adres (404 sayfası) ve `/sitemap.xml`.
 
-İlk public sürüm CMS, backend, auth, video/demo sistemi veya canlı kamera/ses demosu içermez. ArtifactHub merkezi registry üzerinden genişleyen teknik bir arşiv olarak tutulur.
+`.htaccess`; klasör tabanlı temiz URL’ler, 404 sayfası, gzip ve hash’li varlıklar için uzun süreli önbellek ayarlarını içerir. Güncelleme için aynı paketi yeniden üretip yüklemek yeterlidir.
+
+## Kapsam
+
+Site CMS, backend, kimlik doğrulama veya canlı kamera/ses demosu içermez. Özel depolardaki projeler kaynak bağlantısı verilmeden, yalnız doğrulanabilir kapsam ve sınırlarıyla anlatılır; hiçbir ses örneği veya hassas veri yayımlanmaz.

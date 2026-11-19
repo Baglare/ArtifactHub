@@ -19,11 +19,11 @@ type ButtonLinkProps = {
 
 const variantClasses: Record<ButtonLinkVariant, string> = {
   primary:
-    "border-[color:var(--theme-accent-primary)] bg-[var(--theme-accent-primary)] text-[var(--theme-background)] hover:bg-[var(--theme-accent-secondary)]",
+    "border-transparent bg-[linear-gradient(135deg,#fff,color-mix(in_srgb,var(--theme-accent-primary)_55%,#fff))] text-[#0b0b12] shadow-[0_10px_30px_-12px_color-mix(in_srgb,var(--theme-accent-primary)_70%,transparent)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-14px_color-mix(in_srgb,var(--theme-accent-primary)_85%,transparent)]",
   secondary:
-    "border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] text-[var(--theme-text-primary)] hover:border-[color:var(--theme-accent-primary)]",
+    "border-[color:var(--hairline-strong)] bg-white/[0.04] text-[var(--theme-text-primary)] backdrop-blur hover:-translate-y-0.5 hover:border-[color:color-mix(in_srgb,var(--theme-accent-primary)_45%,transparent)] hover:bg-white/[0.07]",
   ghost:
-    "border-transparent bg-transparent text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)]"
+    "border-transparent bg-transparent text-[var(--theme-text-secondary)] hover:bg-white/[0.05] hover:text-[var(--theme-text-primary)]"
 };
 
 export function ButtonLink({
@@ -38,7 +38,7 @@ export function ButtonLink({
   const { locale } = useLocale();
   const content = children ?? (labelKey ? getUiText(labelKey, locale) : label);
   const buttonClassName = [
-    "inline-flex min-w-0 max-w-full items-center justify-center border px-3 py-2 text-center text-sm font-medium leading-tight transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--theme-accent-primary)]",
+    "group/button inline-flex min-w-0 max-w-full items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-center text-sm font-medium leading-tight transition-all duration-300 ease-out",
     variantClasses[variant],
     className
   ]
@@ -49,6 +49,9 @@ export function ButtonLink({
     return (
       <a className={buttonClassName} href={href} rel="noopener noreferrer" target="_blank">
         {content}
+        <span aria-hidden="true" className="transition-transform duration-300 group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5">
+          ↗
+        </span>
       </a>
     );
   }

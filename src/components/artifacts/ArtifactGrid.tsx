@@ -24,7 +24,7 @@ export function ArtifactGrid({
   }
 
   return (
-    <div className={variant === "compact" ? "grid min-w-0 gap-3 md:grid-cols-2" : "grid min-w-0 gap-4 md:grid-cols-2"}>
+    <div className={variant === "featured" ? "grid min-w-0 gap-4 md:grid-cols-2" : "grid min-w-0 gap-4 md:grid-cols-2 xl:grid-cols-3"}>
       {artifacts.map((artifact) => (
         <ArtifactCard
           artifact={artifact}
@@ -33,6 +33,34 @@ export function ArtifactGrid({
           showSeriesBadge={showSeriesBadge}
           showTransformation={showTransformation}
           variant={variant}
+        />
+      ))}
+    </div>
+  );
+}
+
+type FeaturedShowcaseProps = {
+  artifacts: Artifact[];
+};
+
+/** Bento layout: first artifact spans the full row as a spotlight, the rest sit beside each other. */
+export function FeaturedShowcase({ artifacts }: FeaturedShowcaseProps) {
+  if (!artifacts.length) {
+    return null;
+  }
+
+  const [spotlight, ...rest] = artifacts;
+
+  return (
+    <div className="grid min-w-0 gap-4 lg:grid-cols-6">
+      <ArtifactCard artifact={spotlight} className="lg:col-span-6" showRepoLink showTransformation variant="spotlight" />
+      {rest.map((artifact, index) => (
+        <ArtifactCard
+          artifact={artifact}
+          className={rest.length % 2 === 1 && index === rest.length - 1 ? "lg:col-span-6" : "lg:col-span-3"}
+          key={artifact.id}
+          showRepoLink
+          variant="featured"
         />
       ))}
     </div>

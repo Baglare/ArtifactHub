@@ -11,22 +11,23 @@ type PageShellProps = {
   variant?: PageShellVariant;
 };
 
-const variantClasses: Record<PageShellVariant, string> = {
-  default: "",
-  artifact: "border-x border-[color:var(--theme-border)]",
-  series: "border-x border-[color:var(--theme-border)]",
-  archive: ""
-};
-
 export function PageShell({ children, themeId, variant = "default" }: PageShellProps) {
   const themeStyle = getThemeCssVariables(themeId);
+  const hasThemeGlow = variant === "artifact" || variant === "series";
 
   return (
-    <div
-      className={`min-h-[calc(100vh-9rem)] bg-[var(--theme-background)] text-[var(--theme-text-primary)] ${variantClasses[variant]}`}
-      style={themeStyle}
-    >
-      <ContentContainer className="py-8 sm:py-10">{children}</ContentContainer>
+    <div className="relative min-h-[calc(100vh-9rem)] text-[var(--theme-text-primary)]" style={themeStyle}>
+      {hasThemeGlow ? (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[520px] opacity-70"
+          style={{
+            background:
+              "radial-gradient(60% 70% at 70% 0%, color-mix(in srgb, var(--theme-accent-primary) 22%, transparent), transparent 70%), radial-gradient(40% 60% at 15% 10%, color-mix(in srgb, var(--theme-accent-secondary) 14%, transparent), transparent 70%)"
+          }}
+        />
+      ) : null}
+      <ContentContainer className="relative pb-20 pt-10 sm:pt-14">{children}</ContentContainer>
     </div>
   );
 }

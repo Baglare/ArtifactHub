@@ -12,7 +12,8 @@ export type ArchiveFilterId =
   | "audio"
   | "voice"
   | "computer-vision"
-  | "local-first";
+  | "local-first"
+  | "machine-learning";
 
 type ArchiveFilter = {
   id: ArchiveFilterId;
@@ -23,6 +24,7 @@ export const archiveFilters: ArchiveFilter[] = [
   { id: "all", label: { tr: "Tümü", en: "All" } },
   { id: "developer-tooling", label: { tr: "Geliştirici Araçları", en: "Developer Tooling" } },
   { id: "ai-infrastructure", label: { tr: "AI Altyapısı", en: "AI Infrastructure" } },
+  { id: "machine-learning", label: { tr: "Makine Öğrenmesi", en: "Machine Learning" } },
   { id: "localization-engineering", label: { tr: "Yerelleştirme Mühendisliği", en: "Localization Engineering" } },
   { id: "desktop-applications", label: { tr: "Masaüstü Uygulamaları", en: "Desktop Applications" } },
   { id: "game-systems", label: { tr: "Oyun Sistemleri", en: "Game Systems" } },
@@ -70,6 +72,13 @@ export function filterArtifactsByArchiveFilter(artifacts: Artifact[], filterId: 
       return artifacts.filter((artifact) => hasFocusArea(artifact, "voice-tools"));
     case "computer-vision":
       return artifacts.filter((artifact) => hasFocusArea(artifact, "computer-vision"));
+    case "machine-learning":
+      return artifacts.filter(
+        (artifact) =>
+          hasCategory(artifact, "ml-research") ||
+          hasFocusArea(artifact, "reinforcement-learning") ||
+          hasFocusArea(artifact, "deep-learning-models")
+      );
     case "local-first":
       return artifacts.filter(
         (artifact) => hasFocusArea(artifact, "local-first-apps") || hasFocusArea(artifact, "local-first-labs")

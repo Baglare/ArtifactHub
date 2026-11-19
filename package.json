@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "package": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-static.ps1",
+    "preview": "npx --yes serve@14.2.4 out -l 4173"
   },
   "dependencies": {
     "next": "^16.2.10",

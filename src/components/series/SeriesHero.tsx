@@ -18,12 +18,12 @@ export function SeriesHero({ series }: SeriesHeroProps) {
   const theme = getThemeOrDefault(series.themeId);
 
   return (
-    <section className="border-b border-[color:var(--theme-border)] py-8">
+    <section className="pb-12 pt-4 sm:pb-16">
       <div className="grid min-w-0 gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
         <div className="min-w-0">
-          <p className="text-sm text-[var(--theme-text-muted)]">{getUiText("artifactSeries", locale)}</p>
-          <h1 className="mt-3 text-4xl font-semibold text-[var(--theme-text-primary)] md:text-5xl">{series.title}</h1>
-          <p className="mt-4 max-w-3xl text-lg text-[var(--theme-text-secondary)]">{getLocalizedText(series.summary, locale)}</p>
+          <p className="eyebrow reveal">{getUiText("artifactSeries", locale)}</p>
+          <h1 className="display text-gradient reveal reveal-delay-1 mt-5 text-5xl sm:text-7xl lg:text-8xl">{series.title}</h1>
+          <p className="reveal reveal-delay-2 mt-6 max-w-3xl text-lg leading-relaxed text-[var(--theme-text-secondary)] sm:text-xl">{getLocalizedText(series.summary, locale)}</p>
           <p className="mt-3 max-w-3xl text-sm text-[var(--theme-text-muted)]">{getLocalizedText(series.positioning, locale)}</p>
 
           {series.techTags?.length ? (
@@ -38,7 +38,7 @@ export function SeriesHero({ series }: SeriesHeroProps) {
           </div>
         </div>
 
-        <aside className="min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface)] p-4 sm:p-6">
+        <aside className="glass-soft min-w-0 p-5 sm:p-6">
           <div className="flex items-start gap-4">
             <ThemeSymbol themeId={series.themeId} size="lg" />
             <div>

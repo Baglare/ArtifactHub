@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArtifactGrid } from "@/components/artifacts/ArtifactGrid";
 import { ArtifactHero } from "@/components/artifacts/ArtifactHero";
@@ -27,6 +28,26 @@ export function generateStaticParams() {
   return getAllArtifacts().map((artifact) => ({
     slug: artifact.slug
   }));
+}
+
+export async function generateMetadata({ params }: ArtifactDetailPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const artifact = getArtifactBySlug(slug);
+
+  if (!artifact) {
+    return {};
+  }
+
+  return {
+    title: artifact.title,
+    description: artifact.summary.tr,
+    alternates: { canonical: `/artifacts/${artifact.slug}/` },
+    openGraph: {
+      title: artifact.title,
+      description: artifact.summary.tr,
+      url: `/artifacts/${artifact.slug}/`
+    }
+  };
 }
 
 export default async function ArtifactDetailPage({ params }: ArtifactDetailPageProps) {
@@ -108,7 +129,7 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
 
         {ethicalNotes.length ? (
           <TechnicalPanel titleKey="ethicalBoundaries" themeId={artifact.themeId} variant="ethical">
-            <ul className="list-disc space-y-2 pl-5 text-[var(--theme-text-secondary)]">
+            <ul className="bullet-list">
               {ethicalNotes.map((note) => (
                 <li key={note.tr}>
                   <LocalizedTextValue text={note} />
@@ -116,7 +137,7 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
               ))}
             </ul>
             {artifact.riskProfile?.publicClaimBoundary ? (
-              <div className="mt-4 min-w-0 border border-[color:var(--theme-border)] bg-[var(--theme-surface-raised)] p-4 text-sm text-[var(--theme-text-secondary)]">
+              <div className="mt-4 glass-soft min-w-0 p-5 text-sm text-[var(--theme-text-secondary)]">
                 <span className="font-medium text-[var(--theme-text-primary)]">
                   <LocalizedTextValue text={uiText.publicClaimBoundary} />:{" "}
                 </span>
