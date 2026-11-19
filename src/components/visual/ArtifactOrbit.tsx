@@ -30,7 +30,32 @@ const ringByMaturity: Record<MaturityLevel, { radius: number; period: number }> 
   1: { radius: 82, period: 160 }
 };
 
-const bodySize: Record<MaturityLevel, number> = { 4: 26, 3: 18, 2: 12, 1: 7 };
+const bodySize: Record<MaturityLevel, number> = { 4: 22, 3: 16, 2: 10, 1: 6 };
+
+const hexPoints = "12,2.5 20.2,7.25 20.2,16.75 12,21.5 3.8,16.75 3.8,7.25";
+
+/** Energy source glyph: spark + bloom for every artifact, a hex crystal for growing work, light rays for live work. */
+function EnergyGlyph({ maturity }: { maturity: MaturityLevel }) {
+  return (
+    <span aria-hidden="true" className="orbit__planet">
+      <span className="orbit__bloom" />
+      {maturity === 4 ? (
+        <svg className="orbit__rays" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="0.35" viewBox="0 0 24 24">
+          {[0, 30, 60, 90, 120, 150].map((angle) => (
+            <line key={angle} transform={`rotate(${angle} 12 12)`} x1="12" x2="12" y1="1" y2="23" />
+          ))}
+        </svg>
+      ) : null}
+      {maturity >= 3 ? (
+        <svg className="orbit__crystal" fill="none" stroke="currentColor" strokeLinejoin="round" viewBox="0 0 24 24">
+          <polygon fill="currentColor" fillOpacity={maturity === 4 ? 0.22 : 0.14} points={hexPoints} strokeWidth={maturity === 4 ? 1.6 : 1.3} />
+          {maturity === 4 ? <polygon points={hexPoints} strokeOpacity="0.5" strokeWidth="0.8" transform="rotate(30 12 12) scale(0.62) translate(7.35 7.35)" /> : null}
+        </svg>
+      ) : null}
+      <span className="orbit__spark" />
+    </span>
+  );
+}
 
 function buildBodies(artifacts: Artifact[]): OrbitBody[] {
   const groups = new Map<MaturityLevel, Artifact[]>();
@@ -139,9 +164,9 @@ export function ArtifactOrbit({ artifacts }: ArtifactOrbitProps) {
             ref={(node) => {
               nodeRefs.current[index] = node;
             }}
-            style={{ ["--body-color" as string]: body.color, ["--body-size" as string]: `${size}px` }}
+            style={{ ["--body-color" as string]: body.color, ["--body-size" as string]: `${size}px`, ["--pulse-delay" as string]: `${-(index * 0.7)}s` }}
           >
-            <span aria-hidden="true" className="orbit__planet" />
+            <EnergyGlyph maturity={body.maturity} />
             <span className="orbit__label" role="tooltip">
               <span className="block font-medium text-[var(--theme-text-primary)]">{body.artifact.title}</span>
               {status ? <span className="mt-0.5 block text-[11px] text-[var(--theme-text-muted)]">{getLocalizedText(status.label, locale)}</span> : null}
