@@ -479,58 +479,95 @@ h3 {
 
 .orbit__planet {
   position: relative;
+  display: grid;
+  place-items: center;
   width: var(--body-size);
   height: var(--body-size);
-  border-radius: 9999px;
-  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+  color: var(--body-color);
+  transition: transform 0.35s var(--ease-out), filter 0.35s var(--ease-out);
 }
 
-/* Early stage: a single bright point. */
-.orbit__body--m1 .orbit__planet {
-  background: var(--body-color);
-  box-shadow: 0 0 10px 2px color-mix(in srgb, var(--body-color) 70%, transparent);
-}
-
-/* Substantial but incomplete: soft lit sphere. */
-.orbit__body--m2 .orbit__planet {
-  background: radial-gradient(circle at 35% 30%, #fff 0%, var(--body-color) 45%, color-mix(in srgb, var(--body-color) 40%, #000) 100%);
-  box-shadow: 0 0 14px 1px color-mix(in srgb, var(--body-color) 55%, transparent);
-}
-
-/* Actively growing: shaded sphere with a thin ring. */
-.orbit__body--m3 .orbit__planet {
-  background: radial-gradient(circle at 32% 28%, #fff 0%, var(--body-color) 40%, color-mix(in srgb, var(--body-color) 30%, #000) 100%);
-  box-shadow: 0 0 18px 2px color-mix(in srgb, var(--body-color) 55%, transparent);
-}
-
-.orbit__body--m3 .orbit__planet::after {
-  content: "";
+/* Every artifact is an energy source: a white-hot centre fading into its own colour. */
+.orbit__spark {
   position: absolute;
-  inset: -5px;
+  inset: 0;
   border-radius: 9999px;
-  border: 1px solid color-mix(in srgb, var(--body-color) 65%, transparent);
+  background: radial-gradient(circle, #fff 0%, #fff 18%, var(--body-color) 42%, transparent 72%);
 }
 
-/* Live / released: detailed planet with halo, tilted ring and surface band. */
-.orbit__body--m4 .orbit__planet {
-  background:
-    linear-gradient(160deg, transparent 42%, rgba(255, 255, 255, 0.22) 48%, transparent 56%),
-    radial-gradient(circle at 30% 26%, #fff 0%, var(--body-color) 38%, color-mix(in srgb, var(--body-color) 25%, #000) 100%);
-  box-shadow:
-    0 0 0 4px color-mix(in srgb, var(--body-color) 14%, transparent),
-    0 0 26px 4px color-mix(in srgb, var(--body-color) 60%, transparent);
-}
-
-.orbit__body--m4 .orbit__planet::after {
-  content: "";
+.orbit__bloom {
   position: absolute;
-  left: -40%;
-  right: -40%;
-  top: 42%;
-  height: 16%;
+  inset: -90%;
   border-radius: 9999px;
-  border: 1.5px solid color-mix(in srgb, var(--body-color) 75%, #fff);
-  transform: rotate(-18deg);
+  background: radial-gradient(circle, color-mix(in srgb, var(--body-color) 55%, transparent) 0%, transparent 62%);
+  animation: energy-pulse var(--pulse, 4s) ease-in-out infinite;
+  animation-delay: var(--pulse-delay, 0s);
+}
+
+.orbit__crystal {
+  position: absolute;
+  inset: -30%;
+  width: 160%;
+  height: 160%;
+  overflow: visible;
+  filter: drop-shadow(0 0 3px var(--body-color)) drop-shadow(0 0 8px var(--body-color));
+}
+
+.orbit__rays {
+  position: absolute;
+  inset: -110%;
+  width: 320%;
+  height: 320%;
+  opacity: 0.55;
+  animation: spin 24s linear infinite;
+}
+
+/* 1 · early stage: a lone bright point, like the original relic dot. */
+.orbit__body--m1 {
+  --pulse: 3.2s;
+}
+
+.orbit__body--m1 .orbit__bloom {
+  inset: -60%;
+}
+
+/* 2 · substantial: brighter point with a breathing halo. */
+.orbit__body--m2 {
+  --pulse: 4s;
+}
+
+/* 3 · actively growing: hexagonal energy crystal around a hot core. */
+.orbit__body--m3 {
+  --pulse: 5s;
+}
+
+.orbit__body--m3 .orbit__spark {
+  inset: 22%;
+}
+
+/* 4 · live / released: larger crystal, wide bloom and slowly turning light rays. */
+.orbit__body--m4 {
+  --pulse: 6s;
+}
+
+.orbit__body--m4 .orbit__spark {
+  inset: 18%;
+}
+
+.orbit__body--m4 .orbit__bloom {
+  inset: -130%;
+}
+
+@keyframes energy-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
 }
 
 .orbit__body.is-active {
@@ -540,6 +577,7 @@ h3 {
 .orbit__body:hover .orbit__planet,
 .orbit__body.is-active .orbit__planet {
   transform: scale(1.35);
+  filter: brightness(1.25);
 }
 
 .orbit__body:focus-visible .orbit__planet {
