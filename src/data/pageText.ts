@@ -12,8 +12,8 @@ export const homePageText = {
     en: "Games, tools that process audio and images, apps that run on my own machine… For every project I wrote down what I built, how it works, and where it still falls short. Better that you see where things really stand than pretend they’re finished."
   },
   orbitHint: {
-    tr: "Her nokta bir proje. Merkeze yakın olanlar daha olgun; üstüne gel, tıkla.",
-    en: "Every dot is a project. The closer to the core, the more mature it is; hover and click."
+    tr: "Her işaret bir proje. Merkeze yakın olanlar daha olgun. Sürükleyip çevir, bir işaretin üstüne gel, tıkla.",
+    en: "Every pointer is a project. The closer to the centre, the more mature it is. Drag to turn it, hover a pointer, click."
   },
   orbitLegendMature: { tr: "Canlı / yayında", en: "Live / released" },
   orbitLegendGrowing: { tr: "Aktif gelişiyor", en: "Actively growing" },

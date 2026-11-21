@@ -13,7 +13,7 @@ type PageShellProps = {
 
 export function PageShell({ children, themeId, variant = "default" }: PageShellProps) {
   const themeStyle = getThemeCssVariables(themeId);
-  const hasThemeGlow = variant === "artifact" || variant === "series";
+  const hasThemeGlow = false;
 
   return (
     <div className="relative min-h-[calc(100vh-9rem)] text-[var(--theme-text-primary)]" style={themeStyle}>

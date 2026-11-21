@@ -37,32 +37,33 @@ export function TechnicalFocusMap({ artifacts, focusAreaIds }: TechnicalFocusMap
   }
 
   return (
-    <div className="grid gap-4 md:grid-cols-2">
+    <dl className="border-t border-[color:var(--hairline-strong)]">
       {groups.map((group) => (
-        <section className="glass-soft min-w-0 p-6 transition-colors hover:border-[color:var(--hairline-strong)]" key={group.focusArea.id}>
-          <h3 className="text-lg font-semibold text-[var(--theme-text-primary)]">{getLocalizedText(group.focusArea.label, locale)}</h3>
-          {group.focusArea.description ? (
-            <p className="mt-2 text-sm text-[var(--theme-text-secondary)]">
-              {getLocalizedText(group.focusArea.description, locale)}
-            </p>
-          ) : null}
-
-          {group.artifacts.length ? (
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {group.artifacts.map((artifact) => (
-                <li key={artifact.id}>
-                  <Link
-                    className="chip relative z-10 px-3 py-1.5 text-xs transition-colors hover:border-[color:color-mix(in_srgb,var(--theme-accent-primary)_45%,transparent)] hover:text-[var(--theme-text-primary)]"
-                    href={`/artifacts/${artifact.slug}`}
-                  >
-                    {artifact.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </section>
+        <div
+          className="ledger-row grid gap-x-8 gap-y-2 border-b border-[color:var(--hairline)] px-1 py-5 sm:px-3 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)_minmax(0,1fr)] md:items-baseline"
+          key={group.focusArea.id}
+        >
+          <dt className="font-[family-name:var(--font-display)] text-[1.35rem] leading-tight text-[var(--parchment)]">
+            {getLocalizedText(group.focusArea.label, locale)}
+          </dt>
+          <dd className="text-[15.5px] leading-relaxed text-[var(--theme-text-secondary)]">
+            {group.focusArea.description ? getLocalizedText(group.focusArea.description, locale) : null}
+          </dd>
+          <dd>
+            {group.artifacts.length ? (
+              <ul className="flex flex-wrap gap-x-4 gap-y-1">
+                {group.artifacts.map((artifact) => (
+                  <li key={artifact.id}>
+                    <Link className="link-engraved text-[15.5px] text-[var(--brass)] hover:text-[var(--brass-bright)]" href={`/artifacts/${artifact.slug}/`}>
+                      {artifact.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </dd>
+        </div>
       ))}
-    </div>
+    </dl>
   );
 }

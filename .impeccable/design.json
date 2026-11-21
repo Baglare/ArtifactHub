@@ -1,0 +1,449 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T00:00:00Z",
+  "title": "Design System: ArtifactHub",
+  "extensions": {
+    "colorMeta": {
+      "obsidian": {
+        "role": "neutral",
+        "displayName": "Obsidian",
+        "canonical": "#0c0b0a",
+        "tonalRamp": [
+          "#201f1d",
+          "#3b3835",
+          "#5d5750",
+          "#7f756b",
+          "#9d948b",
+          "#b8b2ad",
+          "#d4d1cf",
+          "#eeedec"
+        ]
+      },
+      "obsidian-raised": {
+        "role": "neutral",
+        "displayName": "Raised Obsidian",
+        "canonical": "#15120f",
+        "tonalRamp": [
+          "#211f1c",
+          "#3e3832",
+          "#62574b",
+          "#887563",
+          "#a49484",
+          "#bcb2a9",
+          "#d6d1cc",
+          "#efedec"
+        ]
+      },
+      "obsidian-high": {
+        "role": "neutral",
+        "displayName": "High Obsidian",
+        "canonical": "#1d1915",
+        "tonalRamp": [
+          "#211f1c",
+          "#3e3832",
+          "#62574b",
+          "#877563",
+          "#a39484",
+          "#bcb2a9",
+          "#d6d1cd",
+          "#efedec"
+        ]
+      },
+      "rim": {
+        "role": "neutral",
+        "displayName": "Rim Bronze",
+        "canonical": "#3a3022",
+        "tonalRamp": [
+          "#231f1a",
+          "#423a2e",
+          "#695a44",
+          "#927a58",
+          "#ad987b",
+          "#c2b5a3",
+          "#d8d2ca",
+          "#efeeeb"
+        ]
+      },
+      "brass": {
+        "role": "primary",
+        "displayName": "Engraved Brass",
+        "canonical": "#c9a45c",
+        "tonalRamp": [
+          "#272116",
+          "#4b3e25",
+          "#7a6234",
+          "#ad873d",
+          "#c5a463",
+          "#d0bc95",
+          "#dfd6c3",
+          "#f1efe9"
+        ]
+      },
+      "brass-deep": {
+        "role": "primary",
+        "displayName": "Shadowed Brass",
+        "canonical": "#7a5c2b",
+        "tonalRamp": [
+          "#272117",
+          "#4a3c26",
+          "#785f35",
+          "#ab8240",
+          "#c29f66",
+          "#ceb997",
+          "#dfd4c4",
+          "#f1eee9"
+        ]
+      },
+      "brass-bright": {
+        "role": "primary",
+        "displayName": "Polished Brass",
+        "canonical": "#ecd49a",
+        "tonalRamp": [
+          "#2a2313",
+          "#52431f",
+          "#876b27",
+          "#c29529",
+          "#d6af52",
+          "#dac38b",
+          "#e4d9be",
+          "#f3f0e7"
+        ]
+      },
+      "verdigris": {
+        "role": "secondary",
+        "displayName": "Verdigris Patina",
+        "canonical": "#5f9c8a",
+        "tonalRamp": [
+          "#1b2320",
+          "#2f413c",
+          "#46685e",
+          "#5a9080",
+          "#7cab9e",
+          "#a4c1b8",
+          "#cad8d4",
+          "#ebefee"
+        ]
+      },
+      "verdigris-dim": {
+        "role": "secondary",
+        "displayName": "Deep Patina",
+        "canonical": "#3f6b5f",
+        "tonalRamp": [
+          "#1a2321",
+          "#2e423c",
+          "#45695f",
+          "#589282",
+          "#7bad9f",
+          "#a3c2b9",
+          "#cad8d4",
+          "#ebefee"
+        ]
+      },
+      "parchment": {
+        "role": "neutral",
+        "displayName": "Parchment",
+        "canonical": "#ece2cc",
+        "tonalRamp": [
+          "#262117",
+          "#493e27",
+          "#776337",
+          "#a88842",
+          "#c0a468",
+          "#cdbc98",
+          "#ded6c4",
+          "#f1efe9"
+        ]
+      },
+      "parchment-soft": {
+        "role": "neutral",
+        "displayName": "Faded Parchment",
+        "canonical": "#b9ab90",
+        "tonalRamp": [
+          "#22201b",
+          "#413b30",
+          "#675c47",
+          "#8f7d5c",
+          "#aa9b7e",
+          "#c0b7a5",
+          "#d8d3cb",
+          "#efeeeb"
+        ]
+      },
+      "parchment-muted": {
+        "role": "neutral",
+        "displayName": "Old Parchment",
+        "canonical": "#8a7d66",
+        "tonalRamp": [
+          "#211f1c",
+          "#3e3a33",
+          "#615a4c",
+          "#867a65",
+          "#a29885",
+          "#bbb5aa",
+          "#d5d2cd",
+          "#eeeeec"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(201, 164, 92, 0.14)"
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "rgba(201, 164, 92, 0.3)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home heading and page titles only; Marcellus single weight, emphasis via brass-bright."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings (h2), 2rem mobile to 2.6rem."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project names in the ledger (1.4rem) and readout (1.75rem)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text, Alegreya Sans 17px with old-style figures; cap long text at 36-48rem."
+      },
+      "label": {
+        "displayName": "Inscription",
+        "purpose": "Uppercase tracked Marcellus for inventory numbers, ring numerals and panel field labels; never a kicker above a heading."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "JetBrains Mono for step numbers and code-like values only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "plate-rim",
+        "value": "inset 0 0 0 4px var(--obsidian-raised), inset 0 0 0 5px var(--hairline), 0 18px 40px -24px rgba(0,0,0,0.9)",
+        "purpose": "Engraved plate at rest."
+      },
+      {
+        "name": "plate-rim-raised",
+        "value": "inset 0 0 0 4px var(--obsidian-raised), inset 0 0 0 5px color-mix(in srgb, var(--theme-accent-primary) 30%, transparent), 0 28px 50px -26px rgba(0,0,0,0.95)",
+        "purpose": "Interactive plate on hover, with 3px lift."
+      },
+      {
+        "name": "pressed-plate",
+        "value": "0 8px 18px -10px rgba(0,0,0,0.9)",
+        "purpose": "Dark cast shadow under the primary button; never a coloured glow."
+      },
+      {
+        "name": "medallion-ring",
+        "value": "inset 0 0 0 3px var(--obsidian), inset 0 0 0 4px color-mix(in srgb, var(--theme-accent-primary) 22%, transparent)",
+        "purpose": "Inner ring of the theme medallion."
+      },
+      {
+        "name": "instrument-drop",
+        "value": "SVG feDropShadow dx=0 dy=7 stdDeviation=6 flood #000 opacity 0.65",
+        "purpose": "SVG only: rete and alidade over the astrolabe plate."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "World easing for every state transition."
+      },
+      {
+        "name": "duration-quick",
+        "value": "300ms",
+        "purpose": "Colour changes on links and toggles."
+      },
+      {
+        "name": "duration-standard",
+        "value": "500ms",
+        "purpose": "Buttons, nav underline, ledger arrow."
+      },
+      {
+        "name": "duration-slow",
+        "value": "600-700ms",
+        "purpose": "Plate lift, ledger rule draw, brand mark rotation."
+      },
+      {
+        "name": "reveal",
+        "value": "1s ease-out from translateY(12px), blur(4px), opacity 0; 80ms stagger",
+        "purpose": "Entrance of hero and section content."
+      },
+      {
+        "name": "alidade-rest",
+        "value": "with no active pointer the alidade sights the most mature project",
+        "purpose": "The readout always names a project."
+      },
+      {
+        "name": "rete-drift",
+        "value": "2.2deg/s idle drift; velocity decay exp(-2.4 dt); drag velocity clamp 420deg/s",
+        "purpose": "Slow damped rotation of the astrolabe rete; stops on hover/focus and under reduced motion."
+      },
+      {
+        "name": "alidade-spring",
+        "value": "approach factor 1 - exp(-7 dt), no overshoot",
+        "purpose": "Alidade swings to the active pointer; jumps under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Brass-filled action, the one primary per view (e.g. Projelere bak).",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Projelere bak</a>",
+      "css": ":host{--obsidian:#0c0b0a;--obsidian-raised:#15120f;--obsidian-high:#1d1915;--brass:#c9a45c;--brass-deep:#7a5c2b;--brass-bright:#ecd49a;--verdigris:#5f9c8a;--verdigris-dim:#3f6b5f;--parchment:#ece2cc;--parchment-soft:#b9ab90;--parchment-muted:#8a7d66;--hairline:rgba(201,164,92,0.14);--hairline-strong:rgba(201,164,92,0.3);--ease-out:cubic-bezier(0.16,1,0.3,1);--theme-accent-primary:var(--brass)} .ds-btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border:1px solid var(--brass);border-radius:6px;background:var(--brass);color:var(--obsidian);box-shadow:0 8px 18px -10px rgba(0,0,0,.9);font-family:'Alegreya Sans', ui-sans-serif, system-ui, sans-serif;font-size:15px;font-weight:500;line-height:1.2;text-decoration:none;transition:all .5s var(--ease-out)} .ds-btn-primary:hover{transform:translateY(-2px);background:var(--brass-bright);border-color:var(--brass-bright)} .ds-btn-primary:focus-visible{outline:1.5px solid var(--brass-bright);outline-offset:3px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Hairline-outlined companion action (e.g. Hakkımda).",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Hakkımda</a>",
+      "css": ":host{--obsidian:#0c0b0a;--obsidian-raised:#15120f;--obsidian-high:#1d1915;--brass:#c9a45c;--brass-deep:#7a5c2b;--brass-bright:#ecd49a;--verdigris:#5f9c8a;--verdigris-dim:#3f6b5f;--parchment:#ece2cc;--parchment-soft:#b9ab90;--parchment-muted:#8a7d66;--hairline:rgba(201,164,92,0.14);--hairline-strong:rgba(201,164,92,0.3);--ease-out:cubic-bezier(0.16,1,0.3,1);--theme-accent-primary:var(--brass)} .ds-btn-secondary{display:inline-flex;align-items:center;padding:12px 20px;border:1px solid var(--hairline-strong);border-radius:6px;background:transparent;color:var(--parchment);font-family:'Alegreya Sans', ui-sans-serif, system-ui, sans-serif;font-size:15px;font-weight:500;line-height:1.2;text-decoration:none;transition:all .5s var(--ease-out)} .ds-btn-secondary:hover{transform:translateY(-2px);border-color:var(--brass);color:var(--brass-bright)} .ds-btn-secondary:focus-visible{outline:1.5px solid var(--brass-bright);outline-offset:3px}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Borderless tertiary action.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Tümünü gör</a>",
+      "css": ":host{--obsidian:#0c0b0a;--obsidian-raised:#15120f;--obsidian-high:#1d1915;--brass:#c9a45c;--brass-deep:#7a5c2b;--brass-bright:#ecd49a;--verdigris:#5f9c8a;--verdigris-dim:#3f6b5f;--parchment:#ece2cc;--parchment-soft:#b9ab90;--parchment-muted:#8a7d66;--hairline:rgba(201,164,92,0.14);--hairline-strong:rgba(201,164,92,0.3);--ease-out:cubic-bezier(0.16,1,0.3,1);--theme-accent-primary:var(--brass)} .ds-btn-ghost{display:inline-flex;padding:12px 20px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--parchment-soft);font-family:'Alegreya Sans', ui-sans-serif, system-ui, sans-serif;font-size:15px;font-weight:500;text-decoration:none;transition:color .5s var(--ease-out)} .ds-btn-ghost:hover{color:var(--brass-bright)} .ds-btn-ghost:focus-visible{outline:1.5px solid var(--brass-bright);outline-offset:3px}"
+    },
+    {
+      "name": "Status Badge with Maturity Ring",
+      "kind": "chip",
+      "refersTo": "status-badge",
+      "description": "Status label led by the astrolabe ring numeral I-IV in a small ringed Marcellus mark; IV brass-bright, III brass, I-II verdigris.",
+      "html": "<span class=\"ds-badge\"><span class=\"ds-ring\" data-level=\"4\">IV</span>Yayında</span> <span class=\"ds-badge\"><span class=\"ds-ring\" data-level=\"3\">III</span>Aktif geliştirme</span> <span class=\"ds-badge ds-badge--subtle\"><span class=\"ds-ring\" data-level=\"2\">II</span>Prototip</span>",
+      "css": ":host{--obsidian:#0c0b0a;--obsidian-raised:#15120f;--obsidian-high:#1d1915;--brass:#c9a45c;--brass-deep:#7a5c2b;--brass-bright:#ecd49a;--verdigris:#5f9c8a;--verdigris-dim:#3f6b5f;--parchment:#ece2cc;--parchment-soft:#b9ab90;--parchment-muted:#8a7d66;--hairline:rgba(201,164,92,0.14);--hairline-strong:rgba(201,164,92,0.3);--ease-out:cubic-bezier(0.16,1,0.3,1);--theme-accent-primary:var(--brass)} .ds-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 10px;border:1px solid var(--hairline-strong);border-radius:4px;color:var(--parchment);font-family:'Alegreya Sans', ui-sans-serif, system-ui, sans-serif;font-size:13px;line-height:1} .ds-badge--subtle{border-color:var(--hairline);color:var(--parchment-soft)} .ds-ring{display:inline-grid;place-items:center;min-width:1.9em;height:1.55em;padding:0 .3em;border:1px solid currentColor;border-radius:999px;font-family:Marcellus, ui-serif, Georgia, serif;font-size:.72rem;letter-spacing:.08em;line-height:1;color:var(--brass)} .ds-ring[data-level='4']{color:var(--brass-bright)} .ds-ring[data-level='1'],.ds-ring[data-level='2']{color:var(--verdigris)}"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Hairline-outlined tag for tech stack and categories; never filled.",
+      "html": "<span class=\"ds-chip\">Next.js</span> <span class=\"ds-chip\">PyTorch</span>",
+      "css": ":host{--obsidian:#0c0b0a;--obsidian-raised:#15120f;--obsidian-high:#1d1915;--brass:#c9a45c;--brass-deep:#7a5c2b;--brass-bright:#ecd49a;--verdigris:#5f9c8a;--verdigris-dim:#3f6b5f;--parchment:#ece2cc;--parchment-soft:#b9ab90;--parchment-muted:#8a7d66;--hairline:rgba(201,164,92,0.14);--hairline-strong:rgba(201,164,92,0.3);--ease-out:cubic-bezier(0.16,1,0.3,1);--theme-accent-primary:var(--brass)} .ds-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--hairline-strong);border-radius:4px;background:transparent;color:var(--parchment-soft);font-family:'Alegreya Sans', ui-sans-serif, system-ui, sans-serif;font-size:14px;line-height:1.25}"
+    },
+    {
+      "name": "Engraved Plate",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "Main container: obsidian plate with brass hairline rim, inset inner ring and an engraved double rule along the top.",
+      "html": "<div class=\"ds-plate\"><span class=\"ds-rule\"></span><h3 class=\"ds-plate-title\">Neden ArtifactHub?</h3><p class=\"ds-plate-body\">Her projenin gerçek aşamasını, nasıl çalıştığını ve nerede eksik kaldığını tek yerde gösterir.</p></div>",
+      "css": ":host{--obsidian:#0c0b0a;--obsidian-raised:#15120f;--obsidian-high:#1d1915;--brass:#c9a45c;--brass-deep:#7a5c2b;--brass-bright:#ecd49a;--verdigris:#5f9c8a;--verdigris-dim:#3f6b5f;--parchment:#ece2cc;--parchment-soft:#b9ab90;--parchment-muted:#8a7d66;--hairline:rgba(201,164,92,0.14);--hairline-strong:rgba(201,164,92,0.3);--ease-out:cubic-bezier(0.16,1,0.3,1);--theme-accent-primary:var(--brass)} .ds-plate{position:relative;padding:40px 32px 32px;border:1px solid var(--hairline-strong);border-radius:14px;background:linear-gradient(180deg,var(--obsidian-high),var(--obsidian-raised) 40%);box-shadow:inset 0 0 0 4px var(--obsidian-raised),inset 0 0 0 5px var(--hairline),0 18px 40px -24px rgba(0,0,0,.9);transition:transform .6s var(--ease-out),border-color .4s var(--ease-out),box-shadow .6s var(--ease-out)} .ds-plate:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--brass) 60%,transparent);box-shadow:inset 0 0 0 4px var(--obsidian-raised),inset 0 0 0 5px color-mix(in srgb,var(--brass) 30%,transparent),0 28px 50px -26px rgba(0,0,0,.95)} .ds-rule{position:absolute;top:10px;left:18px;right:18px;height:3px;border-top:1px solid color-mix(in srgb,var(--brass) 40%,transparent);border-bottom:1px solid color-mix(in srgb,var(--brass) 18%,transparent)} .ds-plate-title{margin:0;font-family:Marcellus, ui-serif, Georgia, serif;font-weight:400;font-size:28px;line-height:1.08;color:var(--parchment)} .ds-plate-body{margin:12px 0 0;font-family:'Alegreya Sans', ui-sans-serif, system-ui, sans-serif;font-size:17px;line-height:1.6;color:var(--parchment-soft)}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Nav links with a brass underline drawn from the left, plus the TR/EN locale toggle.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link is-active\" href=\"#\">Ana sayfa</a><a class=\"ds-nav-link\" href=\"#\">Projeler</a><a class=\"ds-nav-link\" href=\"#\">Hakkımda</a><span class=\"ds-nav-sep\"></span><span class=\"ds-locale\"><button class=\"is-on\">TR</button><button>EN</button></span></nav>",
+      "css": ":host{--obsidian:#0c0b0a;--obsidian-raised:#15120f;--obsidian-high:#1d1915;--brass:#c9a45c;--brass-deep:#7a5c2b;--brass-bright:#ecd49a;--verdigris:#5f9c8a;--verdigris-dim:#3f6b5f;--parchment:#ece2cc;--parchment-soft:#b9ab90;--parchment-muted:#8a7d66;--hairline:rgba(201,164,92,0.14);--hairline-strong:rgba(201,164,92,0.3);--ease-out:cubic-bezier(0.16,1,0.3,1);--theme-accent-primary:var(--brass)} .ds-nav{display:flex;align-items:center;gap:4px;font-family:'Alegreya Sans', ui-sans-serif, system-ui, sans-serif} .ds-nav-link{position:relative;padding:8px 12px;font-size:15px;color:var(--parchment-soft);text-decoration:none;transition:color .3s} .ds-nav-link::after{content:'';position:absolute;left:12px;right:12px;bottom:4px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-out)} .ds-nav-link:hover{color:var(--parchment)} .ds-nav-link:hover::after,.ds-nav-link.is-active::after{transform:scaleX(1)} .ds-nav-link.is-active{color:var(--brass-bright)} .ds-nav-link:focus-visible{outline:1.5px solid var(--brass-bright);outline-offset:3px;border-radius:4px} .ds-nav-sep{width:1px;height:20px;margin:0 12px;background:var(--hairline-strong)} .ds-locale{display:inline-flex;padding:2px;border:1px solid var(--hairline-strong);border-radius:6px} .ds-locale button{padding:6px 10px;border:0;border-radius:4px;background:transparent;color:var(--parchment-soft);font-family:Marcellus, ui-serif, Georgia, serif;font-size:11px;letter-spacing:.16em;cursor:pointer;transition:color .3s} .ds-locale button:hover{color:var(--brass-bright)} .ds-locale button.is-on{background:var(--brass);color:var(--obsidian)} .ds-locale button:focus-visible{outline:1.5px solid var(--brass-bright);outline-offset:3px}"
+    },
+    {
+      "name": "Inventory Ledger Row",
+      "kind": "custom",
+      "refersTo": "ledger-row",
+      "description": "Signature list: one engraved, numbered line per project; hover tints with the project accent and draws a rule.",
+      "html": "<ol class=\"ds-ledger\"><li class=\"ds-row\"><a href=\"#\"><span class=\"ds-inv\">AH·01</span><span class=\"ds-name\">TempoBlade</span><span class=\"ds-sum\">Ritim tabanlı aksiyon oyunu</span><svg class=\"ds-arrow\" viewBox=\"0 0 16 12\" fill=\"none\"><path d=\"M1 6h13M9.5 1.5 14 6l-4.5 4.5\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></li><li class=\"ds-row\"><a href=\"#\"><span class=\"ds-inv\">AH·02</span><span class=\"ds-name\">VoxForge</span><span class=\"ds-sum\">Yerel ses sentezi laboratuvarı</span><svg class=\"ds-arrow\" viewBox=\"0 0 16 12\" fill=\"none\"><path d=\"M1 6h13M9.5 1.5 14 6l-4.5 4.5\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></li></ol>",
+      "css": ":host{--obsidian:#0c0b0a;--obsidian-raised:#15120f;--obsidian-high:#1d1915;--brass:#c9a45c;--brass-deep:#7a5c2b;--brass-bright:#ecd49a;--verdigris:#5f9c8a;--verdigris-dim:#3f6b5f;--parchment:#ece2cc;--parchment-soft:#b9ab90;--parchment-muted:#8a7d66;--hairline:rgba(201,164,92,0.14);--hairline-strong:rgba(201,164,92,0.3);--ease-out:cubic-bezier(0.16,1,0.3,1);--theme-accent-primary:var(--brass)} .ds-ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--hairline-strong);font-family:'Alegreya Sans', ui-sans-serif, system-ui, sans-serif} .ds-row{position:relative;border-bottom:1px solid var(--hairline);transition:background-color .35s} .ds-row::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--theme-accent-primary);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease-out)} .ds-row:hover,.ds-row:focus-within{background:color-mix(in srgb,var(--theme-accent-primary) 6%,transparent)} .ds-row:hover::after,.ds-row:focus-within::after{transform:scaleX(1)} .ds-row a{display:grid;grid-template-columns:4.5rem minmax(0,1fr) minmax(0,1fr) 1.5rem;align-items:center;gap:16px;padding:20px 12px;color:inherit;text-decoration:none} .ds-row a:focus-visible{outline:1.5px solid var(--brass-bright);outline-offset:3px} .ds-inv{font-family:Marcellus, ui-serif, Georgia, serif;font-size:12px;letter-spacing:.16em;color:var(--parchment-muted);font-variant-numeric:tabular-nums lining-nums} .ds-name{font-family:Marcellus, ui-serif, Georgia, serif;font-size:1.4rem;line-height:1.25;color:var(--parchment)} .ds-sum{font-size:15px;color:var(--parchment-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .ds-arrow{width:16px;height:12px;color:var(--theme-accent-primary);opacity:.4;transition:transform .5s var(--ease-out),opacity .3s} .ds-row:hover .ds-arrow,.ds-row:focus-within .ds-arrow{transform:translateX(6px);opacity:1}"
+    },
+    {
+      "name": "Theme Medallion",
+      "kind": "custom",
+      "refersTo": "theme-medallion",
+      "description": "Round engraved medallion with a project's line glyph; brass on shared surfaces, the project's own hue only on its detail page.",
+      "html": "<span class=\"ds-medal\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3 20 8v8l-8 5-8-5V8l8-5Zm0 5-4 2.5v3L12 16l4-2.5v-3L12 8Z\"/></svg></span>",
+      "css": ":host{--obsidian:#0c0b0a;--obsidian-raised:#15120f;--obsidian-high:#1d1915;--brass:#c9a45c;--brass-deep:#7a5c2b;--brass-bright:#ecd49a;--verdigris:#5f9c8a;--verdigris-dim:#3f6b5f;--parchment:#ece2cc;--parchment-soft:#b9ab90;--parchment-muted:#8a7d66;--hairline:rgba(201,164,92,0.14);--hairline-strong:rgba(201,164,92,0.3);--ease-out:cubic-bezier(0.16,1,0.3,1);--theme-accent-primary:var(--brass)} .ds-medal{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:9999px;border:1px solid color-mix(in srgb,var(--theme-accent-primary) 55%,transparent);background:var(--obsidian);color:var(--theme-accent-primary);box-shadow:inset 0 0 0 3px var(--obsidian),inset 0 0 0 4px color-mix(in srgb,var(--theme-accent-primary) 22%,transparent)} .ds-medal svg{width:20px;height:20px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Antique Astrolabe",
+    "overview": "The whole body of work is one instrument. A dark obsidian ground carries brass that looks engraved, not lit: hairline rules, double rims, inscribed numerals, a degree limb. Projects are pointers on the rotating rete, placed on rings by their real maturity. Work that is still growing is marked in verdigris, the patina brass picks up over time. Text is parchment, warm and quiet, so the instrument and the work lead and the chrome stays back.\n\nDensity is calm. Panels are few and framed like plates set into the instrument. Most structure comes from engraved hairlines, inventory numbers (`AH·01`) and a single ledger, not from stacked cards. Motion is slow and damped, like a heavy rete turning on a pin. Nothing bounces, nothing glows.\n\nThis world replaces an earlier dark-glass/aurora look. It refuses frosted glass, neon gradients, gradient text and glow halos. Legacy class names (`.glass`, `.text-gradient`) survive only so older routes inherit the new engraved treatment.",
+    "keyCharacteristics": [
+      "Obsidian ground with one warm radial brass wash at the top of the page.",
+      "Brass is the only accent of the shell; verdigris appears only to mean \"still growing\".",
+      "Engraved hairlines and double rules everywhere a border or divider is needed.",
+      "Marcellus inscriptions for display and scale labels; Alegreya Sans for reading.",
+      "Maturity is always shown honestly as the astrolabe's Roman ring numerals I–IV, on the instrument and in every status badge.",
+      "Each project keeps its own accent theme, but it shows only inside that project's own scope (its detail page, its ledger row's hover). The shared shell and home cards stay brass."
+    ],
+    "rules": [
+      {
+        "name": "The Patina Rule",
+        "body": "Verdigris means \"still growing\" and nothing else. Mature work is brass; early work is verdigris. Never use verdigris as decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Metal Rule",
+        "body": "The shell has one accent, brass. Other hues enter only through a project's own theme, inside that project's own scope. Cards that list many projects stay brass.",
+        "section": "colors"
+      },
+      {
+        "name": "The Legible Ink Rule",
+        "body": "Readable text uses parchment, parchment-soft, parchment-muted, brass or brass-bright. brass-deep and verdigris-dim are fills, not ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single Weight Rule",
+        "body": "Marcellus ships one weight (400). Headings never get a bold, and `font-synthesis: none` stays on so the browser can't fake one. Emphasis in display text comes from colour (brass-bright), not weight.",
+        "section": "typography"
+      },
+      {
+        "name": "The Figures Rule",
+        "body": "Running text uses old-style figures; tables and stats (`.tabular`) switch to tabular lining figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Inscription Rule",
+        "body": "Uppercase tracked Marcellus is for inscriptions: numbers, scale labels and field labels inside a panel. It never sits above a section heading as a kicker.",
+        "section": "typography"
+      },
+      {
+        "name": "The Engraved Not Lit Rule",
+        "body": "Depth comes from double rims and dark drop shadows. Brass never glows: no coloured box-shadows, no halos, no backdrop blur.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep the shell to brass on obsidian, and let a project's own theme colour only its own scope.",
+      "**Do** show maturity honestly with the I–IV ring numerals, the same on the instrument and in badges; mature work goes nearest the centre.",
+      "**Do** lay out lists of projects or facts as engraved ledger rows before reaching for cards.",
+      "**Do** draw borders and dividers as brass hairlines (14% / 30%), and use the 3px double rule for section breaks.",
+      "**Do** use the world easing `cubic-bezier(0.16, 1, 0.3, 1)` with slow durations (300–700ms, 1s for entrances), and respect reduced motion.",
+      "**Do** set headings in Marcellus 400 and give them emphasis with brass-bright, not weight.",
+      "**Do** keep readable text at parchment-muted (4.9:1) or brighter."
+    ],
+    "donts": [
+      "**Don't** use frosted glass, backdrop blur, gradient text, neon or aurora gradients, or glow halos. This world replaced that look.",
+      "**Don't** use verdigris for anything other than growing or early work.",
+      "**Don't** tint shared surfaces (home and series cards, hero pills) with a project's theme hue; that hue belongs on the project's own page.",
+      "**Don't** fake a bold Marcellus or put a tracked uppercase kicker above a section heading.",
+      "**Don't** make bouncy or springy-overshoot motion. The instrument turns heavily and settles.",
+      "**Don't** replace the ledger or astrolabe with a card-grid hero.",
+      "**Don't** set small text in brass-deep or verdigris-dim."
+    ]
+  }
+}

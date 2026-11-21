@@ -9,15 +9,15 @@ export const themes: Theme[] = [
     texture: "stone-noise",
     tone: { tr: "Obsidian taş, kırık mühür, soluk altın çizgiler ve teknik arşiv hissi.", en: "Obsidian stone, broken seal marks, pale gold lines, and a technical archive feel." },
     colors: {
-      background: "#07070A",
-      surface: "#171720",
-      surfaceRaised: "#20202A",
-      border: "#34313D",
-      textPrimary: "#E8E1D5",
-      textSecondary: "#A8A29A",
-      textMuted: "#6F6A75",
+      background: "#0C0B0A",
+      surface: "#15120F",
+      surfaceRaised: "#1D1915",
+      border: "#3A3022",
+      textPrimary: "#ECE2CC",
+      textSecondary: "#B9AB90",
+      textMuted: "#8A7D66",
       accentPrimary: "#C9A45C",
-      accentSecondary: "#E07A2F"
+      accentSecondary: "#ECD49A"
     }
   },
   {

@@ -19,26 +19,17 @@ type ButtonLinkProps = {
 
 const variantClasses: Record<ButtonLinkVariant, string> = {
   primary:
-    "border-transparent bg-[linear-gradient(135deg,#fff,color-mix(in_srgb,var(--theme-accent-primary)_55%,#fff))] text-[#0b0b12] shadow-[0_10px_30px_-12px_color-mix(in_srgb,var(--theme-accent-primary)_70%,transparent)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-14px_color-mix(in_srgb,var(--theme-accent-primary)_85%,transparent)]",
+    "border-[color:var(--brass)] bg-[var(--brass)] text-[var(--obsidian)] shadow-[0_8px_18px_-10px_rgba(0,0,0,0.9)] hover:-translate-y-0.5 hover:bg-[var(--brass-bright)] hover:border-[color:var(--brass-bright)]",
   secondary:
-    "border-[color:var(--hairline-strong)] bg-white/[0.04] text-[var(--theme-text-primary)] backdrop-blur hover:-translate-y-0.5 hover:border-[color:color-mix(in_srgb,var(--theme-accent-primary)_45%,transparent)] hover:bg-white/[0.07]",
-  ghost:
-    "border-transparent bg-transparent text-[var(--theme-text-secondary)] hover:bg-white/[0.05] hover:text-[var(--theme-text-primary)]"
+    "border-[color:var(--hairline-strong)] bg-transparent text-[var(--theme-text-primary)] hover:-translate-y-0.5 hover:border-[color:var(--brass)] hover:text-[var(--brass-bright)]",
+  ghost: "border-transparent bg-transparent text-[var(--theme-text-secondary)] hover:text-[var(--brass-bright)]"
 };
 
-export function ButtonLink({
-  href,
-  children,
-  label,
-  labelKey,
-  variant = "primary",
-  external = false,
-  className
-}: ButtonLinkProps) {
+export function ButtonLink({ href, children, label, labelKey, variant = "primary", external = false, className }: ButtonLinkProps) {
   const { locale } = useLocale();
   const content = children ?? (labelKey ? getUiText(labelKey, locale) : label);
   const buttonClassName = [
-    "group/button inline-flex min-w-0 max-w-full items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-center text-sm font-medium leading-tight transition-all duration-300 ease-out",
+    "group/button inline-flex min-w-0 max-w-full items-center justify-center gap-2 rounded-[6px] border px-5 py-3 text-center text-[15px] font-medium leading-tight transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
     variantClasses[variant],
     className
   ]
@@ -49,9 +40,9 @@ export function ButtonLink({
     return (
       <a className={buttonClassName} href={href} rel="noopener noreferrer" target="_blank">
         {content}
-        <span aria-hidden="true" className="transition-transform duration-300 group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5">
-          ↗
-        </span>
+        <svg aria-hidden="true" className="h-3 w-3 transition-transform duration-300 group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5" fill="none" viewBox="0 0 12 12">
+          <path d="M3.5 8.5 8.5 3.5M4.5 3.5h4v4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.4" />
+        </svg>
       </a>
     );
   }

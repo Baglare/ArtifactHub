@@ -14,17 +14,17 @@ export function ArtifactFilterBar({ activeFilterId, onFilterChange }: ArtifactFi
   const { locale } = useLocale();
 
   return (
-    <div aria-label={getUiText("archiveFilters", locale)} className="glass flex flex-wrap gap-1.5 !rounded-[1.75rem] p-2" role="group">
+    <div aria-label={getUiText("archiveFilters", locale)} className="flex flex-wrap gap-2" role="group">
       {archiveFilters.map((filter) => {
         const isActive = filter.id === activeFilterId;
 
         return (
           <button
             aria-pressed={isActive}
-            className={`min-w-0 rounded-full px-4 py-2 text-sm leading-tight transition-all duration-300 ${
+            className={`min-w-0 rounded-[4px] border px-3.5 py-2 text-[15px] leading-tight transition-colors duration-300 ${
               isActive
-                ? "bg-[var(--theme-text-primary)] font-medium text-[#0b0b12] shadow-[0_8px_24px_-12px_rgba(255,255,255,0.5)]"
-                : "text-[var(--theme-text-secondary)] hover:bg-white/[0.06] hover:text-[var(--theme-text-primary)]"
+                ? "border-[color:var(--brass)] bg-[var(--brass)] text-[var(--obsidian)]"
+                : "border-[color:var(--hairline-strong)] text-[var(--theme-text-secondary)] hover:border-[color:var(--brass)] hover:text-[var(--brass-bright)]"
             }`}
             key={filter.id}
             onClick={() => onFilterChange(filter.id)}
