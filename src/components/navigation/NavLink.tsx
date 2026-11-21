@@ -10,10 +10,11 @@ type NavLinkProps = {
 
 export function NavLink({ href, label, external, active = false, className }: NavLinkProps) {
   const linkClassName = [
-    "inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm leading-tight transition-all duration-300",
+    "relative inline-flex items-center gap-1 px-3 py-2 text-[15px] leading-tight transition-colors duration-300",
+    "after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:bg-[var(--brass)] after:transition-transform after:duration-500 after:ease-[cubic-bezier(0.16,1,0.3,1)]",
     active
-      ? "bg-white/[0.08] text-[var(--theme-text-primary)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]"
-      : "text-[var(--theme-text-secondary)] hover:bg-white/[0.04] hover:text-[var(--theme-text-primary)]",
+      ? "text-[var(--brass-bright)] after:scale-x-100"
+      : "text-[var(--theme-text-secondary)] after:scale-x-0 hover:text-[var(--theme-text-primary)] hover:after:scale-x-100",
     className
   ]
     .filter(Boolean)

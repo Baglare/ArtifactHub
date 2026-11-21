@@ -21,8 +21,10 @@ export function SeriesHero({ series }: SeriesHeroProps) {
     <section className="pb-12 pt-4 sm:pb-16">
       <div className="grid min-w-0 gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
         <div className="min-w-0">
-          <p className="eyebrow reveal">{getUiText("artifactSeries", locale)}</p>
-          <h1 className="display text-gradient reveal reveal-delay-1 mt-5 text-5xl sm:text-7xl lg:text-8xl">{series.title}</h1>
+          <h1 className="display reveal text-[3rem] text-[var(--brass-bright)] sm:text-7xl lg:text-[5.5rem]">
+            {series.title}
+            <span className="inscription ml-4 align-middle text-[12px] text-[var(--theme-text-muted)]">{getUiText("artifactSeries", locale)}</span>
+          </h1>
           <p className="reveal reveal-delay-2 mt-6 max-w-3xl text-lg leading-relaxed text-[var(--theme-text-secondary)] sm:text-xl">{getLocalizedText(series.summary, locale)}</p>
           <p className="mt-3 max-w-3xl text-sm text-[var(--theme-text-muted)]">{getLocalizedText(series.positioning, locale)}</p>
 

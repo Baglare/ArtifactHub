@@ -18,9 +18,11 @@ export function SectionBlock({ children, eyebrow, title, description, themeId, c
 
   return (
     <section className={`min-w-0 py-10 sm:py-14 ${className ?? ""}`} style={themeStyle}>
-      {eyebrow ? <p className="eyebrow reveal">{eyebrow}</p> : null}
       {title ? (
-        <h1 className="display reveal reveal-delay-1 mt-4 text-5xl text-[var(--theme-text-primary)] sm:text-6xl md:text-7xl">{title}</h1>
+        <h1 className="display reveal text-[2.75rem] text-[var(--theme-text-primary)] sm:text-6xl md:text-7xl">
+          {title}
+          {eyebrow ? <span className="sr-only"> · {eyebrow}</span> : null}
+        </h1>
       ) : null}
       {description ? (
         <p className="reveal reveal-delay-2 mt-6 max-w-3xl text-lg leading-relaxed text-[var(--theme-text-secondary)]">{description}</p>
@@ -39,11 +41,10 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ eyebrow, title, description, action }: SectionHeadingProps) {
   return (
-    <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+    <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
       <div className="min-w-0">
-        {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-        <h2 className="mt-3 text-3xl font-semibold text-[var(--theme-text-primary)] sm:text-4xl">{title}</h2>
-        {description ? <p className="mt-3 max-w-2xl text-[var(--theme-text-secondary)]">{description}</p> : null}
+        <h2 className="text-[2rem] text-[var(--theme-text-primary)] sm:text-[2.6rem]">{title}</h2>
+        {description ? <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-[var(--theme-text-secondary)]">{description}</p> : null}
       </div>
       {action ? <div className="shrink-0">{action}</div> : null}
     </div>

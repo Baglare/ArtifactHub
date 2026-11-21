@@ -22,7 +22,7 @@ export function SeriesTransformationTable({ artifacts }: SeriesTransformationTab
     <div className="space-y-4">
       <div className="glass hidden overflow-hidden md:block">
         <table className="w-full table-fixed border-collapse text-left text-sm">
-          <thead className="bg-white/[0.03] text-[var(--theme-text-primary)]">
+          <thead className="bg-[var(--obsidian-high)] text-[var(--theme-text-primary)]">
             <tr>
               <th className="border-b border-[color:var(--hairline)] p-3">Artifact</th>
               <th className="border-b border-[color:var(--hairline)] p-3">{getUiText("input", locale)}</th>

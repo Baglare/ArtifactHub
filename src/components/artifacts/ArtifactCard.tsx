@@ -10,7 +10,6 @@ import { useLocale } from "@/components/i18n/LocaleProvider";
 import { getUiText } from "@/data/uiText";
 import { getLocalizedText } from "@/lib/i18n";
 import { getSeriesById } from "@/lib/series";
-import { getThemeCssVariables } from "@/lib/themes";
 import type { Artifact } from "@/types/artifact";
 
 export type ArtifactCardVariant = "default" | "featured" | "spotlight" | "compact" | "series";
@@ -47,7 +46,6 @@ export function ArtifactCard({
   className
 }: ArtifactCardProps) {
   const { locale } = useLocale();
-  const themeStyle = getThemeCssVariables(artifact.themeId);
   const series = artifact.seriesId ? getSeriesById(artifact.seriesId) : undefined;
   const isSpotlight = variant === "spotlight";
   const isFeatured = variant === "featured" || isSpotlight;
@@ -56,35 +54,19 @@ export function ArtifactCard({
   return (
     <article
       className={`glass card-interactive group flex h-full min-w-0 flex-col overflow-hidden ${variantClasses[variant]} ${className ?? ""}`}
-      onMouseMove={trackPointer}
-      style={themeStyle}
     >
-      <span aria-hidden="true" className="accent-line" />
-      {isFeatured ? (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-50 blur-3xl transition-opacity duration-700 group-hover:opacity-80"
-          style={{ background: "radial-gradient(circle, var(--theme-accent-primary), transparent 65%)" }}
-        />
-      ) : null}
 
-      <div className="flex items-start justify-between gap-4">
+      <div className="mt-2 flex items-start justify-between gap-4">
         <ThemeSymbol size={variant === "compact" ? "sm" : isSpotlight ? "lg" : "md"} themeId={artifact.themeId} />
         <div className="flex flex-wrap justify-end gap-2">
-          {isFeatured ? (
-            <span className="chip border-[color:color-mix(in_srgb,var(--theme-accent-primary)_40%,transparent)] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] !text-[var(--theme-accent-primary)]">
-              ★ {getUiText("featured", locale)}
-            </span>
-          ) : null}
           <StatusBadge statusId={artifact.statusId} variant="subtle" />
         </div>
       </div>
 
       <div className="mt-6 min-w-0">
-        {showSeriesBadge && series ? <p className="eyebrow mb-2 !text-[var(--theme-text-muted)]">{series.title}</p> : null}
         <h3
-          className={`font-semibold tracking-tight text-[var(--theme-text-primary)] ${
-            isSpotlight ? "text-3xl sm:text-5xl" : isFeatured ? "text-2xl sm:text-[1.7rem]" : "text-xl"
+          className={`text-[var(--theme-text-primary)] transition-colors duration-300 group-hover:text-[var(--brass-bright)] ${
+            isSpotlight ? "text-[2rem] sm:text-5xl" : isFeatured ? "text-[1.65rem] sm:text-[1.9rem]" : "text-[1.4rem]"
           }`}
         >
           <Link className="after:absolute after:inset-0 after:content-['']" href={`/artifacts/${artifact.slug}`}>
@@ -93,7 +75,7 @@ export function ArtifactCard({
         </h3>
         <p
           className={`mt-3 leading-relaxed text-[var(--theme-text-secondary)] ${
-            isSpotlight ? "max-w-2xl text-base sm:text-lg" : "text-sm"
+            isSpotlight ? "max-w-2xl text-[17px] sm:text-lg" : "text-[15.5px]"
           }`}
         >
           {getLocalizedText(artifact.summary, locale)}
@@ -111,11 +93,11 @@ export function ArtifactCard({
       ) : null}
 
       <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-6 text-sm">
-        <span className="inline-flex items-center gap-1.5 font-medium text-[var(--theme-text-primary)]">
+        <span className="inline-flex items-center gap-2 font-medium text-[var(--brass)]">
           {getUiText("viewArtifact", locale)}
-          <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
+          <svg aria-hidden="true" className="h-3 w-4 transition-transform duration-500 group-hover:translate-x-1.5" fill="none" viewBox="0 0 16 12">
+            <path d="M1 6h13M9.5 1.5 14 6l-4.5 4.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.4" />
+          </svg>
         </span>
         {artifact.demoUrl ? (
           <a
@@ -124,7 +106,7 @@ export function ArtifactCard({
             rel="noopener noreferrer"
             target="_blank"
           >
-            {getUiText("liveDemo", locale)} ↗
+            {getUiText("liveDemo", locale)}
           </a>
         ) : null}
         {showRepoLink && artifact.repoUrl ? (
@@ -134,7 +116,7 @@ export function ArtifactCard({
             rel="noopener noreferrer"
             target="_blank"
           >
-            GitHub ↗
+            GitHub
           </a>
         ) : null}
       </div>

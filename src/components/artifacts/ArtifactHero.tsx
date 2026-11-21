@@ -29,7 +29,7 @@ export function ArtifactHero({ artifact }: ArtifactHeroProps) {
         className="reveal inline-flex items-center gap-2 text-sm text-[var(--theme-text-muted)] transition-colors hover:text-[var(--theme-text-primary)]"
         href="/artifacts"
       >
-        <span aria-hidden="true">←</span>
+        <svg aria-hidden="true" className="h-3 w-4" fill="none" viewBox="0 0 16 12"><path d="M15 6H2M6.5 1.5 2 6l4.5 4.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.4" /></svg>
         {getUiText("backToArchive", locale)}
       </Link>
 
@@ -37,11 +37,7 @@ export function ArtifactHero({ artifact }: ArtifactHeroProps) {
         <div className="min-w-0">
           <div className="reveal flex flex-wrap items-center gap-2">
             <StatusBadge statusId={artifact.statusId} />
-            {isFeatured ? (
-              <span className="chip px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] !text-[var(--theme-accent-primary)]">
-                ★ {getUiText("featured", locale)}
-              </span>
-            ) : null}
+            {isFeatured ? <span className="chip inscription px-2.5 py-1 text-[11px] !text-[var(--brass)]">{getUiText("featured", locale)}</span> : null}
             {series ? (
               <Link className="chip px-2.5 py-1 text-[11px] transition-colors hover:text-[var(--theme-text-primary)]" href={`/series/${series.slug}`}>
                 {series.title}
@@ -49,14 +45,14 @@ export function ArtifactHero({ artifact }: ArtifactHeroProps) {
             ) : null}
           </div>
 
-          <h1 className="display reveal reveal-delay-1 mt-6 text-5xl text-[var(--theme-text-primary)] sm:text-7xl lg:text-8xl">
+          <h1 className="display reveal reveal-delay-1 mt-6 text-[3rem] text-[var(--theme-text-primary)] sm:text-7xl lg:text-[5.5rem]">
             {artifact.title}
           </h1>
           <p className="reveal reveal-delay-2 mt-6 max-w-3xl text-lg leading-relaxed text-[var(--theme-text-secondary)] sm:text-xl">
             {getLocalizedText(artifact.summary, locale)}
           </p>
           <p className="reveal reveal-delay-2 mt-4 max-w-3xl text-sm text-[var(--theme-text-muted)]">
-            <span className="serif-accent text-base text-[var(--theme-accent-primary)]">{getUiText("role", locale)} — </span>
+            <span className="serif-accent text-base text-[var(--brass)]">{getUiText("role", locale)} — </span>
             {getLocalizedText(artifact.positioning, locale)}
           </p>
 
@@ -65,18 +61,22 @@ export function ArtifactHero({ artifact }: ArtifactHeroProps) {
             {artifact.repoUrl ? (
               <ButtonLink external href={artifact.repoUrl} labelKey="openOnGithub" variant={artifact.demoUrl ? "secondary" : "primary"} />
             ) : (
-              <span className="chip px-4 py-2.5 text-sm">🔒 {getUiText("privateRepository", locale)}</span>
+              <span className="chip gap-2 px-4 py-2.5 text-[15px]">
+                <svg aria-hidden="true" className="h-3.5 w-3.5" fill="none" viewBox="0 0 14 14">
+                  <rect height="6.5" rx="1" stroke="currentColor" strokeWidth="1.2" width="9" x="2.5" y="6" />
+                  <path d="M4.5 6V4.5a2.5 2.5 0 0 1 5 0V6" stroke="currentColor" strokeWidth="1.2" />
+                </svg>
+                {getUiText("privateRepository", locale)}
+              </span>
             )}
           </div>
         </div>
 
         <aside className="glass reveal reveal-delay-2 min-w-0 overflow-hidden p-6">
-          <span aria-hidden="true" className="accent-line" />
           <div className="flex items-center gap-4">
             <ThemeSymbol size="lg" themeId={artifact.themeId} />
             <div className="min-w-0">
-              <p className="eyebrow !text-[var(--theme-text-muted)]">{getUiText("theme", locale)}</p>
-              <p className="mt-1 text-lg font-medium text-[var(--theme-text-primary)]">{theme.name}</p>
+              <p className="text-lg font-medium text-[var(--theme-text-primary)]">{theme.name}</p>
             </div>
           </div>
           {theme.tone ? <p className="mt-4 text-sm leading-relaxed text-[var(--theme-text-secondary)]">{getLocalizedText(theme.tone, locale)}</p> : null}

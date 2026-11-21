@@ -10,14 +10,7 @@ type AppShellProps = {
 export function AppShell({ children }: AppShellProps) {
   return (
     <LocaleProvider>
-      <div aria-hidden="true" className="ambient">
-        <div className="ambient__orb ambient__orb--a" />
-        <div className="ambient__orb ambient__orb--b" />
-        <div className="ambient__orb ambient__orb--c" />
-        <div className="ambient__grid" />
-        <div className="ambient__grain" />
-      </div>
-      <div className="relative z-10 flex min-h-screen flex-col text-[var(--theme-text-primary)]">
+      <div className="relative flex min-h-screen flex-col text-[var(--theme-text-primary)]">
         <Header />
         <main className="min-w-0 flex-1">{children}</main>
         <Footer />

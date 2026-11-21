@@ -34,9 +34,9 @@ const symbolDefinitions: Record<string, SymbolDefinition> = {
 };
 
 const sizeClasses: Record<ThemeSymbolSize, string> = {
-  sm: "h-10 w-10 rounded-xl [&>svg]:h-[18px] [&>svg]:w-[18px]",
-  md: "h-12 w-12 rounded-2xl [&>svg]:h-5 [&>svg]:w-5",
-  lg: "h-16 w-16 rounded-[1.25rem] [&>svg]:h-7 [&>svg]:w-7"
+  sm: "h-10 w-10 [&>svg]:h-[18px] [&>svg]:w-[18px]",
+  md: "h-12 w-12 [&>svg]:h-5 [&>svg]:w-5",
+  lg: "h-16 w-16 [&>svg]:h-7 [&>svg]:w-7"
 };
 
 export function ThemeSymbol({
@@ -55,8 +55,8 @@ export function ThemeSymbol({
       aria-hidden={decorative ? true : undefined}
       aria-label={decorative ? undefined : symbol.label}
       className={[
-        "relative inline-grid shrink-0 place-items-center border border-[color:color-mix(in_srgb,var(--theme-accent-primary)_30%,transparent)] text-[var(--theme-accent-primary)] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_30px_-14px_var(--theme-accent-primary)]",
-        "bg-[radial-gradient(circle_at_30%_20%,color-mix(in_srgb,var(--theme-accent-primary)_28%,transparent),color-mix(in_srgb,var(--theme-accent-secondary)_10%,transparent)_70%)]",
+        // An engraved medallion: brass rim, inner hairline ring, the artifact's own colour in the glyph.
+        "relative inline-grid shrink-0 place-items-center rounded-full border border-[color:color-mix(in_srgb,var(--theme-accent-primary)_55%,transparent)] bg-[var(--obsidian)] text-[var(--theme-accent-primary)] shadow-[inset_0_0_0_3px_var(--obsidian),inset_0_0_0_4px_color-mix(in_srgb,var(--theme-accent-primary)_22%,transparent)]",
         sizeClasses[size],
         className
       ]

@@ -1,22 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Alegreya_Sans, JetBrains_Mono, Marcellus } from "next/font/google";
 import { AppShell } from "@/components/layout/AppShell";
 import { siteConfig } from "@/data/siteConfig";
 import { absoluteUrl, siteUrl } from "@/lib/site";
 import "@/styles/globals.css";
 
-const sans = Inter({
+const sans = Alegreya_Sans({
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "700"],
+  style: ["normal", "italic"],
   display: "swap",
   variable: "--font-sans"
 });
 
-const serif = Instrument_Serif({
+const display = Marcellus({
   subsets: ["latin", "latin-ext"],
   weight: "400",
-  style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-serif"
+  variable: "--font-display"
 });
 
 const mono = JetBrains_Mono({
@@ -28,7 +29,7 @@ const mono = JetBrains_Mono({
 const socialPreviewImage = absoluteUrl("/images/artifacthub-og.png");
 
 export const viewport: Viewport = {
-  themeColor: "#05050a",
+  themeColor: "#0c0b0a",
   colorScheme: "dark"
 };
 
@@ -73,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${sans.variable} ${serif.variable} ${mono.variable}`} lang={siteConfig.defaultLocale}>
+    <html className={`${sans.variable} ${display.variable} ${mono.variable}`} lang={siteConfig.defaultLocale}>
       <body>
         <AppShell>{children}</AppShell>
       </body>
