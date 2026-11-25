@@ -1,21 +1,21 @@
 ---
 name: ArtifactHub
-description: Baglare's project shelf as an antique astrolabe, with obsidian ground, engraved brass, verdigris patina and parchment text.
+description: Baglare's project shelf as a night-observatory astrolabe, with deep ink ground, pewter instrument, a soft steel-blue accent and sea-green for growing work.
 colors:
-  obsidian: "#0c0b0a"
-  obsidian-raised: "#15120f"
-  obsidian-high: "#1d1915"
-  rim: "#3a3022"
-  brass: "#c9a45c"
-  brass-deep: "#7a5c2b"
-  brass-bright: "#ecd49a"
-  verdigris: "#5f9c8a"
-  verdigris-dim: "#3f6b5f"
-  parchment: "#ece2cc"
-  parchment-soft: "#b9ab90"
-  parchment-muted: "#8a7d66"
-  hairline: "rgba(201, 164, 92, 0.14)"
-  hairline-strong: "rgba(201, 164, 92, 0.3)"
+  ink: "#0b0e13"
+  ink-raised: "#11151c"
+  ink-high: "#171c25"
+  rim: "#262d39"
+  accent: "#93acd3"
+  accent-deep: "#3f4f6b"
+  accent-bright: "#d3dff1"
+  growth: "#6fb3a0"
+  growth-dim: "#4a7d70"
+  fg: "#e6e8ec"
+  fg-soft: "#a6aebb"
+  fg-muted: "#737c8b"
+  hairline: "rgba(160, 176, 204, 0.1)"
+  hairline-strong: "rgba(160, 176, 204, 0.2)"
 typography:
   display:
     fontFamily: "Marcellus, ui-serif, Georgia, serif"
@@ -68,72 +68,72 @@ spacing:
   gutter: "16px"
 components:
   button-primary:
-    backgroundColor: "{colors.brass}"
-    textColor: "{colors.obsidian}"
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.ink}"
     typography: "{typography.body}"
     rounded: "{rounded.md}"
     padding: "12px 20px"
   button-primary-hover:
-    backgroundColor: "{colors.brass-bright}"
-    textColor: "{colors.obsidian}"
+    backgroundColor: "{colors.accent-bright}"
+    textColor: "{colors.ink}"
   button-secondary:
     backgroundColor: "transparent"
-    textColor: "{colors.parchment}"
+    textColor: "{colors.fg}"
     rounded: "{rounded.md}"
     padding: "12px 20px"
   button-secondary-hover:
-    textColor: "{colors.brass-bright}"
+    textColor: "{colors.accent-bright}"
   button-ghost:
     backgroundColor: "transparent"
-    textColor: "{colors.parchment-soft}"
+    textColor: "{colors.fg-soft}"
     rounded: "{rounded.md}"
     padding: "12px 20px"
   status-badge:
     backgroundColor: "transparent"
-    textColor: "{colors.parchment}"
+    textColor: "{colors.fg}"
     rounded: "{rounded.sm}"
     padding: "4px 10px"
   status-badge-subtle:
     backgroundColor: "transparent"
-    textColor: "{colors.parchment-soft}"
+    textColor: "{colors.fg-soft}"
     rounded: "{rounded.sm}"
     padding: "4px 10px"
   maturity-ring:
     backgroundColor: "transparent"
-    textColor: "{colors.brass}"
+    textColor: "{colors.accent}"
     typography: "{typography.label}"
     rounded: "{rounded.full}"
     height: "1.55em"
   maturity-ring-live:
-    textColor: "{colors.brass-bright}"
+    textColor: "{colors.accent-bright}"
   maturity-ring-growing:
-    textColor: "{colors.verdigris}"
+    textColor: "{colors.growth}"
   chip:
     backgroundColor: "transparent"
-    textColor: "{colors.parchment-soft}"
+    textColor: "{colors.fg-soft}"
     rounded: "{rounded.sm}"
   plate:
-    backgroundColor: "{colors.obsidian-raised}"
+    backgroundColor: "{colors.ink-raised}"
     rounded: "{rounded.plate}"
   readout:
-    backgroundColor: "{colors.obsidian-high}"
+    backgroundColor: "{colors.ink-high}"
     rounded: "{rounded.panel}"
     padding: "20px 24px"
   nav-link:
-    textColor: "{colors.parchment-soft}"
+    textColor: "{colors.fg-soft}"
     padding: "8px 12px"
   nav-link-active:
-    textColor: "{colors.brass-bright}"
+    textColor: "{colors.accent-bright}"
   locale-toggle-active:
-    backgroundColor: "{colors.brass}"
-    textColor: "{colors.obsidian}"
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.sm}"
     padding: "6px 10px"
   ledger-row:
-    textColor: "{colors.parchment}"
+    textColor: "{colors.fg}"
     padding: "20px 12px"
   theme-medallion:
-    backgroundColor: "{colors.obsidian}"
+    backgroundColor: "{colors.ink}"
     rounded: "{rounded.full}"
     size: "48px"
 ---
@@ -142,11 +142,11 @@ components:
 
 ## Overview
 
-**Creative North Star: "The Antique Astrolabe"**
+**Creative North Star: "The Night Observatory"** (revised 2026-11-25: the brass/yellow palette was retired as tiring to read)
 
-The whole body of work is one instrument. A dark obsidian ground carries brass that looks engraved, not lit: hairline rules, double rims, inscribed numerals, a degree limb. Projects are pointers on the rotating rete, placed on rings by their real maturity. Work that is still growing is marked in verdigris, the patina brass picks up over time. Text is parchment, warm and quiet, so the instrument and the work lead and the chrome stays back.
+The whole body of work is one instrument, now in pewter on a deep ink ground. A soft steel-blue accent marks interaction and mature work; sea-green marks work that is still growing. Text is a calm off-white, so the instrument and the work lead and the chrome stays back.
 
-Density is calm. Panels are few and framed like plates set into the instrument. Most structure comes from engraved hairlines, inventory numbers (`AH·01`) and a single ledger, not from stacked cards. Motion is slow and damped, like a heavy rete turning on a pin. Nothing bounces, nothing glows.
+Density is calm. Panels are few, with one border each (no nested inner rims), generous padding and wide section spacing. Most structure comes from engraved hairlines, inventory numbers (`AH·01`) and a single ledger, not from stacked cards. Motion is slow and damped, like a heavy rete turning on a pin. Nothing bounces, nothing glows.
 
 This world replaces an earlier dark-glass/aurora look. It refuses frosted glass, neon gradients, gradient text and glow halos. Legacy class names (`.glass`, `.text-gradient`) survive only so older routes inherit the new engraved treatment.
 

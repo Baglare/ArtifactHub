@@ -38,12 +38,12 @@ export function TechnicalPanel({
 
   return (
     <section
-      className={`glass min-w-0 p-6 sm:p-8 ${
+      className={`glass min-w-0 p-7 sm:p-10 ${
         variant === "default" ? "" : "before:absolute before:left-0 before:top-8 before:h-8 before:w-[3px] before:rounded-r-full before:content-['']"
       } ${variantClasses[variant]}`}
       style={themeStyle}
     >
-      {resolvedTitle ? <h2 className="text-xl font-semibold tracking-tight text-[var(--theme-text-primary)] sm:text-2xl">{resolvedTitle}</h2> : null}
+      {resolvedTitle ? <h2 className="text-[1.45rem] text-[var(--theme-text-primary)] sm:text-[1.7rem]">{resolvedTitle}</h2> : null}
       {description ? <p className="mt-2 text-[var(--theme-text-secondary)]">{description}</p> : null}
       {children ? <div className="mt-6">{children}</div> : null}
     </section>

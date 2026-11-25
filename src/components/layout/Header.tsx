@@ -37,12 +37,12 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-[background-color,border-color] duration-500 ${
-        isScrolled || isMenuOpen ? "border-b border-[color:var(--hairline-strong)] bg-[rgba(12,11,10,0.94)]" : "border-b border-transparent bg-transparent"
+        isScrolled || isMenuOpen ? "border-b border-[color:var(--hairline-strong)] bg-[rgba(11,14,19,0.9)]" : "border-b border-transparent bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link className="group flex shrink-0 items-center gap-3 text-[var(--theme-text-primary)]" href="/">
-          <BrandMark className="h-8 w-8 text-[var(--brass)] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[24deg]" />
+          <BrandMark className="h-8 w-8 text-[var(--accent)] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[24deg]" />
           <span className="flex flex-col leading-none">
             <span className="inscription text-[10px] text-[var(--theme-text-muted)]">Baglare’s</span>
             <span className="mt-1 font-[family-name:var(--font-display)] text-[19px] tracking-[0.02em]">{siteConfig.title}</span>
@@ -66,7 +66,7 @@ export function Header() {
         <button
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? getUiText("closeMenu", locale) : getUiText("openMenu", locale)}
-          className="grid h-10 w-10 place-items-center rounded-md border border-[color:var(--hairline-strong)] text-[var(--theme-text-primary)] transition-colors hover:border-[color:var(--brass)] md:hidden"
+          className="grid h-10 w-10 place-items-center rounded-md border border-[color:var(--hairline-strong)] text-[var(--theme-text-primary)] transition-colors hover:border-[color:var(--accent)] md:hidden"
           onClick={() => setIsMenuOpen((current) => !current)}
           type="button"
         >

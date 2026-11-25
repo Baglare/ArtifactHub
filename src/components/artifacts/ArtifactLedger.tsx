@@ -26,20 +26,18 @@ export function ArtifactLedger({ artifacts, inventoryOrder }: ArtifactLedgerProp
         return (
           <li className="ledger-row border-b border-[color:var(--hairline)]" key={artifact.id} style={getThemeCssVariables(artifact.themeId)}>
             <Link
-              className="grid grid-cols-[3.25rem_minmax(0,1fr)] items-baseline gap-x-4 gap-y-1 px-1 py-5 sm:grid-cols-[4.5rem_minmax(0,1.1fr)_minmax(0,1fr)_auto_1.5rem] sm:items-center sm:px-3"
+              className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-6 gap-y-2 px-1 py-6 sm:grid-cols-[3.5rem_minmax(0,1fr)_auto_1.5rem] sm:px-4"
               href={`/artifacts/${artifact.slug}/`}
             >
-              <span className="inscription tabular text-[12px] text-[var(--parchment-muted)]">{inventory}</span>
+              <span className="tabular hidden text-[13px] text-[var(--fg-muted)] sm:block">{inventory}</span>
               <span className="min-w-0">
-                <span className="block font-[family-name:var(--font-display)] text-[1.4rem] leading-tight text-[var(--parchment)]">{artifact.title}</span>
-                <span className="mt-1 block truncate text-[15px] text-[var(--parchment-soft)] sm:hidden">
+                <span className="block font-[family-name:var(--font-display)] text-[1.35rem] leading-tight text-[var(--fg)]">{artifact.title}</span>
+                <span className="mt-1.5 block truncate text-[14.5px] text-[var(--fg-muted)]">
                   {category ? getLocalizedText(category.label, locale) : null}
+                  {artifact.demo ? <span className="demo-tag ml-3">{locale === "tr" ? "Sitede dene" : "Try it"}</span> : null}
                 </span>
               </span>
-              <span className="hidden min-w-0 truncate text-[15px] text-[var(--parchment-soft)] sm:block">
-                {getLocalizedText(artifact.summary, locale)}
-              </span>
-              <span className="col-start-2 mt-1 sm:col-auto sm:mt-0">
+              <span className="justify-self-end">
                 <StatusBadge statusId={artifact.statusId} variant="subtle" />
               </span>
               <svg aria-hidden="true" className="ledger-arrow hidden h-3 w-4 text-[var(--theme-accent-primary)] sm:block" fill="none" viewBox="0 0 16 12">

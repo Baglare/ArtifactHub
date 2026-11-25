@@ -22,7 +22,7 @@ export function LocaleToggle({ className }: LocaleToggleProps) {
           aria-label={getLocaleLabel(item)}
           aria-pressed={locale === item}
           className={`inscription rounded-[4px] px-2.5 py-1.5 text-[11px] transition-colors duration-300 ${
-            locale === item ? "bg-[var(--brass)] text-[var(--obsidian)]" : "text-[var(--theme-text-secondary)] hover:text-[var(--brass-bright)]"
+            locale === item ? "bg-[var(--accent)] text-[var(--ink)]" : "text-[var(--theme-text-secondary)] hover:text-[var(--accent-bright)]"
           }`}
           key={item}
           onClick={() => setLocale(item)}

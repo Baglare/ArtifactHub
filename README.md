@@ -14,6 +14,22 @@ Ana sayfadaki yörünge, her proje için bir nokta çizer. Noktanın yörüngesi
 
 Tüm içerik `src/data/` altındaki registry dosyalarından okunur (`artifacts.ts`, `themes.ts`, `statuses.ts`, `categories.ts`, `focusAreas.ts`, `series.ts`). Yeni proje eklemek için yalnız registry’ye kayıt eklemek yeterlidir; öne çıkarmak için `featuredLevel: "primary"`, sıralama için `order` kullanılır.
 
+## Görseller, fotoğraf ve mini demolar
+
+**Proje görseli eklemek:** dosyayı `public/images/artifacts/<slug>/` altına koy (webp önerilir), sonra `src/data/artifacts.ts` içindeki kayda `media` ekle:
+
+```ts
+media: [
+  { type: "image", src: "/images/artifacts/<slug>/ekran.webp", alt: { tr: "…", en: "…" }, caption: { tr: "…" }, cover: true, focus: "50% 20%", kind: "screenshot" }
+]
+```
+
+`cover: true` olan (yoksa ilk) görsel kartta ve proje sayfasının üstünde kapak olur; birden fazla görsel ya da açıklama varsa proje sayfasında galeri açılır. Görseli olmayan projelere kendi tema renkleriyle soyut bir kapak çizilir (sahte ekran görüntüsü değildir). Şu an gerçek görseller: MediaTracker (canlı sürümden ekran görüntüsü), Petglare (README banner'ı).
+
+**Fotoğraf:** ana sayfadaki portre `src/data/siteConfig.ts` → `profile.portrait`. Değiştirmek için arka planı koyu/şeffaf bir görseli `public/images/profile/` altına koyup yolu güncelle.
+
+**Mini demolar:** `src/components/demos/` altında, yalnız ilgili proje sayfasında yüklenir. Yeni demo için bileşeni yaz, `registry.tsx` içine kaydet, `DemoId` tipine ekle ve projenin kaydına `demo: { id, note }` ver. Mevcutlar: PulseForge (şarkıdan ritim oyunu; dosya tarayıcıda işlenir), TempoBlade (vuruşta savuşturma), AgentVerse (Q-learning ızgara ajanı).
+
 ## Teknoloji
 
 - Next.js 16 (App Router, statik export)
@@ -49,4 +65,4 @@ Site tamamen statik HTML olarak derlenir; sunucuda Node.js gerekmez.
 
 ## Kapsam
 
-Site CMS, backend, kimlik doğrulama veya canlı kamera/ses demosu içermez. Özel depolardaki projeler kaynak bağlantısı verilmeden, yalnız doğrulanabilir kapsam ve sınırlarıyla anlatılır; hiçbir ses örneği veya hassas veri yayımlanmaz.
+Site CMS, backend, kimlik doğrulama veya canlı kamera/ses demosu içermez; mini demolar tamamen tarayıcıda çalışır ve hiçbir veriyi bir yere göndermez. Özel depolardaki projeler kaynak bağlantısı verilmeden, yalnız doğrulanabilir kapsam ve sınırlarıyla anlatılır; hiçbir ses örneği veya hassas veri yayımlanmaz.

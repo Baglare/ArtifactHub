@@ -3,38 +3,38 @@
 @tailwind utilities;
 
 /*
-  World: an antique astrolabe. Obsidian ground, engraved brass, verdigris patina
-  for work still growing, parchment text. Engraved hairlines instead of glass.
+  World: a night observatory. Deep ink ground, pewter instrument, a soft steel-blue
+  accent and sea-green for work still growing. Calm surfaces, one border each.
 */
 :root {
   color-scheme: dark;
-  --obsidian: #0c0b0a;
-  --obsidian-raised: #15120f;
-  --obsidian-high: #1d1915;
-  --brass: #c9a45c;
-  --brass-deep: #7a5c2b;
-  --brass-bright: #ecd49a;
-  --verdigris: #5f9c8a;
-  --verdigris-dim: #3f6b5f;
-  --parchment: #ece2cc;
-  --parchment-soft: #b9ab90;
-  --parchment-muted: #8a7d66;
+  --ink: #0b0e13;
+  --ink-raised: #11151c;
+  --ink-high: #171c25;
+  --accent: #93acd3;
+  --accent-deep: #3f4f6b;
+  --accent-bright: #d3dff1;
+  --growth: #6fb3a0;
+  --growth-dim: #4a7d70;
+  --fg: #e6e8ec;
+  --fg-soft: #a6aebb;
+  --fg-muted: #737c8b;
 
-  --theme-background: var(--obsidian);
-  --theme-surface: var(--obsidian-raised);
-  --theme-surface-raised: var(--obsidian-high);
-  --theme-border: #3a3022;
-  --theme-text-primary: var(--parchment);
-  --theme-text-secondary: var(--parchment-soft);
-  --theme-text-muted: var(--parchment-muted);
-  --theme-accent-primary: var(--brass);
-  --theme-accent-secondary: var(--brass-bright);
-  --theme-accent-tertiary: var(--verdigris);
+  --theme-background: var(--ink);
+  --theme-surface: var(--ink-raised);
+  --theme-surface-raised: var(--ink-high);
+  --theme-border: #262d39;
+  --theme-text-primary: var(--fg);
+  --theme-text-secondary: var(--fg-soft);
+  --theme-text-muted: var(--fg-muted);
+  --theme-accent-primary: var(--accent);
+  --theme-accent-secondary: var(--accent-bright);
+  --theme-accent-tertiary: var(--growth);
 
-  --page-bg: var(--obsidian);
-  --hairline: rgba(201, 164, 92, 0.14);
-  --hairline-strong: rgba(201, 164, 92, 0.3);
-  --engrave: rgba(201, 164, 92, 0.42);
+  --page-bg: var(--ink);
+  --hairline: rgba(160, 176, 204, 0.1);
+  --hairline-strong: rgba(160, 176, 204, 0.2);
+  --engrave: rgba(160, 176, 204, 0.35);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -45,7 +45,7 @@
 html {
   background: var(--page-bg);
   scroll-behavior: smooth;
-  scrollbar-color: var(--brass-deep) var(--obsidian);
+  scrollbar-color: var(--accent-deep) var(--ink);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -53,7 +53,7 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(120% 70% at 70% -10%, rgba(201, 164, 92, 0.07), transparent 60%),
+    radial-gradient(120% 70% at 75% -10%, rgba(120, 150, 200, 0.07), transparent 60%),
     var(--page-bg);
   background-attachment: fixed;
   color: var(--theme-text-primary);
@@ -62,13 +62,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  line-height: 1.6;
+  line-height: 1.65;
   font-variant-numeric: oldstyle-nums;
 }
 
 ::selection {
-  background: var(--brass);
-  color: var(--obsidian);
+  background: var(--accent);
+  color: var(--ink);
 }
 
 ::-webkit-scrollbar {
@@ -77,13 +77,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--obsidian);
+  background: var(--ink);
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 2px solid var(--obsidian);
+  border: 2px solid var(--ink);
   border-radius: 10px;
-  background: var(--brass-deep);
+  background: var(--accent-deep);
 }
 
 a {
@@ -97,7 +97,7 @@ input,
 select,
 textarea {
   font: inherit;
-  caret-color: var(--brass);
+  caret-color: var(--accent);
 }
 
 p,
@@ -126,7 +126,7 @@ h3 {
 }
 
 :where(a, button, input, select, textarea, [tabindex]):focus-visible {
-  outline: 1.5px solid var(--brass-bright);
+  outline: 1.5px solid var(--accent-bright);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -142,19 +142,16 @@ table,
   /* An engraved obsidian plate with a brass rim. Kept under the old name so every route inherits it. */
   .glass {
     position: relative;
-    border-radius: 14px;
+    border-radius: 16px;
     border: 1px solid var(--hairline-strong);
-    background: linear-gradient(180deg, var(--obsidian-high), var(--obsidian-raised) 40%);
-    box-shadow:
-      inset 0 0 0 4px var(--obsidian-raised),
-      inset 0 0 0 5px var(--hairline),
-      0 18px 40px -24px rgba(0, 0, 0, 0.9);
+    background: var(--ink-raised);
+    box-shadow: 0 24px 48px -32px rgba(0, 0, 0, 0.9);
   }
 
   .glass-soft {
     border-radius: 12px;
     border: 1px solid var(--hairline);
-    background: var(--obsidian-raised);
+    background: var(--ink-raised);
   }
 
   .card-interactive {
@@ -166,23 +163,13 @@ table,
 
   .card-interactive:hover {
     transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--theme-accent-primary) 60%, transparent);
-    box-shadow:
-      inset 0 0 0 4px var(--obsidian-raised),
-      inset 0 0 0 5px color-mix(in srgb, var(--theme-accent-primary) 30%, transparent),
-      0 28px 50px -26px rgba(0, 0, 0, 0.95);
+    border-color: color-mix(in srgb, var(--theme-accent-primary) 45%, transparent);
+    box-shadow: 0 30px 56px -30px rgba(0, 0, 0, 0.95);
   }
 
-  /* Engraved double rule along the top rim. */
+  /* Retired decorative rim; kept as a no-op so old markup stays harmless. */
   .accent-line {
-    position: absolute;
-    top: 10px;
-    left: 18px;
-    right: 18px;
-    height: 3px;
-    border-top: 1px solid color-mix(in srgb, var(--theme-accent-primary) 40%, transparent);
-    border-bottom: 1px solid color-mix(in srgb, var(--theme-accent-primary) 18%, transparent);
-    pointer-events: none;
+    display: none;
   }
 
   .chip {
@@ -222,7 +209,7 @@ table,
   }
 
   .text-gradient {
-    color: var(--brass-bright);
+    color: var(--accent-bright);
   }
 
   .inscription {
@@ -304,6 +291,101 @@ table,
   }
 }
 
+/* ---------- Mini demos ---------- */
+
+.demo-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--theme-accent-primary);
+}
+
+.demo-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.demo-button {
+  border-radius: 8px;
+  border: 1px solid var(--hairline-strong);
+  padding: 0.6rem 1rem;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--theme-text-primary);
+  background: transparent;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.demo-button:hover:not(:disabled) {
+  border-color: var(--theme-accent-primary);
+}
+
+.demo-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.demo-button--primary {
+  border-color: transparent;
+  background: var(--theme-accent-primary);
+  color: var(--ink);
+}
+
+.demo-button--primary:hover:not(:disabled) {
+  background: var(--theme-accent-secondary);
+}
+
+.demo-chip {
+  border-radius: 999px;
+  border: 1px solid var(--hairline-strong);
+  padding: 0.35rem 0.8rem;
+  font-size: 13.5px;
+  color: var(--theme-text-secondary);
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.demo-chip.is-on {
+  border-color: var(--theme-accent-primary);
+  color: var(--theme-text-primary);
+}
+
+/* ---------- Hero portrait ---------- */
+
+.hero-portrait {
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  /* Fade the bottom and the side facing the text into the page, so the photo reads as light behind the name. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 38%, transparent 88%), linear-gradient(to right, transparent 2%, #000 34%, #000 78%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, #000 38%, transparent 88%), linear-gradient(to right, transparent 2%, #000 34%, #000 78%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: saturate(0.75) contrast(1.02);
+}
+
+/* ---------- Covers ---------- */
+
+.cover img {
+  transition: transform 1.2s var(--ease-out);
+}
+
+.group:hover .cover img {
+  transform: scale(1.03);
+}
+
 /* ---------- Astrolabe ---------- */
 
 .astrolabe {
@@ -329,13 +411,13 @@ table,
 
 .astrolabe__numeral {
   font-family: var(--font-display), ui-serif, Georgia, serif;
-  fill: #2a1f10;
+  fill: #1b2029;
   letter-spacing: 0.04em;
 }
 
 .astrolabe__ring-label {
   font-family: var(--font-display), ui-serif, Georgia, serif;
-  fill: var(--brass);
+  fill: var(--accent);
   opacity: 0.75;
   letter-spacing: 0.22em;
 }
@@ -352,13 +434,32 @@ table,
 }
 
 .astrolabe__pointer:hover .astrolabe__pointer-shape,
-.astrolabe__pointer.is-active .astrolabe__pointer-shape {
+.astrolabe__pointer.is-active .astrolabe__pointer-shape,
+.astrolabe__pointer.is-selected .astrolabe__pointer-shape {
   transform: scale(1.35);
   filter: brightness(1.3);
 }
 
-.astrolabe__pointer:focus-visible .astrolabe__focus {
+.astrolabe__pointer:focus-visible .astrolabe__pin {
+  animation: pin-in 0.5s var(--ease-out);
+}
+
+@keyframes pin-in {
+  from { opacity: 0; transform: scale(1.4); }
+  to { opacity: 1; transform: none; }
+}
+
+.astrolabe__focus {
   opacity: 1;
+}
+
+.astrolabe__pin {
+  animation: pin-in 0.5s var(--ease-out);
+}
+
+@keyframes pin-in {
+  from { opacity: 0; transform: scale(1.4); }
+  to { opacity: 1; transform: none; }
 }
 
 .astrolabe__focus {
@@ -368,9 +469,9 @@ table,
 
 .astrolabe__label {
   font-family: var(--font-sans), ui-sans-serif, sans-serif;
-  fill: var(--parchment);
+  fill: var(--fg);
   paint-order: stroke;
-  stroke: var(--obsidian);
+  stroke: var(--ink);
   stroke-width: 6px;
   stroke-linejoin: round;
   pointer-events: none;
@@ -397,7 +498,7 @@ table,
   position: relative;
   border: 1px solid var(--hairline-strong);
   border-radius: 12px;
-  background: linear-gradient(180deg, var(--obsidian-high), var(--obsidian-raised));
+  background: linear-gradient(180deg, var(--ink-high), var(--ink-raised));
 }
 
 .readout__body {
@@ -423,16 +524,16 @@ table,
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   line-height: 1;
-  color: var(--brass);
+  color: var(--accent);
 }
 
 .maturity-ring[data-level="4"] {
-  color: var(--brass-bright);
+  color: var(--accent-bright);
 }
 
 .maturity-ring[data-level="1"],
 .maturity-ring[data-level="2"] {
-  color: var(--verdigris);
+  color: var(--growth);
 }
 
 /* ---------- Inventory ledger ---------- */

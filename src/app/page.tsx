@@ -1,11 +1,9 @@
 import { ArtifactLedger } from "@/components/artifacts/ArtifactLedger";
-import { FeaturedShowcase } from "@/components/artifacts/ArtifactGrid";
-import { TechnicalFocusMap } from "@/components/artifacts/TechnicalFocusMap";
+import { ArtifactGrid, FeaturedShowcase } from "@/components/artifacts/ArtifactGrid";
 import { LocalizedTextValue } from "@/components/i18n/LocalizedTextValue";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionBlock, SectionHeading } from "@/components/layout/SectionBlock";
 import { SeriesCard } from "@/components/series/SeriesCard";
-import { SeriesTransformationTable } from "@/components/series/SeriesTransformationTable";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ArtifactAstrolabe } from "@/components/visual/ArtifactAstrolabe";
 import { homePageText } from "@/data/pageText";
@@ -13,18 +11,6 @@ import { siteConfig } from "@/data/siteConfig";
 import { uiText } from "@/data/uiText";
 import { getAllArtifacts, getArtifactsBySeries, getArtifactsForHome, getFeaturedArtifacts } from "@/lib/artifacts";
 import { getSeriesBySlug } from "@/lib/series";
-import type { FocusAreaId } from "@/types/artifact";
-
-const selectedFocusAreaIds: FocusAreaId[] = [
-  "voice-tools",
-  "multiplayer-networking",
-  "localization-tooling",
-  "reinforcement-learning",
-  "local-first-apps",
-  "computer-vision",
-  "gameplay-systems",
-  "audio-processing"
-];
 
 export default function HomePage() {
   const artifacts = getAllArtifacts();
@@ -34,67 +20,88 @@ export default function HomePage() {
   const forgeSeries = getSeriesBySlug("forge");
   const forgeArtifacts = getArtifactsBySeries("forge");
 
+  const demoArtifacts = artifacts.filter((artifact) => artifact.demo);
+  const portrait = siteConfig.profile.portrait;
+
   const stats = [
     { value: artifacts.length, label: homePageText.statArtifacts },
-    { value: featuredArtifacts.length, label: homePageText.statFeatured },
     { value: artifacts.filter((artifact) => artifact.statusId === "live-product").length, label: homePageText.statLive },
     { value: artifacts.filter((artifact) => artifact.repoUrl).length, label: homePageText.statPublic }
   ];
 
   return (
     <PageShell themeId="relic-core" variant="archive">
-      {/* First viewport: the person on the left, the whole body of work as one instrument on the right. */}
-      <section className="relative grid min-w-0 gap-10 pb-16 pt-2 sm:pt-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center lg:gap-14 lg:pb-24">
-        <div className="min-w-0">
-          <h1 className="display reveal text-[3.1rem] text-[var(--theme-text-primary)] sm:text-[4.6rem] lg:text-[5.4rem]">
-            <span className="block font-[family-name:var(--font-sans)] text-[0.36em] font-normal tracking-normal text-[var(--theme-text-secondary)]">
-              <LocalizedTextValue text={homePageText.heroIntro} />
-            </span>
-            <span className="mt-3 block text-[var(--brass-bright)]">
-              <LocalizedTextValue text={homePageText.heroName} />
-            </span>
-          </h1>
+      {/* First viewport: the person on the left (photo as light behind the name), the whole body of work on the right. */}
+      <section className="relative grid min-w-0 gap-14 pb-20 pt-4 sm:pt-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-16 lg:pb-28">
+        <div className="relative min-w-0">
+          {portrait ? (
+            <div aria-hidden="true" className="hero-portrait reveal -right-[4%] -top-2 w-[46%] opacity-[0.4] sm:-right-[2%] sm:-top-10 sm:w-[44%] sm:opacity-[0.46] lg:-right-[29%] lg:-top-[150px] lg:w-[91%] lg:opacity-[0.5]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" decoding="async" fetchPriority="high" src={portrait.src} />
+            </div>
+          ) : null}
 
-          <p className="reveal reveal-delay-1 mt-8 max-w-xl text-[1.3rem] leading-snug text-[var(--theme-text-primary)] sm:text-[1.5rem]">
-            <LocalizedTextValue text={homePageText.heroLead} />
-          </p>
-          <p className="reveal reveal-delay-2 mt-5 max-w-xl text-[17px] leading-relaxed text-[var(--theme-text-secondary)]">
-            <LocalizedTextValue text={homePageText.heroBody} />
-          </p>
+          <div className="relative z-10">
+            <h1 className="display reveal text-[3.1rem] text-[var(--theme-text-primary)] sm:text-[4.6rem] lg:text-[5.2rem]">
+              <span className="block font-[family-name:var(--font-sans)] text-[0.36em] font-normal tracking-normal text-[var(--theme-text-secondary)]">
+                <LocalizedTextValue text={homePageText.heroIntro} />
+              </span>
+              <span className="hero-name mt-3 block text-[var(--accent-bright)]">
+                <LocalizedTextValue text={homePageText.heroName} />
+              </span>
+            </h1>
 
-          <div className="reveal reveal-delay-3 mt-9 flex flex-wrap gap-3">
-            <ButtonLink href={siteConfig.hero.primaryCta.href}>
-              <LocalizedTextValue text={siteConfig.hero.primaryCta.label} />
-            </ButtonLink>
-            <ButtonLink href={siteConfig.hero.secondaryCta.href} variant="secondary">
-              <LocalizedTextValue text={siteConfig.hero.secondaryCta.label} />
-            </ButtonLink>
+            <p className="reveal reveal-delay-1 mt-10 max-w-md text-[1.25rem] leading-snug text-[var(--theme-text-primary)] sm:text-[1.4rem]">
+              <LocalizedTextValue text={homePageText.heroLead} />
+            </p>
+            <p className="reveal reveal-delay-2 mt-5 max-w-md text-[16.5px] leading-relaxed text-[var(--theme-text-secondary)]">
+              <LocalizedTextValue text={homePageText.heroBody} />
+            </p>
+
+            <div className="reveal reveal-delay-3 mt-10 flex flex-wrap gap-3">
+              <ButtonLink href={siteConfig.hero.primaryCta.href}>
+                <LocalizedTextValue text={siteConfig.hero.primaryCta.label} />
+              </ButtonLink>
+              <ButtonLink href={siteConfig.hero.secondaryCta.href} variant="secondary">
+                <LocalizedTextValue text={siteConfig.hero.secondaryCta.label} />
+              </ButtonLink>
+            </div>
+
+            <dl className="reveal reveal-delay-3 mt-14 flex flex-wrap gap-x-10 gap-y-4">
+              {stats.map((stat) => (
+                <div className="flex flex-col gap-1" key={stat.label.tr}>
+                  <dd className="tabular text-[1.9rem] font-medium leading-none text-[var(--theme-text-primary)]">{stat.value}</dd>
+                  <dt className="text-[14px] text-[var(--theme-text-muted)]">
+                    <LocalizedTextValue text={stat.label} />
+                  </dt>
+                </div>
+              ))}
+            </dl>
           </div>
-
-          <dl className="reveal reveal-delay-3 mt-12 grid grid-cols-2 gap-x-7 gap-y-3 sm:flex sm:flex-wrap border-t border-[color:var(--hairline)] pt-5">
-            {stats.map((stat) => (
-              <div className="flex items-baseline gap-2" key={stat.label.tr}>
-                <dd className="tabular text-[1.75rem] font-medium leading-none text-[var(--brass)]">{stat.value}</dd>
-                <dt className="text-[15px] text-[var(--theme-text-secondary)]">
-                  <LocalizedTextValue text={stat.label} />
-                </dt>
-              </div>
-            ))}
-          </dl>
         </div>
 
-        <div className="reveal reveal-delay-2 mx-auto w-full max-w-[660px]">
+        <div className="reveal reveal-delay-2 relative z-10 mx-auto w-full max-w-[620px]">
           <ArtifactAstrolabe artifacts={artifacts} />
         </div>
       </section>
 
-      <SectionBlock className="pt-16 sm:pt-24">
+      <SectionBlock>
         <SectionHeading
           description={<LocalizedTextValue text={homePageText.featuredDescription} />}
           title={<LocalizedTextValue text={homePageText.featuredTitle} />}
         />
         <FeaturedShowcase artifacts={featuredArtifacts} />
       </SectionBlock>
+
+      {demoArtifacts.length ? (
+        <SectionBlock>
+          <SectionHeading
+            description={<LocalizedTextValue text={homePageText.demosDescription} />}
+            title={<LocalizedTextValue text={homePageText.demosTitle} />}
+          />
+          <ArtifactGrid artifacts={demoArtifacts} />
+        </SectionBlock>
+      ) : null}
 
       {forgeSeries ? (
         <SectionBlock>
@@ -121,24 +128,7 @@ export default function HomePage() {
       </SectionBlock>
 
       <SectionBlock>
-        <SectionHeading
-          description={<LocalizedTextValue text={homePageText.transformationDescription} />}
-          title={<LocalizedTextValue text={uiText.transformationFlow} />}
-        />
-        <SeriesTransformationTable artifacts={forgeArtifacts} />
-      </SectionBlock>
-
-      <SectionBlock>
-        <SectionHeading
-          description={<LocalizedTextValue text={homePageText.focusMapDescription} />}
-          title={<LocalizedTextValue text={homePageText.focusMapTitle} />}
-        />
-        <TechnicalFocusMap artifacts={artifacts} focusAreaIds={selectedFocusAreaIds} />
-      </SectionBlock>
-
-      <SectionBlock>
         <div className="glass relative overflow-hidden p-8 sm:p-12">
-          <span aria-hidden="true" className="accent-line" />
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div>
               <h2 className="text-[2rem] text-[var(--theme-text-primary)] sm:text-[2.6rem]">

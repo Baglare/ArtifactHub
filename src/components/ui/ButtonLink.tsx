@@ -19,10 +19,10 @@ type ButtonLinkProps = {
 
 const variantClasses: Record<ButtonLinkVariant, string> = {
   primary:
-    "border-[color:var(--brass)] bg-[var(--brass)] text-[var(--obsidian)] shadow-[0_8px_18px_-10px_rgba(0,0,0,0.9)] hover:-translate-y-0.5 hover:bg-[var(--brass-bright)] hover:border-[color:var(--brass-bright)]",
+    "border-[color:var(--accent)] bg-[var(--accent)] text-[var(--ink)] shadow-[0_8px_18px_-10px_rgba(0,0,0,0.9)] hover:-translate-y-0.5 hover:bg-[var(--accent-bright)] hover:border-[color:var(--accent-bright)]",
   secondary:
-    "border-[color:var(--hairline-strong)] bg-transparent text-[var(--theme-text-primary)] hover:-translate-y-0.5 hover:border-[color:var(--brass)] hover:text-[var(--brass-bright)]",
-  ghost: "border-transparent bg-transparent text-[var(--theme-text-secondary)] hover:text-[var(--brass-bright)]"
+    "border-[color:var(--hairline-strong)] bg-transparent text-[var(--theme-text-primary)] hover:-translate-y-0.5 hover:border-[color:var(--accent)] hover:text-[var(--accent-bright)]",
+  ghost: "border-transparent bg-transparent text-[var(--theme-text-secondary)] hover:text-[var(--accent-bright)]"
 };
 
 export function ButtonLink({ href, children, label, labelKey, variant = "primary", external = false, className }: ButtonLinkProps) {

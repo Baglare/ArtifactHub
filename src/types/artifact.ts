@@ -83,9 +83,25 @@ export type MediaType = "image" | "video" | "audio";
 
 export type MediaItem = {
   type: MediaType;
+  /** Path under `public/`, e.g. `/images/artifacts/<slug>/screen.webp`. */
   src: string;
   alt: LocalizedText;
   caption?: LocalizedText;
+  /** The first image with `cover: true` (or else the first image) becomes the card/hero cover. */
+  cover?: boolean;
+  /** CSS object-position for the cover crop, e.g. "50% 20%". */
+  focus?: string;
+  /** Where the image comes from, so screenshots stay distinguishable from illustrations. */
+  kind?: "screenshot" | "brand" | "illustration";
+};
+
+/** In-browser mini demos; each id maps to a lazily loaded component in `src/components/demos/registry.tsx`. */
+export type DemoId = "pulseforge-rhythm" | "tempoblade-parry" | "agentverse-gridworld";
+
+export type ArtifactDemo = {
+  id: DemoId;
+  /** One honest line on how the mini demo relates to the real project. */
+  note: LocalizedText;
 };
 
 export type Artifact = {
@@ -112,6 +128,7 @@ export type Artifact = {
   riskProfile?: RiskProfile;
   links?: ArtifactLink[];
   media?: MediaItem[];
+  demo?: ArtifactDemo;
   createdAt?: string;
   updatedAt?: string;
 };
@@ -213,6 +230,7 @@ export type SiteHero = {
 
 export type ProfileSummary = {
   displayName: string;
+  portrait?: { src: string; alt: LocalizedText };
   shortBio: LocalizedText;
 };
 

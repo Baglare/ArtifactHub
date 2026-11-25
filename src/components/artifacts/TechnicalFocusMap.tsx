@@ -43,7 +43,7 @@ export function TechnicalFocusMap({ artifacts, focusAreaIds }: TechnicalFocusMap
           className="ledger-row grid gap-x-8 gap-y-2 border-b border-[color:var(--hairline)] px-1 py-5 sm:px-3 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)_minmax(0,1fr)] md:items-baseline"
           key={group.focusArea.id}
         >
-          <dt className="font-[family-name:var(--font-display)] text-[1.35rem] leading-tight text-[var(--parchment)]">
+          <dt className="font-[family-name:var(--font-display)] text-[1.35rem] leading-tight text-[var(--fg)]">
             {getLocalizedText(group.focusArea.label, locale)}
           </dt>
           <dd className="text-[15.5px] leading-relaxed text-[var(--theme-text-secondary)]">
@@ -54,7 +54,7 @@ export function TechnicalFocusMap({ artifacts, focusAreaIds }: TechnicalFocusMap
               <ul className="flex flex-wrap gap-x-4 gap-y-1">
                 {group.artifacts.map((artifact) => (
                   <li key={artifact.id}>
-                    <Link className="link-engraved text-[15.5px] text-[var(--brass)] hover:text-[var(--brass-bright)]" href={`/artifacts/${artifact.slug}/`}>
+                    <Link className="link-engraved text-[15.5px] text-[var(--accent)] hover:text-[var(--accent-bright)]" href={`/artifacts/${artifact.slug}/`}>
                       {artifact.title}
                     </Link>
                   </li>

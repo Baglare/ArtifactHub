@@ -36,14 +36,16 @@ const pointerSize: Record<MaturityLevel, { length: number; width: number; star: 
   1: { length: 28, width: 10, star: 5 }
 };
 const pointerColor: Record<MaturityLevel, string> = {
-  4: "var(--brass-bright)",
-  3: "var(--brass)",
-  2: "var(--verdigris)",
-  1: "var(--verdigris-dim)"
+  4: "var(--accent-bright)",
+  3: "var(--accent)",
+  2: "var(--growth)",
+  1: "var(--growth-dim)"
 };
 
 const toRad = (deg: number) => (deg * Math.PI) / 180;
-const polar = (radius: number, deg: number) => ({ x: C + Math.cos(toRad(deg)) * radius, y: C + Math.sin(toRad(deg)) * radius });
+// Rounded so server and client render identical attribute strings (avoids hydration mismatches).
+const round = (value: number) => Math.round(value * 100) / 100;
+const polar = (radius: number, deg: number) => ({ x: round(C + Math.cos(toRad(deg)) * radius), y: round(C + Math.sin(toRad(deg)) * radius) });
 const wrap = (deg: number) => ((((deg + 180) % 360) + 360) % 360) - 180;
 
 function buildPointers(artifacts: Artifact[]): Pointer[] {
@@ -64,7 +66,7 @@ function buildPointers(artifacts: Artifact[]): Pointer[] {
   return pointers;
 }
 
-/** The limb: a degree scale engraved into the brass mater, numbered every ten degrees. */
+/** The limb: a degree scale engraved into the metal mater, numbered every ten degrees. */
 function Limb() {
   const ticks = useMemo(() => {
     const lines: string[] = [];
@@ -79,9 +81,9 @@ function Limb() {
 
   return (
     <g>
-      <circle cx={C} cy={C} fill="url(#ah-brass)" r={496} stroke="#3b2a12" strokeWidth={2} />
-      <circle cx={C} cy={C} fill="none" r={486} stroke="#3b2a12" strokeOpacity={0.6} strokeWidth={1} />
-      <path d={ticks} stroke="#2a1d0c" strokeWidth={1.4} />
+      <circle cx={C} cy={C} fill="url(#ah-metal)" r={496} stroke="#1f252e" strokeWidth={2} />
+      <circle cx={C} cy={C} fill="none" r={486} stroke="#1f252e" strokeOpacity={0.6} strokeWidth={1} />
+      <path d={ticks} stroke="#1a1f27" strokeWidth={1.4} />
       {Array.from({ length: 36 }, (_, i) => i * 10).map((deg) => {
         const p = polar(446, deg);
         return (
@@ -99,7 +101,7 @@ function Limb() {
           </text>
         );
       })}
-      <circle cx={C} cy={C} fill="none" r={430} stroke="#2a1d0c" strokeWidth={3} />
+      <circle cx={C} cy={C} fill="none" r={430} stroke="#1a1f27" strokeWidth={3} />
     </g>
   );
 }
@@ -112,14 +114,14 @@ function Plate() {
       {Array.from({ length: 12 }, (_, i) => i * 30).map((deg) => {
         const a = polar(110, deg);
         const b = polar(428, deg);
-        return <line key={deg} stroke="var(--brass)" strokeOpacity={0.12} strokeWidth={1} x1={a.x} x2={b.x} y1={a.y} y2={b.y} />;
+        return <line key={deg} stroke="var(--accent)" strokeOpacity={0.12} strokeWidth={1} x1={a.x} x2={b.x} y1={a.y} y2={b.y} />;
       })}
-      <line stroke="var(--brass)" strokeOpacity={0.28} x1={C - 428} x2={C + 428} y1={C} y2={C} />
-      <line stroke="var(--brass)" strokeOpacity={0.28} x1={C} x2={C} y1={C - 428} y2={C + 428} />
+      <line stroke="var(--accent)" strokeOpacity={0.28} x1={C - 428} x2={C + 428} y1={C} y2={C} />
+      <line stroke="var(--accent)" strokeOpacity={0.28} x1={C} x2={C} y1={C - 428} y2={C + 428} />
       {([4, 3, 2, 1] as MaturityLevel[]).map((level) => (
         <g key={level}>
-          <circle cx={C} cy={C} fill="none" r={ringRadius[level]} stroke="var(--brass)" strokeOpacity={0.42} strokeWidth={1.2} />
-          <circle cx={C} cy={C} fill="none" r={ringRadius[level] + 6} stroke="var(--brass)" strokeOpacity={0.14} strokeWidth={1} />
+          <circle cx={C} cy={C} fill="none" r={ringRadius[level]} stroke="var(--accent)" strokeOpacity={0.42} strokeWidth={1.2} />
+          <circle cx={C} cy={C} fill="none" r={ringRadius[level] + 6} stroke="var(--accent)" strokeOpacity={0.14} strokeWidth={1} />
           <text className="astrolabe__ring-label" fontSize={15} textAnchor="middle" x={C + 16} y={C - ringRadius[level] - 10}>
             {roman[level]}
           </text>
@@ -133,7 +135,10 @@ export function ArtifactAstrolabe({ artifacts }: ArtifactAstrolabeProps) {
   const { locale } = useLocale();
   const router = useRouter();
   const pointers = useMemo(() => buildPointers(artifacts), [artifacts]);
-  const [activeId, setActiveId] = useState<string | null>(null);
+  // A click pins a project; hovering only previews it and falls back to the pinned one on leave.
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [hoverId, setHoverId] = useState<string | null>(null);
+  const activeId = hoverId ?? selectedId;
   const [isDragging, setIsDragging] = useState(false);
 
   const rootRef = useRef<HTMLDivElement>(null);
@@ -272,17 +277,21 @@ export function ArtifactAstrolabe({ artifacts }: ArtifactAstrolabeProps) {
     setIsDragging(false);
   };
 
-  const openPointer = (pointer: Pointer, pointerType: string) => {
+  const openPointer = (pointer: Pointer) => {
     if (motion.current.suppressClick) return;
-    // Touch has no hover: the first tap reads the pointer, the second opens it.
-    if (pointerType !== "mouse" && activeId !== pointer.artifact.id) {
-      setActiveId(pointer.artifact.id);
+    // First click pins the project in the readout; clicking the pinned one again opens it.
+    if (selectedId !== pointer.artifact.id) {
+      setSelectedId(pointer.artifact.id);
       return;
     }
     router.push(`/artifacts/${pointer.artifact.slug}/`);
   };
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Escape") {
+      setSelectedId(null);
+      return;
+    }
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
       event.preventDefault();
       motion.current.velocity += event.key === "ArrowRight" ? 90 : -90;
@@ -305,19 +314,19 @@ export function ArtifactAstrolabe({ artifacts }: ArtifactAstrolabeProps) {
           viewBox="-20 -40 1040 1060"
         >
           <defs>
-            <radialGradient cx="38%" cy="30%" id="ah-brass" r="80%">
-              <stop offset="0" stopColor="#e7c983" />
-              <stop offset="0.45" stopColor="#bf9248" />
-              <stop offset="1" stopColor="#6a4b1f" />
+            <radialGradient cx="38%" cy="30%" id="ah-metal" r="80%">
+              <stop offset="0" stopColor="#a9b4c4" />
+              <stop offset="0.45" stopColor="#6b7688" />
+              <stop offset="1" stopColor="#2f3743" />
             </radialGradient>
             <radialGradient cx="45%" cy="40%" id="ah-plate" r="70%">
-              <stop offset="0" stopColor="#1b1712" />
-              <stop offset="1" stopColor="#0a0908" />
+              <stop offset="0" stopColor="#141922" />
+              <stop offset="1" stopColor="#080a0e" />
             </radialGradient>
             <linearGradient id="ah-rete" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stopColor="#f0d79f" />
-              <stop offset="0.5" stopColor="#c39447" />
-              <stop offset="1" stopColor="#8a6327" />
+              <stop offset="0" stopColor="#dce3ee" />
+              <stop offset="0.5" stopColor="#98a4b6" />
+              <stop offset="1" stopColor="#596477" />
             </linearGradient>
             <filter height="140%" id="ah-shadow" width="140%" x="-20%" y="-20%">
               <feDropShadow dx="0" dy="7" floodColor="#000" floodOpacity="0.65" stdDeviation="6" />
@@ -326,7 +335,7 @@ export function ArtifactAstrolabe({ artifacts }: ArtifactAstrolabeProps) {
 
           {/* Throne and shackle ring */}
           <circle cx={C} cy={-6} fill="none" r={24} stroke="url(#ah-rete)" strokeWidth={9} />
-          <path d={`M${C - 46} 18 Q${C} -24 ${C + 46} 18 L${C + 30} 40 L${C - 30} 40Z`} fill="url(#ah-brass)" stroke="#3b2a12" strokeWidth={2} />
+          <path d={`M${C - 46} 18 Q${C} -24 ${C + 46} 18 L${C + 30} 40 L${C - 30} 40Z`} fill="url(#ah-metal)" stroke="#1f252e" strokeWidth={2} />
 
           <Limb />
           <Plate />
@@ -334,7 +343,7 @@ export function ArtifactAstrolabe({ artifacts }: ArtifactAstrolabeProps) {
           {/* The rete: openwork that turns over the plate and carries the project pointers. */}
           <g filter="url(#ah-shadow)" ref={reteRef} transform={`rotate(-18 ${C} ${C})`}>
             <circle cx={C} cy={C} fill="none" r={408} stroke="url(#ah-rete)" strokeWidth={7} />
-            <circle cx={C} cy={C} fill="none" r={400} stroke="#3b2a12" strokeOpacity={0.6} strokeWidth={1} />
+            <circle cx={C} cy={C} fill="none" r={400} stroke="#1f252e" strokeOpacity={0.6} strokeWidth={1} />
             <circle cx={C} cy={C - 64} fill="none" r={262} stroke="url(#ah-rete)" strokeWidth={5} />
             <circle cx={C} cy={C - 64} fill="none" r={248} stroke="url(#ah-rete)" strokeOpacity={0.55} strokeWidth={1.5} />
             {[45, 135, 225, 315].map((deg) => {
@@ -348,37 +357,39 @@ export function ArtifactAstrolabe({ artifacts }: ArtifactAstrolabeProps) {
               const p = polar(pointer.radius, pointer.angle);
               const size = pointerSize[pointer.maturity];
               const isActive = pointer.artifact.id === activeId;
+              const isSelected = pointer.artifact.id === selectedId;
               const status = getStatusById(pointer.artifact.statusId);
               return (
                 <g
                   aria-label={`${pointer.artifact.title}, ${status ? getLocalizedText(status.label, locale) : ""}`}
-                  className={`astrolabe__pointer ${isActive ? "is-active" : ""}`}
+                  className={`astrolabe__pointer ${isActive ? "is-active" : ""} ${isSelected ? "is-selected" : ""}`}
                   key={pointer.artifact.id}
-                  onBlur={() => setActiveId((current) => (current === pointer.artifact.id ? null : current))}
-                  onClick={(event) => openPointer(pointer, (event.nativeEvent as globalThis.PointerEvent).pointerType || "mouse")}
-                  onFocus={() => setActiveId(pointer.artifact.id)}
+                  aria-pressed={pointer.artifact.id === selectedId}
+                  onClick={() => openPointer(pointer)}
+                  onFocus={() => setSelectedId(pointer.artifact.id)}
                   onKeyDown={(event) => {
                     if (event.key === "Enter" || event.key === " ") {
                       event.preventDefault();
                       router.push(`/artifacts/${pointer.artifact.slug}/`);
                     }
                   }}
-                  onPointerEnter={(event) => event.pointerType === "mouse" && setActiveId(pointer.artifact.id)}
-                  onPointerLeave={(event) => event.pointerType === "mouse" && setActiveId(null)}
-                  role="link"
+                  onPointerEnter={(event) => event.pointerType === "mouse" && !motion.current.drag && setHoverId(pointer.artifact.id)}
+                  onPointerLeave={(event) => event.pointerType === "mouse" && setHoverId(null)}
+                  role="button"
                   tabIndex={0}
                   transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) rotate(${pointer.angle + 90})`}
                 >
                   <circle fill="transparent" r={size.length * 0.75} />
-                  <circle className="astrolabe__focus" fill="none" r={size.length * 0.62} stroke="var(--brass-bright)" strokeDasharray="4 4" strokeWidth={1.5} />
+                  {isSelected ? <circle className="astrolabe__pin" fill="none" r={size.length * 0.62} stroke="var(--accent-bright)" strokeWidth={2} /> : null}
+                  <circle className="astrolabe__focus" fill="none" r={size.length * 0.62} stroke="var(--accent-bright)" strokeDasharray="4 4" strokeWidth={1.5} />
                   <g className="astrolabe__pointer-shape">
                     <path
                       d={`M0 ${size.star} L${size.width / 2} ${size.length * 0.72} Q0 ${size.length * 1.05} ${-size.width / 2} ${size.length * 0.72} Z`}
                       fill="url(#ah-rete)"
-                      stroke="#3b2a12"
+                      stroke="#1f252e"
                       strokeWidth={1}
                     />
-                    <circle fill={pointerColor[pointer.maturity]} r={size.star} stroke="#0c0b0a" strokeWidth={2} />
+                    <circle fill={pointerColor[pointer.maturity]} r={size.star} stroke="#0b0e13" strokeWidth={2} />
                   </g>
                 </g>
               );
@@ -387,10 +398,10 @@ export function ArtifactAstrolabe({ artifacts }: ArtifactAstrolabeProps) {
 
           {/* The alidade: a sighting rule that swings to whichever project you are reading. */}
           <g filter="url(#ah-shadow)" pointerEvents="none" ref={alidadeRef} transform={`rotate(-40 ${C} ${C})`}>
-            <path d={`M${C} 92 L${C + 11} 150 L${C + 11} 850 L${C} 908 L${C - 11} 850 L${C - 11} 150Z`} fill="url(#ah-rete)" fillOpacity={0.92} stroke="#3b2a12" strokeWidth={1.2} />
-            <line stroke="#3b2a12" strokeOpacity={0.8} strokeWidth={1} x1={C} x2={C} y1={100} y2={900} />
-            <rect fill="url(#ah-brass)" height={10} rx={2} stroke="#3b2a12" width={34} x={C - 17} y={196} />
-            <rect fill="url(#ah-brass)" height={10} rx={2} stroke="#3b2a12" width={34} x={C - 17} y={794} />
+            <path d={`M${C} 92 L${C + 11} 150 L${C + 11} 850 L${C} 908 L${C - 11} 850 L${C - 11} 150Z`} fill="url(#ah-rete)" fillOpacity={0.92} stroke="#1f252e" strokeWidth={1.2} />
+            <line stroke="#1f252e" strokeOpacity={0.8} strokeWidth={1} x1={C} x2={C} y1={100} y2={900} />
+            <rect fill="url(#ah-metal)" height={10} rx={2} stroke="#1f252e" width={34} x={C - 17} y={196} />
+            <rect fill="url(#ah-metal)" height={10} rx={2} stroke="#1f252e" width={34} x={C - 17} y={794} />
           </g>
           {/* Labels ride with their pointers but stay upright. */}
           <g aria-hidden="true">
@@ -416,32 +427,40 @@ export function ArtifactAstrolabe({ artifacts }: ArtifactAstrolabeProps) {
             </g>
           </g>
 
-          <circle cx={C} cy={C} fill="url(#ah-brass)" pointerEvents="none" r={20} stroke="#3b2a12" strokeWidth={2} />
-          <circle cx={C} cy={C} fill="#2a1d0c" pointerEvents="none" r={6} />
+          <circle cx={C} cy={C} fill="url(#ah-metal)" pointerEvents="none" r={20} stroke="#1f252e" strokeWidth={2} />
+          <circle cx={C} cy={C} fill="#1a1f27" pointerEvents="none" r={6} />
         </svg>
       </div>
 
-      <div aria-live="polite" className="readout px-5 py-5 sm:px-6">
-        <span aria-hidden="true" className="accent-line" />
+      <div aria-live="polite" className="readout px-6 py-5">
         {shownPointer ? (
-          <div className="readout__body mt-2" key={shownPointer.artifact.id}>
+          <div className="readout__body" key={shownPointer.artifact.id}>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <h3 className="text-[1.75rem] text-[var(--brass-bright)]">{shownPointer.artifact.title}</h3>
+              <h3 className="text-[1.75rem] text-[var(--accent-bright)]">{shownPointer.artifact.title}</h3>
               <StatusBadge statusId={shownPointer.artifact.statusId} variant="subtle" />
-              <span className="text-[14px] text-[var(--theme-text-muted)]">
-                {shownPointer.inventory}
-                {category ? ` · ${getLocalizedText(category.label, locale)}` : ""}
-              </span>
+              {selectedId === shownPointer.artifact.id ? (
+                <button
+                  className="ml-auto rounded-md px-2 py-1 text-[13px] text-[var(--theme-text-muted)] transition-colors hover:text-[var(--theme-text-primary)]"
+                  onClick={() => setSelectedId(null)}
+                  type="button"
+                >
+                  {locale === "tr" ? "Seçimi bırak" : "Unpin"} ×
+                </button>
+              ) : null}
             </div>
-            <p className="mt-2 line-clamp-2 text-[15.5px] leading-relaxed text-[var(--theme-text-secondary)]">
+            <p className="mt-1 text-[14px] text-[var(--theme-text-muted)]">
+              {shownPointer.inventory}
+              {category ? ` · ${getLocalizedText(category.label, locale)}` : ""}
+            </p>
+            <p className="mt-3 line-clamp-2 text-[15.5px] leading-relaxed text-[var(--theme-text-secondary)]">
               {getLocalizedText(shownPointer.artifact.summary, locale)}
             </p>
-            <Link className="link-engraved mt-3 inline-block text-[15px] font-medium text-[var(--brass)]" href={`/artifacts/${shownPointer.artifact.slug}/`}>
+            <Link className="link-engraved mt-3 inline-block text-[15px] font-medium text-[var(--accent)]" href={`/artifacts/${shownPointer.artifact.slug}/`}>
               {getUiText("viewArtifact", locale)}
             </Link>
           </div>
         ) : null}
-        <p className="mt-4 border-t border-[color:var(--hairline)] pt-3 text-[14px] leading-relaxed text-[var(--theme-text-muted)]">
+        <p className="mt-4 text-[13.5px] leading-relaxed text-[var(--theme-text-muted)]">
           {getLocalizedText(homePageText.orbitHint, locale)}
         </p>
       </div>

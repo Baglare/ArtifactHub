@@ -37,7 +37,7 @@ Static Next.js export hosted on TurkHosting (Plesk) at a subdomain (default arti
 
 ## Evidence on Hand
 
-Registry text for 14 projects, statuses, focus areas, tech stacks; one raster `public/images/artifacthub-relic-core.png`. No screenshots or demo videos of the projects yet (planned) — do not fabricate them.
+Registry text for 14 projects, statuses, focus areas, tech stacks. Real images: MediaTracker live-build screenshot, Petglare brand banner, the author's portrait (hero). Other projects get generated theme covers, never fabricated screenshots. In-browser mini demos for PulseForge, TempoBlade and AgentVerse, each labelled as a small web take on the real project.
 
 ## Product Principles
 

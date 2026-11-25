@@ -12,6 +12,9 @@ import { TechnicalPanel } from "@/components/content/TechnicalPanel";
 import { TransformationFlow } from "@/components/content/TransformationFlow";
 import { LocalizedTextValue } from "@/components/i18n/LocalizedTextValue";
 import { PageShell } from "@/components/layout/PageShell";
+import { DemoPanel } from "@/components/demos/DemoPanel";
+import { ArtifactGallery } from "@/components/media/ArtifactGallery";
+import { getArtifactImages } from "@/lib/media";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { TechTag } from "@/components/ui/TechTag";
 import { uiText } from "@/data/uiText";
@@ -65,12 +68,22 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
   const overviewText = artifact.sections.overview.body;
   const currentScopeText = artifact.sections.currentScope.body;
   const ethicalNotes = artifact.sections.ethicalNotes ?? [];
+  // The cover already shows in the hero; the gallery only appears when there is more than that one image.
+  const galleryImages = getArtifactImages(artifact).length > 1 || getArtifactImages(artifact)[0]?.caption ? getArtifactImages(artifact) : [];
 
   return (
     <PageShell themeId={artifact.themeId} variant="artifact">
       <ArtifactHero artifact={artifact} />
 
-      <div className="grid min-w-0 gap-5">
+      <div className="grid min-w-0 gap-8">
+        <DemoPanel artifact={artifact} />
+
+        {galleryImages.length ? (
+          <section className="min-w-0">
+            <ArtifactGallery artifact={artifact} />
+          </section>
+        ) : null}
+
         <TechnicalPanel titleKey="quickFacts" themeId={artifact.themeId}>
           <QuickFacts artifact={artifact} />
         </TechnicalPanel>
@@ -98,16 +111,6 @@ export default async function ArtifactDetailPage({ params }: ArtifactDetailPageP
             </ul>
           </TechnicalPanel>
         ) : null}
-
-        <TechnicalPanel titleKey="technicalTags" themeId={artifact.themeId} variant="technical">
-          <ul className="flex flex-wrap gap-2">
-            {artifact.techStack.map((tech) => (
-              <li key={tech}>
-                <TechTag label={tech} variant="compact" />
-              </li>
-            ))}
-          </ul>
-        </TechnicalPanel>
 
         {artifact.transformation ? (
           <TechnicalPanel titleKey="transformationFlow" themeId={artifact.themeId} variant="technical">

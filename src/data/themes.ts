@@ -7,17 +7,17 @@ export const themes: Theme[] = [
     symbolId: "relic-core",
     animationPreset: "relic-glow",
     texture: "stone-noise",
-    tone: { tr: "Obsidian taş, kırık mühür, soluk altın çizgiler ve teknik arşiv hissi.", en: "Obsidian stone, broken seal marks, pale gold lines, and a technical archive feel." },
+    tone: { tr: "Gece mavisi zemin, kalay rengi çizgiler ve sakin bir teknik arşiv hissi.", en: "Night-blue ground, pewter lines, and a calm technical archive feel." },
     colors: {
-      background: "#0C0B0A",
-      surface: "#15120F",
-      surfaceRaised: "#1D1915",
-      border: "#3A3022",
-      textPrimary: "#ECE2CC",
-      textSecondary: "#B9AB90",
-      textMuted: "#8A7D66",
-      accentPrimary: "#C9A45C",
-      accentSecondary: "#ECD49A"
+      background: "#0B0E13",
+      surface: "#11151C",
+      surfaceRaised: "#171C25",
+      border: "#262D39",
+      textPrimary: "#E6E8EC",
+      textSecondary: "#A6AEBB",
+      textMuted: "#737C8B",
+      accentPrimary: "#93ACD3",
+      accentSecondary: "#D3DFF1"
     }
   },
   {

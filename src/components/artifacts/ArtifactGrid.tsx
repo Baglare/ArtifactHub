@@ -24,7 +24,7 @@ export function ArtifactGrid({
   }
 
   return (
-    <div className={variant === "featured" ? "grid min-w-0 gap-4 md:grid-cols-2" : "grid min-w-0 gap-4 md:grid-cols-2 xl:grid-cols-3"}>
+    <div className={variant === "featured" ? "grid min-w-0 gap-6 md:grid-cols-2" : "grid min-w-0 gap-6 md:grid-cols-2 xl:grid-cols-3"}>
       {artifacts.map((artifact) => (
         <ArtifactCard
           artifact={artifact}
@@ -52,7 +52,7 @@ export function FeaturedShowcase({ artifacts }: FeaturedShowcaseProps) {
   const [spotlight, ...rest] = artifacts;
 
   return (
-    <div className="grid min-w-0 gap-4 lg:grid-cols-6">
+    <div className="grid min-w-0 gap-6 lg:grid-cols-6">
       <ArtifactCard artifact={spotlight} className="lg:col-span-6" showRepoLink showTransformation variant="spotlight" />
       {rest.map((artifact, index) => (
         <ArtifactCard

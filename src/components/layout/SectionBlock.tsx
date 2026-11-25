@@ -17,7 +17,7 @@ export function SectionBlock({ children, eyebrow, title, description, themeId, c
   const themeStyle = themeId ? getThemeCssVariables(themeId) : undefined;
 
   return (
-    <section className={`min-w-0 py-10 sm:py-14 ${className ?? ""}`} style={themeStyle}>
+    <section className={`min-w-0 py-14 sm:py-24 ${className ?? ""}`} style={themeStyle}>
       {title ? (
         <h1 className="display reveal text-[2.75rem] text-[var(--theme-text-primary)] sm:text-6xl md:text-7xl">
           {title}
@@ -41,10 +41,10 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ eyebrow, title, description, action }: SectionHeadingProps) {
   return (
-    <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+    <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div className="min-w-0">
         <h2 className="text-[2rem] text-[var(--theme-text-primary)] sm:text-[2.6rem]">{title}</h2>
-        {description ? <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-[var(--theme-text-secondary)]">{description}</p> : null}
+        {description ? <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-[var(--theme-text-secondary)]">{description}</p> : null}
       </div>
       {action ? <div className="shrink-0">{action}</div> : null}
     </div>

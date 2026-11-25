@@ -23,8 +23,8 @@ export function ArtifactFilterBar({ activeFilterId, onFilterChange }: ArtifactFi
             aria-pressed={isActive}
             className={`min-w-0 rounded-[4px] border px-3.5 py-2 text-[15px] leading-tight transition-colors duration-300 ${
               isActive
-                ? "border-[color:var(--brass)] bg-[var(--brass)] text-[var(--obsidian)]"
-                : "border-[color:var(--hairline-strong)] text-[var(--theme-text-secondary)] hover:border-[color:var(--brass)] hover:text-[var(--brass-bright)]"
+                ? "border-[color:var(--accent)] bg-[var(--accent)] text-[var(--ink)]"
+                : "border-[color:var(--hairline-strong)] text-[var(--theme-text-secondary)] hover:border-[color:var(--accent)] hover:text-[var(--accent-bright)]"
             }`}
             key={filter.id}
             onClick={() => onFilterChange(filter.id)}
