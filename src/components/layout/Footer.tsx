@@ -19,11 +19,11 @@ export function Footer() {
       </ContentContainer>
       <ContentContainer className="grid gap-10 py-14 md:grid-cols-[1.4fr_1fr]">
         <div className="flex min-w-0 gap-5">
-          <BrandMark className="h-12 w-12 shrink-0 text-[var(--brass)]" />
+          <BrandMark className="h-12 w-12 shrink-0 text-[var(--accent)]" />
           <div className="min-w-0">
             <p className="font-[family-name:var(--font-display)] text-[1.75rem] leading-tight text-[var(--theme-text-primary)]">
               {siteConfig.title}
-              <span className="ml-3 text-[var(--brass)]">{getUiText("footerTagline", locale)}</span>
+              <span className="ml-3 text-[var(--accent)]">{getUiText("footerTagline", locale)}</span>
             </p>
             <p className="mt-3 max-w-md text-[15.5px] leading-relaxed text-[var(--theme-text-secondary)]">
               {getLocalizedText(siteConfig.description, locale)}
@@ -35,7 +35,7 @@ export function Footer() {
           {siteConfig.navigation.map((item) =>
             item.external ? (
               <a
-                className="link-engraved w-fit text-[var(--theme-text-secondary)] hover:text-[var(--brass-bright)]"
+                className="link-engraved w-fit text-[var(--theme-text-secondary)] hover:text-[var(--accent-bright)]"
                 href={item.href}
                 key={item.href}
                 rel="noopener noreferrer"
@@ -44,7 +44,7 @@ export function Footer() {
                 {getLocalizedText(item.label, locale)}
               </a>
             ) : (
-              <Link className="link-engraved w-fit text-[var(--theme-text-secondary)] hover:text-[var(--brass-bright)]" href={item.href} key={item.href}>
+              <Link className="link-engraved w-fit text-[var(--theme-text-secondary)] hover:text-[var(--accent-bright)]" href={item.href} key={item.href}>
                 {getLocalizedText(item.label, locale)}
               </Link>
             )

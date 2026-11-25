@@ -46,6 +46,11 @@ export const siteConfig: SiteConfig = {
   },
   profile: {
     displayName: "Batuhan Parıltı",
+    // Swap the file in public/images/profile/ to change the hero photo; keep a transparent/dark background.
+    portrait: {
+      src: "/images/profile/batuhan-portrait-cutout.webp",
+      alt: { tr: "Batuhan Parıltı’nın portresi", en: "Portrait of Batuhan Parıltı" }
+    },
     shortBio: {
       tr: "Ben Batuhan, internette çoğunlukla Baglare olarak geçiyorum. İzmir Bakırçay Üniversitesi’nde okuyorum. Oyun sistemleri, ses ve görüntü işleyen araçlar, kendi bilgisayarımda çalışan uygulamalar ve yerelleştirme üzerine bir şeyler yapıyorum. Çoğunu kendim kullanmak için başlatıyorum; bazıları ders projesi olarak doğdu, bazıları büyüyüp kendi başına bir şeye dönüştü.",
       en: "I’m Batuhan, mostly known online as Baglare. I study at İzmir Bakırçay University. I build things around game systems, tools that process audio and images, apps that run on my own machine, and localization. I start most of them for my own use; some began as course projects, and some grew into something of their own."

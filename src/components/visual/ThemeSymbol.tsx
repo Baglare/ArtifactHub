@@ -56,7 +56,7 @@ export function ThemeSymbol({
       aria-label={decorative ? undefined : symbol.label}
       className={[
         // An engraved medallion: brass rim, inner hairline ring, the artifact's own colour in the glyph.
-        "relative inline-grid shrink-0 place-items-center rounded-full border border-[color:color-mix(in_srgb,var(--theme-accent-primary)_55%,transparent)] bg-[var(--obsidian)] text-[var(--theme-accent-primary)] shadow-[inset_0_0_0_3px_var(--obsidian),inset_0_0_0_4px_color-mix(in_srgb,var(--theme-accent-primary)_22%,transparent)]",
+        "relative inline-grid shrink-0 place-items-center rounded-full border border-[color:color-mix(in_srgb,var(--theme-accent-primary)_55%,transparent)] bg-[var(--ink)] text-[var(--theme-accent-primary)] shadow-[inset_0_0_0_3px_var(--ink),inset_0_0_0_4px_color-mix(in_srgb,var(--theme-accent-primary)_22%,transparent)]",
         sizeClasses[size],
         className
       ]

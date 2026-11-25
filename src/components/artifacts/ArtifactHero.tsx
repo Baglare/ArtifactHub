@@ -2,15 +2,13 @@
 
 import Link from "next/link";
 import { TechStackList } from "@/components/artifacts/TechStackList";
-import { TransformationFlow } from "@/components/content/TransformationFlow";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { StatusBadge } from "@/components/ui/StatusBadge";
-import { ThemeSymbol } from "@/components/visual/ThemeSymbol";
+import { ArtifactCover } from "@/components/media/ArtifactCover";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { getUiText } from "@/data/uiText";
 import { getLocalizedText } from "@/lib/i18n";
 import { getSeriesById } from "@/lib/series";
-import { getThemeOrDefault } from "@/lib/themes";
 import type { Artifact } from "@/types/artifact";
 
 type ArtifactHeroProps = {
@@ -20,7 +18,6 @@ type ArtifactHeroProps = {
 export function ArtifactHero({ artifact }: ArtifactHeroProps) {
   const { locale } = useLocale();
   const series = artifact.seriesId ? getSeriesById(artifact.seriesId) : undefined;
-  const theme = getThemeOrDefault(artifact.themeId);
   const isFeatured = artifact.featuredLevel === "primary";
 
   return (
@@ -33,11 +30,11 @@ export function ArtifactHero({ artifact }: ArtifactHeroProps) {
         {getUiText("backToArchive", locale)}
       </Link>
 
-      <div className="mt-8 grid min-w-0 gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:items-end">
+      <div className="mt-8 grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center lg:gap-14">
         <div className="min-w-0">
           <div className="reveal flex flex-wrap items-center gap-2">
             <StatusBadge statusId={artifact.statusId} />
-            {isFeatured ? <span className="chip inscription px-2.5 py-1 text-[11px] !text-[var(--brass)]">{getUiText("featured", locale)}</span> : null}
+            {isFeatured ? <span className="chip inscription px-2.5 py-1 text-[11px] !text-[var(--accent)]">{getUiText("featured", locale)}</span> : null}
             {series ? (
               <Link className="chip px-2.5 py-1 text-[11px] transition-colors hover:text-[var(--theme-text-primary)]" href={`/series/${series.slug}`}>
                 {series.title}
@@ -52,14 +49,15 @@ export function ArtifactHero({ artifact }: ArtifactHeroProps) {
             {getLocalizedText(artifact.summary, locale)}
           </p>
           <p className="reveal reveal-delay-2 mt-4 max-w-3xl text-sm text-[var(--theme-text-muted)]">
-            <span className="serif-accent text-base text-[var(--brass)]">{getUiText("role", locale)} — </span>
+            <span className="serif-accent text-base text-[var(--accent)]">{getUiText("role", locale)} — </span>
             {getLocalizedText(artifact.positioning, locale)}
           </p>
 
           <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-3">
-            {artifact.demoUrl ? <ButtonLink external href={artifact.demoUrl} labelKey="liveDemo" /> : null}
+            {artifact.demo ? <ButtonLink href="#demo">{locale === "tr" ? "Burada dene" : "Try it here"}</ButtonLink> : null}
+            {artifact.demoUrl ? <ButtonLink external href={artifact.demoUrl} labelKey="liveDemo" variant={artifact.demo ? "secondary" : "primary"} /> : null}
             {artifact.repoUrl ? (
-              <ButtonLink external href={artifact.repoUrl} labelKey="openOnGithub" variant={artifact.demoUrl ? "secondary" : "primary"} />
+              <ButtonLink external href={artifact.repoUrl} labelKey="openOnGithub" variant={artifact.demoUrl || artifact.demo ? "secondary" : "primary"} />
             ) : (
               <span className="chip gap-2 px-4 py-2.5 text-[15px]">
                 <svg aria-hidden="true" className="h-3.5 w-3.5" fill="none" viewBox="0 0 14 14">
@@ -72,26 +70,12 @@ export function ArtifactHero({ artifact }: ArtifactHeroProps) {
           </div>
         </div>
 
-        <aside className="glass reveal reveal-delay-2 min-w-0 overflow-hidden p-6">
-          <div className="flex items-center gap-4">
-            <ThemeSymbol size="lg" themeId={artifact.themeId} />
-            <div className="min-w-0">
-              <p className="text-lg font-medium text-[var(--theme-text-primary)]">{theme.name}</p>
-            </div>
-          </div>
-          {theme.tone ? <p className="mt-4 text-sm leading-relaxed text-[var(--theme-text-secondary)]">{getLocalizedText(theme.tone, locale)}</p> : null}
-
+        <div className="reveal reveal-delay-2 min-w-0">
+          <ArtifactCover artifact={artifact} className="aspect-[4/3] rounded-[16px] border border-[color:var(--hairline-strong)]" priority />
           <div className="mt-5">
-            <TechStackList items={artifact.techStack} variant="compact" />
+            <TechStackList items={artifact.techStack} limit={6} variant="compact" />
           </div>
-
-          {artifact.transformation ? (
-            <div className="mt-5 border-t border-[color:var(--hairline)] pt-4">
-              <p className="eyebrow mb-2 !text-[var(--theme-text-muted)]">{getUiText("systemFlow", locale)}</p>
-              <TransformationFlow transformation={artifact.transformation} variant="mini" />
-            </div>
-          ) : null}
-        </aside>
+        </div>
       </div>
     </section>
   );

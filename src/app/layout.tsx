@@ -29,7 +29,7 @@ const mono = JetBrains_Mono({
 const socialPreviewImage = absoluteUrl("/images/artifacthub-og.png");
 
 export const viewport: Viewport = {
-  themeColor: "#0c0b0a",
+  themeColor: "#0b0e13",
   colorScheme: "dark"
 };
 

@@ -8,12 +8,12 @@ export const homePageText = {
     en: "I write code, break things, and build them back up. This is the shelf where my projects live."
   },
   heroBody: {
-    tr: "Oyunlar, ses ve görüntü işleyen araçlar, kendi bilgisayarımda çalışan uygulamalar… Her projede ne yaptığımı, nasıl çalıştığını ve henüz nerede eksik kaldığını dürüstçe yazdım. Bitmiş gibi göstermek yerine gerçekte nerede olduğunu görmen daha iyi.",
-    en: "Games, tools that process audio and images, apps that run on my own machine… For every project I wrote down what I built, how it works, and where it still falls short. Better that you see where things really stand than pretend they’re finished."
+    tr: "Oyunlar, ses ve görüntü araçları, kendi bilgisayarımda çalışan uygulamalar. Her projede neyin çalıştığını ve neyin henüz eksik olduğunu açıkça yazdım.",
+    en: "Games, audio and image tools, apps that run on my own machine. For each one I wrote down what works and what’s still missing."
   },
   orbitHint: {
-    tr: "Her işaret bir proje. Merkeze yakın olanlar daha olgun. Sürükleyip çevir, bir işaretin üstüne gel, tıkla.",
-    en: "Every pointer is a project. The closer to the centre, the more mature it is. Drag to turn it, hover a pointer, click."
+    tr: "Her işaret bir proje; merkeze yaklaştıkça olgunlaşıyor. Tıkla, seçili kalsın. Tekrar tıklarsan proje açılır.",
+    en: "Every pointer is a project; the closer to the centre, the more mature. Click to pin one, click again to open it."
   },
   orbitLegendMature: { tr: "Canlı / yayında", en: "Live / released" },
   orbitLegendGrowing: { tr: "Aktif gelişiyor", en: "Actively growing" },
@@ -25,16 +25,22 @@ export const homePageText = {
   featuredEyebrow: { tr: "Vitrin", en: "Showcase" },
   featuredTitle: { tr: "En çok emek verdiklerim", en: "The ones I put the most into" },
   featuredDescription: {
-    tr: "Canlıda çalışan bir uygulama, hızla büyüyen bir ses stüdyosu, bitirme projem olan çok oyunculu bir oyun, bir yerelleştirme aracı ve açık kaynak bir öğrenme deneyi.",
-    en: "An app that is live, a fast-growing voice studio, the multiplayer game that is my capstone project, a localization tool, and an open-source learning experiment."
+    tr: "Üzerinde en çok zaman geçirdiğim beş proje.",
+    en: "The five projects I’ve spent the most time on."
   },
   viewForgeSeries: { tr: "Forge Serisine bak", en: "See the Forge Series" },
   archiveEyebrow: { tr: "Arşiv", en: "Archive" },
   archiveDescription: {
-    tr: "Geri kalan her şey burada. Bazıları prototip, bazıları bir dersin ödevi, bazıları da bir fikri denemek için yazdığım küçük araçlar.",
-    en: "Everything else lives here. Some are prototypes, some started as course work, some are small tools I wrote to try out an idea."
+    tr: "Prototipler, ders projeleri ve bir fikri denemek için yazdığım küçük araçlar.",
+    en: "Prototypes, course projects and small tools I wrote to try out an idea."
   },
   viewAllArtifacts: { tr: "Hepsini gör", en: "See them all" },
+  demosTitle: { tr: "Burada deneyebilirsin", en: "Try these right here" },
+  demosDescription: {
+    tr: "Birkaç projenin tarayıcıda çalışan küçük bir tadımlığı. Kurulum yok.",
+    en: "Small in-browser tastes of a few projects. Nothing to install."
+  },
+  tryDemo: { tr: "Demoyu aç", en: "Open the demo" },
   forgeEyebrow: { tr: "Seri", en: "Series" },
   transformationDescription: {
     tr: "Forge projelerinin ortak noktası basit: ham bir girdi alıyor (şarkı, ses kaydı, kamera görüntüsü), işliyor ve oynanabilir ya da etkileşimli bir şeye çeviriyor.",
@@ -49,8 +55,8 @@ export const homePageText = {
   directionEyebrow: { tr: "Sırada", en: "Up next" },
   developmentDirectionTitle: { tr: "Sırada ne var?", en: "What’s next?" },
   developmentDirectionDescription: {
-    tr: "Bu site de projelerim gibi sürekli değişiyor. Yakın zamanda yapmak istediklerim:",
-    en: "This site keeps changing just like my projects. Things I want to do soon:"
+    tr: "Yakın zamanda yapmak istediklerim:",
+    en: "Things I want to do soon:"
   },
   roadmapPreviewItems: [
     {
@@ -62,8 +68,8 @@ export const homePageText = {
       en: "Playtest Butterfly Effect with two real players"
     },
     {
-      tr: "Projelere ekran görüntüsü ve kısa demo videoları eklemek",
-      en: "Add screenshots and short demo videos to the projects"
+      tr: "Kalan projelere ekran görüntüsü ve kısa videolar eklemek",
+      en: "Add screenshots and short videos to the remaining projects"
     }
   ]
 } satisfies Record<string, LocalizedText | LocalizedText[]>;
@@ -103,8 +109,8 @@ export const roadmapPageText = {
   generalDirectionTitle: { tr: "Bu site için", en: "For this site" },
   generalRoadmapItems: [
     {
-      tr: "Proje sayfalarına ekran görüntüsü ve kısa demo videoları eklemek",
-      en: "Add screenshots and short demo videos to the project pages"
+      tr: "Kalan proje sayfalarına ekran görüntüsü ve kısa videolar eklemek",
+      en: "Add screenshots and short videos to the remaining project pages"
     },
     {
       tr: "Mimari akışları basit diyagramlarla göstermek",

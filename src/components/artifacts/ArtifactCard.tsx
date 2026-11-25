@@ -5,7 +5,7 @@ import type { MouseEvent } from "react";
 import { TechStackList } from "@/components/artifacts/TechStackList";
 import { TransformationFlow } from "@/components/content/TransformationFlow";
 import { StatusBadge } from "@/components/ui/StatusBadge";
-import { ThemeSymbol } from "@/components/visual/ThemeSymbol";
+import { ArtifactCover } from "@/components/media/ArtifactCover";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { getUiText } from "@/data/uiText";
 import { getLocalizedText } from "@/lib/i18n";
@@ -24,11 +24,11 @@ type ArtifactCardProps = {
 };
 
 const variantClasses: Record<ArtifactCardVariant, string> = {
-  default: "p-6",
-  featured: "p-7",
-  spotlight: "p-7 sm:p-10",
-  compact: "p-5",
-  series: "p-6"
+  default: "p-6 sm:p-7",
+  featured: "p-7 sm:p-8",
+  spotlight: "p-7 sm:p-10 lg:p-12",
+  compact: "p-6",
+  series: "p-6 sm:p-7"
 };
 
 export function trackPointer(event: MouseEvent<HTMLElement>) {
@@ -49,24 +49,34 @@ export function ArtifactCard({
   const series = artifact.seriesId ? getSeriesById(artifact.seriesId) : undefined;
   const isSpotlight = variant === "spotlight";
   const isFeatured = variant === "featured" || isSpotlight;
-  const techLimit = variant === "compact" ? 3 : isSpotlight ? 7 : 5;
+  const techLimit = isSpotlight ? 4 : 3;
+
+  const showCover = variant !== "compact";
+  const tryLabel = artifact.demo ? <span className="demo-tag">{locale === "tr" ? "Sitede dene" : "Try it here"}</span> : null;
 
   return (
     <article
-      className={`glass card-interactive group flex h-full min-w-0 flex-col overflow-hidden ${variantClasses[variant]} ${className ?? ""}`}
+      className={`glass card-interactive group flex h-full min-w-0 overflow-hidden ${
+        isSpotlight ? "flex-col lg:grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]" : "flex-col"
+      } ${className ?? ""}`}
     >
+      {showCover ? (
+        <ArtifactCover
+          artifact={artifact}
+          className={isSpotlight ? "aspect-[16/10] lg:order-2 lg:aspect-auto lg:min-h-[340px]" : `${isFeatured ? "aspect-[5/2]" : "aspect-[2/1]"} border-b border-[color:var(--hairline)]`}
+          priority={isSpotlight}
+        />
+      ) : null}
 
-      <div className="mt-2 flex items-start justify-between gap-4">
-        <ThemeSymbol size={variant === "compact" ? "sm" : isSpotlight ? "lg" : "md"} themeId={artifact.themeId} />
-        <div className="flex flex-wrap justify-end gap-2">
+      <div className={`flex min-w-0 flex-1 flex-col ${variantClasses[variant]}`}>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <StatusBadge statusId={artifact.statusId} variant="subtle" />
+          {tryLabel}
         </div>
-      </div>
 
-      <div className="mt-6 min-w-0">
         <h3
-          className={`text-[var(--theme-text-primary)] transition-colors duration-300 group-hover:text-[var(--brass-bright)] ${
-            isSpotlight ? "text-[2rem] sm:text-5xl" : isFeatured ? "text-[1.65rem] sm:text-[1.9rem]" : "text-[1.4rem]"
+          className={`mt-5 text-[var(--theme-text-primary)] transition-colors duration-300 group-hover:text-[var(--accent-bright)] ${
+            isSpotlight ? "text-[2.2rem] sm:text-[2.8rem]" : isFeatured ? "text-[1.6rem] sm:text-[1.75rem]" : "text-[1.35rem]"
           }`}
         >
           <Link className="after:absolute after:inset-0 after:content-['']" href={`/artifacts/${artifact.slug}`}>
@@ -75,50 +85,52 @@ export function ArtifactCard({
         </h3>
         <p
           className={`mt-3 leading-relaxed text-[var(--theme-text-secondary)] ${
-            isSpotlight ? "max-w-2xl text-[17px] sm:text-lg" : "text-[15.5px]"
+            isSpotlight ? "max-w-xl text-[17px]" : "line-clamp-3 text-[15.5px]"
           }`}
         >
           {getLocalizedText(artifact.summary, locale)}
         </p>
-      </div>
 
-      <div className="mt-5">
-        <TechStackList items={artifact.techStack} limit={techLimit} variant="compact" />
-      </div>
+        {variant !== "compact" ? (
+          <div className="mt-5">
+            <TechStackList items={artifact.techStack} limit={techLimit} variant="compact" />
+          </div>
+        ) : null}
 
-      {showTransformation && artifact.transformation ? (
-        <div className="mt-5 border-t border-[color:var(--hairline)] pt-4">
-          <TransformationFlow transformation={artifact.transformation} variant="mini" />
+        {showTransformation && artifact.transformation && !isSpotlight ? (
+          <div className="mt-5 border-t border-[color:var(--hairline)] pt-4">
+            <TransformationFlow transformation={artifact.transformation} variant="mini" />
+          </div>
+        ) : null}
+
+        <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-2 pt-7 text-[14.5px]">
+          <span className="inline-flex items-center gap-2 font-medium text-[var(--accent)]">
+            {getUiText("viewArtifact", locale)}
+            <svg aria-hidden="true" className="h-3 w-4 transition-transform duration-500 group-hover:translate-x-1.5" fill="none" viewBox="0 0 16 12">
+              <path d="M1 6h13M9.5 1.5 14 6l-4.5 4.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.4" />
+            </svg>
+          </span>
+          {artifact.demoUrl ? (
+            <a
+              className="relative z-10 text-[var(--theme-text-secondary)] transition-colors hover:text-[var(--theme-text-primary)]"
+              href={artifact.demoUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {getUiText("liveDemo", locale)} ↗
+            </a>
+          ) : null}
+          {showRepoLink && artifact.repoUrl ? (
+            <a
+              className="relative z-10 text-[var(--theme-text-secondary)] transition-colors hover:text-[var(--theme-text-primary)]"
+              href={artifact.repoUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              GitHub ↗
+            </a>
+          ) : null}
         </div>
-      ) : null}
-
-      <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-6 text-sm">
-        <span className="inline-flex items-center gap-2 font-medium text-[var(--brass)]">
-          {getUiText("viewArtifact", locale)}
-          <svg aria-hidden="true" className="h-3 w-4 transition-transform duration-500 group-hover:translate-x-1.5" fill="none" viewBox="0 0 16 12">
-            <path d="M1 6h13M9.5 1.5 14 6l-4.5 4.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.4" />
-          </svg>
-        </span>
-        {artifact.demoUrl ? (
-          <a
-            className="relative z-10 text-[var(--theme-accent-primary)] transition-colors hover:text-[var(--theme-text-primary)]"
-            href={artifact.demoUrl}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {getUiText("liveDemo", locale)}
-          </a>
-        ) : null}
-        {showRepoLink && artifact.repoUrl ? (
-          <a
-            className="relative z-10 text-[var(--theme-text-secondary)] transition-colors hover:text-[var(--theme-text-primary)]"
-            href={artifact.repoUrl}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            GitHub
-          </a>
-        ) : null}
       </div>
     </article>
   );

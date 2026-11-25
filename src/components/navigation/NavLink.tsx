@@ -11,9 +11,9 @@ type NavLinkProps = {
 export function NavLink({ href, label, external, active = false, className }: NavLinkProps) {
   const linkClassName = [
     "relative inline-flex items-center gap-1 px-3 py-2 text-[15px] leading-tight transition-colors duration-300",
-    "after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:bg-[var(--brass)] after:transition-transform after:duration-500 after:ease-[cubic-bezier(0.16,1,0.3,1)]",
+    "after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:bg-[var(--accent)] after:transition-transform after:duration-500 after:ease-[cubic-bezier(0.16,1,0.3,1)]",
     active
-      ? "text-[var(--brass-bright)] after:scale-x-100"
+      ? "text-[var(--accent-bright)] after:scale-x-100"
       : "text-[var(--theme-text-secondary)] after:scale-x-0 hover:text-[var(--theme-text-primary)] hover:after:scale-x-100",
     className
   ]

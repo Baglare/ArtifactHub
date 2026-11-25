@@ -6,6 +6,13 @@ export const artifacts: Artifact[] = [
   {
     id: "tempoblade",
     slug: "tempoblade",
+    demo: {
+      id: "tempoblade-parry",
+      note: {
+        tr: "TempoBlade’in ritimli parry fikrinin tarayıcıya sığdırılmış küçük bir denemesi; oyunun kendisi Unity’de.",
+        en: "A small in-browser try of TempoBlade’s on-beat parry idea; the game itself is built in Unity."
+      }
+    },
     title: "TempoBlade",
     statusId: "systems-prototype",
     categoryId: "game-systems",
@@ -147,6 +154,17 @@ export const artifacts: Artifact[] = [
   {
     id: "media-tracker",
     slug: "media-tracker",
+    media: [
+      {
+        type: "image",
+        src: "/images/artifacts/media-tracker/dashboard.webp",
+        alt: { tr: "MediaTracker gösterge paneli: kütüphane özeti ve devam edilen diziler", en: "MediaTracker dashboard: library summary and shows in progress" },
+        caption: { tr: "Canlı sürümün yerel modda gösterge paneli.", en: "Dashboard of the live build in local mode." },
+        cover: true,
+        focus: "0% 0%",
+        kind: "screenshot"
+      }
+    ],
     title: "MediaTracker",
     statusId: "live-product",
     categoryId: "web-application",
@@ -309,6 +327,13 @@ export const artifacts: Artifact[] = [
   {
     id: "pulseforge",
     slug: "pulseforge",
+    demo: {
+      id: "pulseforge-rhythm",
+      note: {
+        tr: "Asıl PulseForge Unity’de çalışıyor. Bu, aynı fikrin tarayıcıda çalışan minik hâli: şarkıdaki vuruşları bulup notaya çeviriyor.",
+        en: "The real PulseForge runs in Unity. This is a tiny in-browser take on the same idea: it finds the beats in a song and turns them into notes."
+      }
+    },
     title: "PulseForge",
     seriesId: "forge",
     statusId: "pipeline-prototype",
@@ -1376,6 +1401,13 @@ export const artifacts: Artifact[] = [
   {
     id: "agentverse",
     slug: "agentverse",
+    demo: {
+      id: "agentverse-gridworld",
+      note: {
+        tr: "AgentVerse’ün çekirdek fikrinin oyuncak hâli: küçük bir ajan ödülle öğreniyor ve öğrendiğini unutmuyor. Asıl deney ortamı Python’da.",
+        en: "A toy version of AgentVerse’s core idea: a small agent learns from reward and keeps what it learned. The real environment is in Python."
+      }
+    },
     title: "AgentVerse",
     statusId: "research-prototype",
     categoryId: "ml-research",
@@ -1632,6 +1664,16 @@ export const artifacts: Artifact[] = [
   {
     id: "petglare",
     slug: "petglare",
+    media: [
+      {
+        type: "image",
+        src: "/images/artifacts/petglare/banner.webp",
+        alt: { tr: "Petglare tanıtım görseli: mor zeminde hayalet kedi maskot", en: "Petglare banner: ghost-cat mascot on a purple ground" },
+        cover: true,
+        focus: "85% 50%",
+        kind: "brand"
+      }
+    ],
     title: "Petglare",
     statusId: "released-tool",
     categoryId: "desktop-applications",
